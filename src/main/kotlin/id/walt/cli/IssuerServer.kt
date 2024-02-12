@@ -308,6 +308,7 @@ class IssuerCommand :
                                         }
                                 
                                         val accessToken = accessTokenResponse(clientId, authRequestInfo!!.types)
+                                        println("Response: $accessToken")
                                         call.respond(accessToken)
 
                                     }

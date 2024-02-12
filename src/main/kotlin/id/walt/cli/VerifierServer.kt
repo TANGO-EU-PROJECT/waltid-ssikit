@@ -87,10 +87,13 @@ class VerifierCommand :
             val rojo = "\u001B[31m"
             val reset = "\u001B[0m"
 
+            val currentWorkingDir = System.getProperty("user.dir")
+            val keyStorePath = "$currentWorkingDir/keystore.p12"
+
             override fun run() {
 
                 runBlocking {
-                    var keyStoreFile = File("/home/pablito/Desktop/new_ssikit/waltid-ssikit/keystore.p12")
+                    var keyStoreFile = File(keyStorePath)
                     val keyStorePassword = ""
                     val privateKeyPassword = ""
                     val keyAlias = "myAlias"

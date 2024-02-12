@@ -36,6 +36,17 @@ import id.walt.services.did.DidService
 import id.walt.credentials.w3c.toVerifiablePresentation
 import id.walt.services.oidc.CompatibilityMode
 import id.walt.common.prettyPrint
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.Paths
+import id.walt.custodian.Custodian
+import id.walt.credentials.w3c.toVerifiableCredential
+
+import id.walt.model.oidc.CredentialClaim
+import id.walt.services.context.ContextManager
+import id.walt.services.vc.JsonLdCredentialService
+import id.walt.credentials.w3c.PresentableCredential
+import id.walt.credentials.w3c.toPresentableCredential
 
 /* SSIKIT Holder */
 class Holder :
@@ -45,6 +56,8 @@ class Holder :
                         """Example of credential issuance flow.
          """
         ) {
+
+        private val jsonLdCredentialService = JsonLdCredentialService.getService()
 
         // ENDPOINTS ISSUER
         val ENDPOINT_LIST_CREDENTIALS = "https://localhost:8443/list"
@@ -71,6 +84,9 @@ class Holder :
         val ISSUER_DID = "did:key:z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc"
         val KEY_ALIAS = "131ae91a20504a8b8b8a7dbce1660a61"
 
+        val currentWorkingDir = System.getProperty("user.dir")
+        val credentialsDirPath = "$currentWorkingDir/credentials"
+
         // Servicios
         private val keyService = KeyService.getService()
     
@@ -81,50 +97,75 @@ class Holder :
                         install(ContentNegotiation) { json() }
                         expectSuccess = false
                     }
-               
+
             println("")
-            println(verde+"[+] Introduce a new Username and Password"+reset)
+            println(verde+"[+] Select an action: "+reset)
+            println("1 - Issue a verifiable credential")
+            println("2 - Generate and verify a verifiable presentation")
+            
+
+            print("Option: ")
+            val opt = readLine()!!
             println("")
-                        
-            print("Username: ")
-            val user = readLine()!!
-            print("Password: ")
-            val pass = readLine()!!
-
-            try{
-
-                // REGISTER
-                val registerResponse = registerUser(client, user, pass)
-                println("Register Response: ${registerResponse.status}, Body: ${registerResponse.bodyAsText()}")
-
-                //LOGIN
-                val (clientID, clientSecret) = loginUser(client, user, pass)
-
-                if (clientID == "" || clientSecret == "") {
-                    println(rojo+"[!] Invalid ClientID or clienSecret"+reset)
-                    throw IllegalArgumentException("Invalid ClientID or clienSecret")
+            
+            if (opt == "1")
+            {
+                println("")
+                println(verde+"[+] Introduce a new Username and Password"+reset)
+                println("")
+                            
+                print("Username: ")
+                val user = readLine()!!
+                print("Password: ")
+                val pass = readLine()!!
+    
+                try{
+    
+                    // REGISTER
+                    val registerResponse = registerUser(client, user, pass)
+                    println("Register Response: ${registerResponse.status}, Body: ${registerResponse.bodyAsText()}")
+    
+                    //LOGIN
+                    val (clientID, clientSecret) = loginUser(client, user, pass)
+    
+                    if (clientID == "" || clientSecret == "") {
+                        println(rojo+"[!] Invalid ClientID or clienSecret"+reset)
+                        throw IllegalArgumentException("Invalid ClientID or clienSecret")
+                    }
+    
+                    // METADATA
+                    val credentialType = get_OIDC_discovery_document(client)
+    
+                    // AUTH
+                    val challenge = generarStateAleatorio()
+                    val auth_code = push_OIDC_auth_request(client, challenge, clientID, credentialType)
+    
+                    // ACCESS TOKEN
+                    val token = get_Access_Token(client, auth_code, challenge, clientID, clientSecret,"example.com")
+                    
+                    // CREDENTIAL
+                    val credential = getCredential(client, token)       
+                    
+                    saveCredential(credential)
+                    client.close()
+    
+                } catch (e: Exception) {
+                    println(rojo + "[!] Error: ${e.message}" + reset)
                 }
-
-                // METADATA
-                val credentialType = get_OIDC_discovery_document(client)
-
-                // AUTH
-                val challenge = generarStateAleatorio()
-                val auth_code = push_OIDC_auth_request(client, challenge, clientID, credentialType)
-
-                // ACCESS TOKEN
-                val token = get_Access_Token(client, auth_code, challenge, clientID, clientSecret,"example.com")
-                
-                // CREDENTIAL
-                val credential = getCredential(client, token)       
-
-                val response = verify(client)
-        
-                client.close()
-
-            } catch (e: Exception) {
-                println(rojo + "[!] Error: ${e.message}" + reset)
             }
+
+            else if (opt == "2"){
+                try{
+
+                    val response = verify(client)
+                    client.close()
+    
+                } catch (e: Exception) {
+                    println(rojo + "[!] Error: ${e.message}" + reset)
+                }
+            }
+               
+            
 
         }
 
@@ -305,6 +346,16 @@ class Holder :
         return signedJWT
     }
 
+    fun saveCredential(credential:String) {
+
+        print("Por favor, ingrese el nombre bajo el cual desea guardar la credencial:")
+        val name = readLine() ?: "example"
+        val credentialFilePath = Paths.get(credentialsDirPath, "$name.jsonld")
+        Files.write(credentialFilePath, credential.toByteArray())
+        println("")
+        println(verde+"The credential has been successfully stored in ${credentialFilePath}"+reset)
+    }
+
 
     fun generarStateAleatorio(): String {
         val secureRandom = SecureRandom()
@@ -325,7 +376,72 @@ class Holder :
         return bytes.joinToString("") { "%02x".format(it) }
     }
 
+    fun selectCredential(): String {
+        val credentialsDir = File(credentialsDirPath.toString())
+        val credentialFiles = credentialsDir.listFiles { _, name -> name.endsWith(".jsonld") }
+    
+        if (credentialFiles != null && credentialFiles.isNotEmpty()) {
+
+            println("")
+            println(verde+"[+] Select the credential:"+reset)
+            println("")
+    
+            // Mostrar los archivos con un índice
+            credentialFiles.forEachIndexed { index, file ->
+                println("${index + 1}-${file.name}")
+            }
+    
+            print("Option: ")
+            val option = readLine()?.toIntOrNull()
+    
+            if (option != null && option in 1..credentialFiles.size) {
+                val selectedFile = credentialFiles[option - 1]
+                println("You have selected: ${selectedFile.name}")
+                return selectedFile.name
+            } else {
+                println("Invalid option selected.")
+                return ""
+            }
+        } else {
+            println("No credentials found in the directory.")
+            return ""
+        }
+    }
+
+    fun createVerifiablePresentation(credentialPath: String, holderDid: String): String {
+        try {
+            val credentialContent = Files.readString(Paths.get(credentialPath))        
+            val presentableCredentials = listOf(credentialContent.toPresentableCredential())
+    
+            val presentation = jsonLdCredentialService.present(
+                vcs = presentableCredentials,
+                holderDid = holderDid,
+                domain = null, // Opcional: especificar si es necesario
+                challenge = null, // Opcional: especificar si es necesario
+                expirationDate = null // Opcional: especificar si es necesario
+            )
+            
+            return presentation
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return "Error creating the verifiable presentation: ${e.message}"
+        }
+        
+        
+    }
+    
+
     suspend fun verify(client: HttpClient): String {
+
+        val credential = selectCredential()
+        val presentation = createVerifiablePresentation(credentialsDirPath+"/"+credential, ISSUER_DID).toVerifiablePresentation()
+
+        println("")
+        println("")
+        println(presentation)
+        println("")
+        println("")
+
         val url = URLBuilder(ENDPOINT_OBTAIN_VP).apply {
             parameters.append("Device", "http://oidc4vp-proxy:8080")
         }.buildString()
@@ -347,12 +463,7 @@ class Holder :
         
         val did = "did:key:z6MktFrdk2oZqBZWyTp4RXW28afbUbeCzwuUjKX6fQyPrggK"
 
-
-        val vp = """
-            {"type":["VerifiablePresentation"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:06e65e61-4019-4a73-9930-31bd56556755","holder":"did:key:z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc","verifiableCredential":[{"type":["VerifiableCredential","VerifiableAttestation","ProofOfResidence"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:fd30949d-1348-443c-ae6e-d9385f3db926","issuer":"did:key:z6MktFrdk2oZqBZWyTp4RXW28afbUbeCzwuUjKX6fQyPrggK","issuanceDate":"2024-02-11T17:17:20Z","issued":"2024-02-11T17:17:20Z","validFrom":"2024-02-11T17:17:20Z","expirationDate":"2022-06-22T14:11:44Z","proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MktFrdk2oZqBZWyTp4RXW28afbUbeCzwuUjKX6fQyPrggK","created":"2024-02-11T17:17:20Z","proofPurpose":"assertionMethod","verificationMethod":"did:key:z6MktFrdk2oZqBZWyTp4RXW28afbUbeCzwuUjKX6fQyPrggK#z6MktFrdk2oZqBZWyTp4RXW28afbUbeCzwuUjKX6fQyPrggK","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..IkE-x0J5MCh4RZQbcFgkdDNung6SefLCdjvpT9JnAmYA1FG5VMGZVrjNqh_We84GlTGt5m7GGNxYKBeycXTiBw"},"credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/ProofOfResidence.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc","address":{"countryName":"LU","locality":"Steinfort","postalCode":"L-8410","streetAddress":"16RouteD'Arlon"},"dateOfBirth":"1993-04-08","familyName":"Beron","familyStatus":"Single","firstNames":"Domink","gender":"Male","identificationNumber":"123456789","nationality":"AT"},"credentialStatus":{"id":"https://essif.europa.eu/status/identity#verifiableID#1dee355d-0432-4910-ac9c-70d89e8d674e","type":"CredentialStatusList2020"},"evidence":[{"documentPresence":"Physical","evidenceDocument":"Passport","id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"}],"title":"ProofofResidence"}],"proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc","created":"2024-02-11T17:19:49Z","proofPurpose":"authentication","verificationMethod":"did:key:z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc#z6MkrNgKbTBGKXaGo6mjrJit9qcv4S552wgHGq1xZD6JrCCc","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..V7MSHVJrUQoATocL6lU6M5TA-qtQ905aLgStyOlE_bkPJmbjQyx-1yL2p84orqGedX6AyKbrNMQ8KrJnuVKiAA"}}
-        """.toVerifiablePresentation()
-
-        val resp = OIDC4VPService.getSIOPResponseFor(req, did, listOf(vp))
+        val resp = OIDC4VPService.getSIOPResponseFor(req, did, listOf(presentation))
 
         println("Presentation response: ${resp.toFormParams()}")
         val url2 = "http://oidc4vp-proxy:8080"+"/ngsi-ld/v1/entities/urn:a.*"
