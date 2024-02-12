@@ -1,0 +1,32 @@
+{
+    "assertionMethod" : [
+        "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24#zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24"
+    ],
+    "authentication" : [
+        "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24#zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24"
+    ],
+    "capabilityDelegation" : [
+        "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24#zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24"
+    ],
+    "capabilityInvocation" : [
+        "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24#zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24",
+            "id" : "did:key:zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24#zDnaezMrLA1NV1RCpc9sM3Rot5HvgF51ud71cKUjuHrG94X24",
+            "publicKeyJwk" : {
+                "alg" : "ES256",
+                "crv" : "P-256",
+                "kid" : "43a2b72b643d4fcb9f190a9a653ce3ee",
+                "kty" : "EC",
+                "use" : "sig",
+                "x" : "-B9wgRe0Q_Enj-CG3P6vAp1Qnyc1WQV1fmFh3vAShA0",
+                "y" : "-4_YObZWzMkMRCwefgLZtph8-qjJ80RlLa5AdIZm2nc"
+            },
+            "type" : "EcdsaSecp256r1VerificationKey2019"
+        }
+    ]
+}

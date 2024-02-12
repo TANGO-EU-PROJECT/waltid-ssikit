@@ -1,0 +1,38 @@
+{
+    "assertionMethod" : [
+        "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0"
+    ],
+    "authentication" : [
+        "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0"
+    ],
+    "capabilityDelegation" : [
+        "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0"
+    ],
+    "capabilityInvocation" : [
+        "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0"
+    ],
+    "@context" : [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "id" : "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9",
+    "keyAgreement" : [
+        "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0"
+    ],
+    "verificationMethod" : [
+        {
+            "controller" : "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9",
+            "id" : "did:jwk:eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6IjQ2ODJiYjkzZmIxOTRiZGQ5NDEwZjFlYzUwOTc0NmVjIiwieCI6Il9hNkRUMTN2cG5TelR6X25UdWl3bVBHZkgxMWxZck8tb3kwZEF4TXd0dkEiLCJ5IjoidzFzaV9hLS1QTFB5V2c4VzVTbnIyTFRySzQzRmVWMU1LRFgtUGxmN2g2QSIsImFsZyI6IkVTMjU2SyJ9#0",
+            "publicKeyJwk" : {
+                "alg" : "ES256K",
+                "crv" : "secp256k1",
+                "kid" : "4682bb93fb194bdd9410f1ec509746ec",
+                "kty" : "EC",
+                "use" : "sig",
+                "x" : "_a6DT13vpnSzTz_nTuiwmPGfH11lYrO-oy0dAxMwtvA",
+                "y" : "w1si_a--PLPyWg8W5Snr2LTrK43FeV1MKDX-Plf7h6A"
+            },
+            "type" : "JsonWebKey2020"
+        }
+    ]
+}

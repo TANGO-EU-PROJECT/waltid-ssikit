@@ -1,0 +1,14 @@
+{
+    "authentication" : [
+        "did:cheqd:testnet:35cfb3a8-93ca-418f-a4a2-cb4a0d7f1129#key-1"
+    ],
+    "id" : "did:cheqd:testnet:35cfb3a8-93ca-418f-a4a2-cb4a0d7f1129",
+    "verificationMethod" : [
+        {
+            "controller" : "did:cheqd:testnet:35cfb3a8-93ca-418f-a4a2-cb4a0d7f1129",
+            "id" : "did:cheqd:testnet:35cfb3a8-93ca-418f-a4a2-cb4a0d7f1129#key-1",
+            "publicKeyMultibase" : "z6MksAxshVbBaBfRb2hEx3ZA9fTD4FJyBTx5SoiiS9Rfr1pR",
+            "type" : "Ed25519VerificationKey2020"
+        }
+    ]
+}

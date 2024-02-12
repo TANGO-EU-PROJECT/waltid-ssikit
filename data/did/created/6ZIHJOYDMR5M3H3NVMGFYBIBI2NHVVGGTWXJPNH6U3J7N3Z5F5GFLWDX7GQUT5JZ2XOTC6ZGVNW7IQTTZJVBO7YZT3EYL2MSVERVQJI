@@ -1,0 +1,37 @@
+{
+    "assertionMethod" : [
+        "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0"
+    ],
+    "authentication" : [
+        "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0"
+    ],
+    "capabilityDelegation" : [
+        "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0"
+    ],
+    "capabilityInvocation" : [
+        "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0"
+    ],
+    "@context" : [
+        "https://www.w3.org/ns/did/v1",
+        "https://w3id.org/security/suites/jws-2020/v1"
+    ],
+    "id" : "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0",
+    "keyAgreement" : [
+        "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0"
+    ],
+    "verificationMethod" : [
+        {
+            "controller" : "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0",
+            "id" : "did:jwk:eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiYmRlZjUzZDgwYWY0NDZjMThmZDkzMjM2NDhlNWY5YzEiLCJ4IjoiajJ1ZTRwVnNOQUdWYjhmY3h1SV9Jd3Y1bFBnTEllUUl4RFpINFdBamdtdyIsImFsZyI6IkVkRFNBIn0#0",
+            "publicKeyJwk" : {
+                "alg" : "EdDSA",
+                "crv" : "Ed25519",
+                "kid" : "bdef53d80af446c18fd9323648e5f9c1",
+                "kty" : "OKP",
+                "use" : "sig",
+                "x" : "j2ue4pVsNAGVb8fcxuI_Iwv5lPgLIeQIxDZH4WAjgmw"
+            },
+            "type" : "JsonWebKey2020"
+        }
+    ]
+}

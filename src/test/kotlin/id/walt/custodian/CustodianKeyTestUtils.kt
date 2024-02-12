@@ -1,0 +1,84 @@
+package id.walt.custodian
+
+import id.walt.common.readWhenContent
+import id.walt.crypto.Key
+import id.walt.crypto.KeyAlgorithm
+import id.walt.crypto.KeyId
+import io.kotest.core.spec.style.StringSpec
+import io.kotest.matchers.ints.shouldBeExactly
+import io.kotest.matchers.ints.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.shouldBe
+import java.io.File
+
+object CustodianKeyTestUtils {
+
+    private lateinit var key1: Key
+    private lateinit var key2: Key
+    private lateinit var ed25519_kid: KeyId
+    private lateinit var secp256k1_kid: KeyId
+
+    fun StringSpec.standardKeyTests(custodian: Custodian) {
+        "1.1: Generate EdDSA_Ed25519 key" {
+            key1 = custodian.generateKey(KeyAlgorithm.EdDSA_Ed25519)
+        }
+
+        "1.2: Generate ECDSA_Secp256k1 key" {
+            key2 = custodian.generateKey(KeyAlgorithm.ECDSA_Secp256k1)
+        }
+
+        "2.1: Load EdDSA_Ed25519 key" {
+            val loadedKey = custodian.getKey(key1.keyId.id)
+
+            loadedKey.keyId.id shouldBe key1.keyId.id
+            loadedKey.algorithm shouldBe KeyAlgorithm.EdDSA_Ed25519
+        }
+
+        "2.2: Load ECDSA_Secp256k1 key" {
+            val loadedKey = custodian.getKey(key2.keyId.id)
+
+            loadedKey.keyId.id shouldBe key2.keyId.id
+            loadedKey.algorithm shouldBe KeyAlgorithm.ECDSA_Secp256k1
+        }
+
+        "3: List keys size" {
+            custodian.listKeys().size shouldBeGreaterThanOrEqual 2
+        }
+
+        "4: Delete keys" {
+            val sizeBefore = custodian.listKeys().size
+
+            custodian.deleteKey(key1.keyId.id)
+            custodian.deleteKey(key2.keyId.id)
+
+            custodian.listKeys().size shouldBeExactly (sizeBefore - 2)
+        }
+
+        "5.1: Store EdDSA_Ed25519 key" {
+//            custodian.importKey(key1)
+            ed25519_kid = custodian.importKey(readWhenContent(File("src/test/resources/cli/privKeyEd25519Jwk.json")))
+        }
+
+        "5.2: Store ECDSA_Secp256k1 key" {
+//            custodian.importKey(key2)
+            secp256k1_kid = custodian.importKey(readWhenContent(File("src/test/resources/key/privKeySecp256k1Jwk.json")))
+        }
+
+        "6.1: Retrieve stored EdDSA_Ed25519 key" {
+            val loadedKey = custodian.getKey(ed25519_kid.id)
+
+            loadedKey.keyId.id shouldBe ed25519_kid.id
+            loadedKey.algorithm shouldBe KeyAlgorithm.EdDSA_Ed25519
+        }
+
+        "6.2: Retrieve stored ECDSA_Secp256k1 key" {
+            val loadedKey = custodian.getKey(secp256k1_kid.id)
+
+            loadedKey.keyId.id shouldBe secp256k1_kid.id
+            loadedKey.algorithm shouldBe KeyAlgorithm.ECDSA_Secp256k1
+
+            custodian.listKeys().forEach {
+                custodian.deleteKey(it.keyId.id)
+            }
+        }
+    }
+}
