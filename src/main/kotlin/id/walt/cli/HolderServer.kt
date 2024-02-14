@@ -173,6 +173,10 @@ class Holder :
             println("")
             println(verde+"[+] GET credential"+reset)
             println("")
+
+            print("Credential to sign: ")
+            val credentialData = readLine()!!
+
         
             val jsonElement = Json.parseToJsonElement(tokenResponse)
             if (jsonElement !is JsonObject) throw IllegalArgumentException("Invalid JSON response")
@@ -190,6 +194,7 @@ class Holder :
                 
                 setBody(FormDataContent(Parameters.build {
                     append("proof", signedJWT)
+                    append("credential", credentialData)
 
                 }))
             }

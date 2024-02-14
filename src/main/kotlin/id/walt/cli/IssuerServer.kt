@@ -324,6 +324,7 @@ class IssuerCommand :
 
                                             val parameters = call.receiveParameters()
                                             val proof = parameters["proof"]?: ""
+                                            val credentialData = parameters["credential"]?: ""
                                             val authorizationHeader = call.request.headers["Authorization"]?: ""
                                             val authorization = authorizationHeader.substringAfter("Bearer ", "")
 
@@ -338,12 +339,13 @@ class IssuerCommand :
                                             val authRequestInfo = authRequestRegistry[clientId]
 
                                             
-                                                
+                                            /*   
                                             val types = authRequestInfo!!.types as? ArrayList<String>
                                             val type = types?.find { it.toString() != "VerifiableCredential" }
                                             if (type == null) {
                                                 throw IllegalArgumentException("Invalid credential type (/auth).")
                                             }
+                                            */
 
 
                                             val ldSignatureType: LdSignatureType? = null
@@ -351,7 +353,7 @@ class IssuerCommand :
                                             val credentialTypes: CredentialStatus.Types? = null
                                             val selectiveDisclosurePaths: List<String>? = null
 
-                                            val credential = CreateCredential(DID_BACKEND,subjectDid,type, issuerVerificationMethod, ProofType.LD_PROOF, "assertionMethod", ldSignatureType, Ecosystem.DEFAULT , credentialTypes, DecoyMode.NONE, 0, selectiveDisclosurePaths)
+                                            val credential = CreateCredential(DID_BACKEND,subjectDid,credentialData, issuerVerificationMethod, ProofType.LD_PROOF, "assertionMethod", ldSignatureType, Ecosystem.DEFAULT , credentialTypes, DecoyMode.NONE, 0, selectiveDisclosurePaths)
                                             call.respond(credential)
 
 
@@ -482,9 +484,15 @@ class IssuerCommand :
             fun CreateCredential(issuerDid: String, subjectDid: String, template: String, issuerVerificationMethod: String?, proofType: ProofType, proofPurpose: String, ldSignatureType: LdSignatureType?, ecosystem: Ecosystem , statusType: CredentialStatus.Types?, decoyMode: DecoyMode, numDecoys: Int, selectiveDisclosurePaths: List<String>?): String {
                 val signatory = Signatory.getService()
                 val selectiveDisclosure = selectiveDisclosurePaths?.let { SDMap.generateSDMap(it, decoyMode, numDecoys) }
-        
+                println()
+                println()
+                println()
+                print(template)
+                println()
+                println()
+                println()
                 val vcStr: String = runCatching {
-                    signatory.issue(
+                    signatory.issue_umu(
                         template, ProofConfig(
                             issuerDid = issuerDid,
                             subjectDid = subjectDid,

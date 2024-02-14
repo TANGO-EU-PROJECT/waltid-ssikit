@@ -1,0 +1,3 @@
+cp -R ./umu-aries-framework-go-main/modules/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/signcerts/* ./waltid-ssikit/src/main/kotlin/id/walt/services/ecosystems/fabric/resources/cert.pem
+cp -R ./umu-aries-framework-go-main/modules/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/users/User1@org1.example.com/msp/keystore/* ./waltid-ssikit/src/main/kotlin/id/walt/services/ecosystems/fabric/resources/key
+cp -R ./umu-aries-framework-go-main/modules/fabric-samples/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt ./waltid-ssikit/src/main/kotlin/id/walt/services/ecosystems/fabric/resources/ca.crt
