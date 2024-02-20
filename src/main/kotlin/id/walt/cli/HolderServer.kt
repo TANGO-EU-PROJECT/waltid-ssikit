@@ -173,11 +173,7 @@ class Holder :
             println("")
             println(verde+"[+] GET credential"+reset)
             println("")
-
-            print("Credential to sign: ")
-            val credentialData = readLine()!!
-
-        
+               
             val jsonElement = Json.parseToJsonElement(tokenResponse)
             if (jsonElement !is JsonObject) throw IllegalArgumentException("Invalid JSON response")
 
@@ -194,8 +190,6 @@ class Holder :
                 
                 setBody(FormDataContent(Parameters.build {
                     append("proof", signedJWT)
-                    append("credential", credentialData)
-
                 }))
             }
             val credential = response.bodyAsText()
@@ -301,8 +295,10 @@ class Holder :
         val response: HttpResponse = client.get(url)
 
         if (response.status == HttpStatusCode.OK) {
-            val code: String = response.bodyAsText()
-            println("auth_code: "+ code)
+            val redirect_uri: String = response.bodyAsText()
+            println("url: "+ redirect_uri)
+            print("Introduzca el auth_code (utiliza el enlace previo para obtenerlo):")
+            val code = readLine() ?: "example"
             return code
         } else {
             println(rojo + "[!] Error: ${response.status.description}" + reset)

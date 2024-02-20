@@ -2,32 +2,62 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Usa min-height en lugar de height */
+    padding: 10px; /* Añade algo de padding para evitar que el formulario toque los bordes */
 }
 
-form {
+.form-wrapper {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 40px; /* Aumentar el padding para más espacio alrededor del formulario */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 400px; /* Maximum width of the form */
-    margin: auto; /* Center the form horizontally */
-    transform: translateY(50vh); /* Center the form vertically */
-    transform-origin: top center;
+    max-width: 500px; /* Ajusta el ancho máximo del formulario */
+    max-height: 80vh; /* Ajusta la altura máxima del formulario */
+    overflow-y: auto; /* Añade scroll vertical si el contenido es más largo */
+    margin-bottom: 20px; /* Añade margen en la parte inferior */
 }
 
-input[type=text], input[type=submit] {
-    width: calc(100% - 20px); /* Full width minus padding */
-    padding: 10px;
-    margin: 10px 0;
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 30px; /* Aumenta el margen inferior para más espacio entre campos */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Espacio entre la etiqueta y el campo de entrada */
+    color: #555;
+    font-weight: 600; /* Hace la fuente un poco más gruesa para mejorar la legibilidad */
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 15px; /* Aumenta el padding para que el campo de texto sea más alto */
+    margin-bottom: 10px; /* Si decides agregar un mensaje de error o algo debajo del input, esto añadirá espacio */
     border-radius: 5px;
     border: 1px solid #cccccc;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
 
 input[type=submit] {
+    width: 100%;
+    padding: 20px; /* Aumenta el padding para un botón más grande */
+    margin-top: 25px; /* Más espacio antes del botón de enviar */
+    border-radius: 5px;
+    border: none;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 input[type=submit]:hover {
@@ -36,15 +66,14 @@ input[type=submit]:hover {
 
 /* Responsive design adjustments */
 @media (max-width: 768px) {
-    form {
-        width: calc(100% - 40px); /* Adjust width for smaller screens */
-        transform: translateY(30vh); /* Adjust vertical centering for smaller screens */
+    .form-wrapper {
+        margin: 20px;
+        padding: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    form {
-        width: calc(100% - 20px); /* Adjust width for very small screens */
-        transform: translateY(20vh); /* Adjust vertical centering for very small screens */
+    .form-wrapper {
+        padding: 15px;
     }
 }

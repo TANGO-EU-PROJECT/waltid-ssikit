@@ -1,0 +1,27 @@
+{
+    "@context": ["https://www.w3.org/2018/credentials/v1"],
+    "credentialSchema": {
+      "id": "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json",
+      "type": "FullJsonSchemaValidator2021"
+    },
+    "credentialSubject": {
+      "currentAddress": "",
+      "dateOfBirth": "",
+      "familyName": "",
+      "firstName": "",
+      "gender": "",
+      "id": "",
+      "nameAndFamilyNameAtBirth": "",
+      "personalIdentifier": "",
+      "placeOfBirth": ""
+    },
+    "evidence": [{
+      "documentPresence": ["Physical"],
+      "evidenceDocument": ["Passport"],
+      "subjectPresence": "Physical",
+      "type": ["DocumentVerification"],
+      "verifier": "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"
+    }],
+    "type": ["VerifiableCredential", "VerifiableAttestation", "VerifiableId"]
+  }
+  

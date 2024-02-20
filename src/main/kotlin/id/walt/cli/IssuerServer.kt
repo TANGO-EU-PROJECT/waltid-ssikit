@@ -6,7 +6,6 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.request.receiveText
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.http.HttpStatusCode
 import io.ktor.http.content.TextContent
 import java.net.URI
 import java.security.SecureRandom
@@ -60,10 +59,14 @@ import kotlinx.serialization.json.put
 import kotlinx.serialization.json.add
 import kotlinx.serialization.json.putJsonArray
 import id.walt.services.jwt.WaltIdJwtService
+import io.ktor.http.*
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.Serializable
-import io.ktor.http.ContentType
-
+import com.google.gson.JsonObject
+import io.ktor.server.application.*
+import io.ktor.server.plugins.cors.*
+import java.nio.file.Files
+import java.nio.file.Paths
 
 /* SSIKIT issuer */
 class IssuerCommand :
@@ -74,11 +77,8 @@ class IssuerCommand :
                         OIDC4VC issuer
                 """
         ) {
-            data class AuthRequest(val codeVerifier: String, val code: String, val types: List<String>)
+            data class AuthRequest(val codeVerifier: String, val code: String, val type: String, val credentialSubject: Map<String, Any>)
             data class TokenInfo(val bearer: String, val nonce: String ,val expirationTime: Instant)
-
-
-            
 
             val authRequestRegistry = mutableMapOf<String, AuthRequest>()
             val clientID = mutableMapOf<String, String>()
@@ -122,7 +122,13 @@ class IssuerCommand :
                         ) {
                             port = 8443
                         }
-                        module {
+                        module {  
+
+                            install(CORS) {
+                                allowHost("umu-web-wallet:8100")
+                                allowHeader(HttpHeaders.ContentType)
+                            }
+                            
                             routing {
                                 
                                     post("/register") {
@@ -192,7 +198,9 @@ class IssuerCommand :
     
     
                                         var credentials = """{"authorization_endpoint": "https://localhost:8443/auth", "token_endpoint": "https://localhost:8443/token", "pushed_authorization_request_endpoint": "https://localhost:8443/par", "issuer": "https://localhost:8443", "jwks_uri": "https://issuer.walt.id/issuer-api/default/oidc", "grant_types_supported": ["authorization_code", "urn:ietf:params:oauth:grant-type:pre-authorized_code"], "request_uri_parameter_supported": true, "credentials_supported": { """
-                                        credentials = credentials + jsonContent_ProofOfResidence + "," + jsonContent_VerifiableVaccinationCertificate + "," + jsonContent_VerifiableDiploma + "," + jsonContent_OpenBadgeCredential + "," + jsonContent_Europass + "," + jsonContent_VerifiableId + "," + jsonContent_ParticipantCredential + "},"
+                                        //credentials = credentials + jsonContent_ProofOfResidence + "," + jsonContent_VerifiableVaccinationCertificate + "," + jsonContent_VerifiableDiploma + "," + jsonContent_OpenBadgeCredential + "," + jsonContent_Europass + "," + jsonContent_VerifiableId + "," + jsonContent_ParticipantCredential + "},"
+                                        credentials = credentials + jsonContent_ProofOfResidence + "," + jsonContent_VerifiableId + "," + jsonContent_ParticipantCredential + "},"
+                                        
                                         credentials = credentials + """ "credential_issuer": {"display" : [{"locale" : null, "name" : "https://localhost:8443/"}]}, "credential_endpoint": "https://localhost:8443/credential", "subject_types_supported": ["public"]} """
                                         println("Result: "+credentials)
                                         call.respond(credentials)
@@ -238,25 +246,16 @@ class IssuerCommand :
                                                 throw IllegalArgumentException("Invalid credential type (/auth).")
                                             }
 
-                                            //PDP 
+                                            val code = generarValorAleatorio()
+                                            authRequestRegistry[clientId] = AuthRequest(codeChallenge.sha256(), code, t, mutableMapOf<String, Any>())
+                                            
 
                                             val locationUri = StringBuilder()
-                                            locationUri.append("http://localhost:9001")
-                                            locationUri.append("?session_id=$clientId")
+                                            locationUri.append("http://umu-web-wallet:8100")
+                                            locationUri.append("?clientId=$clientId")
                                             locationUri.append("&template=$t") 
                                             call.respond(locationUri.toString())
 
-
-                                            /* 
-                                            val code = generarValorAleatorio()
-
-                                            if (codeChallengeMethod == "S256") authRequestRegistry[clientId] = AuthRequest(codeChallenge.sha256(), code,types)
-                                            else throw IllegalArgumentException("Code challenge method not suported")
-
-                                            println("Response: $code")
-                                            call.respond(code)
-                                            */
-                                    
                                         } catch (e: IllegalArgumentException) {
                                             // Responder con un error si falta algún parámetro o si los valores no son válidos
                                             println(rojo + "[!] Error: ${e.message}" + reset)
@@ -267,6 +266,44 @@ class IssuerCommand :
                                             call.respond(HttpStatusCode.InternalServerError, mapOf("error" to "An unexpected error occurred."))
                                         }
                                     }
+
+                                    post("/authCode") {
+                                        println("")
+                                        println(verde + "[+] POST /authCode request" + reset)
+                                        println("")
+                                    
+                                        try {
+
+                                            val receivedContent = call.receiveText()
+                                            val json = Json.parseToJsonElement(receivedContent).jsonObject
+                                            val clientId = json["clientId"]?.toString()?.removeSurrounding("\"") ?: throw IllegalArgumentException("clientID not found")
+                                            val type = json["type"]?.toString()?.removeSurrounding("\"") ?: throw IllegalArgumentException("type not found")
+                                            val templateJson = json["template"]?.jsonObject ?: throw IllegalArgumentException("template not found")
+
+                                            val credentialSubjectMap = mutableMapOf<String, Any>()
+
+                                            templateJson?.keys?.forEach { key ->
+                                                val value = templateJson[key].toString()?.removeSurrounding("\"")
+                                                if (value != null) {
+                                                    credentialSubjectMap[key] = value
+                                                }
+                                            }
+
+                                            if (!clientID.containsKey(clientId)) throw IllegalArgumentException("The clientID isn't valid.")
+                                            val code = generarValorAleatorio()
+                                            val authRequest = authRequestRegistry[clientId]
+                                            if (authRequest == null) throw IllegalArgumentException("The clientId isn't valid.")
+                                            authRequestRegistry[clientId] = AuthRequest(authRequest.codeVerifier, authRequest.code, authRequest.type, credentialSubjectMap)
+                                            call.respond(authRequest.code)
+                                        } catch (e: IllegalArgumentException) {
+                                            println(rojo + "[!] Error: ${e.message}" + reset)
+                                            call.respond(HttpStatusCode.BadRequest, mapOf("error" to e.message))
+                                        } catch (e: Exception) {
+                                            println(rojo + "[!] Unexpected Error: ${e.localizedMessage}" + reset)
+                                            call.respond(HttpStatusCode.InternalServerError, mapOf("error" to "An unexpected error occurred."))
+                                        }
+                                    }
+                                    
 
                                     post("/token") {
 
@@ -313,13 +350,11 @@ class IssuerCommand :
                                             authRequestInfo.code == code &&
                                             authRequestInfo.codeVerifier == codeVerifier)) 
                                         {
-
-
                                             call.respond(HttpStatusCode.BadRequest, "Invalid code or code_verifier")
                                             return@post
                                         }
                                 
-                                        val accessToken = accessTokenResponse(clientId, authRequestInfo!!.types)
+                                        val accessToken = accessTokenResponse(clientId, authRequestInfo!!.type)
                                         println("Response: $accessToken")
                                         call.respond(accessToken)
 
@@ -336,9 +371,9 @@ class IssuerCommand :
 
                                             val parameters = call.receiveParameters()
                                             val proof = parameters["proof"]?: ""
-                                            val credentialData = parameters["credential"]?: ""
                                             val authorizationHeader = call.request.headers["Authorization"]?: ""
                                             val authorization = authorizationHeader.substringAfter("Bearer ", "")
+
 
 
 
@@ -349,24 +384,30 @@ class IssuerCommand :
                                             if (!isProofValid(proof,clientId)) throw IllegalArgumentException("The proof isn't valid.")
 
                                             val authRequestInfo = authRequestRegistry[clientId]
+                                            if (authRequestInfo == null) throw IllegalArgumentException("The clientId isn't valid.")
 
-                                            
-                                            /*   
-                                            val types = authRequestInfo!!.types as? ArrayList<String>
-                                            val type = types?.find { it.toString() != "VerifiableCredential" }
-                                            if (type == null) {
-                                                throw IllegalArgumentException("Invalid credential type (/auth).")
+                                            val templateFilePath = "./src/main/resources/vc-templates/"+authRequestInfo.type+"-template.json"
+                                            val jsonTemplate = Files.readString(Paths.get(templateFilePath))
+
+                                            val gson = Gson()
+                                            val credential_empty = gson.fromJson(jsonTemplate, JsonObject::class.java)
+                                            val credentialSubject = credential_empty.getAsJsonObject("credentialSubject")
+
+
+                                            authRequestInfo.credentialSubject.forEach { (key, value) ->
+                                                credentialSubject.addProperty(key, value.toString())
                                             }
-                                            */
 
+                                            val credential = gson.toJson(credential_empty)
+                                    
 
                                             val ldSignatureType: LdSignatureType? = null
                                             val issuerVerificationMethod: String? = null
                                             val credentialTypes: CredentialStatus.Types? = null
                                             val selectiveDisclosurePaths: List<String>? = null
 
-                                            val credential = CreateCredential(DID_BACKEND,subjectDid,credentialData, issuerVerificationMethod, ProofType.LD_PROOF, "assertionMethod", ldSignatureType, Ecosystem.DEFAULT , credentialTypes, DecoyMode.NONE, 0, selectiveDisclosurePaths)
-                                            call.respond(credential)
+                                            val credential_signed = CreateCredential(DID_BACKEND,subjectDid,credential, issuerVerificationMethod, ProofType.LD_PROOF, "assertionMethod", ldSignatureType, Ecosystem.DEFAULT , credentialTypes, DecoyMode.NONE, 0, selectiveDisclosurePaths)
+                                            call.respond(credential_signed)
 
 
                                         } catch (e: IllegalArgumentException) {
@@ -450,13 +491,14 @@ class IssuerCommand :
             }
             
 
-            fun accessTokenResponse(clientId: String, types: List<String>):String{
+            fun accessTokenResponse(clientId: String, type: String):String{
                 val payload = buildJsonObject {
                     put("iss", DID_BACKEND) 
                     put("client_id", clientId)
                     put("exp", (System.currentTimeMillis() / 1000) + 60) 
                 }.toString()
             
+                val list: List<String> = listOf("VerifiableId", type)
                 
                 val bearer = jwtService.sign(KEY_ALIAS, payload) 
                 val nonce = generarValorAleatorio()
@@ -471,9 +513,9 @@ class IssuerCommand :
                         add(buildJsonObject {
                             put("type", "openid_credential")
                             put("format", "jwt_vc_json")
-                            put("credential_definition", buildJsonObject { // Modificación aquí
+                            put("credential_definition", buildJsonObject { 
                                 putJsonArray("type") {
-                                    types.forEach { type ->
+                                    list.forEach { type ->
                                         add(type) 
                                     }
                                 }

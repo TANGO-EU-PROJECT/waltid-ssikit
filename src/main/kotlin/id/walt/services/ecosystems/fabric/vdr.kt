@@ -71,12 +71,6 @@ class ObtenerGateway(){
     }
 
 
-
-    /*
-        Crea una conexión para comunicarse con un servidor gRPC, instancia variables importantes como el firmante la conexión
-        con el canal y comienza la ejeición de la App
-     */
-
     fun getGateway(): Gateway {
 
         // La conexión gRPC del cliente debe ser compartida por todas las conexiones de Gateway a este punto final.

@@ -89,6 +89,8 @@ dependencies {
     implementation("io.ktor:ktor-server-html-builder:2.3.3")
     implementation("io.ktor:ktor-server-status-pages-jvm:2.3.3") 
     implementation("io.ktor:ktor-server-default-headers-jvm:2.3.3") 
+    implementation("io.ktor:ktor-server-cors:2.3.3")
+
 
     // REST
     implementation("io.javalin:javalin:4.6.8")
