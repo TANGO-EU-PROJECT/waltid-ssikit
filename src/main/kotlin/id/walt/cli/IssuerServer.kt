@@ -233,10 +233,21 @@ class IssuerCommand :
                                             val credentialDefinition = authDetails["credential_definition"] as? Map<*, *> ?: throw IllegalArgumentException("Missing 'credential_definition' in 'authorization_details'.")
                                             val typesRaw = credentialDefinition["type"] as? List<*> ?: throw IllegalArgumentException("Missing 'type' in 'credential_definition'.")
                                             val types = typesRaw.filterIsInstance<String>()
-
+                                            val t = types?.find { it.toString() != "VerifiableCredential" }
+                                            if (t == null) {
+                                                throw IllegalArgumentException("Invalid credential type (/auth).")
+                                            }
 
                                             //PDP 
 
+                                            val locationUri = StringBuilder()
+                                            locationUri.append("http://localhost:9001")
+                                            locationUri.append("?session_id=$clientId")
+                                            locationUri.append("&template=$t") 
+                                            call.respond(locationUri.toString())
+
+
+                                            /* 
                                             val code = generarValorAleatorio()
 
                                             if (codeChallengeMethod == "S256") authRequestRegistry[clientId] = AuthRequest(codeChallenge.sha256(), code,types)
@@ -244,6 +255,7 @@ class IssuerCommand :
 
                                             println("Response: $code")
                                             call.respond(code)
+                                            */
                                     
                                         } catch (e: IllegalArgumentException) {
                                             // Responder con un error si falta algún parámetro o si los valores no son válidos

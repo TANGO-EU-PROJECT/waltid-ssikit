@@ -165,8 +165,9 @@ object WaltCLI {
                     ),
                     ServeCommand(),
                     IssuerCommand(),
-                    Holder()
-
+                    Holder(),
+                    VerifierCommand(),
+                    WebWallet()
                 )
                 .main(args)
 

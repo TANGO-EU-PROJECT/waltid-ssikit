@@ -1,0 +1,11 @@
+
+  {"credentialSubject": {
+    "currentAddress": [""],
+    "dateOfBirth": "",
+    "familyName": "",
+    "firstName": "",
+    "gender": "",
+    "nameAndFamilyNameAtBirth": "",
+    "personalIdentifier": "",
+    "placeOfBirth": ""
+  }}
