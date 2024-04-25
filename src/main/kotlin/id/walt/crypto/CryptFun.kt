@@ -69,7 +69,9 @@ enum class LdSignatureType {
     EcdsaSecp256k1Signature2019,
     RsaSignature2018,
     JsonWebSignature2020,
-    JcsEd25519Signature2020
+    JcsEd25519Signature2020,
+    PsmsBlsSignature2022,
+    PsmsBlsSignature2022Proof
 }
 
 enum class LdVerificationKeyType {
@@ -344,6 +346,7 @@ fun keyPairGeneratorEd25519(): KeyPairGenerator {
 fun keyPairGeneratorRsa(): KeyPairGenerator {
     return KeyPairGenerator.getInstance("RSA")
 }
+
 
 fun localTimeSecondsUtc(): String {
     val inDateTime = ZonedDateTime.of(LocalDateTime.now(), ZoneOffset.UTC)

@@ -27,8 +27,9 @@ enum class DidMethod(val didClass: KClass<out Did>) {
     ebsi(DidEbsi::class),
     iota(DidIota::class),
     cheqd(DidCheqd::class),
-
-    jwk(Did::class)
+    keyumu(DidKey::class),
+    jwk(Did::class),
+    fabric(DidFabric::class)
 }
 
 @Serializable

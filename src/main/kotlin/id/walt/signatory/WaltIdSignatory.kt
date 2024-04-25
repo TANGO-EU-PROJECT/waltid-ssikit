@@ -81,13 +81,6 @@ class WaltIdSignatory(configurationPath: String) : Signatory() {
         dataProvider: SignatoryDataProvider?,
         issuer: W3CIssuer?,
     ): String {
-        println()
-        println()
-        println()
-        print(template.toVerifiableCredential())
-        println()
-        println()
-        println()
         val credentialBuilder =  W3CCredentialBuilder.fromPartial(template.toVerifiableCredential())
         return issue(dataProvider?.populate(credentialBuilder, config) ?: credentialBuilder, config, issuer) 
     }

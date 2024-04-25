@@ -7,6 +7,7 @@ import id.walt.crypto.KeyId
 import id.walt.servicematrix.ServiceProvider
 import id.walt.services.WaltIdService
 import id.walt.services.keystore.KeyType
+import id.walt.services.keystore.SqlKeyStoreService
 import org.bouncycastle.jce.ECNamedCurveTable
 import org.web3j.crypto.ECDSASignature
 
@@ -18,7 +19,7 @@ enum class KeyFormat {
 abstract class KeyService : WaltIdService() {
     override val implementation get() = serviceImplementation<KeyService>()
 
-
+    open fun deleteAll(): Unit = implementation.deleteAll()
     open fun generate(keyAlgorithm: KeyAlgorithm): KeyId = implementation.generate(keyAlgorithm)
 
     open fun addAlias(keyId: KeyId, alias: String): Unit = implementation.addAlias(keyId, alias)

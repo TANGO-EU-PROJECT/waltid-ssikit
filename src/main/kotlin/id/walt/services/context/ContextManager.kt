@@ -4,12 +4,14 @@ import id.walt.servicematrix.BaseService
 import id.walt.servicematrix.ServiceRegistry
 import id.walt.services.hkvstore.HKVStoreService
 import id.walt.services.keystore.KeyStoreService
+import id.walt.services.storeUmu.KeyStoreServiceUmu
 import id.walt.services.vcstore.VcStoreService
 
 interface Context {
     val keyStore: KeyStoreService
     val vcStore: VcStoreService
     val hkvStore: HKVStoreService
+    val keyStoreUmu: KeyStoreServiceUmu
 }
 
 abstract class ContextManager : BaseService() {
@@ -18,6 +20,10 @@ abstract class ContextManager : BaseService() {
     abstract val keyStore: KeyStoreService
     abstract val vcStore: VcStoreService
     abstract val hkvStore: HKVStoreService
+
+    abstract val keyStoreUmu: KeyStoreServiceUmu
+
+
 
     abstract fun <R> runWith(context: Context, action: () -> R): R
 
@@ -33,6 +39,11 @@ abstract class ContextManager : BaseService() {
             get() = implementation.vcStore
         val hkvStore: HKVStoreService
             get() = implementation.hkvStore
+
+
+        val keyStoreUmu: KeyStoreServiceUmu
+            get() = implementation.keyStoreUmu
+
 
         fun <R> runWith(context: Context, action: () -> R): R = implementation.runWith(context, action)
     }
@@ -69,4 +80,11 @@ open class WaltIdContextManager : ContextManager() {
         get() = currentContext.vcStore
     override val hkvStore: HKVStoreService
         get() = currentContext.hkvStore
+
+
+    override val keyStoreUmu: KeyStoreServiceUmu
+        get() = currentContext.keyStoreUmu
+
+
+
 }

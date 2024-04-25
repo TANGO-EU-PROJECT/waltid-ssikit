@@ -136,3 +136,19 @@ class DeleteKeyCommand : CliktCommand(
         echo("Key \"${keyId}\" deleted.")
     }
 }
+
+class DeleteAll : CliktCommand(
+    name = "deleteAll", help = """Delete all keys
+
+        """
+) {
+
+    override fun run() {
+
+        keyService.deleteAll()
+
+        echo("\nResults:\n")
+
+        echo("All keys deleted.")
+    }
+}

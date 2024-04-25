@@ -17,6 +17,43 @@ open class SqlKeyStoreService : KeyStoreService() {
         SqlDbManager.start()
     }
 
+    override fun deleteAll() {
+        log.debug { "Deleting all keys from the database..." }
+
+        SqlDbManager.getConnection().use { connection ->
+            connection.apply {
+                prepareStatement("DELETE FROM lt_key").use { statement ->
+                    when {
+                        statement.executeUpdate() > 0 -> {
+                            commit()
+                            log.trace { "All keys deleted successfully." }
+                        }
+                        else -> {
+                            log.error { "No keys found to delete. Rolling back transaction." }
+                            rollback()
+                        }
+                    }
+                }
+            }
+        }
+        SqlDbManager.getConnection().use { connection ->
+            connection.apply {
+                prepareStatement("DELETE FROM lt_key_alias").use { statement ->
+                    when {
+                        statement.executeUpdate() > 0 -> {
+                            commit()
+                            log.trace { "All alias deleted successfully." }
+                        }
+                        else -> {
+                            log.error { "No alias found to delete. Rolling back transaction." }
+                            rollback()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     override fun store(key: Key) {
         log.debug { "Saving key \"${key}\"..." }
 
@@ -55,7 +92,6 @@ open class SqlKeyStoreService : KeyStoreService() {
     override fun load(alias: String, keyType: KeyType): Key {
         log.debug { "Loading key \"${alias}\"..." }
         var key: Key? = null
-
         val keyId = getKeyId(alias) ?: alias
 
         SqlDbManager.getConnection().use { connection ->

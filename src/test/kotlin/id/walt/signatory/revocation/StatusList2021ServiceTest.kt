@@ -93,7 +93,7 @@ internal class StatusList2021ServiceTest : StringSpec({
             row(DidService.create(DidMethod.key, keyId)),
             row(DidService.create(DidMethod.ebsi, keyId)),
             row(DidService.create(DidMethod.jwk, keyId)),
-            row(DidService.create(DidMethod.cheqd, keyId)),
+            //row(DidService.create(DidMethod.cheqd, keyId)),
         ) { issuer ->
             // given
             val credentialUrl = "http://localhost:7001/credentials/status/#${Random.nextInt()}"

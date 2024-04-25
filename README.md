@@ -1,123 +1,78 @@
-<div align="center">
- <h1>SSI Kit</h1>
- <span>by </span><a href="https://walt.id">walt.id</a>
- <p>Use web3 identity / self-sovereign identity (SSI)<p>
+# SSIKIT Tool Modification
 
+This project modifies the SSIKIT tool to deploy the following components:
 
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit&metric=security_rating)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit&metric=ncloc)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=walt-id_waltid-ssikit-examples&metric=alert_status)](https://sonarcloud.io/dashboard?id=walt-id_waltid-ssikit)
+- Issuer
+- Verifier
+- Web Wallet
 
-[![CI/CD Workflow for walt.id SSI Kit](https://github.com/walt-id/waltid-ssikit/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/walt-id/waltid-ssikit/actions/workflows/build.yml)
-<a href="https://walt.id/community">
-<img src="https://img.shields.io/badge/Join-The Community-blue.svg?style=flat" alt="Join community!" />
-</a>
-<a href="https://twitter.com/intent/follow?screen_name=walt_id">
-<img src="https://img.shields.io/twitter/follow/walt_id.svg?label=Follow%20@walt_id" alt="Follow @walt_id" />
-</a>
+## Installation
 
+Follow the steps below to set up the necessary environment to use the project's components.
 
-</div>
+### Hosts Configuration
 
-## Discontinuation Notice
+Modify the `/etc/hosts` file to add the following paths as localhost:
 
-**Important:** Please be informed that, beginning from December 2023, the SSI Kit will no longer receive new features. Furthermore, the SSI Kit is planned for discontinuation by the end of Q3 2024.
-<br />
-<br />
-However, all functionalities offered by the SSI Kit will be integrated into our new libraries, APIs, and apps in the walt.id [identity repo](https://github.com/walt-id/waltid-identity). Giving you more modularity, flexibility and ease-of-use to build end-to-end digital identity and wallet solutions.
-<br />
-<br />
-For any clarification or queries, feel free to [contact us](https://walt.id/discord) as we aim to make this transition as smooth as possible.
-
-<hr />
-
-## Getting Started
-
-- [CLI | Command Line Interface](https://docs.walt.id/v/ssikit/getting-started/cli-command-line-interface) - Try out the functions of the SSI Kit locally.
-- [REST Api](https://docs.walt.id/v/ssikit/getting-started/rest-apis) - Use the functions of the SSI Kit via an REST api. 
-- [Maven/Gradle Dependency](https://docs.walt.id/v/ssikit/getting-started/dependency-jvm) - Use the functions of the SSI Kit directly in a Kotlin/Java project.
-- [Example Projects](https://github.com/walt-id/waltid-ssikit-examples) - Demonstrate how to use the SSI Kit in any Kotlin/Java app
-
-Check out the **[Official Documentation](https://docs.walt.id/v/ssikit)**, to dive deeper into the architecture and configuration options available.
-
-
-## What is the SSI Kit?
-
-A **library** written in Kotlin/Java **to manage Keys, DIDs and VCs**. Functions can be used via **Maven/Gradle** or a **REST api**.
-
-### Features
-- **Key Management** generation, import/export
-- **Decentralized Identifier (DID)** operations (create, register, update, deactivate)
-- **Verifiable Credential (VC)** operations (issue, present, verify)
-- **EBSI/ESSIF** related Use Cases (onboarding, VC exchange, etc.)
-
-#### For EBSI
-- **Onboarding EBSI/ESSIF** onboarding a natural person/legal entity including the DID creation and registration
-- **Enable Trusted Issuer** process for entitling a legal entity to become a Trusted Issuer in the ESSIF ecosystem.
-- **Credential Issuance** protocols and data formats for issuing W3C credentials from a Trusted Issuer to a natural person.
-- **Credential Verification** verification facilities in order to determine the validity of a W3C Verifiable Credential aligned with EBSI/ESSIF standards.
-
-
-## Example
-
-- Creating W3C Decentralized Identifiers 
-- Issuing/verifying W3C Verifiable Credentials in JSON_LD and JWT format
-
-```kotlin
-fun main() {
-    // Load services
-    ServiceMatrix("service-matrix.properties")
-
-    // Create DIDs
-    val issuerDid = DidService.create(DidMethod.ebsi)
-    val holderDid = DidService.create(DidMethod.key)
-
-    // Issue VC with LD_PROOF and JWT format (for show-casing both formats)
-    val vcJson = Signatory.getService().issue(
-        templateIdOrFilename = "VerifiableId",
-        config = ProofConfig(issuerDid = issuerDid, subjectDid = holderDid, proofType = ProofType.LD_PROOF)
-    )
-    val vcJwt = Signatory.getService().issue(
-        templateIdOrFilename = "Europass",
-        config = ProofConfig(issuerDid = issuerDid, subjectDid = holderDid, proofType = ProofType.JWT)
-    )
-
-    // Present VC in JSON-LD and JWT format (for show-casing both formats)
-    val vpJson = Custodian.getService().createPresentation(listOf(vcJson), holderDid)
-    val vpJwt = Custodian.getService().createPresentation(listOf(vcJwt), holderDid)
-
-    // Verify VPs, using Signature, JsonSchema and a custom policy
-    val resJson = Auditor.getService().verify(vpJson, listOf(SignaturePolicy(), JsonSchemaPolicy()))
-    val resJwt = Auditor.getService().verify(vpJwt, listOf(SignaturePolicy(), JsonSchemaPolicy()))
-
-    println("JSON verification result: ${resJson.policyResults}")
-    println("JWT verification result:  ${resJwt.policyResults}")
-}
+```
+127.0.0.1 localhost umu-issuer umu-webWallet umu-verifier
 ```
 
-## Join the community
+### HTTPS Certificates Import
 
-* Connect and get the latest updates: <a href="https://discord.gg/AW8AgqJthZ">Discord</a> | <a href="https://walt.id/newsletter">Newsletter</a> | <a href="https://www.youtube.com/channel/UCXfOzrv3PIvmur_CmwwmdLA">YouTube</a> | <a href="https://mobile.twitter.com/walt_id" target="_blank">Twitter</a>
-* Get help, request features and report bugs: <a href="https://github.com/walt-id/.github/discussions" target="_blank">GitHub Discussions</a>
+The `/cert` folder contains 3 directories for importing the certificate of each component.
 
-## Standards & Specifications
+#### Import to JDK:
 
-- [EBSI Wallet Conformance](https://api-conformance.ebsi.eu/docs/wallet-conformance) 
-- [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/) 
-- [OpenID for Verifiable Credentials](https://openid.net/openid4vc/)
-- [Decentralized Identifiers (DIDs) v1.0](https://w3c.github.io/did-core/) 
-- [DID Method Rubric](https://w3c.github.io/did-rubric/)
-- [did:web Decentralized Identifier Method Specification](https://w3c-ccg.github.io/did-method-web/) 
-- [The did:key Method v0.7](https://w3c-ccg.github.io/did-method-key/)
+Execute the following command to import the certificates to the JDK:
 
-## License
+```bash
+sudo keytool -import -alias <NAME> -file <NAME>.crt -keystore /usr/lib/jvm/<YOUR_VERSION>/lib/security/cacerts -storepass changeit
+```
 
-**Licensed under the [Apache License, Version 2.0](https://github.com/walt-id/waltid-ssikit/blob/master/LICENSE).**
+- Verifier name -> `verifier`
+- Issuer name -> `issuer`
+- Web wallet name -> `webWallet`
 
-## Funded & supported by
+#### Import to Browser:
 
-<a href="https://essif-lab.eu/" target="_blank"><img src="assets/logos-supporter.png"></a>
-# last_waltid
+You must add the 3 certificates within your browser's list of trusted certificates.
+
+#### Manual Import:
+
+Since these are self-signed certificates, you must manually trust them by accessing the following websites:
+
+- [https://umu-issuer:8443](https://umu-issuer:8443)
+- [https://umu-verifier:8444](https://umu-verifier:8444)
+- [https://umu-webWallet:8445](https://umu-webWallet:8445)
+
+### OPA Installation for Policy Management
+
+Install OPA to manage security policies with the following command:
+
+```bash
+curl -L -o opa https://openpolicyagent.org/downloads/v0.62.1/opa_linux_amd64_static
+chmod 755 ./opa
+mv opa /usr/bin
+```
+
+### HYPERLEDGER
+
+The current version is intended to use a `hyperledger fabric` blockchain for uploading and querying DIDs. 
+
+To view the demo without the need to have the Hyperledger blockchain running, the code includes some static DIDs, which are also stored in the tool's internal storage.
+
+Four classes of the tool: `IssuerServer.kt, VerifierServer.kt, WebWallet.kt, WaltIdJsonLdCredentialService.kt` have a global variable called **"local"**, which must be set to **"true"** to perform tests without Hyperledger running.
+### USAGE
+
+To see the commands with their options:
+
+```bash
+./ssikit.sh --help
+```
+
+Launch all services `(issuer, verifier, and web wallet)`
+
+```bash
+./ssikit fullApi
+```

@@ -26,6 +26,17 @@ abstract class JsonLdCredentialService : WaltIdService() {
 
     open fun verify(vcOrVp: String): VerificationResult = implementation.verify(vcOrVp)
 
+    open fun verifyUmu(vcOrVp: String, challenge: String): VerificationResult = implementation.verifyUmu(vcOrVp, challenge)
+    open fun deriveVC(
+        vc: String,
+        issuer: String,
+        domain: String?,
+        challenge: String,
+        expirationDate: Instant?,
+        frame: String
+    ): String =
+        implementation.deriveVC(vc, issuer, domain, challenge, expirationDate,frame)
+
     open fun present(
         vcs: List<PresentableCredential>,
         holderDid: String,

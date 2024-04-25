@@ -56,8 +56,7 @@ class CreateComand : CliktCommand(
         if (file.exists()) {
             val doc = file.readText()
             echo("Uploading new DID documents...")
-
-            VDR.initialize()
+            println("\n--> Submit Transaction: Set, key: $key, value: $doc")
             VDR.setValue(key,doc)  
         } else {
             echo("The file path is wrong...")
@@ -77,8 +76,10 @@ class resolveCommand : CliktCommand(
     val key: String by option("-k", "--key", help = "KEY to be onboarded").required()
     override fun run() {
         echo("Sending a did resolution to the hyperledger fabric blockchain...")
-        VDR.initialize()
-        VDR.getValue(key)    
+        println("\n--> Evaluate Transaction: Get, key: $key")
+        val result = VDR.getValue(key)    
+        if (result != null) println("Result: $result")
+        else println("Did not found")
     }
 }
 

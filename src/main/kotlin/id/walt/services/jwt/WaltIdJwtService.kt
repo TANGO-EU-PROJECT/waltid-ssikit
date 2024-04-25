@@ -13,10 +13,14 @@ import id.walt.model.DidUrl
 import id.walt.sdjwt.JwtVerificationResult
 import id.walt.services.did.DidService
 import id.walt.services.key.KeyService
+import id.walt.services.keyUmu.KeyServiceUmu
 import mu.KotlinLogging
 import java.security.Provider
 import java.security.interfaces.ECPublicKey
 import java.util.*
+
+
+import java.util.Base64
 
 val keyId = "123" // FIXME static keyId
 
@@ -27,6 +31,7 @@ open class WaltIdJwtService : JwtService() {
     val encKey: OctetKeyPair = OctetKeyPairGenerator(Curve.X25519).keyID(keyId).generate()
 
     open val keyService = KeyService.getService()
+    open val keyServiceUmu = KeyServiceUmu.getService()
     open val provider: Provider = WaltIdProvider()
 
     override fun encrypt(
@@ -68,7 +73,8 @@ open class WaltIdJwtService : JwtService() {
 
     override fun sign(
         keyAlias: String, // verification method
-        payload: String?
+        payload: String?,
+        type: LdSignatureType?
     ): String {
 
         // Default JWT claims
@@ -79,8 +85,9 @@ open class WaltIdJwtService : JwtService() {
 //            .build()
 
 
-        val claimsSet = if (payload != null) JWTClaimsSet.parse(payload) else JWTClaimsSet.Builder().subject(keyAlias)
-            .issuer("https://walt.id").expirationTime(Date(Date().time + 60 * 1000)).build()
+    val claimsSet = if (payload != null) JWTClaimsSet.parse(payload) else JWTClaimsSet.Builder().subject(keyAlias)
+        .issuer("https://walt.id").expirationTime(Date(Date().time + 60 * 1000)).build()
+
 
         val issuerKey = keyService.load(keyAlias)
         if (issuerKey == null) {
@@ -98,9 +105,12 @@ open class WaltIdJwtService : JwtService() {
         val serializedSignedJwt = createSignedJWT(issuerKey, keyAlias, claimsSet, includeJwk).serialize()
         log.debug { "Signed JWT:  $serializedSignedJwt" }
         return serializedSignedJwt
+
+
     }
 
-    private fun createSignedJWT(
+
+            private fun createSignedJWT(
         issuerKey: Key, keyAlias: String, claimsSet: JWTClaimsSet, includeJwk: JWK?
     ): SignedJWT = when (issuerKey.algorithm) {
         KeyAlgorithm.EdDSA_Ed25519 -> {
@@ -167,9 +177,7 @@ open class WaltIdJwtService : JwtService() {
                 throw IllegalArgumentException("Could not resolve verification keys")
             }
         }
-
         val verifierKey = keyService.load(keyAlias)
-
         val res = verifyJwt(verifierKey, jwt)
 
         log.debug { "JWT verified returned:  $res (with key: ${verifierKey.keyId})" }

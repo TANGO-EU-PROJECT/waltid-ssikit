@@ -17,6 +17,7 @@ object SqlDbManager {
 
     // TODO: Should be configurable
     val recreateDb = false
+    val recreateDbUmu = false
 
     fun start() {
 //        config.jdbcUrl = JDBC_URL
@@ -32,6 +33,7 @@ object SqlDbManager {
         //  ds = HikariDataSource(config)
         dataSource = WaltIdServices.loadHikariDataSource()
         createDatabase()
+        createDatabaseUmu()
     }
 
     fun stop() {
@@ -62,6 +64,38 @@ object SqlDbManager {
                 // Create lt_key_alias
                 stmt.executeUpdate(
                     "create table if not exists lt_key_alias(" +
+                            "id integer primary key autoincrement, " +
+                            "key_id integer, " +
+                            "alias string unique)"
+                )
+            }
+            con.commit()
+        }
+    }
+
+    private fun createDatabaseUmu() {
+        getConnection().use { con ->
+            con.createStatement().use { stmt ->
+
+                if (recreateDbUmu) {
+                    log.debug { "Recreating database umu" }
+                    stmt.executeUpdate("drop table if exists lt_key_umu")
+                    stmt.executeUpdate("drop table if exists lt_key_alias_umu")
+                }
+
+
+                stmt.executeUpdate(
+                    "create table if not exists lt_key_umu(" +
+                            "id integer primary key autoincrement, " +
+                            "name string unique, " +
+                            "algorithm string, " +
+                            "priv string, " +
+                            "pub string)"
+                )
+
+                // Create lt_key_alias
+                stmt.executeUpdate(
+                    "create table if not exists lt_key_alias_umu(" +
                             "id integer primary key autoincrement, " +
                             "key_id integer, " +
                             "alias string unique)"

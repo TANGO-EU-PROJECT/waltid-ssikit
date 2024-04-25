@@ -91,7 +91,8 @@ object WaltCLI {
                         ListKeysCommand(),
                         ImportKeyCommand(),
                         ExportKeyCommand(),
-                        DeleteKeyCommand()
+                        DeleteKeyCommand(),
+                        DeleteAll()
                     ),
                     DidCommand().subcommands(
                         CreateDidCommand(),
@@ -163,11 +164,19 @@ object WaltCLI {
                             OidcVerificationRespondCommand()
                         )
                     ),
+                    KeyCommandUmu().subcommands(
+                        ListKeysCommandUmu(),
+                        ImportKeyCommandUmu(),
+                        ExportKeyCommandUmu(),
+                        DeleteKeyCommandUmu(),
+                        DeleteKeyAllUmu()
+                    ),
                     ServeCommand(),
                     IssuerCommand(),
                     Holder(),
-                    VerifierCommand()
-
+                    VerifierCommand(),
+                    WebWalletCommand(),
+                    FullApi()
                 )
                 .main(args)
 

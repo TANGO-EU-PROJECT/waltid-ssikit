@@ -30,6 +30,7 @@ data class DidUrl(
             val path = matchResult.groups[2]!!.value
             val fragmentStr = path.substringAfter('#')
             val identifierStr = path.substringBefore('#')
+
             return DidUrl(matchResult.groups[1]!!.value, identifierStr, fragmentStr)
         }
 

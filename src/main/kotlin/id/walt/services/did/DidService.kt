@@ -12,18 +12,25 @@ import id.walt.services.CryptoProvider
 import id.walt.services.WaltIdServices
 import id.walt.services.context.ContextManager
 import id.walt.services.crypto.CryptoService
-import id.walt.services.did.composers.DidEbsiV2DocumentComposer
-import id.walt.services.did.composers.DidJwkDocumentComposer
-import id.walt.services.did.composers.DidKeyDocumentComposer
+import id.walt.services.did.composers.*
+import id.walt.services.did.factories.DidFabricFactory
 import id.walt.services.did.factories.DidFactoryBase
+import id.walt.services.did.factories.DidKeyFactory
+import id.walt.services.did.factories.DidKeyFactoryUmu
 import id.walt.services.did.resolvers.DidResolverFactory
+import id.walt.services.ecosystems.fabric.VDR
 import id.walt.services.ecosystems.iota.IotaWrapper
 import id.walt.services.hkvstore.HKVKey
+import id.walt.services.jwt.keyId
 import id.walt.services.key.KeyService
+import id.walt.services.keyUmu.KeyAlgorithmUmu
+import id.walt.services.keyUmu.KeyServiceUmu
 import id.walt.services.vc.JsonLdCredentialService
 import id.walt.signatory.ProofConfig
+import inf.um.psmultisign.PSverfKey
 import io.ipfs.multibase.Multibase
 import mu.KotlinLogging
+import org.bitcoinj.core.Base58
 import org.bouncycastle.asn1.edec.EdECObjectIdentifiers
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo
@@ -31,6 +38,7 @@ import java.io.File
 import java.nio.charset.StandardCharsets
 import java.security.KeyFactory
 import java.security.KeyPair
+import java.security.MessageDigest
 import java.security.spec.X509EncodedKeySpec
 import java.time.Duration
 import java.util.*
@@ -48,6 +56,7 @@ object DidService {
     private val credentialService = JsonLdCredentialService.getService()
     private val cryptoService = CryptoService.getService()
     val keyService = KeyService.getService()
+    val KeyServiceUmu = id.walt.services.keyUmu.KeyServiceUmu.getService()
     private val didResolverFactory = DidResolverFactory(
         httpNoAuth = WaltIdServices.httpNoAuth,
         keyService = keyService,
@@ -55,6 +64,8 @@ object DidService {
         didKeyDocumentComposer = DidKeyDocumentComposer(keyService),
         didJwkDocumentComposer = DidJwkDocumentComposer(),
         ebsiV2DocumentComposer = DidEbsiV2DocumentComposer(),
+        didKeyUmuDocumentComposer = DidKeyDocumentComposerUmu(),
+        didFabricDocumentCompose = DidFabricDocumentComposer(),
     )
     private val didCache = Caffeine.newBuilder()
         .maximumSize(1000)
@@ -80,12 +91,51 @@ object DidService {
     // region did-create
     fun create(method: DidMethod, keyAlias: String? = null, options: DidOptions? = null): String =
         ensureKey(method, keyAlias).let {
+            println(1)
             Pair(it.keyId, DidFactoryBase.new(method, keyService).create(it, options))
+
         }.also {
             addKeyAlias(it.first, it.second)
             storeDid(it.second)
         }.second.id
     //endregion
+
+
+
+    fun createUmu(keyAliasPsms: String,method: DidMethod, options: DidOptions? = null, keyAlias: String? = null): String {
+        val keyUmu = ensureKeyUmu(keyAliasPsms)
+        if (method == DidMethod.keyumu){
+            val did = DidKeyFactoryUmu(DidKeyDocumentComposerUmu()).create(keyUmu)
+
+            storeDid(did)
+            return did.id
+        }
+        else if(method == DidMethod.fabric){
+            if (keyAlias != null){
+                val key = ensureKey(DidMethod.key,keyAlias)
+                val did = DidFabricFactory(keyService,DidFabricDocumentComposer()).create(keyUmu,key)
+
+                storeDid(did)
+                VDR.setValue(did.id,did.encodePretty())
+                return did.id
+            }else
+            {
+                throw IllegalArgumentException("You must spicify a keyAlias to create a did fabric")
+            }
+
+        }
+        else{
+            throw IllegalArgumentException("Invalid Did Method.")
+        }
+
+    }
+
+    private fun ensureKeyUmu(keyAlias: String): KeyUmu {
+        return KeyServiceUmu.load(keyAlias);
+    }
+
+
+
 
     //region did-load
     @Suppress("MemberVisibilityCanBePrivate")
@@ -144,10 +194,15 @@ object DidService {
         return did.id
     }
 
+    fun importDidFromString(doc: String): String {
+        val did = Did.decode(doc)
+        storeDid(did!!)
+        return did.id
+    }
+
     fun importDidAndKeys(did: String) {
         importDid(did)
         log.debug { "DID imported: $did" }
-
         importKeys(did)
         log.debug { "Key imported for: $did" }
     }
@@ -191,25 +246,83 @@ object DidService {
 
     fun getAuthenticationMethods(did: String) = load(did).authentication
 
+    fun getAssertonMethod(did: String) = load(did).assertionMethod
+
+
+    private fun String.sha256(): String {
+        val bytes = MessageDigest.getInstance("SHA-256").digest(this.toByteArray(Charsets.UTF_8))
+        return bytes.joinToString("") { "%02x".format(it) }
+    }
+
+    private fun createJsonString(publicKeyStr: String, ktyValue: String, kidValue: String): String {
+        // Asumiendo que no necesitas el campo 'private' o que puede ser un valor vacío
+        return """
+    {
+        "public": "$publicKeyStr",
+        "kty": "$ktyValue",
+        "kid": "$kidValue",
+        "private": ""
+    }
+    """.trimIndent()
+    }
+
+
     //region key-import
     private fun tryImportVerificationKey(
         didUrl: String,
         verificationMethod: VerificationMethod,
         isMainMethod: Boolean
     ): Boolean {
-        val keyService = KeyService.getService()
-        if (!keyService.hasKey(verificationMethod.id)) {
-            val keyId =
-                tryImportJwk(didUrl, verificationMethod) ?: tryImportKeyBase58(didUrl, verificationMethod) ?: tryImportKeyPem(
-                    didUrl,
-                    verificationMethod
-                ) ?: tryImportKeyMultibase(didUrl, verificationMethod) ?: return false
-            ContextManager.keyStore.addAlias(keyId, verificationMethod.id)
-            if (isMainMethod) {
-                ContextManager.keyStore.addAlias(keyId, didUrl)
+        val didSplit = didUrl.split(":")
+
+        if((didSplit[1] == "keyumu" || didSplit[1] == "fabric")){
+            val keyAlias = verificationMethod.id.substringAfter('#')
+            if (verificationMethod.type == Ed25519VerificationKey2019.name){
+                val keyService = KeyService.getService()
+                if (!keyService.hasKey(keyAlias)) {
+                    val keyId =
+                        tryImportJwk(didUrl, verificationMethod) ?: tryImportKeyBase58(didUrl, verificationMethod) ?: tryImportKeyPem(
+                            didUrl,
+                            verificationMethod
+                        ) ?: tryImportKeyMultibase(didUrl, verificationMethod) ?: return false
+                    ContextManager.keyStore.addAlias(keyId, keyAlias)
+                    if (isMainMethod) {
+                        ContextManager.keyStore.addAlias(keyId, didUrl)
+                    }
+                }
+                return true
             }
+            else
+            {
+                val pubkey58 = verificationMethod.publicKeyBase58
+                if (pubkey58 != null){
+                    if (!KeyServiceUmu.hasKey(keyAlias)) {
+                        KeyServiceUmu.importKey(createJsonString(pubkey58, "PSMS", keyAlias))
+                    }
+                    return true
+                }
+                return false
+            }
+
         }
-        return true
+        else
+        {
+            val keyService = KeyService.getService()
+            if (!keyService.hasKey(verificationMethod.id)) {
+                val keyId =
+                    tryImportJwk(didUrl, verificationMethod) ?: tryImportKeyBase58(didUrl, verificationMethod) ?: tryImportKeyPem(
+                        didUrl,
+                        verificationMethod
+                    ) ?: tryImportKeyMultibase(didUrl, verificationMethod) ?: return false
+                ContextManager.keyStore.addAlias(keyId, verificationMethod.id)
+                if (isMainMethod) {
+                    ContextManager.keyStore.addAlias(keyId, didUrl)
+                }
+            }
+            return true
+        }
+
+
     }
 
     fun importKeys(didUrl: String): Boolean {
@@ -362,6 +475,16 @@ object DidService {
         ContextManager.keyStore.addAlias(keyId, did.id)
         did.verificationMethod?.forEach { (id) ->
             ContextManager.keyStore.addAlias(keyId, id)
+        }
+    }
+
+    private fun addKeyAliasUmu(keyId: KeyIdUmu, did: Did) {
+        runCatching { ContextManager.keyStoreUmu.load(keyId.id) }.onSuccess { _ ->
+            log.debug { "A key with the id \"${keyId.id}\" exists." }
+        }
+        ContextManager.keyStoreUmu.addAlias(keyId, did.id)
+        did.verificationMethod?.forEach { (id) ->
+            ContextManager.keyStoreUmu.addAlias(keyId, id)
         }
     }
 

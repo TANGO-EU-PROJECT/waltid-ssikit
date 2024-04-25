@@ -118,6 +118,8 @@ class LdSigner {
 
     }
 
+
+
     class EcdsaSecp256K1Signature2019(keyId: KeyId) : JwsLdSignature<EcdsaSecp256k1Signature2019SignatureSuite?>(
         keyId,
         SignatureSuites.SIGNATURE_SUITE_ECDSASECP256L1SIGNATURE2019, Canonicalizers.CANONICALIZER_URDNA2015CANONICALIZER
@@ -133,6 +135,8 @@ class LdSigner {
             return jwsSigner
         }
     }
+
+
 
     class EcdsaSecp256R1Signature2019(keyId: KeyId) : JwsLdSignature<EcdsaSecp256k1Signature2019SignatureSuite?>(
         keyId,

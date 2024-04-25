@@ -22,6 +22,8 @@ class CreateDidRequestMethodAdapter : TypeAdapter<CreateDidRequest> {
         DidMethod.iota -> IotaCreateDidRequest::class
         DidMethod.jwk -> JWKCreateDidRequest::class
         DidMethod.cheqd -> CheqdCreateDidRequest::class
+        DidMethod.keyumu -> KeyCreateDidRequest::class
+        DidMethod.fabric -> EbsiCreateDidRequest::class
     }
 }
 

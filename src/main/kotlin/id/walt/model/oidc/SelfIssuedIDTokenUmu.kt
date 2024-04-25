@@ -19,7 +19,8 @@ data class SelfIssuedIDTokenUmu(
     val method: String?,
     val url: String?,
     // legacy OIDC4VP spec, including presentation submission in _vp_token JWT claim of id_token (used by EBSI conformance v2)
-    val _vp_token: VpTokenRef? = null
+    val _vp_token: VpTokenRef? = null,
+    val keyId: String? = null
 ) {
     fun sign(): String {
         val builder = JWTClaimsSet.Builder().subject(subject).issuer(issuer)
@@ -32,6 +33,13 @@ data class SelfIssuedIDTokenUmu(
         url?.let {builder.claim("url", it) } 
         _vp_token?.let { builder.claim("_vp_token", it) }
 
+        if (keyId != null){
+            return JwtService.getService().sign(
+                keyId,
+                builder.build().toString()
+            )
+        }
+        
         return JwtService.getService().sign(
             issuer,
             builder.build().toString()

@@ -31,7 +31,12 @@ repositories {
 dependencies {
     // Crypto
     api("com.google.crypto.tink:tink:1.10.0")
-    api("info.weboftrust:ld-signatures-java:1.5.0")
+
+
+    //api("info.weboftrust:ld-signatures-java:1.5.0")
+    api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation("org.miracl:core:4.0-SNAPSHOT")
+
     api("decentralized-identity:jsonld-common-java:1.5.0")
     implementation("com.goterl:lazysodium-java:5.1.4")
     implementation("net.java.dev.jna:jna:5.13.0")
@@ -69,6 +74,7 @@ dependencies {
     implementation("com.github.ajalt.clikt:clikt-jvm:4.2.0")
     implementation("com.github.ajalt.clikt:clikt:4.2.0")
 
+
     // Misc
     implementation("commons-io:commons-io:2.13.0")
     implementation("io.minio:minio:8.5.5")
@@ -83,10 +89,13 @@ dependencies {
     implementation("io.ktor:ktor-client-okhttp-jvm:2.3.3")
     implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.3")
     implementation("io.ktor:ktor-client-logging-jvm:2.3.3")
-    implementation("io.ktor:ktor-server-core:2.3.4")
-    implementation("io.ktor:ktor-server-netty:2.3.6")
-    implementation("io.ktor:ktor-server-status-pages-jvm:2.3.4")
-    implementation("io.ktor:ktor-server-default-headers-jvm:2.3.4")
+    implementation("io.ktor:ktor-server-core:2.3.3") 
+    implementation("io.ktor:ktor-server-netty:2.3.3") 
+    implementation("io.ktor:ktor-server-html-builder:2.3.3")
+    implementation("io.ktor:ktor-server-status-pages-jvm:2.3.3") 
+    implementation("io.ktor:ktor-server-default-headers-jvm:2.3.3") 
+    implementation("io.ktor:ktor-server-cors:2.3.3")
+
 
     // REST
     implementation("io.javalin:javalin:4.6.8")

@@ -12,12 +12,13 @@ enum class KeyType {
 
 abstract class KeyStoreService : WaltIdService() {
     override val implementation get() = serviceImplementation<KeyStoreService>()
-
     open fun store(key: Key): Unit = implementation.store(key)
     open fun load(alias: String, keyType: KeyType = KeyType.PUBLIC): Key = implementation.load(alias, keyType)
     open fun addAlias(keyId: KeyId, alias: String): Unit = implementation.addAlias(keyId, alias)
     open fun delete(alias: String): Unit = implementation.delete(alias)
     open fun listKeys(): List<Key> = implementation.listKeys()
+
+    open fun deleteAll(): Unit = implementation.deleteAll()
 
     // OLD
     open fun getKeyId(alias: String): String? = implementation.getKeyId(alias)

@@ -36,8 +36,8 @@ class WaltIdAuditor : Auditor() {
     override fun verify(vc: VerifiableCredential, policies: List<VerificationPolicy>): VerificationResult {
         val policyResults = policies.associateBy(keySelector = VerificationPolicy::id) { policy ->
             log.debug { "Verifying vc with ${policy.id} ..." }
-
             val vcResult = policy.verify(vc)
+
             val success = AtomicBoolean(vcResult.isSuccess)
             val allErrors = vcResult.errors.toMutableList()
             if (allErrors.isEmpty() && vc is VerifiablePresentation) {

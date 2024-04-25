@@ -234,4 +234,44 @@ object OIDC4VPService {
         else
             result.content
     }
+
+    fun postSIOPResponse_UMU(
+        req: AuthorizationRequest,
+        resp: SIOPv2Response,
+        mode: CompatibilityMode = CompatibilityMode.OIDC,
+        method: String?,
+        url: String?,
+        requester: String?
+    ): String {
+        val redirectionURI = "https://localhost:8444/verifyVP"
+        val result = HTTPRequest(HTTPRequest.Method.POST, URI.create(redirectionURI)).apply {
+            if (mode == CompatibilityMode.EBSI_WCT) {
+                
+                setHeader("Content-Type", "application/json")
+                setHeader("method", method)
+                //setHeader("resource", resource)
+                setHeader("url", url)
+                setHeader("requester", requester)
+                query = resp.toEBSIWctJson() // EBSI WCT expects json body with incorrect presentation jwt format
+            } else {
+                
+                setHeader("method", method)
+                setHeader("url", url)
+                setHeader("requester", requester)
+                query = resp.toFormBody()
+            }
+            followRedirects = false
+        }.also {
+            log.info("Sending SIOP response to {}\n {}", it.uri)
+        }.send().also {
+            log.info { "SIOP RESPONSE SENT: received ${it.statusCode}" }
+        }
+        if (!result.indicatesSuccess() && result.statusCode != 302) {
+            log.error("Got error response from SIOP endpoint: {}: {}", result.statusCode, result.content)
+        }
+        return if (result.statusCode == 302)
+            result.location.toString()
+        else
+            result.content
+    }
 }

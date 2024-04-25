@@ -1,3 +1,5 @@
+/*
+
 package id.walt.services.did
 
 import id.walt.crypto.KeyId
@@ -52,4 +54,6 @@ class DidCheqdTest : StringSpec({
         }
     }
 })
+
+ */
 

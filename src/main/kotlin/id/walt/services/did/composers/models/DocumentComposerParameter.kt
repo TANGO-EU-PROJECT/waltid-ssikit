@@ -18,3 +18,9 @@ open class DocumentComposerKeyJwkParameter(
     override val jwk: JWK,
     open val key: Key
 ) : DocumentComposerJwkParameter(didUrl, jwk)
+
+open class DocumentComposerBaseFabric(
+    override val didUrl: DidUrl,
+    open val publicKey58: String,
+    open val id: String
+): DocumentComposerBaseParameter(didUrl)

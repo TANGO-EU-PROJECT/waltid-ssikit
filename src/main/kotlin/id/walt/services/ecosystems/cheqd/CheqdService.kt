@@ -45,6 +45,7 @@ object CheqdService {
     private const val didUpdateUrl = "$registrarUrl/$registrarApiVersion/update"
 
     fun createDid(keyId: String, network: String): DidCheqd = let {
+        println(2)
         val key = keyService.load(keyId, KeyType.PRIVATE)
         if (key.algorithm != KeyAlgorithm.EdDSA_Ed25519) throw IllegalArgumentException("Key of type Ed25519 expected")
 //        step#0. get public key hex
@@ -57,14 +58,20 @@ object CheqdService {
                     "&network=$network" +
                     "&publicKeyHex=$pubKeyHex").bodyAsText()
         }
+        println(5)
+
+        println(response)
 //        step#2. onboard did with cheqd registrar
         KlaxonWithConverters().parse<DidGetResponse>(response)?.let {
 //            step#2a. initialize
+            println(6)
             val job = initiateDidJob(didRegisterUrl, KlaxonWithConverters().toJsonString(JobCreateRequest(it.didDoc)))
                 ?: throw Exception("Failed to initialize the did onboarding process")
 //            step#2b. sign the serialized payload
+            println(7)
             val signatures = signPayload(key.keyId, job)
 //            step#2c. finalize
+            println(8)
             val didDocument = (finalizeDidJob(
                 didRegisterUrl,
                 job.jobId,
@@ -72,7 +79,7 @@ object CheqdService {
                 signatures
             )?.didState as? FinishedDidState)?.didDocument
                 ?: throw IllegalArgumentException("Failed to finalize the did onboarding process")
-
+            println(10)
             Did.decode(KlaxonWithConverters().toJsonString(didDocument)) as DidCheqd
         } ?: throw IllegalArgumentException("Failed to fetch the did document from cheqd registrar helper")
     }

@@ -67,6 +67,14 @@ abstract class Signatory : WaltIdService() {
 
     }
 
+    open fun issue_umu(
+        temaplate: String,
+        config: ProofConfig,
+        dataProvider: SignatoryDataProvider? = null,
+        issuer: W3CIssuer? = null,
+    ): String =
+        implementation.issue(temaplate, config, dataProvider, issuer)
+
     open fun issue(
         templateIdOrFilename: String,
         config: ProofConfig,

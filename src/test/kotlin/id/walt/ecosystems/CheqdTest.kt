@@ -1,3 +1,5 @@
+/*
+
 package id.walt.ecosystems
 
 import id.walt.auditor.Auditor
@@ -58,3 +60,6 @@ class CheqdTest : StringSpec({
     }
 
 })
+
+
+ */

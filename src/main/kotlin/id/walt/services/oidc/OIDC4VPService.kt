@@ -178,7 +178,7 @@ object OIDC4VPService {
         return authRequest2OIDC4VPRequest(authReq)
     }
 
-    fun getSIOPResponseFor(req: AuthorizationRequest, subjectDid: String, vps: List<VerifiablePresentation>): SIOPv2Response {
+    fun getSIOPResponseFor(req: AuthorizationRequest, subjectDid: String, vps: List<VerifiablePresentation>, keyId: String? = null): SIOPv2Response {
         val presentationDefinition = getPresentationDefinition(req)
         val presentationSubmission = PresentationSubmission(
             descriptor_map = DescriptorMapping.fromVPs(vps),
@@ -189,6 +189,26 @@ object OIDC4VPService {
             VpTokenRef(presentationSubmission)
         } else {
             null
+        }
+        if (keyId != null){
+            return SIOPv2Response(
+                vp_token = vps,
+                presentation_submission = presentationSubmission,
+                id_token = if (req.responseType.contains(OIDCResponseTypeValue.ID_TOKEN)) {
+                    SelfIssuedIDToken(
+                        subject = subjectDid,
+                        client_id = req.clientID.toString(),
+                        nonce = req.customParameters["nonce"]?.firstOrNull(),
+                        expiration = null,
+                        _vp_token = legacyVpTokenRef,
+                        keyId = keyId
+                    ).sign()
+                } else {
+                    null
+                },
+                state = req.state.toString()
+            )
+
         }
         return SIOPv2Response(
             vp_token = vps,

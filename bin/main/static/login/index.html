@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/login/css/index.css">
+</head>
+<body>
+
+<div class="form-wrapper">
+    <h2>Login</h2>
+    <div id="messageContainer"></div> <!-- Contenedor para mensajes de inicio de sesión -->
+
+    <form id="loginForm" action="https://localhost:8443/login" method="post">
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <input type="submit" value="Login">
+    </form>
+    <p class="register-link">Don't have an account? <a href="/register">Register for an account</a></p>
+</div>
+
+<script src="/static/login/js/index.js"></script>
+</body>
+</html>

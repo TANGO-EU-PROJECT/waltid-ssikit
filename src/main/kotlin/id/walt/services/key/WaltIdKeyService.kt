@@ -36,6 +36,7 @@ open class WaltIdKeyService : KeyService() {
     open val keyStore: KeyStoreService
         get() = ContextManager.keyStore
 
+    override fun deleteAll() = keyStore.deleteAll()
     override fun generate(keyAlgorithm: KeyAlgorithm) = cryptoService.generateKey(keyAlgorithm)
 
     override fun addAlias(keyId: KeyId, alias: String) = keyStore.addAlias(keyId, alias)

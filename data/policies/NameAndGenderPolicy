@@ -1,0 +1,1 @@
+{"applyToVC" : true, "applyToVP" : true, "dataPath" : "$", "description" : "Verifies that the credential subject's first name is Pedro and gender is male", "input" : {}, "name" : "NameAndGenderPolicy", "policy" : "src/test/resources/rego/nameGenderPolicy.rego", "policyEngine" : "OPA", "policyQuery" : "data.system.main"}
