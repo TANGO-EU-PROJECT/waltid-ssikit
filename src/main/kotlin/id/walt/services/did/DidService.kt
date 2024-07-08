@@ -3,6 +3,7 @@ package id.walt.services.did
 import com.beust.klaxon.Klaxon
 import com.github.benmanes.caffeine.cache.Caffeine
 import com.nimbusds.jose.jwk.JWK
+import id.walt.common.prettyPrint
 import id.walt.crypto.*
 import id.walt.crypto.KeyAlgorithm.*
 import id.walt.crypto.LdVerificationKeyType.*
@@ -27,6 +28,7 @@ import id.walt.services.keyUmu.KeyAlgorithmUmu
 import id.walt.services.keyUmu.KeyServiceUmu
 import id.walt.services.vc.JsonLdCredentialService
 import id.walt.signatory.ProofConfig
+import inf.um.psmultisign.PSprivateKey
 import inf.um.psmultisign.PSverfKey
 import io.ipfs.multibase.Multibase
 import mu.KotlinLogging
@@ -91,22 +93,29 @@ object DidService {
     // region did-create
     fun create(method: DidMethod, keyAlias: String? = null, options: DidOptions? = null): String =
         ensureKey(method, keyAlias).let {
-            println(1)
             Pair(it.keyId, DidFactoryBase.new(method, keyService).create(it, options))
-
         }.also {
+
             addKeyAlias(it.first, it.second)
             storeDid(it.second)
         }.second.id
     //endregion
 
 
+    fun createUmuMultiKey(keyAlias: String, keys: Int): String {
+
+        val key = ensureKey(DidMethod.key,keyAlias)
+        val did = DidFabricFactory(keyService,DidFabricDocumentComposer()).createMultiKey(key,keys)
+        storeDid(did)
+        VDR.setValue(did.id,did.encodePretty())
+        return did.id
+
+    }
 
     fun createUmu(keyAliasPsms: String,method: DidMethod, options: DidOptions? = null, keyAlias: String? = null): String {
         val keyUmu = ensureKeyUmu(keyAliasPsms)
         if (method == DidMethod.keyumu){
             val did = DidKeyFactoryUmu(DidKeyDocumentComposerUmu()).create(keyUmu)
-
             storeDid(did)
             return did.id
         }

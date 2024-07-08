@@ -20,7 +20,6 @@ class TinkKeyStoreServiceTest : AnnotationSpec() {
         val keyId = tinkCryptoService.generateKey(KeyAlgorithm.ECDSA_Secp256k1)
         val key = tinkKeyStoreService.load(keyId.id)
 
-        println(key)
 
         File("data/key/$keyId.tink").delete()
     }

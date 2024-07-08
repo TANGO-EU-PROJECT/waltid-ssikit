@@ -1,0 +1,24 @@
+{
+    "assertionMethod" : [
+        "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84#053a053af09c4b7ea435cee1613f49bf"
+    ],
+    "authentication" : [
+        "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84#1c48c59b59d245fd81e80f97f0a2fe24"
+    ],
+    "@context" : "https://w3id.org/did/v1",
+    "id" : "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84",
+    "verificationMethod" : [
+        {
+            "controller" : "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84",
+            "id" : "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84#053a053af09c4b7ea435cee1613f49bf",
+            "publicKeyBase58" : "XBAeFMsWw3DJmJu3H6RKatqS798g65tPtR8p7yqZaE9JKaTE7o6rMmDKJ4AFipzXDNsxJBPdchpYyLRGErbKj4h1BrZnoaMveCV81rZKLFKCp4nB6EFLj98HhQjFS9na6rbkCy2BFKNdHX8WXNzhWqS4rjMmv72oN85WikEYf7TSsvduoBchjVF7HP7mq9trq4qryFCirnG8inF4keFpzz8SR1Wsar6sQdcKM7G6r5hJg14XgSQ11wnajwLB1epUnxYkSnXiw4nWJ4ybLemsf7az36TTgMrPeKS4R1XzASUySN6U8gAhzwbTkVq1wy79RQcZdKX2gDhvkTjSasFdFFrLtBdAqXA6AeUjptWgqPWubz49xshFJNfXa6bA668R2Us71ipRR5MQizjb4ZT9uRokkAAc2FCMGaNmG3yZV1Pbd4SJV9nHAsV1Guxzw7aFM7ZA4eHqpFqooPFjrb1TcpV5W7XN7BVAWfmLuXCgN2x3psmai2fERqZWe1KXVpBmXJKoM6cQM7NJYAW3VCWRG3bqEvdYDEge2tXFZ7aWKGWLx4XVYQsuzdEjuSvjnKxftm5kLHahtCq3doiikiv1Er5xwb5ksjrd1qRVjyhNYVJhncP7UavEhTn3zY4LmNdJLmBY4X7Fsr7yZceZ9WEhyC3LKmvBqqVrmLBKrHJ2Cua22dE4RpNrzAivLzcyhvPWQ3sE97Z7Jn7jdqvxxFtTPeMvK7Skq5DeqjWiQP7V7cnTzD4aszYrsjeFiz9EhXE2NSg3mD1KY6cgLv1zhSJoWhUJtjpE25gfSSVhj48xaTTp4jFb3RCGoCqCvxYtTgXPMSNEmyuBUcCMf2pvEodz1pDeQdNASymeVGuf4Xs59sHqMMWgaS6k4QPkGdERWgntES65KaG3ZNquCxufNTqhTxThMd9KqrviabrJhUZq5RTHxrCNZhjJZV7tXLVg3eyhyycTdWDWDcaVRF9dqtPjEwA3ME1HuN77HD9FF91GTRiwxDBYeBwuESUbgyJ6KkNvJfJQW8e4RsJ5Ae668X5nxutVhYkDUGoVkkYjMmPpikyzqguQrYrixYWJ8hsqtJf4F83fj2cmEKkxAwjugbNv8BMTWm8W5F63CVzhuQiNprLH4zt7q7SKUyvZ1t78Pztio1FCrs7NxeFLdD1FdbwMHtM8QMe6h3SMKVxaQ3ZSMN4hDyoFt1AgFKhjmttErrZ1wdeCxsmzbRfuutVVFhFLLL1i4sReUYoE2VuSDEmuGD75BnUXhG7L8vP4XvgoTcGJtwhtYHwYRoDNjipt98UbAfJME51cKcRvXTq9W2V9XqGo2YsyVFg8jCwhUVHuF5VTGXFhU9Hv1wsYvS6m46NeQoiaAVopXYke2AfRMvroPs9ENg33oSbPcYGwDPL5M9mkYV27R7KpG6JQits3p71vBPRpGmpYLfkNDWmjNKdf8jVZHTxZmPrQMdXFWfsMSaWyGvx5rJZbTBGEaUrRXHqWxXRFNhQTBqT94wtMj3mB5NMgk4kQaXiynZQAHkogrhMwMYeEzSRhdVeEzcXv3AyD54uVRHLdWGMGJSpanAcnFefdQewUQ7XwL",
+            "type" : "PsmsBlsSignature2022"
+        },
+        {
+            "controller" : "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84",
+            "id" : "did:fabric:b2fe50d21e065ddcbf703aa3ada5f074e5f29b014ca3103e3b0af82a57d7dc84#1c48c59b59d245fd81e80f97f0a2fe24",
+            "publicKeyBase58" : "DQSkVDRf2aU6k36gu2t9UK9sqKT3yszkuG4QjfexJmo4",
+            "type" : "Ed25519VerificationKey2019"
+        }
+    ]
+}

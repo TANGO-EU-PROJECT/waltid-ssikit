@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.content-box {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+#text-output {
+  white-space: pre-line;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Añade un max-width para controlar el tamaño máximo */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    position: relative;
+}
+
+#credential-details {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: pre-wrap;
+}
+
+  
+  .modal-footer {
+    padding: 2px 16px;
+    background-color: #fefefe;
+    color: white;
+  }
+
+  #credential-details, #emit-button {
+    margin: 10px 0;
+}
+  
+  /* Button styles */
+  button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+
+
+  .close-button {
+    position: absolute;
+    right: 10px; /* Ajustar según el diseño */
+    top: 10px; /* Ajustar según el diseño */
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  
+  #credentials-container {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    flex-direction: column; /* Los elementos se alinean verticalmente */
+    align-items: center; /* Centra los elementos en el eje cruzado */
+    justify-content: center; /* Centra los elementos en el eje principal si hay espacio adicional */
+    width: 100%; /* Ocupa el ancho total del contenedor padre */
+  }
+  
+  .credential-item {
+    box-sizing: border-box; /* Asegúrate de que el padding y border estén incluidos en el ancho y alto */
+    width: 80%; /* Ajusta este valor según el diseño deseado */
+    padding: 10px; /* Espacio interior */
+    margin: 10px 0; /* Espacio entre elementos */
+    text-align: center; /* Texto centrado */
+    border: 1px solid #ccc; /* Borde para visibilidad */
+    background-color: #4CAF50;  /* Fondo para visibilidad */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    color: white;
+  }
+  
+  /* Opcional: Añade :hover para mejorar la interactividad */
+  .credential-item:hover {
+    background-color: #e9e9e9;
+    color: black;
+  }
+  
+  /* Add this to your .css file */
+  #select-button {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

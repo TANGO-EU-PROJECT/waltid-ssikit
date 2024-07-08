@@ -1,0 +1,10 @@
+{
+    "credentialSubject": {
+        "id": "",
+        "givenName": "",
+        "familyName": "",
+        "gender": "",
+        "birthDate": "",
+        "birthCountry": ""
+    }
+}

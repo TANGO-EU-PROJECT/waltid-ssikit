@@ -8,6 +8,7 @@ import id.walt.model.DidUrl
 import id.walt.model.did.DidFabric
 import id.walt.services.did.DidKeyCreateOptions
 import id.walt.services.did.DidOptions
+import id.walt.services.did.DidService
 import id.walt.services.did.composers.DidDocumentComposer
 import id.walt.services.did.composers.DidDocumentComposerFabric
 import id.walt.services.did.composers.models.DocumentComposerBaseFabric
@@ -17,6 +18,7 @@ import id.walt.services.did.composers.models.DocumentComposerKeyJwkParameter
 import id.walt.services.key.KeyService
 import id.walt.services.keyUmu.KeyServiceUmu
 import id.walt.services.keystore.KeyType
+import id.walt.services.storeUmu.KeyStoreServiceUmu
 import org.bitcoinj.core.Base58
 import org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPublicKey
 import org.erdtman.jcs.JsonCanonicalizer
@@ -27,7 +29,11 @@ import java.util.*
 class DidFabricFactory(
     private val keyService: KeyService,
     private val documentComposer: DidDocumentComposerFabric<DidFabric>,
+
 ) : DidFactoryUmu  {
+
+    private val keyStoreUmu = KeyStoreServiceUmu.getService()
+    private val keyServiceUmu = KeyServiceUmu.getService()
     override fun create(keyumu: KeyUmu, key: Key?, options: DidOptions?): Did {
 
         if (key != null){
@@ -48,6 +54,46 @@ class DidFabricFactory(
 
     }
 
+    override fun createMultiKey(key: Key, keys: Int, options: DidOptions?): Did {
+
+        if (key != null){
+            if (key.algorithm !in setOf(
+                    KeyAlgorithm.EdDSA_Ed25519, KeyAlgorithm.RSA, KeyAlgorithm.ECDSA_Secp256k1, KeyAlgorithm.ECDSA_Secp256r1
+                )
+            ) throw IllegalArgumentException("did:fabric can not be created with an ${key.algorithm} key.")
+
+            val documentComposers = mutableListOf<DocumentComposerBaseFabric>()
+
+            for (i in 1..keys) {
+                val hashSet = HashSet<String>()
+                for (j in 1..i) {
+                    hashSet.add(j.toString())
+                }
+                val kid_fabric = keyServiceUmu.generate(hashSet)
+
+                keyStoreUmu.addAlias(kid_fabric, kid_fabric.id)
+                val keyUmu = DidService.KeyServiceUmu.load(kid_fabric.toString());
+                val document_fabric = DocumentComposerBaseFabric(
+                    DidUrl.from(getDidUrl(keyUmu.publicKey.getEncoded())),
+                    publicKeyToDidKeyBase58(keyUmu.publicKey.getEncoded()),
+                    keyUmu.KeyIdUmu.id
+                )
+                documentComposers.add(document_fabric)
+            }
+
+
+            val identifierComponents = getIdentifierComponents(key, options as? DidKeyCreateOptions)
+            val identifier = convertRawKeyToMultiBase58Btc(identifierComponents.pubKeyBytes, identifierComponents.multiCodecKeyCode)
+            val document_key =DocumentComposerBaseParameter(DidUrl.from("did:key:$identifier"))
+            return documentComposer.make_multikey(documentComposers,document_key,key.keyId.id)
+        }
+        else
+        {
+            throw IllegalArgumentException("did:fabric need a key value")
+        }
+
+    }
+
     fun publicKeyToDidKeyBase58(publicKeyBytes: ByteArray): String {
         val encodedKey = Base58.encode(publicKeyBytes)
         return encodedKey
@@ -59,25 +105,11 @@ class DidFabricFactory(
         return "did:fabric:$didurl"
     }
 
-    fun generarValorAleatorio(): String {
-        val secureRandom = SecureRandom()
-        val bytes = ByteArray(32)
-        secureRandom.nextBytes(bytes)
-        val base64String = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes)
-        val randomvalue = base64String.substring(0, 16) + "-" + base64String.substring(16)
-        return randomvalue
-    }
 
     private fun String.sha256(): String {
         val bytes = MessageDigest.getInstance("SHA-256").digest(this.toByteArray(Charsets.UTF_8))
         return bytes.joinToString("") { "%02x".format(it) }
     }
-
-
-
-
-
-
 
 
 

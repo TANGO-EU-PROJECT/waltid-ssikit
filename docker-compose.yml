@@ -1,14 +1,32 @@
 version: "3.9"
 services:
-  ssi-core-dev-env:
-    build: .
-    volumes:
-    - ./data:/app/data
-    entrypoint: /app/bin/waltid-ssikit serve -b 0.0.0.0
-    ports:
-      - "7000:7000"
-      - "7001:7001"
-      - "7002:7002"
-      - "7003:7003"
-      - "7004:7004"
-      - "7010:7010"
+    ssi-core-dev-env:
+        image: pablomartinez/wallet:ssikitConector
+        build:
+            context: .
+            args:
+                SKIP_TESTS: "true"
+        entrypoint: /app/bin/waltid-ssikit fullApi
+
+        volumes:
+            - ./data/policies:/app/data/policies
+            - ./src/:/app/src/
+        ports:
+            - "30000:30000"
+            - "30001:30001"
+            - "30002:30002"
+        networks:
+          appnet:
+            ipv4_address: 172.28.1.2
+        extra_hosts:
+            - "umu-issuer:127.0.0.1"
+            - "umu-webWallet:127.0.0.1"
+            - "umu-verifier:127.0.0.1"
+
+networks:
+    appnet:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.28.0.0/16
+                  gateway: 172.28.0.1

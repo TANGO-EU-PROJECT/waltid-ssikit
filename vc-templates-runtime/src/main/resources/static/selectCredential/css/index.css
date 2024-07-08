@@ -1,0 +1,65 @@
+/* style.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#credentialList {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 600px; /* Ajusta según lo necesites */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#credentialList li {
+    cursor: pointer;
+    background-color: #4CAF50; /* Verde similar al de la imagen */
+    margin: 10px 0;
+    padding: 15px 20px;
+    color: white; /* Texto blanco para contraste */
+    font-size: 18px; /* Tamaño del texto aumentado */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+#credentialList li:hover {
+    background-color: #388E3C; /* Un verde un poco más oscuro para el hover */
+}
+
+#credentialList li:not(:last-child) {
+    border-bottom: 1px solid #e0e0e0; /* Líneas divisorias si se desea */
+}
+
+/* Estilos para el título */
+.title {
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Estilo para el botón de cierre, si decides mantenerlo */
+.close-button {
+    float: right;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+/* Limpiar flotantes */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

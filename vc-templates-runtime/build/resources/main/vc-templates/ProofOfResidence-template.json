@@ -1,0 +1,36 @@
+{
+    "@context": ["https://www.w3.org/2018/credentials/v1"],
+    "credentialSchema": {
+      "id": "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/ProofOfResidence.json",
+      "type": "JsonSchemaValidator2018"
+    },
+    "credentialStatus": {
+      "id": "https://essif.europa.eu/status/identity#verifiableID#1dee355d-0432-4910-ac9c-70d89e8d674e",
+      "type": "CredentialStatusList2020"
+    },
+    "credentialSubject": {
+      "address": {
+        "countryName": "",
+        "locality": "",
+        "postalCode": "",
+        "streetAddress": ""
+      },
+      "dateOfBirth": "",
+      "familyName": "",
+      "familyStatus": "",
+      "firstNames": "",
+      "gender": "",
+      "id": "",
+      "identificationNumber": "",
+      "nationality": ""
+    },
+    "evidence": [{
+      "documentPresence": "Physical",
+      "evidenceDocument": "Passport",
+      "id": "https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678",
+      "subjectPresence": "Physical",
+      "type": ["DocumentVerification"],
+      "verifier": "did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"
+    }],
+    "type": ["VerifiableCredential", "VerifiableAttestation", "ProofOfResidence"]
+  }

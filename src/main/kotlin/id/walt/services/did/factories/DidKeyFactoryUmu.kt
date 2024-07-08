@@ -13,7 +13,11 @@ class DidKeyFactoryUmu(
     private val documentComposer: DidKeyDocumentComposerUmu,
 ) : DidFactoryUmu {
     override fun create(keyumu: KeyUmu, key: Key?, options: DidOptions?): Did {
-        return documentComposer.make(DocumentComposerBaseParameter(DidUrl.from(publicKeyToDidKeyBase58(keyumu.publicKey.getEncoded()))))
+        return documentComposer.makeKeyId(DocumentComposerBaseParameter(DidUrl.from(publicKeyToDidKeyBase58(keyumu.publicKey.getEncoded()))), keyumu)
+    }
+
+    override fun createMultiKey(key: Key, keys: Int, options: DidOptions?): Did {
+        TODO("Not yet implemented")
     }
 
     fun publicKeyToDidKeyBase58(publicKeyBytes: ByteArray): String {
@@ -21,8 +25,4 @@ class DidKeyFactoryUmu(
         return "did:keyumu:$encodedKey"
     }
 
-    fun decodeDidKeyBase58(didKey: String): ByteArray {
-        val keyPart = didKey.removePrefix("did:keyumu:")
-        return Base58.decode(keyPart)
-    }
 }

@@ -1,0 +1,15 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffebee; /* Fondo claro rojo */
+}
+
+#error-message {
+    color: #c62828; /* Rojo oscuro para el texto */
+    font-size: 24px;
+    text-align: center;
+}

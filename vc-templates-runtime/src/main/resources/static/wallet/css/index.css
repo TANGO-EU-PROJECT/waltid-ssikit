@@ -1,0 +1,160 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.login-container {
+    background-color: #f1f1f1;
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#sessionStatus {
+    margin-top: 20px;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column; /* Organiza los botones verticalmente */
+    align-items: center; /* Centra los botones horizontalmente */
+    justify-content: center; /* Centra los botones verticalmente si el contenedor tiene altura */
+    text-align: center; /* Centra el texto dentro de los botones si no ocupan todo el ancho */
+    padding: 20px 0; /* Añade un padding vertical si quieres que los botones no toquen los bordes del contenedor */
+}
+
+.action-buttons button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Espacio entre los botones */
+    display: block; /* Los botones se comportan como bloques para ocupar el ancho del contenido */
+    width: fit-content; /* El ancho del botón se ajusta al contenido */
+}
+
+/* Eliminar el margen superior del primer botón para que se alinee bien en el centro */
+.action-buttons button:first-child {
+    margin-top: 0;
+}
+
+/* Estilos específicos para cada botón */
+#createCredential,
+#completeVerification {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#LogOut {
+    background-color: #c72727; /* Red */
+    color: white;
+}
+
+#createCredential {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#completeVerification {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+#LogOut {
+    background-color: #c72727; /* Blue */
+    color: white;
+}
+
+#ListCreds {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    border-radius: 10px;
+    color: #fff; /* White text */
+    border: none;
+}
+
+.close-button {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    color: black; 
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#credentialList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#credentialList li {
+    padding: 12px;
+    margin: 10px 0;
+    background-color: #5cb85c; /* Slightly lighter green */
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#credentialList li:hover {
+    background-color: #449d44; /* Darker green on hover */
+}
+
+

@@ -2,6 +2,7 @@ package id.walt.services.did.composers
 
 import com.beust.klaxon.Klaxon
 import com.nimbusds.jose.jwk.JWK
+import id.walt.crypto.KeyUmu
 import id.walt.crypto.convertMultiBase58BtcToRawKey
 import id.walt.crypto.getMultiCodecKeyCode
 import id.walt.model.VerificationMethod
@@ -23,9 +24,9 @@ class DidKeyDocumentComposerUmu : DidDocumentComposerBase<DidKey>() {
             verificationMethod = listOf(
                 VerificationMethod(
                     id = it,
-                    type = "JsonWebKey2020",
+                    type = "PsmsBlsSignature2022",
                     controller = parameter.didUrl.did,
-                    publicKeyBase58 = parameter.didUrl.did
+                    publicKeyBase58 = parameter.didUrl.did.substringAfter("did:keyumu:")
                 )
             ),
             assertionMethod = listOf(VerificationMethod.Reference(it)),
@@ -33,6 +34,30 @@ class DidKeyDocumentComposerUmu : DidDocumentComposerBase<DidKey>() {
             capabilityInvocation = listOf(VerificationMethod.Reference(it)),
             capabilityDelegation = listOf(VerificationMethod.Reference(it)),
         )
+    }
+
+    fun makeKeyId(parameter: DocumentComposerBaseParameter, keyUmu: KeyUmu): DidKey {
+        val it = "${parameter.didUrl.did}#${keyUmu.KeyIdUmu.id}"
+        return DidKey(
+            context = listOf(
+                "https://www.w3.org/ns/did/v1",
+                "https://w3id.org/security/suites/jws-2020/v1"
+            ),
+            id = parameter.didUrl.did,
+            verificationMethod = listOf(
+                VerificationMethod(
+                    id = it,
+                    type = "PsmsBlsSignature2022",
+                    controller = parameter.didUrl.did,
+                    publicKeyBase58 = parameter.didUrl.did.substringAfter("did:keyumu:")
+                )
+            ),
+            assertionMethod = listOf(VerificationMethod.Reference(it)),
+            authentication = listOf(VerificationMethod.Reference(it)),
+            capabilityInvocation = listOf(VerificationMethod.Reference(it)),
+            capabilityDelegation = listOf(VerificationMethod.Reference(it)),
+        )
+
     }
 
 

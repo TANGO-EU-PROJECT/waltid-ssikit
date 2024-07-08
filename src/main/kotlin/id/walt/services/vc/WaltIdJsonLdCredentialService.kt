@@ -10,12 +10,11 @@ import id.walt.auditor.VerificationPolicyResult
 import id.walt.credentials.jsonld.JsonLdDocumentLoaderService
 import id.walt.credentials.w3c.*
 import id.walt.credentials.w3c.schema.SchemaValidatorFactory
-import id.walt.crypto.Key
-import id.walt.crypto.KeyAlgorithm
-import id.walt.crypto.LdSignatureType
-import id.walt.crypto.LdSigner
+import id.walt.crypto.*
+import id.walt.services.OIDC_UMU.sha256
 import id.walt.services.context.ContextManager
 import id.walt.services.did.DidService
+import id.walt.services.keyUmu.KeyAlgorithmUmu
 import id.walt.services.keyUmu.KeyServiceUmu
 import id.walt.services.keystore.KeyStoreService
 import id.walt.services.keystore.SqlKeyStoreService
@@ -23,6 +22,8 @@ import id.walt.services.keystore.TinkKeyStoreService
 import id.walt.services.storeUmu.KeyStoreServiceUmu
 import id.walt.signatory.ProofConfig
 import id.walt.signatory.ProofType
+import inf.um.multisign.MSverfKey
+import inf.um.psmultisign.PSverfKey
 import info.weboftrust.ldsignatures.LdProof
 import info.weboftrust.ldsignatures.jsonld.LDSecurityContexts
 import info.weboftrust.ldsignatures.signer.PsmsBlsSignature2022LdSigner
@@ -47,9 +48,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
 
 
     private val keyStoreUmu = KeyStoreServiceUmu.getService()
-    private val keyStore = SqlKeyStoreService()
-
-    val local = true
+    private val keyStore = KeyStoreService.getService()
 
     private val documentLoaderService: JsonLdDocumentLoaderService get() = JsonLdDocumentLoaderService.getService()
 
@@ -129,7 +128,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
 
 
 
-    override fun sign(jsonCred: String, config: ProofConfig): String {
+    override fun sign(jsonCred: String, config: ProofConfig, attributes: Int?): String {
         log.debug { "Signing jsonLd object with: issuerDid (${config.issuerDid}), domain (${config.domain}), nonce (${config.nonce}" }
 
         val jsonLdObject: JsonLDObject = JsonLDObject.fromJson(jsonCred)
@@ -139,13 +138,23 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         confLoader.isEnableFile = true
         confLoader.isEnableLocalCache = true
         jsonLdObject.documentLoader = documentLoaderService.documentLoader
+
+
         val vm = config.issuerVerificationMethod ?: config.issuerDid
         val signer: info.weboftrust.ldsignatures.signer.LdSigner<*>;
 
-
         if (config.ldSignatureType == LdSignatureType.PsmsBlsSignature2022 ) {
-            val keyUmu = keyStoreUmu.load(vm.substringAfter('#'))
-            signer = PsmsBlsSignature2022LdSigner(keyUmu.privateKey);
+            val keyUmu = if (vm.startsWith("did:keyumu")){
+                val didid = vm.substringBefore('#')
+                val pkencoded = didid.substringAfter("did:keyumu:")
+
+                keyStoreUmu.load(pkencoded.sha256())
+                }
+                else{
+                keyStoreUmu.load(vm.substringAfter('#'))
+                }
+
+                signer = PsmsBlsSignature2022LdSigner(keyUmu.privateKey);
 
         } else {
             val key = keyStore.load(vm)
@@ -160,6 +169,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         signer.proofPurpose = config.proofPurpose
 
         log.debug { "Signing: $jsonLdObject" }
+
         try {
             signer.sign(jsonLdObject)
         } catch (ldExc: JsonLDException) {
@@ -231,6 +241,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
     }
 
     override fun verify(vcOrVp: String): VerificationResult {
+
         val vcObj = vcOrVp.toVerifiableCredential()
         val issuer = vcObj.issuerId ?: throw NoSuchElementException("No issuer DID found for VC or VP")
         val vm = vcObj.proof?.verificationMethod ?: issuer
@@ -264,14 +275,21 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         val ldSignatureType = LdSignatureType.valueOf(ldProof.type)
         val verifier: info.weboftrust.ldsignatures.verifier.LdVerifier<*>;
 
+        val keyUmu = if (vm.startsWith("did:keyumu")){
+            val didid = vm.substringBefore('#')
+            val pkencoded = didid.substringAfter("did:keyumu:")
+
+            keyStoreUmu.load(pkencoded.sha256())
+        }
+        else{
+            keyStoreUmu.load(vm.substringAfter('#'))
+        }
+
         if (ldSignatureType == LdSignatureType.PsmsBlsSignature2022) {
 
-            val keyUmu = keyStoreUmu.load(vm)
             verifier = PsmsBlsSignature2022LdVerifier(keyUmu.publicKey);
 
         } else if (ldSignatureType == LdSignatureType.PsmsBlsSignature2022Proof) {
-
-            var keyUmu = keyStoreUmu.load(vm)
             var nonce = ""
             if (vcObj.proof?.nonce !== null) nonce = vcObj.proof!!.nonce.toString()
             verifier = PsmsBlsSignatureProof2022LdVerifier(keyUmu.publicKey, nonce);
@@ -302,7 +320,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         }
 
         log.debug { "Json LD verifier returned: $verificatioResult" }
-
+        println(verificatioResult.toString())
         return VerificationResult(verificatioResult, getVerificationTypeFor(vcObj))
     }
 
@@ -362,7 +380,7 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         expirationDate: Instant?,
         frame: String
     ): String {
-        if (!local) DidService.importDidAndKeys(issuer)
+        DidService.importDidAndKeys(issuer)
         val id = "urn:uuid:${UUID.randomUUID()}"
         val config = ProofConfig(
             issuerDid = issuer,

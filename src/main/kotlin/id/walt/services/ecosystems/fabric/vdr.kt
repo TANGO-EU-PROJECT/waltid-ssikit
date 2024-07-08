@@ -19,23 +19,16 @@ class ObtenerGateway(){
 
     val currentDirectory = System.getProperty("user.dir")
 
-    // RUTA A UN CERTIFICADO DE USUARIO
-    val CERT_PATH = Paths.get("./resources/cert.pem")
+    val PEER_ENDPOINT = System.getenv("PEER_ENDPOINT") ?: "127.0.0.1"
 
-    // RUTA A LA CLAVE DEL ANTERIOR CERTIFICADO
-    val KEY_DIR_PATH = Paths.get(currentDirectory,"./resources/key")
-
-
-    // RUTA AL CERTIFICADO EMITIDO POR LA CA PARA LA COMUNICACIÓN TLS
-    val TLS_CERT_PATH = Paths.get(currentDirectory,"./resources/ca.crt")
-
-    val PEER_ENDPOINT = "localhost"
     val OVERRIDE_AUTH = "peer0.org1.example.com"
 
 
 
     @Throws(IOException::class)
     private fun newGrpcConnection(): ManagedChannel {
+        // RUTA AL CERTIFICADO EMITIDO POR LA CA PARA LA COMUNICACIÓN TLS
+        val TLS_CERT_PATH = Paths.get(currentDirectory,"./resources/ca.crt")
         //val credentials = TlsChannelCredentials.newBuilder()
         try {
             val ssl: io.grpc.netty.shaded.io.netty.handler.ssl.SslContext? = GrpcSslContexts.forClient()
@@ -56,6 +49,9 @@ class ObtenerGateway(){
 
     @Throws(IOException::class, CertificateException::class)
     private fun newIdentity(): Identity {
+        // RUTA A UN CERTIFICADO DE USUARIO
+        val CERT_PATH = Paths.get("./resources/cert.pem")
+
         val certReader = Files.newBufferedReader(CERT_PATH)
         val certificate = Identities.readX509Certificate(certReader)
 
@@ -64,6 +60,8 @@ class ObtenerGateway(){
 
     @Throws(IOException::class, InvalidKeyException::class)
     private fun newSigner(): Signer {
+        // RUTA A LA CLAVE DEL ANTERIOR CERTIFICADO
+        val KEY_DIR_PATH = Paths.get(currentDirectory,"./resources/key")
         val keyReader = Files.newBufferedReader(KEY_DIR_PATH)
         val privateKey = Identities.readPrivateKey(keyReader)
 

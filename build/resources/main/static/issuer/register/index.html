@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/issuer/register/css/index.css">
+</head>
+<body>
+
+<div class="form-wrapper">
+    <h2>Register</h2>
+    <div id="messageContainer"></div>
+    <form id="registerForm" action="https://localhost:30000/register" method="post">
+        <div class="input-group">
+            <label for="newUsername">Username</label>
+            <input type="text" id="newUsername" name="user" value="p" required>
+        </div>
+        <div class="input-group">
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" name="pass" value="p" required>
+        </div>
+        <div class="input-group">
+            <label for="givenName">Given Name</label>
+            <input type="text" id="givenName" name="givenName" value="Joe" required>
+        </div>
+        <div class="input-group">
+            <label for="familyName">Family Name</label>
+            <input type="text" id="familyName" name="familyName" value="Jan" required>
+        </div>
+        <div class="input-group">
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" name="gender" value="Male" required>
+        </div>
+        <div class="input-group">
+            <label for="birthDate">Birth Date</label>
+            <input type="date" id="birthDate" name="birthDate" value="1998-12-09" required>
+        </div>
+        <div class="input-group">
+            <label for="birthCountry">Birth Country</label>
+            <input type="text" id="birthCountry" name="birthCountry" value="Spain" required>
+        </div>
+        <input type="submit" value="Register">
+    </form>
+    <p class="login-link">Already have an account? <a href="/login">Login here</a></p>
+</div>
+
+<script src="/static/issuer/register/js/index.js"></script>
+</body>
+</html>

@@ -47,12 +47,39 @@ COPY --from=opa-env /opa /usr/local/bin/opa
 COPY --from=iota-env /usr/local/lib/libwaltid_iota_identity_wrapper.so /usr/local/lib/libwaltid_iota_identity_wrapper.so
 RUN ldconfig
 
-COPY --from=build-env /appbuild/build/install/waltid-ssikit /app/
-COPY --from=build-env /appbuild/service-matrix.properties /app/
-COPY --from=build-env /appbuild/config /app/config
+COPY --from=build-env /appbuild/ /app/
 
 
-### Execution
+
+# Install OpenSSL and create certificates
+# Install OpenSSL and create certificates
+RUN apt-get update && apt-get install -y openssl \
+    && mkdir -p /app/cert/issuer /app/cert/verifier /app/cert/webWallet \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/issuer/issuer.key -out /app/cert/issuer/issuer.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=issuer/CN=umu-issuer" -addext "subjectAltName = DNS:umu-issuer,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/issuer/issuer.crt -inkey /app/cert/issuer/issuer.key -out /app/cert/issuer/issuer.p12 -name issuer -passout pass: \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/verifier/verifier.key -out /app/cert/verifier/verifier.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=verifier/CN=umu-verifier" -addext "subjectAltName = DNS:umu-verifier,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/verifier/verifier.crt -inkey /app/cert/verifier/verifier.key -out /app/cert/verifier/verifier.p12 -name verifier -passout pass: \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/webWallet/webWallet.key -out /app/cert/webWallet/webWallet.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=webWallet/CN=umu-webWallet" -addext "subjectAltName = DNS:umu-webWallet,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/webWallet/webWallet.crt -inkey /app/cert/webWallet/webWallet.key -out /app/cert/webWallet/webWallet.p12 -name webWallet -passout pass:
+
+# Import certificates to Java keystore
+RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
+
+RUN apt-get update && \
+    apt-get install -y openjdk-17-jdk
+
+# Import certificates to Java keystore java-17
+RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt
+
+# Establecer JAVA_HOME y actualizar el PATH
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+ENV PATH=$JAVA_HOME/bin:$PATH
+
+    ### Execution
 EXPOSE 7000 7001 7002 7003 7004 7010
 
 ENTRYPOINT ["/app/bin/waltid-ssikit"]

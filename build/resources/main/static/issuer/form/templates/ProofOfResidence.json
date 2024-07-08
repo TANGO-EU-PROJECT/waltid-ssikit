@@ -1,0 +1,15 @@
+{
+    "credentialSubject": {
+        "countryName": "",
+        "locality": "",
+        "postalCode": "",
+        "streetAddress": "",
+        "dateOfBirth": "",
+        "familyName": "",
+        "familyStatus": "",
+        "firstNames": "",
+        "gender": "",
+        "identificationNumber": "",
+        "nationality": ""
+        }
+  }

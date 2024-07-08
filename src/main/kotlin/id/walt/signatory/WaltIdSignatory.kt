@@ -82,7 +82,7 @@ class WaltIdSignatory(configurationPath: String) : Signatory() {
         issuer: W3CIssuer?,
     ): String {
         val credentialBuilder =  W3CCredentialBuilder.fromPartial(template.toVerifiableCredential())
-        return issue(dataProvider?.populate(credentialBuilder, config) ?: credentialBuilder, config, issuer) 
+        return issue(dataProvider?.populate(credentialBuilder, config) ?: credentialBuilder, config, issuer)
     }
 
 
@@ -93,7 +93,6 @@ class WaltIdSignatory(configurationPath: String) : Signatory() {
         issuer: W3CIssuer?,
         storeCredential: Boolean,
     ): String {
-
         val credentialBuilder = when (Files.exists(Path.of(templateIdOrFilename))) {
             true -> Files.readString(Path.of(templateIdOrFilename)).toVerifiableCredential()
             else -> templateService.getTemplate(templateIdOrFilename, true, configuration.templatesFolder).template
@@ -127,7 +126,6 @@ class WaltIdSignatory(configurationPath: String) : Signatory() {
                 W3CCredentialBuilderWithCredentialStatus(builder, config)
             } ?: builder
         }.build()
-
         log.debug { "Signing credential with proof using ${fullProofConfig.proofType.name}..." }
         log.debug { "Signing credential with proof using ${fullProofConfig.proofType.name}, credential is: $vcRequest" }
         val signedVc = when (fullProofConfig.proofType) {
@@ -142,6 +140,7 @@ class WaltIdSignatory(configurationPath: String) : Signatory() {
 
         return signedVc
     }
+
 
     override fun hasTemplateId(templateId: String) =
         runCatching { templateService.getTemplate(templateId, false) }.getOrNull() != null

@@ -4,10 +4,8 @@ import com.github.ajalt.clikt.core.CliktCommand
 import io.ktor.server.application.*
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import io.ktor.server.request.receiveText
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import io.ktor.http.HttpStatusCode
 import id.walt.services.oidc.OIDC4VPService
 import java.net.URI
 import com.nimbusds.openid.connect.sdk.Nonce
@@ -29,7 +27,6 @@ import id.walt.auditor.Auditor
 import id.walt.auditor.PolicyRegistry
 import java.io.File
 import java.util.*
-import com.google.gson.Gson
 import id.walt.services.jwt.JwtService
 import id.walt.model.oidc.SelfIssuedIDTokenUmu
 import java.time.Instant
@@ -38,28 +35,26 @@ import java.time.Duration
 import io.ktor.server.engine.*
 import java.security.KeyStore
 import java.io.FileInputStream
-import org.slf4j.LoggerFactory
 import kotlinx.coroutines.runBlocking
 import id.walt.services.did.DidService.keyService
-import io.ktor.http.ContentType
 import io.ktor.server.http.content.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject as jsonObject2
 import java.util.Base64
-import id.walt.services.ecosystems.fabric.VDR
-import com.google.gson.JsonObject
+import id.walt.credentials.w3c.toVerifiableCredential
 import id.walt.crypto.KeyAlgorithm
-import id.walt.crypto.KeyIdUmu
-import id.walt.crypto.KeyUmu
 import id.walt.model.DidMethod
+import id.walt.services.OIDC_UMU.generarValorAleatorio
+import id.walt.services.OIDC_UMU.isProofValid
+import id.walt.services.OIDC_UMU.wallet.AuthorizationRequest
+import id.walt.services.OIDC_UMU.wallet.CrendentialRequest
 import id.walt.services.keyUmu.KeyServiceUmu
 import id.walt.services.storeUmu.KeyStoreServiceUmu
-import inf.um.multisign.MS
-import inf.um.multisign.MSauxArg
-import inf.um.psmultisign.PSauxArg
-import inf.um.psmultisign.PSms
-import inf.um.psmultisign.PSprivateKey
-import inf.um.psmultisign.PSverfKey
+import id.walt.services.vc.JsonLdCredentialService
+import io.ktor.http.*
+import io.ktor.server.plugins.cors.*
+import io.ktor.server.request.*
+import mu.KotlinLogging
 
 
 /* SSIKIT issuer */
@@ -72,10 +67,6 @@ class VerifierCommand :
                 """
     ) {
     var actualState: String? = null
-    val MAX_TIME = 60
-    var requestTime: Long = 0
-
-    val logs: Boolean = System.getenv("logs").toBoolean()
 
     //Salida mas legible
     val verde = "\u001B[32m"
@@ -83,10 +74,9 @@ class VerifierCommand :
     val reset = "\u001B[0m"
 
 
-    val local = true
-
     val currentWorkingDir = System.getProperty("user.dir")
     val keyStorePath = "$currentWorkingDir/cert/verifier/verifier.p12"
+    private val credentialService = JsonLdCredentialService.getService()
 
     // DID del wallet
     lateinit var DID_BACKEND: String
@@ -94,7 +84,9 @@ class VerifierCommand :
     lateinit var KEY_ALIAS: String
     private val keyStoreUmu = KeyStoreServiceUmu.getService()
     private val keyServiceUmu = KeyServiceUmu.getService()
-
+    private val VERIFIER_PORT = System.getenv("VERIFIER_PORT").toInt()
+    val stateMap: MutableMap<String, Instant> = mutableMapOf()
+    val local = System.getenv("LOCAL").toBoolean()
     override fun run() {
 
         initialization()
@@ -109,7 +101,7 @@ class VerifierCommand :
 
 
             val environment = applicationEngineEnvironment {
-                log = LoggerFactory.getLogger("ktor.application")
+                val log = KotlinLogging.logger {}
                 connector {
                     port = 5436
                 }
@@ -119,9 +111,17 @@ class VerifierCommand :
                     keyStorePassword = { keyStorePassword.toCharArray() },
                     privateKeyPassword = { privateKeyPassword.toCharArray() }
                 ) {
-                    port = 8444
+                    port = VERIFIER_PORT
                 }
                 module {
+                    install(CORS) {
+                        allowCredentials = true
+                        allowNonSimpleContentTypes = true
+                        allowSameOrigin = true
+                        anyHost()  // Permite solicitudes CORS desde cualquier origen
+                        allowHeader(HttpHeaders.ContentType)
+                    }
+
                     routing {
 
                         /*
@@ -134,8 +134,8 @@ class VerifierCommand :
                             resources("static")
                         }
 
-                        get("/demo") {
-                            val indexHtml = javaClass.classLoader.getResource("static/demoVerifier/index.html")
+                        get("/") {
+                            val indexHtml = javaClass.classLoader.getResource("static/verifier/main/index.html")
                             if (indexHtml != null) {
                                 val content = indexHtml.readText()
                                 call.respondText(content, ContentType.Text.Html)
@@ -147,14 +147,22 @@ class VerifierCommand :
                         // Redirige a una pestaña u otra en función de la validez del JWT
 
                         get("/verify") {
+
+                            println("\n$verde[+] Verifier: Verify a JWT.$reset\n")
+
+
+
                             val jwt = call.request.queryParameters["TokenJWT"]
+                            log.debug { "verify -> [!] Verifier logs: jwt - ${jwt}" }.toString()
                             var bool = false
                             if (jwt!=null) {
                                 bool = isJwtValid(jwt)
+                                log.debug { "verify -> [!] Verifier logs: isValid - ${bool}" }.toString()
+
                             }
 
                             if(bool){
-                                val indexHtml = javaClass.classLoader.getResource("static/firmaValidaVerifier/index.html")
+                                val indexHtml = javaClass.classLoader.getResource("static/verifier/firmaValidaVerifier/index.html")
                                 if (indexHtml != null) {
                                     val content = indexHtml.readText()
                                     call.respondText(content, ContentType.Text.Html)
@@ -163,7 +171,7 @@ class VerifierCommand :
                                 }
                             }
                             else {
-                                val indexHtml = javaClass.classLoader.getResource("static/firmaInvalidaVerifier/index.html")
+                                val indexHtml = javaClass.classLoader.getResource("static/verifier/firmaInvalidaVerifier/index.html")
                                 if (indexHtml != null) {
                                     val content = indexHtml.readText()
                                     call.respondText(content, ContentType.Text.Html)
@@ -183,20 +191,19 @@ class VerifierCommand :
 
                         get("/vpToken") {
 
-                            println("")
-                            println(verde+"[+] Verifier: Obtaion SIOP request."+reset)
-                            println("")
 
-                            val randomValue = UUID.randomUUID().toString()
+
+                            println("\n$verde[+] Verifier: Obtaion SIOP request.$reset\n")
+
 
                             // Generate SIOP Request
-                            val client_url = "https://umu-Wallet:8445"
+                            val client_url = "http://example.com"
                             val response_type = "id_token"
                             val response_mode = "form_post"
                             val scope: String? = null
                             val presentationDefinitionUrl: String? = null
-                            val credentialTypes = listOf("demoTemplate")
-                            val state = "$randomValue"
+                            val state = generarValorAleatorio()
+                            createState(state, Duration.ofMinutes(1))
                             actualState = state
 
 
@@ -222,8 +229,8 @@ class VerifierCommand :
                             // Generación del SIOP request
                             val siopRequest = OIDC4VPService.createOIDC4VPRequest(
                                 wallet_url = client_url,
-                                redirect_uri = URI.create("https://umu-demoPoderes:8446"),
-                                nonce = Nonce(randomValue),
+                                redirect_uri = URI.create("https://umu-verifier:30001/verifyVP"),
+                                nonce = Nonce(state),
                                 response_type = ResponseType.parse(response_type),
                                 response_mode = ResponseMode(response_mode),
                                 scope = scope?.let { Scope(scope) },
@@ -232,13 +239,7 @@ class VerifierCommand :
                                 state = state?.let { State(it) }
                             )
 
-
-                            if (logs) {
-
-                                println("")
-                                println(rojo+"[!] Verifier logs: siopRequest - "+siopRequest.toURI().unescapeOpenIdScheme()+reset)
-                                println("")
-                            }
+                            log.debug { "vpToken -> [!] Verifier logs: siopRequest - ${siopRequest.toURI().unescapeOpenIdScheme()}" }.toString()
 
                             call.respondText(siopRequest.toURI().unescapeOpenIdScheme().toString(), ContentType.Text.Plain)
 
@@ -256,105 +257,114 @@ class VerifierCommand :
 
                         post("/verifyVP"){
 
-
-                            println("")
-                            println(verde+"[+] Verifier: Verify a presentation."+reset)
-                            println("")
+                            println("\n$verde[+] Verifier: Verify a presentation.$reset\n")
 
                             // Get body from Request
                             var requestContent = call.receiveText()
-                            if (logs){
-                                println("$requestContent\n")
-                            }
+
+                            log.debug { "verifyVP -> [!] Verifier logs: requestContent - ${requestContent}" }.toString()
+
+                            val decodedString = URLDecoder.decode(requestContent.trimIndent(), "UTF-8")
+
+                            // Extraer cada parámetro en un mapa para un acceso fácil
+                            val params = decodedString.split('&').map { it.split('=') }.associate { it[0] to (it.getOrNull(1) ?: "") }
+
+                            // Extraer valores específicos usando el mapa
+                            val vpToken = params["vp_token"]
+                            val presentationSubmission = params["presentation_submission"]
+                            val idToken = params["id_token"]
+                            val stateResponse = params["state"]
+
+                            if (vpToken.isNullOrBlank() || presentationSubmission.isNullOrBlank() || idToken.isNullOrBlank() || stateResponse.isNullOrBlank()) throw IllegalArgumentException ("Error in the request content")
+
+                            log.debug { "verifyVP -> [!] Verifier logs: vpToken - ${vpToken}" }.toString()
+                            log.debug { "verifyVP -> [!] Verifier logs: presentation_submission - ${presentationSubmission}" }.toString()
+                            log.debug { "verifyVP -> [!] Verifier logs: id_token - ${idToken}" }.toString()
+                            log.debug { "verifyVP -> [!] Verifier logs: state - ${stateResponse}" }.toString()
 
 
-                            requestContent = requestContent.trimIndent()
-
-                            var jsonString = URLDecoder.decode(requestContent, "UTF-8")
-                            // Replace special characters
-                            jsonString = jsonString.replace("%40", "@")
-                                .replace("%2F", "/")
-                                .replace("%2C", ",")
-                                .replace("%3A", ":")
-                                .replace("%3D", "=")
-                                .replace("%22", "\"")
-                                .replace("%7B", "{")
-                                .replace("%7D", "}")
-                                .replace("%5B", "[")
-                                .replace("%5D", "]")
-                                .replace("%2B", " ")
-                                .replace("%20", " ")  // Replace '+' for blank spaces
-
-                            var vpToken: String = ""
-                            var presentation_submission: String? = null
-                            var idToken: String = ""
-                            var stateResponse: String? = null
-
-                            var parts = jsonString.split('&')
-                            parts.forEach { part ->
-                                val (clave, valor) = part.split('=')
-                                when (clave){
-                                    "vp_token" -> vpToken = valor
-                                    "presentation_submission" -> presentation_submission = valor
-                                    "id_token" -> idToken = valor
-                                    "state" -> stateResponse = valor
-                                }
-                            }
-
-                            if (logs) {
-                                println("vp_token: $vpToken\n")
-                                println("presentation_submission: $presentation_submission\n")
-                                println("id_token: $idToken\n")
-                                println("state: $stateResponse\n")
-                            }
-
-
-                            // Verify ID_Token
-                            val verifyId_token = verifyJWT(idToken)
-                            println("ID_TOKEN Verification: $verifyId_token\n")
-
-                            if (stateResponse == actualState){
-                                if (logs){
-                                    println("The response is correct! Starting verification process...\n")
-                                }
-                            } else {
-                                println("The response is not valid or have expired\n")
-                                //TODO Send Error Response and exit
-                            }
+                            if (! isStateValid(stateResponse) || ! isProofValid(idToken,stateResponse,"nonce")) call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
 
                             // Get VerifiablePresentation object from vp_token
                             val vps = OIDCUtils.fromVpToken(vpToken)
                             var vp: VerifiablePresentation = vps.first()
 
 
-                            if (logs) {
-
-                                println("")
-                                println(rojo+"[!] Verifier logs: VerifiablePresentation - "+vp+reset)
-                                println("")
-                            }
-
-                            // EL siguiente código obtiene la primera credencial del conjunto de VP
-
-
+                            log.debug { "verifyVP -> [!] Verifier logs: VerifiablePresentation - ${vp}" }.toString()
 
                             // Verification process
                             val vcs = vp.verifiableCredential
-                            var vc: VerifiableCredential = VerifiableCredential()
+
                             if (vcs.isNullOrEmpty()){
                                 println("Could not retrieve any Verifiable Credential from Verifiable Presentation\n")
-                            } else{
-                                vc = vcs.first()
-                                if (logs){
-                                    println("VerifiableCredential: $vc")
-                                }
-
+                                call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
                             }
 
+                            val vc = vcs!!.first()
+                            log.debug { "verifyVP -> [!] Verifier logs: VerifiableCredential - ${vc}" }.toString()
 
 
+                            var policies: Map<String, String?> = emptyMap<String, String?>()
 
-                            //val vc = vp
+                            val usedPolicies = policies.ifEmpty { mapOf(PolicyRegistry.defaultPolicyId to null) }
+
+                            when {
+                                usedPolicies.keys.any { !PolicyRegistry.contains(it) } -> throw NoSuchElementException(
+                                    "Unknown verification policy specified: ${
+                                        usedPolicies.keys.minus(PolicyRegistry.listPolicies().toSet()).joinToString()
+                                    }"
+                                )
+                            }
+
+                            val policy = PolicyRegistry.getPolicyWithJsonArg("NameAndGenderPolicy", null as JsonObjectOPA?)
+
+                            val verificationResult = Auditor.getService().verify(vc, listOf(policy))
+                            val verifySign = credentialService.verify(vc.toString())
+
+                            if (verificationResult.result && verifySign.verified){
+
+                                val url = call.request.headers["url"]
+                                val method = call.request.headers["method"]
+                                val requester = call.request.headers["requester"]
+
+                                val expiration_time: Long = try {
+                                    System.getenv("expiration_time")?.toLong() ?: 60L
+                                } catch (e: NumberFormatException) {
+                                    60L
+                                }
+
+                                val accessToken =  SelfIssuedIDTokenUmu(
+                                    issuer = DID_BACKEND,
+                                    subject = vc.subjectId ?: "did",
+                                    client_id = null,
+                                    nonce = null,
+                                    expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
+                                    requester = requester,
+                                    method = method,
+                                    url = url,
+                                    _vp_token = null,
+                                    keyId = KEY_ALIAS
+                                ).sign()
+
+
+                                call.respond(HttpStatusCode.OK, accessToken)
+                            } else {
+                                call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
+                            }
+
+                        }
+
+                        post("/verifyCred"){
+
+                            println("\n$verde[+] Verifier: Verify a presentation.$reset\n")
+
+                            val parameters = call.receiveParameters()
+                            val cred = parameters["cred"]
+
+                            if (cred==null)  throw IllegalArgumentException("The credential isn't valid.")
+
+
+                            var vc: VerifiableCredential = cred.toVerifiableCredential()
 
                             var policies: Map<String, String?> = emptyMap<String, String?>()
 
@@ -372,19 +382,8 @@ class VerifierCommand :
 
                             val verificationResult = Auditor.getService().verify(vc, listOf(policy))
 
-                            if (logs){
-                                println("\nResults:\n")
-
-                                verificationResult.policyResults.forEach { (policy, result) ->
-                                    println("$policy:\t $result")
-                                }
-                                println("Verified:\t\t ${verificationResult.result}\n")
-                            }
-
                             if (verificationResult.result){
 
-                                println("Credentials Verified! Sending Access Token to Holder\n")
-                                val dids = DidService.listDids()
 
                                 val url = call.request.headers["url"]
                                 val method = call.request.headers["method"]
@@ -524,7 +523,7 @@ class VerifierCommand :
     fun verifyJWT(jwt: String): Boolean
     {
         val iss =  getValueFromJWT(jwt, "iss")
-        if(!local) DidService.importDidAndKeys(iss)
+        DidService.importDidAndKeys(iss)
         val result = JwtService.getService().verify(jwt).verified
         return result
     }
@@ -553,12 +552,26 @@ class VerifierCommand :
         return verifyJWT(jwt)
     }
 
-    fun initialization(){
+    fun createState(nonce: String, expirationDuration: Duration) {
+        val expirationTime = Instant.now().plus(expirationDuration)
+        stateMap[nonce] = expirationTime
+    }
 
+    fun isStateValid(nonce: String): Boolean {
+        val currentTime = Instant.now()
+        val expirationTime = stateMap[nonce]
+
+        return expirationTime != null && expirationTime.isAfter(currentTime)
+    }
+
+
+    fun initialization(){
+        val kid_key = keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
+        KEY_ALIAS = kid_key.id
         if (local){
-            DID_BACKEND = "did:fabric:37984e18582aaef1639614379786707115f740a623a23b3114d136bf3a6f8bae"
-            KEY_ALIAS = "d5ba4fb1ad8247afaa094114f5e03200"
-        }else
+            DID_BACKEND = DidService.create(DidMethod.key,KEY_ALIAS)
+        }
+        else
         {
             val attrNames_2: Set<String> = HashSet<String>(
                 Arrays.asList(
@@ -573,30 +586,13 @@ class VerifierCommand :
             val kid_fabric = keyServiceUmu.generate(attrNames_2)
             keyStoreUmu.addAlias(kid_fabric, kid_fabric.id)
 
-            val kid_key = keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
             keyService.addAlias(kid_key,kid_key.id)
-
             DID_BACKEND = DidService.createUmu(kid_fabric.id,DidMethod.fabric,null,kid_key.id)
-
-            KEY_ALIAS = kid_key.id
-            println("verifier did: "+DID_BACKEND)
-
         }
 
 
 
-
-
-
-
-
-
-
+        println("verifier did: "+DID_BACKEND)
 
     }
-
-
-
-
-
 }

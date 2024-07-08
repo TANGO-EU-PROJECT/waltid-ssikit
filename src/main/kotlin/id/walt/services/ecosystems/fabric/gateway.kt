@@ -21,7 +21,7 @@ object VDR {
     private val CERT_PATH = Paths.get(currentDirectory, "src/main/kotlin/id/walt/services/ecosystems/fabric/resources/cert.pem")
     private val KEY_DIR_PATH = Paths.get(currentDirectory, "src/main/kotlin/id/walt/services/ecosystems/fabric/resources/key")
     private val TLS_CERT_PATH = Paths.get(currentDirectory, "src/main/kotlin/id/walt/services/ecosystems/fabric/resources/ca.crt")
-    private const val PEER_ENDPOINT = "localhost"
+    private val PEER_ENDPOINT = System.getenv("PEER_ENDPOINT") ?: "127.0.0.1"
     private const val OVERRIDE_AUTH = "peer0.org1.example.com"
 
     private fun getGateway(): Gateway {
@@ -61,6 +61,7 @@ object VDR {
     }
 
     fun setValue(key: String, value: String) {
+        println("IP: "+PEER_ENDPOINT)
         try {
             val result = performAction {
                 it.submitTransaction("set", key, value)

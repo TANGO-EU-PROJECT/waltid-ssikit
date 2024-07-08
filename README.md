@@ -1,4 +1,4 @@
-# SSIKIT Tool Modification
+# Modification of the SSIKIT Tool
 
 This project modifies the SSIKIT tool to deploy the following components:
 
@@ -6,45 +6,59 @@ This project modifies the SSIKIT tool to deploy the following components:
 - Verifier
 - Web Wallet
 
+We can raise the components individually with:
+
+```bash
+./ssikit.sh <COMPONENT>
+```
+
+Where component can have the values `issuer, verifier, or web-wallet`.
+
+On the other hand, you can raise all 3 at the same time by executing:
+
+```bash
+./ssikit.sh fullApi
+```
+
 ## Installation
 
-Follow the steps below to set up the necessary environment to use the project's components.
+Follow the steps below to set up the necessary environment to use the project components.
 
 ### Hosts Configuration
 
-Modify the `/etc/hosts` file to add the following paths as localhost:
+Modify the `/etc/hosts` file to add the following routes as localhost:
 
 ```
 127.0.0.1 localhost umu-issuer umu-webWallet umu-verifier
 ```
 
-### HTTPS Certificates Import
+### HTTPS Certificate Importation
 
-The `/cert` folder contains 3 directories for importing the certificate of each component.
+#### Import to cacerts:
 
-#### Import to JDK:
-
-Execute the following command to import the certificates to the JDK:
+You must add the 3 certificates within your list of trusted Java certificates:
 
 ```bash
-sudo keytool -import -alias <NAME> -file <NAME>.crt -keystore /usr/lib/jvm/<YOUR_VERSION>/lib/security/cacerts -storepass changeit
+keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -nopromp
 ```
 
-- Verifier name -> `verifier`
-- Issuer name -> `issuer`
-- Web wallet name -> `webWallet`
+The certificates are located in ./cert/, inside the respective folders.
 
-#### Import to Browser:
+- alias issuer: issuer
+- alias verifier: verifier
+- alias web wallet: webWallet
 
-You must add the 3 certificates within your browser's list of trusted certificates.
+We can look at the `Dockerfile` to see how to generate the certificates anew and import them:
 
-#### Manual Import:
 
-Since these are self-signed certificates, you must manually trust them by accessing the following websites:
 
-- [https://umu-issuer:8443](https://umu-issuer:8443)
-- [https://umu-verifier:8444](https://umu-verifier:8444)
-- [https://umu-webWallet:8445](https://umu-webWallet:8445)
+#### Import to the browser:
+
+Since they are self-signed certificates, you must manually trust them by accessing the following websites:
+
+- [https://umu-issuer:30000](https://umu-issuer:30000)
+- [https://umu-verifier:30001](https://umu-verifier:30001)
+- [https://umu-webWallet:30002](https://umu-webWallet:30002)
 
 ### OPA Installation for Policy Management
 
@@ -56,13 +70,22 @@ chmod 755 ./opa
 mv opa /usr/bin
 ```
 
-### HYPERLEDGER
+### Configuration through environment variables
 
-The current version is intended to use a `hyperledger fabric` blockchain for uploading and querying DIDs. 
+When starting the application, it will autoconfigure by reading the following environment variables:
 
-To view the demo without the need to have the Hyperledger blockchain running, the code includes some static DIDs, which are also stored in the tool's internal storage.
+- ISSUER_PORT, VERIFIER_PORT, WALLET_PORT, to set the ports of each component.
+- MODE, if we assign it the value "ePassport" it will perform the ePassport flow.
+- LOCAL, if it has the value false it will use `did:fabric` which will store in a hyperledger fabric blockchain, if it is **true** it will use `did:key` and it will not be necessary to have the blockchain running.
 
-Four classes of the tool: `IssuerServer.kt, VerifierServer.kt, WebWallet.kt, WaltIdJsonLdCredentialService.kt` have a global variable called **"local"**, which must be set to **"true"** to perform tests without Hyperledger running.
+```bash
+export ISSUER_PORT=30000
+export VERIFIER_PORT=30001
+export WALLET_PORT=30002
+export MODE=Default
+export LOCAL=true
+```
+
 ### USAGE
 
 To see the commands with their options:
@@ -71,7 +94,7 @@ To see the commands with their options:
 ./ssikit.sh --help
 ```
 
-Launch all services `(issuer, verifier, and web wallet)`
+Raise all services `(issuer, verifier and web wallet)`
 
 ```bash
 ./ssikit fullApi
