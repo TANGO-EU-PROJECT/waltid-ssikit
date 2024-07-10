@@ -4,7 +4,11 @@ document.getElementById('api-endpoint').addEventListener('input', function () {
 
 document.getElementById('send-request').addEventListener('click', async function () {
     const endpoint = document.getElementById('api-endpoint').value;
-    const credentialOfferUri = "https://umu-issuer:30000/CredentialOffer";
+    const protocol = window.location.protocol;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/CredentialOffer`;
+
     console.log(endpoint)
     let params = new URLSearchParams({
         credential_offer_uri: credentialOfferUri
@@ -41,7 +45,10 @@ document.getElementById('send-request').addEventListener('click', async function
 });
 
 function generateQRCode() {
-    const credentialOfferUri = "https://umu-issuer:30000/CredentialOffer";
+    const protocol = window.location.protocol;
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/CredentialOffer`;
     const cookies = {
         clientId: document.cookie.split('; ').find(row => row.startsWith('clientId-umu-issuer='))?.split('=')[1],
         clientSecret: document.cookie.split('; ').find(row => row.startsWith('clientSecret-umu-issuer='))?.split('=')[1]

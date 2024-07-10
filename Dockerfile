@@ -49,9 +49,6 @@ RUN ldconfig
 
 COPY --from=build-env /appbuild/ /app/
 
-
-
-# Install OpenSSL and create certificates
 # Install OpenSSL and create certificates
 RUN apt-get update && apt-get install -y openssl \
     && mkdir -p /app/cert/issuer /app/cert/verifier /app/cert/webWallet \
@@ -66,18 +63,6 @@ RUN apt-get update && apt-get install -y openssl \
 RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
     && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
     && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
-
-RUN apt-get update && \
-    apt-get install -y openjdk-17-jdk
-
-# Import certificates to Java keystore java-17
-RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt \
-    && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt \
-    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /usr/lib/jvm/java-17-openjdk-amd64/lib/security/cacerts -storepass changeit -noprompt
-
-# Establecer JAVA_HOME y actualizar el PATH
-ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-ENV PATH=$JAVA_HOME/bin:$PATH
 
     ### Execution
 EXPOSE 7000 7001 7002 7003 7004 7010

@@ -1,5 +1,6 @@
 package id.walt.services.OIDC_UMU.wallet
 
+import com.auth0.jwt.JWT
 import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.nimbusds.oauth2.sdk.AuthorizationRequest
@@ -197,7 +198,6 @@ suspend fun VerfiablePresentation(client: HttpClient, credential: String, did: S
 
 suspend fun DeriveCredential(client: HttpClient, credential: String, did: String, last_authorization_request: AuthorizationRequest?, keyAlias: String, endpoint_verify_vp: String): String {
 
-
     val presentationDefinition = OIDC4VPService.getPresentationDefinition(last_authorization_request!!)
     val (credentialTypes,paths ,credentialSubjectAttributes) = extractPresentationDefinitionInfo(KlaxonWithConverters().toJsonString(presentationDefinition))
 
@@ -210,7 +210,6 @@ suspend fun DeriveCredential(client: HttpClient, credential: String, did: String
     val jsonString = credential.trimIndent()
     val jsonElement = Json.parseToJsonElement(jsonString)
     val issuer = jsonElement.jsonObject["issuer"]?.toString()?.replace("\"", "")
-
     if (issuer != null){
         val deriveVC = jsonLdCredentialService.deriveVC(credential, issuer = issuer, challenge = nonce, frame = frame, domain = null, expirationDate = null);
 
@@ -219,8 +218,9 @@ suspend fun DeriveCredential(client: HttpClient, credential: String, did: String
         val resp = OIDC4VPService.getSIOPResponseFor(last_authorization_request, did, listOf(presentation),keyAlias)
         val url2 = "http://oidc4vp-proxy:8080"+"/ngsi-ld/v1/entities/urn:a.*"
         val result = OIDC4VPService.postSIOPResponse_UMU(last_authorization_request, resp, CompatibilityMode.OIDC, "GET", url2, "requester de ejemplo",URI.create(endpoint_verify_vp))
-
-        return result
+        val decodedJWT = JWT.decode(result)
+        val url = decodedJWT.getClaim("url").asString()
+        return "$url?TokenJWT=$result"
     }
     else
     {

@@ -229,7 +229,7 @@ class VerifierCommand :
                             // Generación del SIOP request
                             val siopRequest = OIDC4VPService.createOIDC4VPRequest(
                                 wallet_url = client_url,
-                                redirect_uri = URI.create("https://umu-verifier:30001/verifyVP"),
+                                redirect_uri = URI.create("https://umu-verifier:$VERIFIER_PORT/verifyVP"),
                                 nonce = Nonce(state),
                                 response_type = ResponseType.parse(response_type),
                                 response_mode = ResponseMode(response_mode),
@@ -319,6 +319,7 @@ class VerifierCommand :
                             val policy = PolicyRegistry.getPolicyWithJsonArg("NameAndGenderPolicy", null as JsonObjectOPA?)
 
                             val verificationResult = Auditor.getService().verify(vc, listOf(policy))
+
                             val verifySign = credentialService.verify(vc.toString())
 
                             if (verificationResult.result && verifySign.verified){
@@ -341,7 +342,7 @@ class VerifierCommand :
                                     expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
                                     requester = requester,
                                     method = method,
-                                    url = url,
+                                    url = "https://umu-verifier:$VERIFIER_PORT/verify",
                                     _vp_token = null,
                                     keyId = KEY_ALIAS
                                 ).sign()
@@ -567,9 +568,10 @@ class VerifierCommand :
 
     fun initialization(){
         val kid_key = keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
-        KEY_ALIAS = kid_key.id
+
         if (local){
-            DID_BACKEND = DidService.create(DidMethod.key,KEY_ALIAS)
+            DID_BACKEND = DidService.create(DidMethod.key,kid_key.id)
+            KEY_ALIAS = DID_BACKEND
         }
         else
         {
@@ -588,6 +590,7 @@ class VerifierCommand :
 
             keyService.addAlias(kid_key,kid_key.id)
             DID_BACKEND = DidService.createUmu(kid_fabric.id,DidMethod.fabric,null,kid_key.id)
+            KEY_ALIAS = kid_key.id
         }
 
 

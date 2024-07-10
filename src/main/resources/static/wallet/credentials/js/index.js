@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   function fetchCredentials() {
-    fetch('https://umu-webWallet:30002/listCredentials')
+    fetch('/listCredentials')
       .then(response => response.json())
       .then(credentials => {
         displayCredentials(credentials);
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = new FormData();
     formData.append('nameCred', name);
 
-    fetch('https://umu-webWallet:30002/deleteCredential', {
+    fetch('/deleteCredential', {
     method: 'POST',
     body: formData
     })

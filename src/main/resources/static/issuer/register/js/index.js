@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(this);
 
         // Realizar la solicitud POST al servidor
-        fetch('https://umu-issuer:30000/registerBackend', {
+        fetch('/registerBackend', {
             method: 'POST',
             body: formData
         })

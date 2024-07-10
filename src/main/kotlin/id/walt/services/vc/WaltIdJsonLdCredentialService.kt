@@ -246,6 +246,8 @@ open class WaltIdJsonLdCredentialService : JsonLdCredentialService() {
         val issuer = vcObj.issuerId ?: throw NoSuchElementException("No issuer DID found for VC or VP")
         val vm = vcObj.proof?.verificationMethod ?: issuer
 
+        DidService.importDidAndKeys(vm)
+
         if (!DidService.importKeys(issuer)) {
             throw IllegalArgumentException("Could not resolve verification keys")
         }

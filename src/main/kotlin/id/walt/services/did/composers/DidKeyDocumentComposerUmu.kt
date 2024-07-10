@@ -7,14 +7,15 @@ import id.walt.crypto.convertMultiBase58BtcToRawKey
 import id.walt.crypto.getMultiCodecKeyCode
 import id.walt.model.VerificationMethod
 import id.walt.model.did.DidKey
+import id.walt.services.OIDC_UMU.sha256
 import id.walt.services.did.composers.models.DocumentComposerBaseParameter
 import java.util.*
 
 class DidKeyDocumentComposerUmu : DidDocumentComposerBase<DidKey>() {
 
     override fun make(parameter: DocumentComposerBaseParameter): DidKey {
-
-        val it = "${parameter.didUrl.did}#1"
+        val id = parameter.didUrl.did.substringAfter("did:keyumu:").sha256()
+        val it = "${parameter.didUrl.did}#$id"
         return DidKey(
             context = listOf(
                 "https://www.w3.org/ns/did/v1",

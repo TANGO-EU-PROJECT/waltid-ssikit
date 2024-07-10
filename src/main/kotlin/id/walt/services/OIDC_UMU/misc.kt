@@ -50,6 +50,7 @@ fun verifyJWT(jwt: String): Boolean
 
 // Comprueba que el nonce se haya firmado correctamente
 fun isProofValid(proof: String, nonce: String, fieldValue: String): Boolean {
+
     val iss =  getValueFromJWT(proof, "iss")
     DidService.importDidAndKeys(iss)
     val c_nonce = getValueFromJWT(proof, fieldValue)

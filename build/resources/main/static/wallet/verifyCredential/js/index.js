@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function fetchCredentials() {
-    fetch('https://umu-webWallet:30002/vpTokenDetails')
+    fetch('/vpTokenDetails')
       .then(response => response.text())
       .then(result => {
         const outputText = parseCredentialString(result)
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error fetching credentials:', error);
       });
 
-    fetch('https://umu-webWallet:30002/validCredentials')
+    fetch('/validCredentials')
       .then(response => response.json())
       .then(credentials => {
         displayCredentials(credentials);
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     emitButton.textContent = 'Comenzar proceso de emisión';
     emitButton.id = 'emit-button';
     emitButton.onclick = function() {
-      window.location.href = `https://umu-webWallet:30002/selectCredential?redirecturi=/verifyCredential`;
+      window.location.href = `/selectCredential?redirecturi=/verifyCredential`;
     };
   
     // Agrega el botón solo si aún no existe
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function selectCredential(credential) {
     console.log(credential);
 
-    fetch('https://umu-webWallet:30002/selectCredential', {
+    fetch('/selectCredential', {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain', 
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => response.text()) 
     .then(text => {
-      window.location.href = `https://umu-verifier:30001/verify?TokenJWT=${text}`;
+      window.location.href = text;
     })
     .catch(error => {
         console.error('Error:', error);

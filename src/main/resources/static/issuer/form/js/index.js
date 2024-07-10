@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(data => {
                     // Realizar una solicitud adicional para obtener datos previamente guardados, si existen
-                    fetch(`https://umu-issuer:30000/getCliendId-data?clientid=${clientId}`)
+                    fetch(`/getCliendId-data?clientid=${clientId}`)
                             .then(response => response.json())
                             .then(preloadedData => {
                                 buildForm(data, preloadedData);

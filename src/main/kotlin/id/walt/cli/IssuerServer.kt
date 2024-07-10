@@ -302,7 +302,7 @@ class IssuerCommand :
                             authOIDC.auth_ePassport(call,clientID,authRequestRegistry)
                         }
 
-                        get("getCliendId-data"){
+                        get("/getCliendId-data"){
                             val clientid = call.parameters["clientid"]
                             if (clientid == null) call.respond(HttpStatusCode.BadRequest, "clientId is required")
                             else {
@@ -385,21 +385,23 @@ class IssuerCommand :
             ))
 
         val kid_key = keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
-        keyService.addAlias(kid_key,kid_key.id)
-        KEY_ALIAS = kid_key.id
+
         val kid_fabric = keyServiceUmu.generate(attrNames_2)
-        keyStoreUmu.addAlias(kid_fabric, kid_fabric.id)
+        keyStoreUmu.addAlias(kid_fabric, kid_key.id)
         if (local){
-            DID_BACKEND_LOCAL_EdDSA = DidService.create(DidMethod.key)
+
+            DID_BACKEND_LOCAL_EdDSA = DidService.create(DidMethod.key,kid_key.id)
+            //keyService.addAlias(kid_key,DID_BACKEND_LOCAL_EdDSA)
+            KEY_ALIAS = DID_BACKEND_LOCAL_EdDSA
             DID_BACKEND_LOCAL_PSMS = DidService.createUmu(kid_fabric.id,DidMethod.keyumu)
+            println(DID_BACKEND_LOCAL_EdDSA)
             authOIDC = AuthOIDC(DID_BACKEND_LOCAL_EdDSA,KEY_ALIAS)
             tokenOIDC = TokenOIDC(DID_BACKEND_LOCAL_EdDSA,KEY_ALIAS)
             credentailOIDC = CredentialOIDC(DID_BACKEND_LOCAL_PSMS,kid_fabric.id)
         }
         else
         {
-
-
+            KEY_ALIAS = kid_key.id
             DID_BACKEND = DidService.createUmu(kid_fabric.id,DidMethod.fabric,null,kid_key.id)
             //DID_BACKEND = DidService.createUmuMultiKey(kid_key.id,15)
             println("issuer did: "+DID_BACKEND)

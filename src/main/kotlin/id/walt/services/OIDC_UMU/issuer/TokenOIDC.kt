@@ -72,7 +72,6 @@ class TokenOIDC (
             else if (authorizationHeader.startsWith("Bearer"))
             {
                 proof = authorizationHeader.removePrefix("Bearer ")
-
                 getValueFromJWT(proof, "iss")
             }
             else {

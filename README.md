@@ -76,7 +76,7 @@ When starting the application, it will autoconfigure by reading the following en
 
 - ISSUER_PORT, VERIFIER_PORT, WALLET_PORT, to set the ports of each component.
 - MODE, if we assign it the value "ePassport" it will perform the ePassport flow.
-- LOCAL, if it has the value false it will use `did:fabric` which will store in a hyperledger fabric blockchain, if it is **true** it will use `did:key` and it will not be necessary to have the blockchain running.
+- LOCAL, if it has the value **false** it will use `did:fabric` which will store in a hyperledger fabric blockchain, if it is **true** it will use `did:key` and it will not be necessary to have the blockchain running.
 
 ```bash
 export ISSUER_PORT=30000
@@ -98,4 +98,12 @@ Raise all services `(issuer, verifier and web wallet)`
 
 ```bash
 ./ssikit fullApi
+```
+
+### ePassport
+
+If we want to test the functionality of the ePassport, there is a small test application that simulates the operation of the application.
+
+```bash
+python3 ePassport.py
 ```

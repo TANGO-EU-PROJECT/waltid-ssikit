@@ -283,7 +283,6 @@ object DidService {
         isMainMethod: Boolean
     ): Boolean {
         val didSplit = didUrl.split(":")
-
         if((didSplit[1] == "keyumu" || didSplit[1] == "fabric")){
             val keyAlias = verificationMethod.id.substringAfter('#')
             if (verificationMethod.type == Ed25519VerificationKey2019.name){
@@ -318,15 +317,21 @@ object DidService {
         {
             val keyService = KeyService.getService()
             if (!keyService.hasKey(verificationMethod.id)) {
-                val keyId =
-                    tryImportJwk(didUrl, verificationMethod) ?: tryImportKeyBase58(didUrl, verificationMethod) ?: tryImportKeyPem(
-                        didUrl,
-                        verificationMethod
-                    ) ?: tryImportKeyMultibase(didUrl, verificationMethod) ?: return false
-                ContextManager.keyStore.addAlias(keyId, verificationMethod.id)
-                if (isMainMethod) {
-                    ContextManager.keyStore.addAlias(keyId, didUrl)
-                }
+                if (verificationMethod.type in setOf(
+                        Ed25519VerificationKey2018.name,
+                        Ed25519VerificationKey2019.name,
+                        Ed25519VerificationKey2020.name
+                    )){
+                        val keyId =
+                            tryImportJwk(didUrl, verificationMethod) ?: tryImportKeyBase58(didUrl, verificationMethod) ?: tryImportKeyPem(
+                                didUrl,
+                                verificationMethod
+                            ) ?: tryImportKeyMultibase(didUrl, verificationMethod) ?: return false
+                        ContextManager.keyStore.addAlias(keyId, verificationMethod.id)
+                        if (isMainMethod) {
+                            ContextManager.keyStore.addAlias(keyId, didUrl)
+                        }
+                    }
             }
             return true
         }
@@ -365,6 +370,7 @@ object DidService {
     }
 
     private fun tryImportKeyBase58(did: String, vm: VerificationMethod): KeyId? {
+
 
         vm.publicKeyBase58 ?: return null
 

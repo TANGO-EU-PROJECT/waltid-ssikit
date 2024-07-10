@@ -414,11 +414,11 @@ class WebWalletCommand:
                                 expectSuccess = false
                             }
                             // Función para generar una derivación de una credencial con zkp
-
                             val result = DeriveCredential(client, credential,DID_BACKEND,last_authorization_request,KEY_ALIAS,last_authorization_request.redirectionURI.toString())
                             // Función si queremos generar una presentación sin zkp
                             // val result = VerfiablePresentation(client, credential)
                             log.debug{"selectCredential -> [!] WebWallet logs: result - ${result}"}
+
                             call.respond(result)
 
                             client.close()
@@ -492,14 +492,18 @@ class WebWalletCommand:
 
     fun initialization(){
 
-        val kid_key = DidService.keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
-        KEY_ALIAS = kid_key.id
-        DidService.keyService.addAlias(kid_key,kid_key.id)
+
+
+        val kid_key = keyService.generate(KeyAlgorithm.EdDSA_Ed25519)
+
+
         if(MODE == "ePassport") ePassport = true
         if (local){
-            DID_BACKEND = DidService.create(DidMethod.key, KEY_ALIAS)
+            DID_BACKEND = DidService.create(DidMethod.key, kid_key.id)
+            KEY_ALIAS = DID_BACKEND
         }
         else {
+            KEY_ALIAS = kid_key.id
             val attrNames_2: Set<String> = HashSet(
                 Arrays.asList(
                     "http://schema.org/familyName",

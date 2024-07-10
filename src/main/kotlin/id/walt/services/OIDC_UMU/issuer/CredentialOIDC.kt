@@ -62,7 +62,6 @@ class CredentialOIDC (
             if (tokenRegistry[clientId] == null) throw IllegalArgumentException("The clientId isn't valid.")
 
             // Comprueba que el access token sea válido (cabecera de autenticación)
-
             if (!isAccessTokenValid(authorization, tokenRegistry)) throw IllegalArgumentException("The authorization header isn't valid.")
             // Comprueba que el nonce este firmado correctamente
 
@@ -110,6 +109,7 @@ class CredentialOIDC (
 
     // Comprueba la validez de un accesstoken (firma y tiempo de expiración)
     fun isAccessTokenValid(jwt: String, tokenRegistry: MutableMap<String, IssuerCommand.TokenInfo>): Boolean {
+
 
         val parts = jwt.split(".")
         if (parts.size != 3) return false

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formData.append('pass', document.getElementById("password").value);
 
         // Realizar la solicitud POST al servidor
-        fetch('https://umu-issuer:30000/loginBackend', {
+        fetch('/loginBackend', {
             method: 'POST',
             body: formData,
             credentials: 'include' // Necesario para recibir/setear cookies
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
             messageContainer.textContent = 'Login successful.';
             messageContainer.style.color = 'green';
 
-           window.location.href =  `https://umu-issuer:30000/`
+           window.location.href =  `/`
 
         })
         .catch(error => {
