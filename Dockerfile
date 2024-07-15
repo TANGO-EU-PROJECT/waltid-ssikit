@@ -26,10 +26,7 @@ COPY --from=dos2unix-env /convert/*.pem src/test/resources/key/
 # cache Gradle dependencies
 VOLUME /home/gradle/.gradle
 
-RUN if [ -z "$SKIP_TESTS" ]; \
-    then echo "* Running full build" && ./gradlew -i clean build installDist; \
-    else echo "* Building but skipping tests" && ./gradlew -i clean installDist -x test; \
-    fi
+RUN ./gradlew -i clean installDist -x test 
 
 # --- opa-env
 FROM docker.io/openpolicyagent/opa:0.50.2-static as opa-env
@@ -64,7 +61,11 @@ RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystor
     && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
     && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
 
-    ### Execution
-EXPOSE 7000 7001 7002 7003 7004 7010
+ENV ISSUER_PORT=30000
+ENV VERIFIER_PORT=30001
+ENV WALLET_PORT=30002
+ENV MODE=Default
+ENV LOCAL=true
 
-ENTRYPOINT ["/app/bin/waltid-ssikit"]
+
+CMD echo '127.0.0.1 umu-verifier umu-issuer umu-webWallet' >> /etc/hosts && /app/ssikit.sh fullApi
