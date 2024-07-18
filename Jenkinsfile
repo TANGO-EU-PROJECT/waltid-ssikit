@@ -9,9 +9,10 @@ pipeline {
     }
     environment {
       APP_NAME = "ssikit"
+      DOCKER_IMAGE = 'server'
       ARTIFACTORY_SERVER = "harbor.tango.rid-intrasoft.eu"
       ARTIFACTORY_DOCKER_REGISTRY = "harbor.tango.rid-intrasoft.eu/ssikit-waltid/"
-      BRANCH_NAME = "master"
+      BRANCH_NAME = main"
       DOCKER_IMAGE_TAG = "$APP_NAME:R${env.BUILD_ID}"
 	TAG = 'v1.0'    
 	KUBERNETES_NAMESPACE = 'ips-testing1'
@@ -25,6 +26,7 @@ pipeline {
       stage('Compile') {
           steps {
                 dir('app') {
+		    sh 'echo "JAVA_HOME=$JAVA_HOME"'
 		    sh './ssikit.sh build-st'
                 }
             }
@@ -63,8 +65,8 @@ pipeline {
       stage("Deployment"){
        	    steps {
                withKubeConfig([credentialsId: 'K8s-config-file' , https://kubernetes.tango.rid-intrasoft.eu:6443', namespace:'ips-testing1']) {
-                 sh 'kubectl apply -f rest-api-deployment.yml'
-		 sh 'kubectl apply -f rest-api-ingress.yml'
+                 sh 'kubectl apply -f deployment.yaml'
+		 sh 'kubectl apply -f service.yaml'
                  sh 'kubectl get pods'
                }
  
