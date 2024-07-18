@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wallet-ssikit-service
+spec:
+  type: NodePort
+  ports:
+    - name: https-issuer 
+      port: {{ .Values.ISSUER_PORT }}
+      targetPort: {{ .Values.ISSUER_PORT }}
+      nodePort: {{ .Values.ISSUER_PORT }}
+    - name: https-verifier 
+      port: {{ .Values.VERIFIER_PORT }}
+      targetPort: {{ .Values.VERIFIER_PORT }}
+      nodePort: {{ .Values.VERIFIER_PORT }}
+    - name: https-wallet 
+      port: {{ .Values.WALLET_PORT }}
+      targetPort: {{ .Values.WALLET_PORT }}
+      nodePort: {{ .Values.WALLET_PORT }}
+  selector:
+    app: wallet-ssikit

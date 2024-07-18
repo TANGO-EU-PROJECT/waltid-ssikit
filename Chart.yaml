@@ -1,0 +1,6 @@
+apiVersion: v2
+name: wallet
+description: SIIKIT TOOL -  WALLET / ISSUER / VERIFIER
+type: application
+version: 3.0.3
+appVersion: "3.0.3"

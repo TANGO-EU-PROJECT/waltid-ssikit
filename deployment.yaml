@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wallet-ssikit
+  labels:
+    app: wallet-ssikit
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: wallet-ssikit
+  template:
+    metadata:
+      labels:
+        app: wallet-ssikit
+    spec:
+      containers:
+      - name: ssi-core-dev-env
+        image: pablomarrtinez/wallet:v3.0.3
+        command: ["/bin/sh", "-c"]
+        args: 
+          - |
+            echo '127.0.0.1 umu-verifier umu-issuer umu-webWallet' >> /etc/hosts
+            /app/ssikit.sh fullApi
+            tail -f
+        env:
+        - name: ISSUER_PORT
+          value: "{{ .Values.ISSUER_PORT }}"
+        - name: VERIFIER_PORT
+          value: "{{ .Values.VERIFIER_PORT }}"
+        - name: WALLET_PORT
+          value: "{{ .Values.WALLET_PORT }}"
+        - name: PEER_ENDPOINT
+          value: "{{ .Values.FABRIC_ENDPOINT }}"
+        - name: MODE
+          value: "{{ .Values.MODE }}"
+        - name: LOCAL
+          value: "{{ .Values.LOCAL }}"
+        ports:
+        - containerPort: {{ .Values.ISSUER_PORT }}
+        - containerPort: {{ .Values.VERIFIER_PORT }}
+        - containerPort: {{ .Values.WALLET_PORT }}
+        readinessProbe:
+          httpGet:
+            path: "/"  
+            port: {{ .Values.WALLET_PORT }}
+            scheme: HTTPS
+          initialDelaySeconds: 15  
+          periodSeconds: 5 
+        volumeMounts:
+        - name: shared-files
+          mountPath: /app/src/main/kotlin/id/walt/services/ecosystems/fabric/resources/
+      volumes:
+      - name: shared-files
+        hostPath:
+          path: /mnt/shared
+          type: Directory
