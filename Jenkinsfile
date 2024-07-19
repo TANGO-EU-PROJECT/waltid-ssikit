@@ -25,7 +25,7 @@ pipeline {
     stages {
       stage('Compile') {
           steps {
-                dir('app') {
+            dir('app') {
 		    sh 'echo "JAVA_HOME=$JAVA_HOME"'
 		    sh './ssikit.sh build-st'
                 }
@@ -49,8 +49,8 @@ pipeline {
                     echo "***** Push Docker Image *****"
                     sh 'docker login ${ARTIFACTORY_SERVER} -u ${USERNAME} -p ${PASSWORD}'
                     sh 'docker image push ${ARTIFACTORY_DOCKER_REGISTRY}${DOCKER_IMAGE_TAG}'
-		    sh 'docker tag ${ARTIFACTORY_DOCKER_REGISTRY}${DOCKER_IMAGE_TAG} ${ARTIFACTORY_DOCKER_REGISTRY}${APP_NAME}:latest_dev'
-		    sh 'docker image push ${ARTIFACTORY_DOCKER_REGISTRY}${APP_NAME}:latest_dev'
+		    sh 'docker tag ${ARTIFACTORY_DOCKER_REGISTRY}${DOCKER_IMAGE_TAG} ${ARTIFACTORY_DOCKER_REGISTRY}${APP_NAME}:v1.0'
+		    sh 'docker image push ${ARTIFACTORY_DOCKER_REGISTRY}${APP_NAME}:v1.0'
                 }
             }
         }
@@ -58,7 +58,7 @@ pipeline {
       stage('Docker Remove Image locally') {
         steps {
                 sh 'docker rmi "$ARTIFACTORY_DOCKER_REGISTRY$DOCKER_IMAGE_TAG"'
-		sh 'docker rmi "$ARTIFACTORY_DOCKER_REGISTRY$APP_NAME:latest_dev"'
+		sh 'docker rmi "$ARTIFACTORY_DOCKER_REGISTRY$APP_NAME:v1.0"'
             }
         }
       
