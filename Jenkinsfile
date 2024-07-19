@@ -31,19 +31,21 @@ pipeline {
                 }
             }
         }
+    
 
 
         stage('Build image') { // build and tag docker image
             steps {
-		dir('app') {
-                echo 'Starting to build docker image'
-                script {
-                    def dockerImage = docker.build(ARTIFACTORY_DOCKER_REGISTRY + DOCKER_IMAGE_TAG) 
+                dir('app') {
+                        echo 'Starting to build docker image'
+                        script {
+                            def dockerImage = docker.build(ARTIFACTORY_DOCKER_REGISTRY + DOCKER_IMAGE_TAG) 
+                        }
+                    }
                 }
-            }
         }
 
-	stage("Push_Image"){
+	    stage("Push_Image"){
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'harbor-jenkins-creds', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]){
                     echo "***** Push Docker Image *****"
@@ -61,6 +63,7 @@ pipeline {
 		sh 'docker rmi "$ARTIFACTORY_DOCKER_REGISTRY$APP_NAME:v1.0"'
             }
         }
+    
       
       stage("Deployment"){
        	    steps {
@@ -74,5 +77,4 @@ pipeline {
       }
     }
 
-}
 }
