@@ -6,16 +6,16 @@ spec:
   type: NodePort
   ports:
     - name: https-issuer 
-      port: {{ .Values.ISSUER_PORT }}
-      targetPort: {{ .Values.ISSUER_PORT }}
-      nodePort: {{ .Values.ISSUER_PORT }}
+      port: 32000
+      targetPort: 32000
+      nodePort: 32000
     - name: https-verifier 
-      port: {{ .Values.VERIFIER_PORT }}
-      targetPort: {{ .Values.VERIFIER_PORT }}
-      nodePort: {{ .Values.VERIFIER_PORT }}
+      port: 32001
+      targetPort: 32001
+      nodePort: 32001
     - name: https-wallet 
-      port: {{ .Values.WALLET_PORT }}
-      targetPort: {{ .Values.WALLET_PORT }}
-      nodePort: {{ .Values.WALLET_PORT }}
+      port: 32002
+      targetPort: 32002
+      nodePort: 32002
   selector:
     app: wallet-ssikit

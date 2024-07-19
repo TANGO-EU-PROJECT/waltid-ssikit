@@ -5,7 +5,7 @@ metadata:
   labels:
     app: wallet-ssikit
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels:
       app: wallet-ssikit
@@ -25,25 +25,25 @@ spec:
             tail -f
         env:
         - name: ISSUER_PORT
-          value: "{{ .Values.ISSUER_PORT }}"
+          value: "32000"
         - name: VERIFIER_PORT
-          value: "{{ .Values.VERIFIER_PORT }}"
+          value: "32001"
         - name: WALLET_PORT
-          value: "{{ .Values.WALLET_PORT }}"
+          value: "32002"
         - name: PEER_ENDPOINT
-          value: "{{ .Values.FABRIC_ENDPOINT }}"
+          value: "192.168.49.1"
         - name: MODE
-          value: "{{ .Values.MODE }}"
+          value: "Default"
         - name: LOCAL
-          value: "{{ .Values.LOCAL }}"
+          value: "true"
         ports:
-        - containerPort: {{ .Values.ISSUER_PORT }}
-        - containerPort: {{ .Values.VERIFIER_PORT }}
-        - containerPort: {{ .Values.WALLET_PORT }}
+        - containerPort: 32000
+        - containerPort: 32001
+        - containerPort: 32002
         readinessProbe:
           httpGet:
             path: "/"  
-            port: {{ .Values.WALLET_PORT }}
+            port: 32002
             scheme: HTTPS
           initialDelaySeconds: 15  
           periodSeconds: 5 
