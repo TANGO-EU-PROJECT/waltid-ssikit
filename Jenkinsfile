@@ -12,7 +12,7 @@ pipeline {
       DOCKER_IMAGE = 'server'
       ARTIFACTORY_SERVER = "harbor.tango.rid-intrasoft.eu"
       ARTIFACTORY_DOCKER_REGISTRY = "harbor.tango.rid-intrasoft.eu/ssikit-waltid/"
-      BRANCH_NAME = main"
+      BRANCH_NAME = "main"
       DOCKER_IMAGE_TAG = "$APP_NAME:R${env.BUILD_ID}"
 	TAG = 'v1.0'    
 	KUBERNETES_NAMESPACE = 'ips-testing1'
