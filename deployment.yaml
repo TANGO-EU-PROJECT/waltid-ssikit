@@ -19,7 +19,7 @@ spec:
         image: pablomarrtinez/wallet:v3.0.4
         command: ["/bin/sh", "-c"]
         args: 
-          - /app/ssikit.sh fullApi
+          - tail -f
         env:
         - name: ISSUER_PORT
           value: "32000"
