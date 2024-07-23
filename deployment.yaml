@@ -16,12 +16,10 @@ spec:
     spec:
       containers:
       - name: ssi-core-dev-env
-        image: pablomarrtinez/wallet:v3.0.3
+        image: pablomarrtinez/wallet:v3.0.4
         command: ["/bin/sh", "-c"]
         args: 
-          - |
-            echo '127.0.0.1 umu-verifier umu-issuer umu-webWallet' >> /etc/hosts
-            /app/ssikit.sh fullApi
+          - /app/ssikit.sh fullApi
             tail -f
         env:
         - name: ISSUER_PORT

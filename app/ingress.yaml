@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wallet-ssikit-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu
+    http:
+      paths:
+      - path: /issuer(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: wallet-ssikit-service
+            port:
+              number: 32000
+      - path: /verifier(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: wallet-ssikit-service
+            port:
+              number: 32001
+      - path: /wallet(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: wallet-ssikit-service
+            port:
+              number: 32002
