@@ -55,7 +55,7 @@ class WebWalletCommand:
 
     // ENDPOINTS ISSUER
 
-    val ENDPOINT_OBTAIN_CREDENTIAL = "https://umu-webWallet:"+WALLET_PORT+"/New-Credential"
+    val ENDPOINT_OBTAIN_CREDENTIAL = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/New-Credential"
 
 
     // Salida mas legible
@@ -94,41 +94,15 @@ class WebWalletCommand:
     val local = System.getenv("LOCAL").toBoolean()
 
     override fun run() {
-
-        initialization()
-
-        runBlocking {
-            var keyStoreFile = File(keyStorePath)
-            val keyStorePassword = ""
-            val privateKeyPassword = ""
-            val keyAlias = "webWallet"
-            val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
-            keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
-
-            val environment = applicationEngineEnvironment {
-                val log = KotlinLogging.logger {}
-                connector {
-                    port = 9421
+        val environment = applicationEngineEnvironment {
+            connector {
+                port = WALLET_PORT  
+            }
+            module {
+                install(CORS) {
+                    anyHost()  
                 }
-                sslConnector(
-                    keyStore = keyStore,
-                    keyAlias = keyAlias,
-                    keyStorePassword = { keyStorePassword.toCharArray() },
-                    privateKeyPassword = { privateKeyPassword.toCharArray() }
-                ) {
-                    port = WALLET_PORT
-                }
-                module {
-
-                    install(CORS) {
-                        allowCredentials = true
-                        allowNonSimpleContentTypes = true
-                        allowSameOrigin = true
-                        anyHost()  // Permite solicitudes CORS desde cualquier origen
-                        allowHeader(HttpHeaders.ContentType)
-                    }
-                    
-                    routing {
+                routing {
 
                         /*
                         
