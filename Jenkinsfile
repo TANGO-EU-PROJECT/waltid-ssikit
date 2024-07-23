@@ -34,7 +34,7 @@ pipeline {
     
 
 
-        stage('Build image') { // build and tag docker image
+        stage('Build image') { 
             steps {
                 dir('app') {
                         echo 'Starting to build docker image'

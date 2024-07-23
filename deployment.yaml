@@ -20,7 +20,6 @@ spec:
         command: ["/bin/sh", "-c"]
         args: 
           - /app/ssikit.sh fullApi
-            tail -f
         env:
         - name: ISSUER_PORT
           value: "32000"
