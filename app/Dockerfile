@@ -44,15 +44,22 @@ COPY --from=opa-env /opa /usr/local/bin/opa
 COPY --from=iota-env /usr/local/lib/libwaltid_iota_identity_wrapper.so /usr/local/lib/libwaltid_iota_identity_wrapper.so
 RUN ldconfig
 
-# Install OpenSSL and create certificates
-#RUN apt-get update && apt-get install -y openssl \
-#    && mkdir -p /app/cert/ \
-#    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/cert.key -out /app/cert/cert.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=issuer/CN=waltid" -addext "subjectAltName = DNS:wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu,IP:127.0.0.1" \
-#    && openssl pkcs12 -export -in /app/cert/cert.crt -inkey /app/cert/cert.key -out /app/cert/cert.p12 -name cert -passout pass: \
-
 COPY --from=build-env /appbuild/ /app/
 
+# Install OpenSSL and create certificates
+RUN apt-get update && apt-get install -y openssl \
+    && mkdir -p /app/cert/issuer /app/cert/verifier /app/cert/webWallet \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/issuer/issuer.key -out /app/cert/issuer/issuer.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=issuer/CN=umu-issuer" -addext "subjectAltName = DNS:umu-issuer,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/issuer/issuer.crt -inkey /app/cert/issuer/issuer.key -out /app/cert/issuer/issuer.p12 -name issuer -passout pass: \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/verifier/verifier.key -out /app/cert/verifier/verifier.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=verifier/CN=umu-verifier" -addext "subjectAltName = DNS:umu-verifier,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/verifier/verifier.crt -inkey /app/cert/verifier/verifier.key -out /app/cert/verifier/verifier.p12 -name verifier -passout pass: \
+    && openssl req -nodes -x509 -sha256 -newkey rsa:4096 -keyout /app/cert/webWallet/webWallet.key -out /app/cert/webWallet/webWallet.crt -days 356 -subj "/C=ES/ST=Murcia/L=Spain/O=walt.id/OU=webWallet/CN=umu-webWallet" -addext "subjectAltName = DNS:umu-webWallet,IP:127.0.0.1" \
+    && openssl pkcs12 -export -in /app/cert/webWallet/webWallet.crt -inkey /app/cert/webWallet/webWallet.key -out /app/cert/webWallet/webWallet.p12 -name webWallet -passout pass:
+
 # Import certificates to Java keystore
+RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
 RUN keytool -importcert -file /app/cert/cert.crt -alias cert -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt 
 
 ENV ISSUER_PORT=30000

@@ -55,7 +55,8 @@ class WebWalletCommand:
 
     // ENDPOINTS ISSUER
 
-    val ENDPOINT_OBTAIN_CREDENTIAL = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
+    val ENDPOINT_OBTAIN_CREDENTIAL = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
+
 
     // Salida mas legible
     val verde = "\u001B[32m"
@@ -65,7 +66,7 @@ class WebWalletCommand:
     // DID
     val jwtService = WaltIdJwtService()
     val currentWorkingDir = System.getProperty("user.dir")
-    val keyStorePath = "$currentWorkingDir/cert/cert.p12"
+    val keyStorePath = "$currentWorkingDir/cert/webWallet/webWallet.p12"
 
     data class IssuerCredentials(
         var clientid: String,
@@ -100,14 +101,14 @@ class WebWalletCommand:
             var keyStoreFile = File(keyStorePath)
             val keyStorePassword = ""
             val privateKeyPassword = ""
-            val keyAlias = "cert"
+            val keyAlias = "webWallet"
             val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
             keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
 
             val environment = applicationEngineEnvironment {
                 val log = KotlinLogging.logger {}
                 connector {
-                    port = 9421
+                    port = WALLET_PORT
                 }
                 sslConnector(
                     keyStore = keyStore,
@@ -115,7 +116,7 @@ class WebWalletCommand:
                     keyStorePassword = { keyStorePassword.toCharArray() },
                     privateKeyPassword = { privateKeyPassword.toCharArray() }
                 ) {
-                    port = WALLET_PORT
+                    port = WALLET_PORT+100
                 }
                 module {
 

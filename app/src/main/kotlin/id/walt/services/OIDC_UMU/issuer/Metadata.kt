@@ -268,9 +268,9 @@ fun checkValidMetadata(metadata: Metadata): Boolean {
 
 
     fun generateMetadata(ISSUER_PORT: Int, credentialTypes: Array<String>): String {
-    val credentialIssuer = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/"
-    val credentialEndpoint = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/credential"
-    val authorizationServers = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth"
+    val credentialIssuer = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/"
+    val credentialEndpoint = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/credential"
+    val authorizationServers = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth"
 
     val credentialsConfigurations = credentialTypes.joinToString(separator = ",\n\t\t") { credentialType ->
         val scope = if (credentialType.endsWith("Credential")) {
@@ -302,9 +302,9 @@ fun generateAuthMetadata(ISSUER_PORT: Int): String {
 
     return """
             { 
-             "issuer":"https://umu-issuer:$ISSUER_PORT", 
-             "authorization_endpoint": ["https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-late","https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-ePassport" ,"https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-late", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-ePassport"], 
-             "token_endpoint":"https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/token", 
+             "issuer":"http://umu-issuer:$ISSUER_PORT", 
+             "authorization_endpoint": ["http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth", "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-late","http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-ePassport" ,"http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code", "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-late", "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-ePassport"], 
+             "token_endpoint":"http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/token", 
              "scopes_supported":["openid"], 
              "response_types_supported":["vp_token","id_token","code","token"], 
              "response_modes_supported":["query"], 
@@ -329,7 +329,7 @@ fun generateAuthMetadata(ISSUER_PORT: Int): String {
 
 fun generateCredentialOffer(ISSUER_PORT: Int, credentialTypes: Array<String>): String {
     val json = buildJsonObject {
-        put("credential_issuer", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/")
+        put("credential_issuer", "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/")
         putJsonArray("credential_configuration_ids") {
             credentialTypes.forEach { add(it) }
         }

@@ -131,7 +131,7 @@ class IssuerCommand :
 
     // Directorio con los certificados https
     val currentWorkingDir = System.getProperty("user.dir")
-    val keyStorePath = "$currentWorkingDir/cert/cert.p12"
+    val keyStorePath = "$currentWorkingDir/cert/issuer/issuer.p12"
 
     // Salida mas legible
     val verde = "\u001B[32m"
@@ -151,14 +151,14 @@ class IssuerCommand :
 
             val keyStorePassword = ""
             val privateKeyPassword = ""
-            val keyAlias = "cert"
+            val keyAlias = "issuer"
             val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
             keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
 
             val environment = applicationEngineEnvironment {
                 val log = KotlinLogging.logger {}
                 connector {
-                    port = 4869
+                    port = ISSUER_PORT
                 }
                 sslConnector(
                     keyStore = keyStore,
@@ -166,7 +166,7 @@ class IssuerCommand :
                     keyStorePassword = { keyStorePassword.toCharArray() },
                     privateKeyPassword = { privateKeyPassword.toCharArray() }
                 ) {
-                    port = ISSUER_PORT
+                    port = ISSUER_PORT+100
                 }
                 module {
 
