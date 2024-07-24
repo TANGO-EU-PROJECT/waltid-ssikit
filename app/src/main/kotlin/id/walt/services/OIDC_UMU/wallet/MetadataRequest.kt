@@ -15,7 +15,7 @@ import io.ktor.server.response.*
 
 class MetadataRequest (){
     private val WALLET_PORT = System.getenv("WALLET_PORT").toInt()
-    val ENDPOINT_START_PROCESS = "https://umu-webWallet:"+WALLET_PORT+"/selectCredential"
+    val ENDPOINT_START_PROCESS = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/selectCredential"
     fun getIssuerCredentials(
         call: ApplicationCall
         ): WebWalletCommand.IssuerCredentials? {

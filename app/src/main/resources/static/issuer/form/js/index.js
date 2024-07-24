@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const clientId = urlParams.get('clientId');
 
     if (templateName && clientId) {
-        fetch(`/static/issuer/form/templates/${templateName}.json`)
+        fetch(`/issuer/static/issuer/form/templates/${templateName}.json`)
                 .then(response => response.json())
                 .then(data => {
                     // Realizar una solicitud adicional para obtener datos previamente guardados, si existen
-                    fetch(`/getCliendId-data?clientid=${clientId}`)
+                    fetch(`/issuer/getCliendId-data?clientid=${clientId}`)
                             .then(response => response.json())
                             .then(preloadedData => {
                                 buildForm(data, preloadedData);
@@ -44,11 +44,11 @@ function buildForm(template, preloadedData) {
             type: urlParams.get('template'),
             template: userData
         };
-        let url = "/code"
+        let url = "/issuer/code"
 
         if (urlParams.get('state')) {
             requestBody.state = urlParams.get('state');
-            url = "/code-late"
+            url = "/issuer/code-late"
         }
 
         fetch(url, {

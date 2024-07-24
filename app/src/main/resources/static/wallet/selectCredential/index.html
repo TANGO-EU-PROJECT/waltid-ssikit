@@ -60,7 +60,7 @@
         fetchCredentials();
 
         function fetchCredentials() {
-            const url = '/list-credentials';
+            const url = '/wallet/list-credentials';
             fetch(url, {
                 method: 'GET',
                 credentials: 'include'
@@ -72,7 +72,7 @@
                             content.then(text => {
                                 if (text.startsWith("Error:")) {
                                     const errorMessage = text.substring(6).trim();
-                                    window.location.href = `/error?error=${encodeURIComponent(errorMessage)}`;
+                                    window.location.href = `/wallet/error?error=${encodeURIComponent(errorMessage)}`;
                                 }
                                 // Lanza un error si no es un mensaje de error formateado
                                 throw new Error(text);
@@ -120,7 +120,7 @@
             }
 
             // Realizar la solicitud POST
-            fetch('/credentialParameters', {
+            fetch('/wallet/credentialParameters', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'

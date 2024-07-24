@@ -229,7 +229,7 @@ class VerifierCommand :
                             // Generación del SIOP request
                             val siopRequest = OIDC4VPService.createOIDC4VPRequest(
                                 wallet_url = client_url,
-                                redirect_uri = URI.create("http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verifyVP"),
+                                redirect_uri = URI.create("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verifyVP"),
                                 nonce = Nonce(state),
                                 response_type = ResponseType.parse(response_type),
                                 response_mode = ResponseMode(response_mode),
@@ -342,7 +342,7 @@ class VerifierCommand :
                                     expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
                                     requester = requester,
                                     method = method,
-                                    url = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verify",
+                                    url = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verify",
                                     _vp_token = null,
                                     keyId = KEY_ALIAS
                                 ).sign()

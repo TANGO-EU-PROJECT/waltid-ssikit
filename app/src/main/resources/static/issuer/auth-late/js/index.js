@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const messageContainer = document.getElementById('messageContainer');
             messageContainer.textContent = '';
             const formData = new FormData(this);
-            fetch('/registerBackend', {
+            fetch('/issuer/registerBackend', {
                 method: 'POST',
                 body: formData
             })
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const formData = new FormData();
             formData.append('user', document.getElementById("username").value);
             formData.append('pass', document.getElementById("password").value);
-            fetch('/loginBackend', {
+            fetch('/issuer/loginBackend', {
                 method: 'POST',
                 body: formData,
                 credentials: 'include'
@@ -116,12 +116,12 @@ document.addEventListener("DOMContentLoaded", function() {
                         return response.json();
                     })
                     .then(({ clientId, clientSecret }) => {
-                        document.cookie = `clientId-umu-issuer=${clientId}; path=/; domain=umu-issuer; samesite=None; Secure`;
-                        document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; domain=umu-issuer; samesite=None; Secure`;
+                        document.cookie = `clientId-umu-issuer=${clientId}; path=/; domain=wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu; samesite=None; Secure`;
+                        document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; domain=wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu; samesite=None; Secure`;
 
                         const state = new URLSearchParams(window.location.search).get('state');
                         const template = new URLSearchParams(window.location.search).get('template');
-                        window.location.href = `/form?clientId=${clientId}&state=${state}&template=${template}`;
+                        window.location.href = `/issuer/form?clientId=${clientId}&state=${state}&template=${template}`;
                     })
                     .catch(error => {
                         messageContainer.textContent = error.message;

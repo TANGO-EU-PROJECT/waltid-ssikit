@@ -55,7 +55,7 @@ class WebWalletCommand:
 
     // ENDPOINTS ISSUER
 
-    val ENDPOINT_OBTAIN_CREDENTIAL = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
+    val ENDPOINT_OBTAIN_CREDENTIAL = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
 
 
     // Salida mas legible
