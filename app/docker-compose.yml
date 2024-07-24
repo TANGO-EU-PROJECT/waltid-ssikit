@@ -6,7 +6,7 @@ services:
             context: .
             args:
                 SKIP_TESTS: "true"
-        entrypoint: /app/bin/waltid-ssikit fullApi
+        entrypoint: tail -f
 
         volumes:
             - ./data/policies:/app/data/policies

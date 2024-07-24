@@ -75,7 +75,7 @@ class VerifierCommand :
 
 
     val currentWorkingDir = System.getProperty("user.dir")
-    val keyStorePath = "$currentWorkingDir/cert/verifier/verifier.p12"
+    val keyStorePath = "$currentWorkingDir/cert/cert.p12"
     private val credentialService = JsonLdCredentialService.getService()
 
     // DID del wallet
@@ -95,7 +95,7 @@ class VerifierCommand :
             var keyStoreFile = File(keyStorePath)
             val keyStorePassword = ""
             val privateKeyPassword = ""
-            val keyAlias = "verifier"
+            val keyAlias = "cert"
             val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
             keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
 
@@ -229,7 +229,7 @@ class VerifierCommand :
                             // Generación del SIOP request
                             val siopRequest = OIDC4VPService.createOIDC4VPRequest(
                                 wallet_url = client_url,
-                                redirect_uri = URI.create("https://umu-verifier:$VERIFIER_PORT/verifyVP"),
+                                redirect_uri = URI.create("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verifyVP"),
                                 nonce = Nonce(state),
                                 response_type = ResponseType.parse(response_type),
                                 response_mode = ResponseMode(response_mode),
@@ -342,7 +342,7 @@ class VerifierCommand :
                                     expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
                                     requester = requester,
                                     method = method,
-                                    url = "https://umu-verifier:$VERIFIER_PORT/verify",
+                                    url = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verify",
                                     _vp_token = null,
                                     keyId = KEY_ALIAS
                                 ).sign()

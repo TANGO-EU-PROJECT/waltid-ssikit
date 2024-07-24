@@ -75,7 +75,7 @@ class AuthorizationRequest(
         val responseType = "code"
         val scope = "openid"
         val codeChallengeMethod = "S256"
-        val redirectUri = URLEncoder.encode("https://umu-webWallet:$WALLET_PORT/New-Credential", StandardCharsets.UTF_8.name())
+        val redirectUri = URLEncoder.encode("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential", StandardCharsets.UTF_8.name())
 
         val authorizationDetails = mapOf(
             "type" to "openid_credential",
@@ -125,7 +125,7 @@ class AuthorizationRequest(
         val responseType = "code"
         val scope = "openid"
         val codeChallengeMethod = "S256"
-        val redirectUri = URLEncoder.encode("https://umu-webWallet:$WALLET_PORT/New-Credential", StandardCharsets.UTF_8.name())
+        val redirectUri = URLEncoder.encode("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential", StandardCharsets.UTF_8.name())
 
         val authorizationDetails = mapOf(
             "type" to "openid_credential",

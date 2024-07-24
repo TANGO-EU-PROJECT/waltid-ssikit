@@ -55,8 +55,7 @@ class WebWalletCommand:
 
     // ENDPOINTS ISSUER
 
-    val ENDPOINT_OBTAIN_CREDENTIAL = "http://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/New-Credential"
-
+    val ENDPOINT_OBTAIN_CREDENTIAL = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
 
     // Salida mas legible
     val verde = "\u001B[32m"
@@ -66,7 +65,7 @@ class WebWalletCommand:
     // DID
     val jwtService = WaltIdJwtService()
     val currentWorkingDir = System.getProperty("user.dir")
-    val keyStorePath = "$currentWorkingDir/cert/webWallet/webWallet.p12"
+    val keyStorePath = "$currentWorkingDir/cert/cert.p12"
 
     data class IssuerCredentials(
         var clientid: String,
@@ -94,18 +93,44 @@ class WebWalletCommand:
     val local = System.getenv("LOCAL").toBoolean()
 
     override fun run() {
-        val environment = applicationEngineEnvironment {
-            connector {
-                port = WALLET_PORT  
-            }
-            module {
-                install(CORS) {
-                    anyHost()  
+
+        initialization()
+
+        runBlocking {
+            var keyStoreFile = File(keyStorePath)
+            val keyStorePassword = ""
+            val privateKeyPassword = ""
+            val keyAlias = "cert"
+            val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
+            keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
+
+            val environment = applicationEngineEnvironment {
+                val log = KotlinLogging.logger {}
+                connector {
+                    port = 9421
                 }
-                routing {
+                sslConnector(
+                    keyStore = keyStore,
+                    keyAlias = keyAlias,
+                    keyStorePassword = { keyStorePassword.toCharArray() },
+                    privateKeyPassword = { privateKeyPassword.toCharArray() }
+                ) {
+                    port = WALLET_PORT
+                }
+                module {
+
+                    install(CORS) {
+                        allowCredentials = true
+                        allowNonSimpleContentTypes = true
+                        allowSameOrigin = true
+                        anyHost()  // Permite solicitudes CORS desde cualquier origen
+                        allowHeader(HttpHeaders.ContentType)
+                    }
+
+                    routing {
 
                         /*
-                        
+
                         Endpoints para obtener el frontend del wallet
 
                         */
@@ -207,7 +232,7 @@ class WebWalletCommand:
                         }
 
                         /*
-                        
+
                         Endpoints del backend
 
                         */
@@ -228,7 +253,7 @@ class WebWalletCommand:
                                 call.respond(generateMetadataJson(metadata!!))
                             }
                             else {
-                            call.respond(HttpStatusCode.InternalServerError, "Error: Credential offer is not initialized.")
+                                call.respond(HttpStatusCode.InternalServerError, "Error: Credential offer is not initialized.")
                             }
                         }
 
@@ -242,7 +267,7 @@ class WebWalletCommand:
                             }
                         }
 
-                        /*                         
+                        /*
 
                             Comienza el proceso apra obtener el auth Token (este endpoint devuelve la url donde se
                             especificarán los parámetros del credential Subject)
@@ -268,7 +293,7 @@ class WebWalletCommand:
 
 
                         /*
-                        
+
                             Completa la creación de la credencial:
                                 -1: Realiza el segundo paso para obtener el auth token (especificando los valores del credential Subject)
                                 -2: Intercambiar el auth_token por el access_token.
@@ -308,7 +333,7 @@ class WebWalletCommand:
                         }
 
                         /*
-                        
+
                             Endpoint para almacenar una credencial que hemos recibido del issuer
 
                         */
@@ -323,7 +348,7 @@ class WebWalletCommand:
                         }
 
                         /*
-                        
+
                             Elimina una credencial que se encuentra almacenada en el wallet
 
                         */
@@ -339,8 +364,8 @@ class WebWalletCommand:
                         }
 
                         /*
-                        
-                            Parsea los datos del último vp token (política solicitada) y lo devuelve para que se muestre por 
+
+                            Parsea los datos del último vp token (política solicitada) y lo devuelve para que se muestre por
                             pantalla (demo).
 
                         */
@@ -352,7 +377,7 @@ class WebWalletCommand:
                         }
 
                         /*
-                            Comprueba del listado de credenciales que hay en local cuales cumples la política 
+                            Comprueba del listado de credenciales que hay en local cuales cumples la política
                             solicitada.
 
                             Devuelve el listado que cumplen la política
@@ -373,7 +398,7 @@ class WebWalletCommand:
                         }
 
                         /*
-                        
+
                             Selecciona una credencial para generar la presentación que satisface la política solicitada. Además se comunica
                             con el verifier para generar el JWT que autorice al usuario.
 
@@ -502,4 +527,3 @@ class WebWalletCommand:
         println("webwallet did: "+DID_BACKEND)
     }
 }
-

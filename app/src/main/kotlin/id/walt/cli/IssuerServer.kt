@@ -131,7 +131,7 @@ class IssuerCommand :
 
     // Directorio con los certificados https
     val currentWorkingDir = System.getProperty("user.dir")
-    val keyStorePath = "$currentWorkingDir/cert/issuer/issuer.p12"
+    val keyStorePath = "$currentWorkingDir/cert/cert.p12"
 
     // Salida mas legible
     val verde = "\u001B[32m"
@@ -151,7 +151,7 @@ class IssuerCommand :
 
             val keyStorePassword = ""
             val privateKeyPassword = ""
-            val keyAlias = "issuer"
+            val keyAlias = "cert"
             val keyStore = KeyStore.getInstance(KeyStore.getDefaultType())
             keyStore.load(FileInputStream(keyStoreFile), keyStorePassword.toCharArray())
 
