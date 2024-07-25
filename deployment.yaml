@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ssi-core-dev-env
-        image: pablomarrtinez/wallet:v3.0.4
+        image: pablomarrtinez/wallet:v3.1.0
         command: ["/bin/sh", "-c"]
         args: 
           - tail -f
