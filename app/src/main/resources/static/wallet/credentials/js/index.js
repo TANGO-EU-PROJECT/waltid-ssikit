@@ -68,13 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
     method: 'POST',
     body: formData
     })
-    .then(response => response.text()) 
-    .then(text => {
-    console.log(text); 
-    window.location.href = "/wallet/credentials";
+      .then(response => response.text())
+      .then(text => {
+        console.log(text);
+        window.location.href = "/wallet/credentials";
     })
     .catch(error => {
-    console.error('Error:', error);
+      console.error('Error:', error);
     });
 
   }
