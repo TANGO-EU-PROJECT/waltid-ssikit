@@ -239,17 +239,11 @@ class WebWalletCommand:
                         */
 
                         get("/openid-credential-offer") {
-                            println(1)
                             val issuerCred = metadataRequest.getIssuerCredentials(call)
-                            println(2)
                             if (issuerCred != null) issuerCredentials = issuerCred
-                            println(3)
                             val credentialOff = metadataRequest.getCredentialOffer(call)
-                            println(6)
                             if (credentialOff != null){
-                                println(7)
                                 credentialOffer = credentialOff
-                                println(8)
                                 metadata = metadataRequest.getMetadata(call,credentialOffer)
                             }
                         }
