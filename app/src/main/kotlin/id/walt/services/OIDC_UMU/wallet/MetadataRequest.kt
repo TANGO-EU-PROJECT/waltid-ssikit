@@ -58,6 +58,7 @@ class MetadataRequest (){
 
 
             } catch (e: Exception) {
+                println("error: "+e)
                 client.close()
                 call.respondText("Failed to fetch credential offer: ${e.message}", status = HttpStatusCode.InternalServerError)
                 return  null
