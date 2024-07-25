@@ -50,7 +50,9 @@ class MetadataRequest (){
                 println(credentialOfferUri)
                 val response: HttpResponse = client.get(credentialOfferUri)
                 val responseBody = response.bodyAsText()
+                println("RESPUESTA 2 :"+responseBody)
                 val credentialOffer = parseCredentialOffer(responseBody)
+                println(credentialOffer)
                 client.close()
                 return credentialOffer
 

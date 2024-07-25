@@ -335,6 +335,7 @@ fun generateAuthMetadata(ISSUER_PORT: Int): String {
 }
 
 fun generateCredentialOffer(ISSUER_PORT: Int, credentialTypes: Array<String>): String {
+    println("SOLICITUD RECIBIDA")
     val json = buildJsonObject {
         put("credential_issuer", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/")
         putJsonArray("credential_configuration_ids") {
@@ -349,6 +350,7 @@ fun generateCredentialOffer(ISSUER_PORT: Int, credentialTypes: Array<String>): S
             }
         }
     }
+    println("RESPUESTA"+json.toString())
     return json.toString()
 }
 
