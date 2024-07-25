@@ -59,7 +59,8 @@ RUN apt-get update && apt-get install -y openssl \
 # Import certificates to Java keystore
 RUN keytool -importcert -file /app/cert/issuer/issuer.crt -alias issuer -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
     && keytool -importcert -file /app/cert/verifier/verifier.crt -alias verifier -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
-    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
+    && keytool -importcert -file /app/cert/webWallet/webWallet.crt -alias webWallet -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt \
+    && keytool -importcert -file /app/cert/cert/cert.crt -alias cert -keystore /opt/java/openjdk/lib/security/cacerts -storepass changeit -noprompt
 
 
 ENV ISSUER_PORT=30000

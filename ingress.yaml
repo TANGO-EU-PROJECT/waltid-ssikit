@@ -34,4 +34,4 @@ spec:
   tls:
   - hosts:
     - wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu
-    secretName: wallet-secret
+    secretName: wallet-cert
