@@ -7,7 +7,7 @@ document.getElementById('send-request').addEventListener('click', async function
     const protocol = window.location.protocol;
     const hostname = window.location.hostname;
     const port = window.location.port;
-    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/CredentialOffer`;
+    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/issuer/CredentialOffer`;
 
     console.log(endpoint)
     let params = new URLSearchParams({
@@ -48,7 +48,7 @@ function generateQRCode() {
     const protocol = window.location.protocol;
     const hostname = window.location.hostname;
     const port = window.location.port;
-    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/CredentialOffer`;
+    const credentialOfferUri = `${protocol}//${hostname}${port ? `:${port}` : ''}/issuer/CredentialOffer`;
     const cookies = {
         clientId: document.cookie.split('; ').find(row => row.startsWith('clientId-umu-issuer='))?.split('=')[1],
         clientSecret: document.cookie.split('; ').find(row => row.startsWith('clientSecret-umu-issuer='))?.split('=')[1]
