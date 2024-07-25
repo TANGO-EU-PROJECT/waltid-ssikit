@@ -34,9 +34,10 @@ class MetadataRequest (){
     suspend fun getCredentialOffer(
         call: ApplicationCall
     ): CredentialOffer? {
+        println(4)
         // Extrae el parámetro 'credential_offer_uri' de la solicitud GET
         val credentialOfferUri = call.request.queryParameters["credential_offer_uri"]
-
+        println(5)
         if (credentialOfferUri != null) {
             val client = HttpClient() {
                 install(ContentNegotiation) {
@@ -46,6 +47,7 @@ class MetadataRequest (){
             }
 
             try {
+                println(credentialOfferUri)
                 val response: HttpResponse = client.get(credentialOfferUri)
                 val responseBody = response.bodyAsText()
                 val credentialOffer = parseCredentialOffer(responseBody)
@@ -76,8 +78,10 @@ class MetadataRequest (){
             }
             expectSuccess = false
         }
+        println(9)
         val metadata = fetchMetadataRequest(client,credentialOffer.credential_issuer)
-
+        println(10)
+        println(ENDPOINT_START_PROCESS)
         call.respondText(ENDPOINT_START_PROCESS)
         client.close()
         return metadata

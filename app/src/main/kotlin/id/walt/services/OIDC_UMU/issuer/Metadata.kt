@@ -142,9 +142,16 @@ data class CredentialConfiguration(
 
 // Función que realiza solicitudes GET y retorna Metadata
 suspend fun fetchMetadataRequest(client: HttpClient, url: String): Metadata {
+    println(10)
     val responseMetadata = client.get(url + "/.well-known/openid-credential-issuer")
+    println(responseMetadata)
+
     val metadata = parseMetadata(responseMetadata.bodyAsText())
+    println(11)
+
     val responseAuthMetadata = client.get(url + "/.well-known/oauth-authorization-server")
+    println(12)
+    println(responseAuthMetadata)
     val authMetadata = parseAuthMetadata(responseAuthMetadata.bodyAsText())
     return metadata.copy(
         issuer = authMetadata.issuer,

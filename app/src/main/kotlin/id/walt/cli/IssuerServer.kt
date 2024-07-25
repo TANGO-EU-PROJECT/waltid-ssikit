@@ -237,7 +237,7 @@ class IssuerCommand :
                         }
 
 
-                        get("CredentialOffer"){
+                        get("/CredentialOffer"){
                             call.respondText(generateCredentialOffer(ISSUER_PORT, credentialTypes))
                         }
 
