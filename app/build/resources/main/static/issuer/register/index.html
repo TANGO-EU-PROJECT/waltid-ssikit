@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="/static/issuer/register/css/index.css">
+    <link rel="stylesheet" href="/issuer/static/issuer/register/css/index.css">
 </head>
 <body>
 
 <div class="form-wrapper">
     <h2>Register</h2>
     <div id="messageContainer"></div>
-    <form id="registerForm" action="/register" method="post">
+    <form id="registerForm" action="/issuer/register" method="post">
         <div class="input-group">
             <label for="newUsername">Username</label>
             <input type="text" id="newUsername" name="user" value="p" required>
@@ -42,9 +42,9 @@
         </div>
         <input type="submit" value="Register">
     </form>
-    <p class="login-link">Already have an account? <a href="/login">Login here</a></p>
+    <p class="login-link">Already have an account? <a href="/issuer/login">Login here</a></p>
 </div>
 
-<script src="/static/issuer/register/js/index.js"></script>
+<script src="/issuer/static/issuer/register/js/index.js"></script>
 </body>
 </html>

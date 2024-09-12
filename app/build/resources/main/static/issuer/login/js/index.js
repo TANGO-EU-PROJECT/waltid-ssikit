@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         formData.append('pass', document.getElementById("password").value);
 
         // Realizar la solicitud POST al servidor
-        fetch('/loginBackend', {
+        fetch('/issuer/loginBackend', {
             method: 'POST',
             body: formData,
             credentials: 'include' // Necesario para recibir/setear cookies
@@ -24,13 +24,14 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(({ clientId, clientSecret }) => {
             // Guardar clientId y clientSecret como cookies
-            document.cookie = `clientId-umu-issuer=${clientId}; path=/; domain=umu-issuer; samesite=None; Secure`;
-            document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; domain=umu-issuer; samesite=None; Secure`;
+            document.cookie = `clientId-umu-issuer=${clientId}; path=/; samesite=None; Secure`;
+            document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; samesite=None; Secure`;
+
 
             messageContainer.textContent = 'Login successful.';
             messageContainer.style.color = 'green';
 
-           window.location.href =  `/`
+           window.location.href =  `/issuer/`
 
         })
         .catch(error => {

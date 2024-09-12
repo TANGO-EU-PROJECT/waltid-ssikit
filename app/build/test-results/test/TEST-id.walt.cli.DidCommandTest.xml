@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.cli.DidCommandTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:41" hostname="pablito-B550-AORUS-ELITE-V2" time="0.783">
+  <properties/>
+  <testcase name="1. Import did" classname="id.walt.cli.DidCommandTest" time="0.064"/>
+  <testcase name="2. Create did:key Ed25519" classname="id.walt.cli.DidCommandTest" time="0.031"/>
+  <testcase name="3. Create did:key Secp256k1" classname="id.walt.cli.DidCommandTest" time="0.084"/>
+  <testcase name="3a. Create did:key Secp256r1" classname="id.walt.cli.DidCommandTest" time="0.02"/>
+  <testcase name="4. Create did:key RSA" classname="id.walt.cli.DidCommandTest" time="0.138"/>
+  <testcase name="5. Create did:web RSA" classname="id.walt.cli.DidCommandTest" time="0.052"/>
+  <testcase name="6. Create RSA did:key" classname="id.walt.cli.DidCommandTest" time="0.01"/>
+  <testcase name="7. Resolve RSA did:key" classname="id.walt.cli.DidCommandTest" time="0.008"/>
+  <testcase name="8. delete did" classname="id.walt.cli.DidCommandTest" time="0.367"/>
+  <system-out><![CDATA[DID imported: did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz
+New DID: did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz
+did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz#z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz
+Creating did:key (key: 57f1833731ec43a5b105c2a126fef695)
+
+Results:
+
+
+DID created: did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"
+    ],
+    "authentication" : [
+        "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"
+    ],
+    "capabilityDelegation" : [
+        "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"
+    ],
+    "capabilityInvocation" : [
+        "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs",
+    "keyAgreement" : [
+        "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6LShpSnBu8s5TJ3aZ78nds883iUky93ioFkz7meo7hgekx5"
+    ],
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs",
+            "id" : "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs",
+            "publicKeyBase58" : "D2WgwhCmVufdHAgczrPUCpeNGH8Zcxo4zVsz3MrQN5BV",
+            "type" : "Ed25519VerificationKey2019"
+        },
+        {
+            "controller" : "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs",
+            "id" : "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs#z6LShpSnBu8s5TJ3aZ78nds883iUky93ioFkz7meo7hgekx5",
+            "publicKeyBase58" : "79GcfbKzyzaJVAjNFzMAoTVzupbw2C5c793yJf49wPBK",
+            "type" : "X25519KeyAgreementKey2019"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+Creating did:key (key: bcde2d12a8fd432abdcae0afd69066a1)
+
+Results:
+
+
+DID created: did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK#zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"
+    ],
+    "authentication" : [
+        "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK#zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"
+    ],
+    "capabilityDelegation" : [
+        "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK#zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"
+    ],
+    "capabilityInvocation" : [
+        "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK#zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK",
+            "id" : "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK#zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK",
+            "publicKeyJwk" : {
+                "alg" : "ES256K",
+                "crv" : "secp256k1",
+                "kid" : "cf9756d6f6ea4bf283b215fc61d85792",
+                "kty" : "EC",
+                "use" : "sig",
+                "x" : "qeV2QuF31sEm23CgYDU-nC9hpSEmim5P2qfkwiI4NO4",
+                "y" : "MsDbAnLiQaQKDNiJdA17GY2y8ANkDsTtmWCssPj6HSw"
+            },
+            "type" : "EcdsaSecp256k1VerificationKey2019"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+Creating did:key (key: 0d4ba5ff614b489bbec7425c73f8344f)
+
+Results:
+
+
+DID created: did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W#zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"
+    ],
+    "authentication" : [
+        "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W#zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"
+    ],
+    "capabilityDelegation" : [
+        "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W#zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"
+    ],
+    "capabilityInvocation" : [
+        "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W#zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W",
+            "id" : "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W#zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W",
+            "publicKeyJwk" : {
+                "alg" : "ES256",
+                "crv" : "P-256",
+                "kid" : "db27959884be43a5b9cda6c985366fa0",
+                "kty" : "EC",
+                "use" : "sig",
+                "x" : "-CHAVP6R0v0qcCp4K4aXueHDFxXydye3_8sGWOgPr4k",
+                "y" : "otXDqgQaNLLw_7HzVBfP_FXueELIt5UBuWQB7uzL7-w"
+            },
+            "type" : "EcdsaSecp256r1VerificationKey2019"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+Creating did:key (key: 40023aac827e4f889066ec1cbc1f0291)
+
+Results:
+
+
+DID created: did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx#z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"
+    ],
+    "authentication" : [
+        "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx#z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"
+    ],
+    "capabilityDelegation" : [
+        "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx#z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"
+    ],
+    "capabilityInvocation" : [
+        "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx#z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx",
+            "id" : "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx#z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx",
+            "publicKeyBase58" : "4e1BUTgGBfqVVb6P26sceAMirkWAGZ96RpPAHkWyJ7VuX1mX3gYoPn2wMay1sboNZZNnWqYfgNZj3Q4cirjyu1Wke1U84dLf5uscJztKYGTtXmqBtums9iGCT5y8eHpJN856J1Adu9UrXocJcc3uXbfsULDyhbPV56td5KoKVCJT4DTsHREGX7r3k5MRsKmJY9B8r8Hh18hp2j7eDuZsstAN1GnqMHm6Uisp8fxLrutvaEjdL5dqRb15jrYJPDn3PncmL2sS8QRYsfPvsXPos4Tgd9r1URi2y7Nva58oUR2A8mJBFof8xScFZhGb5uEHkLF2UJT1ZL9rJTRcdwESoVbppP3X31TMa1Q3zh4SMeVKtR5pU",
+            "type" : "RsaVerificationKey2018"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+Creating did:web (key: 028bd0ac1e98458cac2f437c6a8d5941)
+
+Results:
+
+
+DID created: did:web:walt.id
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:web:walt.id#028bd0ac1e98458cac2f437c6a8d5941"
+    ],
+    "authentication" : [
+        "did:web:walt.id#028bd0ac1e98458cac2f437c6a8d5941"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:web:walt.id",
+    "verificationMethod" : [
+        {
+            "controller" : "did:web:walt.id",
+            "id" : "did:web:walt.id#028bd0ac1e98458cac2f437c6a8d5941",
+            "publicKeyJwk" : {
+                "alg" : "RS256",
+                "e" : "AQAB",
+                "kid" : "028bd0ac1e98458cac2f437c6a8d5941",
+                "kty" : "RSA",
+                "n" : "jbx6zw2JcvAb6L6KYSR0nSbriStlOqpiXzqZy5doLEfSQC7LiernSfTazZc6Z4kl5yvU6NWPSA776u4sIT0KX1Pw3MnXm_1cwt3iUEA2MqIzWAqNTjOHQWo6LikO6EStFnQk0kt2-oBXI8XkONbGahD6nwQSj3jai7dMzJYu3A-pgPYFMZzVvnbFpRN8KdD5U7irgMr_ak8XiZnOSznFseO7B8DEpkomIJyD_x9VgffRo4CJcyY92OaUYNQ5fPZbqp7zvKEi9uovmDOna5f45TmPjFspCGJuR57MfnvmTy3ez07ruQq1ofifXO4fB8lrQr79jLYbkMe1MO5y8VvYDw",
+                "use" : "sig"
+            },
+            "type" : "RsaVerificationKey2018"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+
+Install this did:web at: https://walt.id/.well-known/did.json
+Creating did:key (key: 028bd0ac1e98458cac2f437c6a8d5941)
+
+Results:
+
+
+DID created: did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S
+
+
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "authentication" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "capabilityDelegation" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "capabilityInvocation" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+            "id" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+            "publicKeyBase58" : "4e1BUTgGBfqVViibwUtMfqHJS22HPcwh4RQFGDoVmsLRfA8G67HYXyayMWNTujPUerZFq7QMuBi1QsYGqVtZXD1XhzpwEaUwSsUjDGpYizbV9w8jAUr1PoPNxqVw1Q6yo2MLE8LwBeWQfFbV6HVB1wWYPp8XQWjrKGGd76hDPANXkbk58xUunUjb27kQzAHhEcF1fLcVUfardcYwByJHXJjLNQerjW33U1gi7zDDRC8TQ7wFaRZmVi9R2fvWLPLSTCzZ2cpkqXJb6ENh7E9FRdjegkcCXuaPiEuvzpuYba8cFhPaPrjXGikRj3oaCFMKx5FQA6dFrCtkfPDrKkC7pvNHhrRGA6ursgmHvfma4eEAPXwNx",
+            "type" : "RsaVerificationKey2018"
+        }
+    ]
+}
+
+Saving DID to file: /home/pablito/Desktop/git/waltid-tango/app/test-dest.json
+did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S
+Resolving DID "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+
+Results:
+
+DID resolved: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+DID document (below, JSON):
+
+{
+    "assertionMethod" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "authentication" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "capabilityDelegation" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "capabilityInvocation" : [
+        "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+    "verificationMethod" : [
+        {
+            "controller" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+            "id" : "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S",
+            "publicKeyBase58" : "4e1BUTgGBfqVViibwUtMfqHJS22HPcwh4RQFGDoVmsLRfA8G67HYXyayMWNTujPUerZFq7QMuBi1QsYGqVtZXD1XhzpwEaUwSsUjDGpYizbV9w8jAUr1PoPNxqVw1Q6yo2MLE8LwBeWQfFbV6HVB1wWYPp8XQWjrKGGd76hDPANXkbk58xUunUjb27kQzAHhEcF1fLcVUfardcYwByJHXJjLNQerjW33U1gi7zDDRC8TQ7wFaRZmVi9R2fvWLPLSTCzZ2cpkqXJb6ENh7E9FRdjegkcCXuaPiEuvzpuYba8cFhPaPrjXGikRj3oaCFMKx5FQA6dFrCtkfPDrKkC7pvNHhrRGA6ursgmHvfma4eEAPXwNx",
+            "type" : "RsaVerificationKey2018"
+        }
+    ]
+}
+Deleting "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+
+Did deleted:"did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"
+
+Deleting "did:web:walt.id"...
+
+Did deleted:"did:web:walt.id"
+
+Deleting "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+
+Did deleted:"did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"
+
+Deleting "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+
+Did deleted:"did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"
+
+Deleting "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+
+Did deleted:"did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"
+
+Deleting "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+
+Did deleted:"did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"
+
+Deleting "did:web:walt.id"...
+
+Did deleted:"did:web:walt.id"
+
+Deleting "did:web:walt.id"...
+
+Did deleted:"did:web:walt.id"
+
+Deleting "did:web:walt.id"...
+
+Did deleted:"did:web:walt.id"
+
+Deleting "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+
+Did deleted:"did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"
+
+Deleting "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+
+Did deleted:"did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"
+
+Deleting "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+
+Did deleted:"did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"
+
+]]></system-out>
+  <system-err><![CDATA[6222 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6224 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6224 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6226 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6226 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6226 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz, fragment=z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz, query=null), length of stored=1638
+6228 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6236 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz#z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz".
+6236 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz"...
+6237 [pool-1-thread-1 @coroutine#126] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkhjYgRWxZzr1suuVB2Skqym8HPEiRzrMW1W2KKKariqSz".
+6241 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "57f1833731ec43a5b105c2a126fef695".
+6259 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "57f1833731ec43a5b105c2a126fef695".
+6259 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"...
+6261 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "57f1833731ec43a5b105c2a126fef695".
+6262 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.services.did.DidService - A key with the id "57f1833731ec43a5b105c2a126fef695" exists.
+6262 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"...
+6262 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"...
+6264 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"...
+6264 [pool-1-thread-1 @coroutine#127] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkrUmjXwTCqTA6PfXKgRMK3vCN5rQR2r3RgWnusdpRHHxs"...
+6317 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "bcde2d12a8fd432abdcae0afd69066a1".
+6320 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "bcde2d12a8fd432abdcae0afd69066a1".
+6330 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"...
+6341 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "bcde2d12a8fd432abdcae0afd69066a1".
+6341 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.services.did.DidService - A key with the id "bcde2d12a8fd432abdcae0afd69066a1" exists.
+6341 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"...
+6341 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"...
+6352 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"...
+6352 [pool-1-thread-1 @coroutine#128] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shYqzbTZmXxZiiWds8tcPtuavDwu2NYFbperDcYkEAQvqK"...
+6368 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "0d4ba5ff614b489bbec7425c73f8344f".
+6369 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0d4ba5ff614b489bbec7425c73f8344f".
+6370 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"...
+6373 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0d4ba5ff614b489bbec7425c73f8344f".
+6373 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.services.did.DidService - A key with the id "0d4ba5ff614b489bbec7425c73f8344f" exists.
+6373 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"...
+6373 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"...
+6375 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"...
+6375 [pool-1-thread-1 @coroutine#129] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zDnaeh8a1FDymuUY82TWX6sgYENtWA7dgZV6f6JQiUtb7ES1W"...
+6505 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "40023aac827e4f889066ec1cbc1f0291".
+6507 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "40023aac827e4f889066ec1cbc1f0291".
+6508 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"...
+6510 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "40023aac827e4f889066ec1cbc1f0291".
+6510 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.services.did.DidService - A key with the id "40023aac827e4f889066ec1cbc1f0291" exists.
+6510 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"...
+6510 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"...
+6512 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"...
+6512 [pool-1-thread-1 @coroutine#130] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNPnWGvnH5WCCDinzLhiyecTCjAGfoD4GXWGTfUT9oSMiZuGQYHBMw4EAzuMHMXPhfxEsj1fuxEg4wR7Kq8uDVY9KDgbGjt3cJjpgH1UjZaNE9JtU7J7nguEJZUsRALW4QECH9kBU8dpPN5arDXuHhDnnrE12JWDt7SYdzFW627UTss6ju3ohjdtqPAk2nR1Heg2KxZjHzSEV2oV1p3Npp4t6pYSK2EnXQAdYzpkmbPTVg8gDhBXAZctvwJfdfCdMCmhdnDPKzjLMrDfvS13K7soz6byfhakdC6BnDZYYVBTB66UNjoCYPCcTdRsdsMxcavyYVxP6FBPyXZ9wiG2fqVeucrVPUkUUsUqWx"...
+6549 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d
+6550 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71
+6550 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+6550 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71]
+6551 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "028bd0ac1e98458cac2f437c6a8d5941".
+6552 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 028bd0ac1e98458cac2f437c6a8d5941
+6553 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "028bd0ac1e98458cac2f437c6a8d5941".
+6554 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "028bd0ac1e98458cac2f437c6a8d5941".
+6557 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"RSA","e":"AQAB","use":"sig","kid":"028bd0ac1e98458cac2f437c6a8d5941","alg":"RS256","n":"jbx6zw2JcvAb6L6KYSR0nSbriStlOqpiXzqZy5doLEfSQC7LiernSfTazZc6Z4kl5yvU6NWPSA776u4sIT0KX1Pw3MnXm_1cwt3iUEA2MqIzWAqNTjOHQWo6LikO6EStFnQk0kt2-oBXI8XkONbGahD6nwQSj3jai7dMzJYu3A-pgPYFMZzVvnbFpRN8KdD5U7irgMr_ak8XiZnOSznFseO7B8DEpkomIJyD_x9VgffRo4CJcyY92OaUYNQ5fPZbqp7zvKEi9uovmDOna5f45TmPjFspCGJuR57MfnvmTy3ez07ruQq1ofifXO4fB8lrQr79jLYbkMe1MO5y8VvYDw"}
+6557 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"RSA","e":"AQAB","use":"sig","kid":"028bd0ac1e98458cac2f437c6a8d5941","alg":"RS256","n":"jbx6zw2JcvAb6L6KYSR0nSbriStlOqpiXzqZy5doLEfSQC7LiernSfTazZc6Z4kl5yvU6NWPSA776u4sIT0KX1Pw3MnXm_1cwt3iUEA2MqIzWAqNTjOHQWo6LikO6EStFnQk0kt2-oBXI8XkONbGahD6nwQSj3jai7dMzJYu3A-pgPYFMZzVvnbFpRN8KdD5U7irgMr_ak8XiZnOSznFseO7B8DEpkomIJyD_x9VgffRo4CJcyY92OaUYNQ5fPZbqp7zvKEi9uovmDOna5f45TmPjFspCGJuR57MfnvmTy3ez07ruQq1ofifXO4fB8lrQr79jLYbkMe1MO5y8VvYDw"}
+6560 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=028bd0ac1e98458cac2f437c6a8d5941, kty=RSA, alg=RS256, crv=null, use=sig, x=null, y=null, d=null, n=jbx6zw2JcvAb6L6KYSR0nSbriStlOqpiXzqZy5doLEfSQC7LiernSfTazZc6Z4kl5yvU6NWPSA776u4sIT0KX1Pw3MnXm_1cwt3iUEA2MqIzWAqNTjOHQWo6LikO6EStFnQk0kt2-oBXI8XkONbGahD6nwQSj3jai7dMzJYu3A-pgPYFMZzVvnbFpRN8KdD5U7irgMr_ak8XiZnOSznFseO7B8DEpkomIJyD_x9VgffRo4CJcyY92OaUYNQ5fPZbqp7zvKEi9uovmDOna5f45TmPjFspCGJuR57MfnvmTy3ez07ruQq1ofifXO4fB8lrQr79jLYbkMe1MO5y8VvYDw, e=AQAB, x5u=null)
+6563 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "028bd0ac1e98458cac2f437c6a8d5941".
+6564 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.services.did.DidService - A key with the id "028bd0ac1e98458cac2f437c6a8d5941" exists.
+6564 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6564 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6567 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6567 [pool-1-thread-1 @coroutine#131] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6572 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "028bd0ac1e98458cac2f437c6a8d5941".
+6572 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6573 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "028bd0ac1e98458cac2f437c6a8d5941".
+6573 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.services.did.DidService - A key with the id "028bd0ac1e98458cac2f437c6a8d5941" exists.
+6573 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6574 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6575 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6575 [pool-1-thread-1 @coroutine#132] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6585 [pool-1-thread-1 @coroutine#133] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S#z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6586 [pool-1-thread-1 @coroutine#133] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNXQjCJo27B7mnzK7TmXaHDUHhdZCGxtnfedChuBtwdukZpfraQmU2MQeKBCyaLXz3RiXqepVaSAr1QU9163VrVkS7xXVvcBCvu8DYaYsofVQf4RGUQQU7oWYVc3iSqXcXgBTdRcjcyf4HZVPvTFewPAnsztvCUHxoppqqnkjHUN19uVj1tL6S6xiCP4qFwtLFZTcvdThdroTPwM3CFemoMgzorhBaX24E3qBFAghfWbpxx4ReM5Zd3GidtcxNKWPRLgQ1v8mZJcKupS7VUufs1LzXMkQpjs5K2HBMccvoTbMFT1Mr9KaawcqKE3tAEhWwrmnBmLmGcASR2XgqMVB9B29YqCXBkDKNbh5S"...
+6593 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "d51868fd7c98416f8061a73b4c1945cd".
+6594 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "edd5246876b745f7848f3154a3b65053".
+6737 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "0a40f8e0c3a64ef0b77fe64dd8f704a4".
+6738 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "dc6369f051ca414b9c4e4b92c1bdb45d".
+6739 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "38c1938aa31e495fbb85e4e26eec664a".
+6770 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "759cf26eb6ae4914b396417d2f8014ca".
+6771 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "9fdacb1aa42746dcad47505914a4e3b3".
+6772 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "dc2f631004eb41f080e90c982b1f3600".
+6847 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "0b82159e682a4bdea6ee986c2eef9609".
+6848 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "7598b80b375648888d1764eb41bbcd7f".
+6848 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "7598b80b375648888d1764eb41bbcd7f".
+6848 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6850 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "7598b80b375648888d1764eb41bbcd7f".
+6850 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "7598b80b375648888d1764eb41bbcd7f" exists.
+6850 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6850 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6852 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6852 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6852 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp, fragment=z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp, query=null), length of stored=1639
+6852 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6855 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkouZCYkZUSeXbSUjFtvMBQEnGaU8G45bt6Ly4DZKCahDp"...
+6859 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "645b0ec01ff44f9988d50941c144a6be".
+6859 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "645b0ec01ff44f9988d50941c144a6be".
+6859 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "645b0ec01ff44f9988d50941c144a6be".
+6859 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"645b0ec01ff44f9988d50941c144a6be","x":"pQq6PVu6UchD84wPKbjey11Jp1GofgdJPtkoaTByztw","alg":"EdDSA"}
+6859 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"645b0ec01ff44f9988d50941c144a6be","x":"pQq6PVu6UchD84wPKbjey11Jp1GofgdJPtkoaTByztw","alg":"EdDSA"}
+6861 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=645b0ec01ff44f9988d50941c144a6be, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=pQq6PVu6UchD84wPKbjey11Jp1GofgdJPtkoaTByztw, y=null, d=null, n=null, e=null, x5u=null)
+6863 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "645b0ec01ff44f9988d50941c144a6be".
+6863 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "645b0ec01ff44f9988d50941c144a6be" exists.
+6863 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6863 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6864 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:web:walt.id"...
+6864 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6864 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=web, identifier=walt.id, fragment=walt.id, query=null), length of stored=791
+6865 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6865 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6868 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6870 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "6fce015bfaef4290b40ad617b9642b99".
+6870 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "6fce015bfaef4290b40ad617b9642b99".
+6871 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "6fce015bfaef4290b40ad617b9642b99".
+6871 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"6fce015bfaef4290b40ad617b9642b99","x":"nPQ-kjLO0oElGuGtvvU3Otg7zbZpE5TBWeNVozAFJKs","alg":"EdDSA"}
+6871 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"6fce015bfaef4290b40ad617b9642b99","x":"nPQ-kjLO0oElGuGtvvU3Otg7zbZpE5TBWeNVozAFJKs","alg":"EdDSA"}
+6873 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=6fce015bfaef4290b40ad617b9642b99, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=nPQ-kjLO0oElGuGtvvU3Otg7zbZpE5TBWeNVozAFJKs, y=null, d=null, n=null, e=null, x5u=null)
+6875 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "6fce015bfaef4290b40ad617b9642b99".
+6875 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "6fce015bfaef4290b40ad617b9642b99" exists.
+6875 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6875 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6878 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6878 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6878 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=zqWAFqCzv62vKNM3NYCmPX5, fragment=zqWAFqCzv62vKNM3NYCmPX5, query=null), length of stored=876
+6879 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6879 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6879 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6882 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zqWAFqCzv62vKNM3NYCmPX5"...
+6883 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d51868fd7c98416f8061a73b4c1945cd".
+6883 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6885 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d51868fd7c98416f8061a73b4c1945cd".
+6885 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "d51868fd7c98416f8061a73b4c1945cd" exists.
+6885 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6886 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6887 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6887 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6887 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp, fragment=zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp, query=null), length of stored=1442
+6888 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6890 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:zQ3shqr4XwnbwArQ2hQ7n8Pd7sBYcTRN9XyqdQF52thypwdzp"...
+6891 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "edd5246876b745f7848f3154a3b65053".
+6891 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6893 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "edd5246876b745f7848f3154a3b65053".
+6893 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "edd5246876b745f7848f3154a3b65053" exists.
+6893 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6893 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6895 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6895 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6895 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG, fragment=z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG, query=null), length of stored=1639
+6895 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6898 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6Mkfg9UEpTP3MG52BstKVob5afj6ChGGaLcXUPmy9txySRG"...
+6899 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0a40f8e0c3a64ef0b77fe64dd8f704a4".
+6899 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6900 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0a40f8e0c3a64ef0b77fe64dd8f704a4".
+6900 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "0a40f8e0c3a64ef0b77fe64dd8f704a4" exists.
+6900 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6900 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6902 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6902 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6902 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32, fragment=z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32, query=null), length of stored=5349
+6903 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6904 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z4MXj1wBzi9jUstyNjSc2FEcFoP61Xdd9boPP3GKkH1Q8cKspPQkV7ZzNzU9RkLgoCofi8srLqnBARHxj4iSxTRD3jCbMyHpZvkB4VCbvqzQQPc9gfLeLKUbgscJ687CBp7sWrDSc7yjde85FWgSTZK4BhhyGAPWZAR3FqkspTnD2yKXAP8DwWBiDbKaCfgxQ78vN8tYmH156XKHKpGNYaJMjiB2spHHXtjh22fLoVPBoTAVgf3GfZJmjWmD7MUQ1CukPtR94YrE5u9NfScGq7JqJnJ9DWfVVZ6PtxiQKG8J53LdYSuPbYnusA2c83mhQ8M1PedeSTHQsgUc9rmkMo3Rft8BtBT7mxPdPdrYHZdVbeo91za32"...
+6905 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc6369f051ca414b9c4e4b92c1bdb45d".
+6905 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc6369f051ca414b9c4e4b92c1bdb45d".
+6906 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"dc6369f051ca414b9c4e4b92c1bdb45d","x":"OKGcA6O9A5VcK477EG6Ey6lCpvVQDuWfuWRZIjX8Gv4","y":"VXSSyqiFfq6k0Mb1v0YK8NWe-ktzmpFEpbudFbpUiz0","alg":"ES256K"}
+6906 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"dc6369f051ca414b9c4e4b92c1bdb45d","x":"OKGcA6O9A5VcK477EG6Ey6lCpvVQDuWfuWRZIjX8Gv4","y":"VXSSyqiFfq6k0Mb1v0YK8NWe-ktzmpFEpbudFbpUiz0","alg":"ES256K"}
+6907 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=dc6369f051ca414b9c4e4b92c1bdb45d, kty=EC, alg=ES256K, crv=secp256k1, use=sig, x=OKGcA6O9A5VcK477EG6Ey6lCpvVQDuWfuWRZIjX8Gv4, y=VXSSyqiFfq6k0Mb1v0YK8NWe-ktzmpFEpbudFbpUiz0, d=null, n=null, e=null, x5u=null)
+6909 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc6369f051ca414b9c4e4b92c1bdb45d".
+6909 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "dc6369f051ca414b9c4e4b92c1bdb45d" exists.
+6909 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6909 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6911 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:web:walt.id"...
+6911 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6911 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=web, identifier=walt.id, fragment=walt.id, query=null), length of stored=869
+6911 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6911 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6913 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6914 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "38c1938aa31e495fbb85e4e26eec664a".
+6915 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "38c1938aa31e495fbb85e4e26eec664a".
+6915 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"38c1938aa31e495fbb85e4e26eec664a","x":"nYCZX6ATG8BA2L2zQ8q5DKjy56BSNlOnUH2VvR6rHHc","alg":"EdDSA"}
+6915 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"38c1938aa31e495fbb85e4e26eec664a","x":"nYCZX6ATG8BA2L2zQ8q5DKjy56BSNlOnUH2VvR6rHHc","alg":"EdDSA"}
+6917 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=38c1938aa31e495fbb85e4e26eec664a, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=nYCZX6ATG8BA2L2zQ8q5DKjy56BSNlOnUH2VvR6rHHc, y=null, d=null, n=null, e=null, x5u=null)
+6919 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "38c1938aa31e495fbb85e4e26eec664a".
+6919 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "38c1938aa31e495fbb85e4e26eec664a" exists.
+6919 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6919 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6920 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:web:walt.id"...
+6920 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6920 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=web, identifier=walt.id, fragment=walt.id, query=null), length of stored=791
+6921 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6921 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6923 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6923 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "759cf26eb6ae4914b396417d2f8014ca".
+6924 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "759cf26eb6ae4914b396417d2f8014ca".
+6924 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"RSA","e":"AQAB","use":"sig","kid":"759cf26eb6ae4914b396417d2f8014ca","alg":"RS256","n":"tQfDrLkeVJJ2gU6wnd9JeY-8YlwhzZqHYxPhFPpNApcnmMVZzW8n9j4lINrP0ZQZQapLyZ2t_Ynn2WZrF7pZKqqfbt-anSIBhV0FzSt2uhrjTUwH5Ja1jglcJE1ZUacks99tSNyovJfKCmYcrCuijGdBkFHpgEIkKpF4fxbzs1lyeBpoYdAp_a5buXM_gCoycGLO5XGsx4tULbgj6Fwd_rzPjnSpOcjDGisAdGk7AVcIWETd_kMNi_HDFGrAvYtbrTKsMwH-VzjiqzXQQja3ukyVZBT-4cQ0aq-LhJMf1dw-WE4KE-gv12IJat_6kjGWKNFWEXW4GbDcEJJ2W_SKAQ"}
+6924 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"RSA","e":"AQAB","use":"sig","kid":"759cf26eb6ae4914b396417d2f8014ca","alg":"RS256","n":"tQfDrLkeVJJ2gU6wnd9JeY-8YlwhzZqHYxPhFPpNApcnmMVZzW8n9j4lINrP0ZQZQapLyZ2t_Ynn2WZrF7pZKqqfbt-anSIBhV0FzSt2uhrjTUwH5Ja1jglcJE1ZUacks99tSNyovJfKCmYcrCuijGdBkFHpgEIkKpF4fxbzs1lyeBpoYdAp_a5buXM_gCoycGLO5XGsx4tULbgj6Fwd_rzPjnSpOcjDGisAdGk7AVcIWETd_kMNi_HDFGrAvYtbrTKsMwH-VzjiqzXQQja3ukyVZBT-4cQ0aq-LhJMf1dw-WE4KE-gv12IJat_6kjGWKNFWEXW4GbDcEJJ2W_SKAQ"}
+6925 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=759cf26eb6ae4914b396417d2f8014ca, kty=RSA, alg=RS256, crv=null, use=sig, x=null, y=null, d=null, n=tQfDrLkeVJJ2gU6wnd9JeY-8YlwhzZqHYxPhFPpNApcnmMVZzW8n9j4lINrP0ZQZQapLyZ2t_Ynn2WZrF7pZKqqfbt-anSIBhV0FzSt2uhrjTUwH5Ja1jglcJE1ZUacks99tSNyovJfKCmYcrCuijGdBkFHpgEIkKpF4fxbzs1lyeBpoYdAp_a5buXM_gCoycGLO5XGsx4tULbgj6Fwd_rzPjnSpOcjDGisAdGk7AVcIWETd_kMNi_HDFGrAvYtbrTKsMwH-VzjiqzXQQja3ukyVZBT-4cQ0aq-LhJMf1dw-WE4KE-gv12IJat_6kjGWKNFWEXW4GbDcEJJ2W_SKAQ, e=AQAB, x5u=null)
+6927 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "759cf26eb6ae4914b396417d2f8014ca".
+6927 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "759cf26eb6ae4914b396417d2f8014ca" exists.
+6927 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6927 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6929 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:web:walt.id"...
+6929 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6929 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=web, identifier=walt.id, fragment=walt.id, query=null), length of stored=1081
+6930 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6930 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6932 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:web:walt.id"...
+6933 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "9fdacb1aa42746dcad47505914a4e3b3".
+6933 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "9fdacb1aa42746dcad47505914a4e3b3".
+6933 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"9fdacb1aa42746dcad47505914a4e3b3","x":"VDhN_qCv4QuxjkQpUHZ-a16dfVsF_Ou7PK4BdO9prvo","y":"KPCVTZl6gXM60aBd1JocuwBMaKiGRzefJReoNeoqh48","alg":"ES256K"}
+6933 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"9fdacb1aa42746dcad47505914a4e3b3","x":"VDhN_qCv4QuxjkQpUHZ-a16dfVsF_Ou7PK4BdO9prvo","y":"KPCVTZl6gXM60aBd1JocuwBMaKiGRzefJReoNeoqh48","alg":"ES256K"}
+6934 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=9fdacb1aa42746dcad47505914a4e3b3, kty=EC, alg=ES256K, crv=secp256k1, use=sig, x=VDhN_qCv4QuxjkQpUHZ-a16dfVsF_Ou7PK4BdO9prvo, y=KPCVTZl6gXM60aBd1JocuwBMaKiGRzefJReoNeoqh48, d=null, n=null, e=null, x5u=null)
+6936 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "9fdacb1aa42746dcad47505914a4e3b3".
+6936 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "9fdacb1aa42746dcad47505914a4e3b3" exists.
+6936 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6936 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=zrPWoJvW8xtA17epqfQ3vEB, fragment=zrPWoJvW8xtA17epqfQ3vEB, query=null), length of stored=954
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6938 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6941 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zrPWoJvW8xtA17epqfQ3vEB"...
+6941 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc2f631004eb41f080e90c982b1f3600".
+6941 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc2f631004eb41f080e90c982b1f3600".
+6942 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"dc2f631004eb41f080e90c982b1f3600","x":"PndY_rGt9tTARVUfetkjJ3U6LdcMThhI_UjAp89RyZM","alg":"EdDSA"}
+6942 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"dc2f631004eb41f080e90c982b1f3600","x":"PndY_rGt9tTARVUfetkjJ3U6LdcMThhI_UjAp89RyZM","alg":"EdDSA"}
+6943 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=dc2f631004eb41f080e90c982b1f3600, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=PndY_rGt9tTARVUfetkjJ3U6LdcMThhI_UjAp89RyZM, y=null, d=null, n=null, e=null, x5u=null)
+6944 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "dc2f631004eb41f080e90c982b1f3600".
+6944 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "dc2f631004eb41f080e90c982b1f3600" exists.
+6944 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6945 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6946 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6946 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6946 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=z22hwvzSweEs8LDmrCK1mtTU, fragment=z22hwvzSweEs8LDmrCK1mtTU, query=null), length of stored=881
+6947 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6947 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6947 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6949 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:z22hwvzSweEs8LDmrCK1mtTU"...
+6949 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0b82159e682a4bdea6ee986c2eef9609".
+6949 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0b82159e682a4bdea6ee986c2eef9609".
+6950 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"RSA","e":"AQAB","use":"sig","kid":"0b82159e682a4bdea6ee986c2eef9609","alg":"RS256","n":"niKZp81CGQg41Sm5P4yZvulUU5F8Kv8ZZshoPsIXklONATsq_rwzOAnoWbJmxwk6wHHelC_rt4X_5rR7bzWUezKvgmlO_CENexahdYJDaulg48_tY3rsoe5960C2qHhxPNC5TnQxps-65QfPF-Wha4Jpb5Sz-0ei2yrHxUe4sxlADUSHiF-JIPVhciW6y9gUNIyqfIJfUjtJpTc9UXbUADtEXOVB4szqW5SJTu-F1WnL8n75XYcVE-W4ZIN4P67YfCGLLezAEcVubjTFq1SJGgnWE3-jXhlcWKJ7FHyANTAgt61y-3cS0wITiOzZPX2PnIU3xEaJ8xjdRs6-RIxaXQ"}
+6950 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"RSA","e":"AQAB","use":"sig","kid":"0b82159e682a4bdea6ee986c2eef9609","alg":"RS256","n":"niKZp81CGQg41Sm5P4yZvulUU5F8Kv8ZZshoPsIXklONATsq_rwzOAnoWbJmxwk6wHHelC_rt4X_5rR7bzWUezKvgmlO_CENexahdYJDaulg48_tY3rsoe5960C2qHhxPNC5TnQxps-65QfPF-Wha4Jpb5Sz-0ei2yrHxUe4sxlADUSHiF-JIPVhciW6y9gUNIyqfIJfUjtJpTc9UXbUADtEXOVB4szqW5SJTu-F1WnL8n75XYcVE-W4ZIN4P67YfCGLLezAEcVubjTFq1SJGgnWE3-jXhlcWKJ7FHyANTAgt61y-3cS0wITiOzZPX2PnIU3xEaJ8xjdRs6-RIxaXQ"}
+6951 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=0b82159e682a4bdea6ee986c2eef9609, kty=RSA, alg=RS256, crv=null, use=sig, x=null, y=null, d=null, n=niKZp81CGQg41Sm5P4yZvulUU5F8Kv8ZZshoPsIXklONATsq_rwzOAnoWbJmxwk6wHHelC_rt4X_5rR7bzWUezKvgmlO_CENexahdYJDaulg48_tY3rsoe5960C2qHhxPNC5TnQxps-65QfPF-Wha4Jpb5Sz-0ei2yrHxUe4sxlADUSHiF-JIPVhciW6y9gUNIyqfIJfUjtJpTc9UXbUADtEXOVB4szqW5SJTu-F1WnL8n75XYcVE-W4ZIN4P67YfCGLLezAEcVubjTFq1SJGgnWE3-jXhlcWKJ7FHyANTAgt61y-3cS0wITiOzZPX2PnIU3xEaJ8xjdRs6-RIxaXQ, e=AQAB, x5u=null)
+6952 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0b82159e682a4bdea6ee986c2eef9609".
+6952 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - A key with the id "0b82159e682a4bdea6ee986c2eef9609" exists.
+6952 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6953 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - Loading or resolving "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=zde73Y4zbDGRtXJiVKxtV5n, fragment=zde73Y4zbDGRtXJiVKxtV5n, query=null), length of stored=1166
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6954 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+6956 [pool-1-thread-1 @coroutine#134] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zde73Y4zbDGRtXJiVKxtV5n"...
+]]></system-err>
+</testsuite>

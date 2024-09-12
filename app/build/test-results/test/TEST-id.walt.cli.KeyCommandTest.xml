@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.cli.KeyCommandTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:42" hostname="pablito-B550-AORUS-ELITE-V2" time="0.227">
+  <properties/>
+  <testcase name="1. key gen --help" classname="id.walt.cli.KeyCommandTest" time="0.005"/>
+  <testcase name="2. key generate" classname="id.walt.cli.KeyCommandTest" time="0.065"/>
+  <testcase name="3. key export" classname="id.walt.cli.KeyCommandTest" time="0.116"/>
+  <testcase name="4. key import" classname="id.walt.cli.KeyCommandTest" time="0.032"/>
+  <testcase name="5. key delete" classname="id.walt.cli.KeyCommandTest" time="0.002"/>
+  <testcase name="6. clear keys" classname="id.walt.cli.KeyCommandTest" time="0.002"/>
+  <system-out><![CDATA[Generating Ed25519 key pair...
+Key "f8c51673730d47ba90abdb649e4f0666" generated.
+Generating Secp256k1 key pair...
+Key "a6eddf701941497683acb855517ccd50" generated.
+Generating RSA key pair...
+Key "67a4fbdb89334a3593c1853d419d7218" generated.
+Exporting PUBLIC key "c2d25505f15846ad87b7194b86b189b7"...
+
+Results:
+
+{"kty":"EC","use":"sig","crv":"secp256k1","kid":"c2d25505f15846ad87b7194b86b189b7","x":"VVMHk2e8hLsfK_jMSSjLapZnnbmlybADSkoTERlgFZE","y":"b_VSbmnIwMCJDvMjHfSY701PkTcfO5vEsqu5czTVMlQ","alg":"ES256K"}
+Exporting PUBLIC key "0916666b290f402398e369c057a97b42"...
+
+Results:
+
+{"kty":"OKP","use":"sig","crv":"Ed25519","kid":"0916666b290f402398e369c057a97b42","x":"HZ7o-DAYUyn2E1QAxQ6opWrC4Q2EOr71Bt5pXybKaRY","alg":"EdDSA"}
+Exporting PUBLIC key "726e01da01544c79b875e1b0c4564306"...
+
+Results:
+
+{"kty":"RSA","e":"AQAB","use":"sig","kid":"726e01da01544c79b875e1b0c4564306","alg":"RS256","n":"lm_6uYoAdVadnlu-61sJV-MbIs1EdjWhKFFt0Ca3YIddmuzi5MJGD9xflCYRKGvhL9y-ebWCZRiqtmPZ2AycjbRxIxPZAquYvMF7S6F93OaS39sStNzovlhiOtKzrHCCXKmeu_gpB1T2B_qK4daGYPdUZt5EnpO-4c24VMtWrFZc5t92YSHE4JWNz4WMjUyZXS8O4CGudOJA_mPWmmxlLKXgbMluW9ppsEJkxTfadgdukJ5xjb1v2kkpikgZ3LWpA_dELLZZQeGY5fn484MAvlHqAQc_YwgleoiSG4u25iTJfWqbSK9EpQWxU-2qN0AgGxtpZxUk6ChsZdl7f2985Q"}
+Importing key from "src/test/resources/cli/privKeyEd25519Jwk.json"...
+
+Results:
+
+Key "45674a4ac169f7f4716804393d20480138a" imported.
+Importing key from "src/test/resources/cli/pubKeyEd25519Jwk.json"...
+
+Results:
+
+Key "12374a4ac169f7f4716804393d20480138a" imported.
+Importing key from "src/test/resources/key/pem/rsa/rsa.pem"...
+
+Results:
+
+Key "f9522ed0a3114439a4e036cb1e325bd6" imported.
+Importing key from "src/test/resources/key/pem/ecdsa/secp256k1.pem"...
+
+Results:
+
+Key "a86e8d0a1f1d4be8bd84e3556f81950b" imported.
+Importing key from "src/test/resources/key/pem/ed25519/ed25519.pem"...
+
+Results:
+
+Key "bcfa19579ba04a579a8d2173d42650b0" imported.
+Importing key from "src/test/resources/key/privkey.jwk"...
+
+Results:
+
+Key "44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc" imported.
+Importing key from "src/test/resources/key/privKeySecp256k1Jwk.json"...
+
+Results:
+
+Key "ed51ec3a165f4af8bef8298d99b41de7" imported.
+Importing key from "src/test/resources/key/pubKeySecp256k1Jwk.json"...
+
+Results:
+
+Key "c96fe427cef847e6b2b9675cec31a2bb" imported.
+Deleting key "bcd9a10f6f544c2ba5b7576ae5c9f636"...
+
+Results:
+
+Key "bcd9a10f6f544c2ba5b7576ae5c9f636" deleted.
+]]></system-out>
+  <system-err><![CDATA[7219 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "f8c51673730d47ba90abdb649e4f0666".
+7220 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "a6eddf701941497683acb855517ccd50".
+7282 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "67a4fbdb89334a3593c1853d419d7218".
+7284 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "c2d25505f15846ad87b7194b86b189b7".
+7286 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "c2d25505f15846ad87b7194b86b189b7".
+7287 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "0916666b290f402398e369c057a97b42".
+7287 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0916666b290f402398e369c057a97b42".
+7398 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "726e01da01544c79b875e1b0c4564306".
+7399 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "726e01da01544c79b875e1b0c4564306".
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "45674a4ac169f7f4716804393d20480138a".
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 45674a4ac169f7f4716804393d20480138a
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "12374a4ac169f7f4716804393d20480138a".
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 12374a4ac169f7f4716804393d20480138a
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71]
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "f9522ed0a3114439a4e036cb1e325bd6".
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key f9522ed0a3114439a4e036cb1e325bd6
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@b3fa9c64
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@8c423836
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@b3fa9c64, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@8c423836]
+7429 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "a86e8d0a1f1d4be8bd84e3556f81950b".
+7429 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key a86e8d0a1f1d4be8bd84e3556f81950b
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@7f1f5769
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@ba52f501
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@7f1f5769, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@ba52f501]
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "bcfa19579ba04a579a8d2173d42650b0".
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key bcfa19579ba04a579a8d2173d42650b0
+7431 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc".
+7431 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "ed51ec3a165f4af8bef8298d99b41de7".
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key ed51ec3a165f4af8bef8298d99b41de7
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "c96fe427cef847e6b2b9675cec31a2bb".
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key c96fe427cef847e6b2b9675cec31a2bb
+7434 [pool-1-thread-1 @coroutine#154] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "bcd9a10f6f544c2ba5b7576ae5c9f636".
+7435 [pool-1-thread-1 @coroutine#154] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "bcd9a10f6f544c2ba5b7576ae5c9f636".
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "f9522ed0a3114439a4e036cb1e325bd6".
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "67a4fbdb89334a3593c1853d419d7218".
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "a86e8d0a1f1d4be8bd84e3556f81950b".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "a6eddf701941497683acb855517ccd50".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "c2d25505f15846ad87b7194b86b189b7".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "bcfa19579ba04a579a8d2173d42650b0".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "f8c51673730d47ba90abdb649e4f0666".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "0916666b290f402398e369c057a97b42".
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "726e01da01544c79b875e1b0c4564306".
+]]></system-err>
+</testsuite>

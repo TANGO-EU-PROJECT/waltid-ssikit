@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const formData = new FormData(this);
 
         // Realizar la solicitud POST al servidor
-        fetch('/registerBackend', {
+        fetch('/issuer/registerBackend', {
             method: 'POST',
             body: formData
         })
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     if (text.includes("successfully")) {
                         messageContainer.textContent = 'Registration successful. You can now log in.';
                         messageContainer.style.color = 'green';
-                        window.location.href = "/login";
+                        window.location.href = "/issuer/login";
                     } else {
                         messageContainer.textContent = 'Registration failed: ' + text;
                         messageContainer.style.color = 'red';

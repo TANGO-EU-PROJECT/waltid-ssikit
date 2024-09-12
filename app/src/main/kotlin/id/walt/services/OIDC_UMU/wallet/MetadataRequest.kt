@@ -12,10 +12,11 @@ import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 
+private val URI_DSC = System.getenv("URI")
 
 class MetadataRequest (){
     private val WALLET_PORT = System.getenv("WALLET_PORT").toInt()
-    val ENDPOINT_START_PROCESS = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/selectCredential"
+    val ENDPOINT_START_PROCESS = "https://$URI_DSC/wallet/selectCredential"
     fun getIssuerCredentials(
         call: ApplicationCall
         ): WebWalletCommand.IssuerCredentials? {
@@ -45,7 +46,6 @@ class MetadataRequest (){
             }
 
             try {
-                println(credentialOfferUri)
                 val response: HttpResponse = client.get(credentialOfferUri)
                 val responseBody = response.bodyAsText()
                 val credentialOffer = parseCredentialOffer(responseBody)

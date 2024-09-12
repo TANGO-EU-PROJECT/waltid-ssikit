@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   function fetchCredentials() {
-    fetch('/listCredentials')
+    fetch('/wallet/listCredentials')
       .then(response => response.json())
       .then(credentials => {
         displayCredentials(credentials);
@@ -64,17 +64,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const formData = new FormData();
     formData.append('nameCred', name);
 
-    fetch('/deleteCredential', {
+    fetch('/wallet/deleteCredential', {
     method: 'POST',
     body: formData
     })
-    .then(response => response.text()) 
-    .then(text => {
-    console.log(text); 
-    window.location.href = "/credentials"; 
+      .then(response => response.text())
+      .then(text => {
+        console.log(text);
+        window.location.href = "/wallet/credentials";
     })
     .catch(error => {
-    console.error('Error:', error);
+      console.error('Error:', error);
     });
 
   }

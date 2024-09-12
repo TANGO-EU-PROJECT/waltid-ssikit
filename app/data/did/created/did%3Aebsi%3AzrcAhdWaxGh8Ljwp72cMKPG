@@ -1,0 +1,25 @@
+{
+    "assertionMethod" : [
+        "did:ebsi:zrcAhdWaxGh8Ljwp72cMKPG#a5d70b306072448a988274531a7c0f33"
+    ],
+    "authentication" : [
+        "did:ebsi:zrcAhdWaxGh8Ljwp72cMKPG#a5d70b306072448a988274531a7c0f33"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:ebsi:zrcAhdWaxGh8Ljwp72cMKPG",
+    "verificationMethod" : [
+        {
+            "controller" : "did:ebsi:zrcAhdWaxGh8Ljwp72cMKPG",
+            "id" : "did:ebsi:zrcAhdWaxGh8Ljwp72cMKPG#a5d70b306072448a988274531a7c0f33",
+            "publicKeyJwk" : {
+                "alg" : "EdDSA",
+                "crv" : "Ed25519",
+                "kid" : "a5d70b306072448a988274531a7c0f33",
+                "kty" : "OKP",
+                "use" : "sig",
+                "x" : "leiVguWnea22eS5oRVhgUbHBImUYXjvIRlF0tkpK9lc"
+            },
+            "type" : "Ed25519VerificationKey2019"
+        }
+    ]
+}

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - JwtServiceTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>JwtServiceTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/id.walt.services.jwt.html">id.walt.services.jwt</a> &gt; JwtServiceTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.220s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">[1] JwtTestInput(keyAlgorithm=ECDSA_Secp256k1, algorithmName=ES256K, claim=https://self-issued.me), true</td>
+<td class="success">generateJwtCustomPayload(JwtTestInput, boolean)[1]</td>
+<td class="success">0.027s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] JwtTestInput(keyAlgorithm=EdDSA_Ed25519, algorithmName=EdDSA, claim=https://self-issued.me), true</td>
+<td class="success">generateJwtCustomPayload(JwtTestInput, boolean)[2]</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] JwtTestInput(keyAlgorithm=RSA, algorithmName=RS256, claim=https://self-issued.me), true</td>
+<td class="success">generateJwtCustomPayload(JwtTestInput, boolean)[3]</td>
+<td class="success">0.089s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] JwtTestInput(keyAlgorithm=ECDSA_Secp256k1, algorithmName=ES256K, claim=https://walt.id), true</td>
+<td class="success">generateJwtNoPayload(JwtTestInput, boolean)[1]</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] JwtTestInput(keyAlgorithm=EdDSA_Ed25519, algorithmName=EdDSA, claim=https://walt.id), true</td>
+<td class="success">generateJwtNoPayload(JwtTestInput, boolean)[2]</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] JwtTestInput(keyAlgorithm=RSA, algorithmName=RS256, claim=https://walt.id), true</td>
+<td class="success">generateJwtNoPayload(JwtTestInput, boolean)[3]</td>
+<td class="success">0.084s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>15769 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15769 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15769 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15769 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {&quot;kty&quot;:&quot;EC&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;secp256k1&quot;,&quot;kid&quot;:&quot;341d7eeba5904a4593074741c0840f27&quot;,&quot;x&quot;:&quot;tH2zo92w3-npo5H6eyGb4xdYkNu-PulUCWLq8jiStS8&quot;,&quot;y&quot;:&quot;ImU2o9QmTj_YJYJYH-3Dvmn3QRjwFg_Nzs9XmlOBVR8&quot;,&quot;alg&quot;:&quot;ES256K&quot;}
+15769 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {&quot;kty&quot;:&quot;EC&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;secp256k1&quot;,&quot;kid&quot;:&quot;341d7eeba5904a4593074741c0840f27&quot;,&quot;x&quot;:&quot;tH2zo92w3-npo5H6eyGb4xdYkNu-PulUCWLq8jiStS8&quot;,&quot;y&quot;:&quot;ImU2o9QmTj_YJYJYH-3Dvmn3QRjwFg_Nzs9XmlOBVR8&quot;,&quot;alg&quot;:&quot;ES256K&quot;}
+15771 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=341d7eeba5904a4593074741c0840f27, kty=EC, alg=ES256K, crv=secp256k1, use=sig, x=tH2zo92w3-npo5H6eyGb4xdYkNu-PulUCWLq8jiStS8, y=ImU2o9QmTj_YJYJYH-3Dvmn3QRjwFg_Nzs9XmlOBVR8, d=null, n=null, e=null, x5u=null)
+15771 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15771 [Test worker] DEBUG id.walt.services.did.DidService - A key with the id &quot;341d7eeba5904a4593074741c0840f27&quot; exists.
+15771 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15772 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15772 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15772 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;.
+15772 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG#341d7eeba5904a4593074741c0840f27&quot;.
+15772 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: ECDSA_Secp256k1
+15772 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG#341d7eeba5904a4593074741c0840f27&quot;...
+15773 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15773 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6ZWJzaTp6cmJRc2N0MWo1QVZub1NxYXQyZW9ZRyMzNDFkN2VlYmE1OTA0YTQ1OTMwNzQ3NDFjMDg0MGYyNyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6Im9SOTJXcmdaSzlMa3JoZDhVOWJaNjg4Rk9CMi1JOUVfT1ZpTXBKdEJDdmsiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImRpZDplYnNpOnpyYlFzY3QxajVBVm5vU3FhdDJlb1lHIzM0MWQ3ZWViYTU5MDRhNDU5MzA3NDc0MWMwODQwZjI3IiwieCI6InRIMnpvOTJ3My1ucG81SDZleUdiNHhkWWtOdS1QdWxVQ1dMcThqaVN0UzgiLCJ5IjoiSW1VMm85UW1Ual9ZSllKWUgtM0R2bW4zUVJqd0ZnX056czlYbWxPQlZSOCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQxMTAsImlhdCI6MTcyNjEzMzk5MCwibm9uY2UiOiJub25jZSJ9.TyM72lUuJLDt5W1ZE1cUu7l6F3g2kIfXkjGmON_SQlSIl3kTdaDyoRufbxkKtJm6aHO14lIRNjgjXVOHm0rEIA
+15773 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJkaWQ6ZWJzaTp6cmJRc2N0MWo1QVZub1NxYXQyZW9ZRyMzNDFkN2VlYmE1OTA0YTQ1OTMwNzQ3NDFjMDg0MGYyNyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6Im9SOTJXcmdaSzlMa3JoZDhVOWJaNjg4Rk9CMi1JOUVfT1ZpTXBKdEJDdmsiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImRpZDplYnNpOnpyYlFzY3QxajVBVm5vU3FhdDJlb1lHIzM0MWQ3ZWViYTU5MDRhNDU5MzA3NDc0MWMwODQwZjI3IiwieCI6InRIMnpvOTJ3My1ucG81SDZleUdiNHhkWWtOdS1QdWxVQ1dMcThqaVN0UzgiLCJ5IjoiSW1VMm85UW1Ual9ZSllKWUgtM0R2bW4zUVJqd0ZnX056czlYbWxPQlZSOCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQxMTAsImlhdCI6MTcyNjEzMzk5MCwibm9uY2UiOiJub25jZSJ9.TyM72lUuJLDt5W1ZE1cUu7l6F3g2kIfXkjGmON_SQlSIl3kTdaDyoRufbxkKtJm6aHO14lIRNjgjXVOHm0rEIA
+15773 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG#341d7eeba5904a4593074741c0840f27&quot;...
+15773 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG#341d7eeba5904a4593074741c0840f27&quot;...
+15773 [Test worker] DEBUG id.walt.services.did.DidService - Loading or resolving &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15773 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15773 [Test worker] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=zrbQsct1j5AVnoSqat2eoYG, fragment=zrbQsct1j5AVnoSqat2eoYG, query=null), length of stored=954
+15774 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15774 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15774 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG&quot;...
+15775 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zrbQsct1j5AVnoSqat2eoYG#341d7eeba5904a4593074741c0840f27&quot;.
+15776 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;341d7eeba5904a4593074741c0840f27&quot;.
+15776 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 341d7eeba5904a4593074741c0840f27)
+15786 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;77b113d1f8a64d13ba821702b7baeff2&quot;.
+15786 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;77b113d1f8a64d13ba821702b7baeff2&quot;.
+15786 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;77b113d1f8a64d13ba821702b7baeff2&quot;.
+15786 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {&quot;kty&quot;:&quot;OKP&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;Ed25519&quot;,&quot;kid&quot;:&quot;77b113d1f8a64d13ba821702b7baeff2&quot;,&quot;x&quot;:&quot;npAm3_cetO5_4R6rH8GUu3Y_blRXzcAR93meWmNrLEo&quot;,&quot;alg&quot;:&quot;EdDSA&quot;}
+15786 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {&quot;kty&quot;:&quot;OKP&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;Ed25519&quot;,&quot;kid&quot;:&quot;77b113d1f8a64d13ba821702b7baeff2&quot;,&quot;x&quot;:&quot;npAm3_cetO5_4R6rH8GUu3Y_blRXzcAR93meWmNrLEo&quot;,&quot;alg&quot;:&quot;EdDSA&quot;}
+15788 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=77b113d1f8a64d13ba821702b7baeff2, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=npAm3_cetO5_4R6rH8GUu3Y_blRXzcAR93meWmNrLEo, y=null, d=null, n=null, e=null, x5u=null)
+15788 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;77b113d1f8a64d13ba821702b7baeff2&quot;.
+15788 [Test worker] DEBUG id.walt.services.did.DidService - A key with the id &quot;77b113d1f8a64d13ba821702b7baeff2&quot; exists.
+15788 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15789 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15789 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15789 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;.
+15789 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9#77b113d1f8a64d13ba821702b7baeff2&quot;.
+15789 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: EdDSA_Ed25519
+15789 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9#77b113d1f8a64d13ba821702b7baeff2&quot;...
+15789 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;77b113d1f8a64d13ba821702b7baeff2&quot;.
+15790 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6ZWJzaTp6cVdTcjdFTmtpMjI4TGZHU0U0SExLOSM3N2IxMTNkMWY4YTY0ZDEzYmE4MjE3MDJiN2JhZWZmMiIsInR5cCI6IkpXVCIsImFsZyI6IkVkRFNBIn0.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6IkpDNUJxdVRXMjVlUVBYWThIbUlJaE1KSkR3aExRZmFXZFZ3NVIySkFoRUUiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiZGlkOmVic2k6enFXU3I3RU5raTIyOExmR1NFNEhMSzkjNzdiMTEzZDFmOGE2NGQxM2JhODIxNzAyYjdiYWVmZjIiLCJ4IjoibnBBbTNfY2V0TzVfNFI2ckg4R1V1M1lfYmxSWHpjQVI5M21lV21OckxFbyIsImFsZyI6IkVkRFNBIn0sImV4cCI6MTcyNjEzNDExMSwiaWF0IjoxNzI2MTMzOTkxLCJub25jZSI6Im5vbmNlIn0.-hxjb2UZE-EtKQOLdvI1AbbLCDSNWQ_h0bBWt3Hi1FZGNJ2OIXTvNNj4F8eb2MNGDMoYdtrqBXFrNsRyQefMBg
+15790 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJkaWQ6ZWJzaTp6cVdTcjdFTmtpMjI4TGZHU0U0SExLOSM3N2IxMTNkMWY4YTY0ZDEzYmE4MjE3MDJiN2JhZWZmMiIsInR5cCI6IkpXVCIsImFsZyI6IkVkRFNBIn0.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6IkpDNUJxdVRXMjVlUVBYWThIbUlJaE1KSkR3aExRZmFXZFZ3NVIySkFoRUUiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiZGlkOmVic2k6enFXU3I3RU5raTIyOExmR1NFNEhMSzkjNzdiMTEzZDFmOGE2NGQxM2JhODIxNzAyYjdiYWVmZjIiLCJ4IjoibnBBbTNfY2V0TzVfNFI2ckg4R1V1M1lfYmxSWHpjQVI5M21lV21OckxFbyIsImFsZyI6IkVkRFNBIn0sImV4cCI6MTcyNjEzNDExMSwiaWF0IjoxNzI2MTMzOTkxLCJub25jZSI6Im5vbmNlIn0.-hxjb2UZE-EtKQOLdvI1AbbLCDSNWQ_h0bBWt3Hi1FZGNJ2OIXTvNNj4F8eb2MNGDMoYdtrqBXFrNsRyQefMBg
+15790 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9#77b113d1f8a64d13ba821702b7baeff2&quot;...
+15790 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9#77b113d1f8a64d13ba821702b7baeff2&quot;...
+15790 [Test worker] DEBUG id.walt.services.did.DidService - Loading or resolving &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15790 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15790 [Test worker] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=zqWSr7ENki228LfGSE4HLK9, fragment=zqWSr7ENki228LfGSE4HLK9, query=null), length of stored=876
+15791 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15791 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15791 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9&quot;...
+15792 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:zqWSr7ENki228LfGSE4HLK9#77b113d1f8a64d13ba821702b7baeff2&quot;.
+15793 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 77b113d1f8a64d13ba821702b7baeff2)
+15876 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15876 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15876 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15876 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {&quot;kty&quot;:&quot;RSA&quot;,&quot;e&quot;:&quot;AQAB&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;kid&quot;:&quot;2646a3b7e5bf40a0a7de177f78444c02&quot;,&quot;alg&quot;:&quot;RS256&quot;,&quot;n&quot;:&quot;xW9Us4gAjrLOgygqZ0nTGis0UcohyKv7fMZTQuzrBqGaoaIqKKeYWRahhMZbKMrHSMaHPJddN-YckVnTq6GHg5bB8IC5U6EaT4kI3QHs0Q-1-mR7_zYRyU42cHTcxnanaVi3bD5fmNNX2y8zblPXS8PsolxCxbvrqohDQDymj0hjExpdjQBTt51NJ4B4gVj6Lapf15q11a1296GZrks-4PknlBb-g-8O-CoEAlejoXrJxt4oy0q18POGSgBd_v2kNKqCWcm5LIrvVYBIVXANFuqWL44wZW9y3ALMHevTwK2jn3W7NLmAbpBA5AecIOzKFtTZm24qw4iyvuRhgYQY9Q&quot;}
+15876 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {&quot;kty&quot;:&quot;RSA&quot;,&quot;e&quot;:&quot;AQAB&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;kid&quot;:&quot;2646a3b7e5bf40a0a7de177f78444c02&quot;,&quot;alg&quot;:&quot;RS256&quot;,&quot;n&quot;:&quot;xW9Us4gAjrLOgygqZ0nTGis0UcohyKv7fMZTQuzrBqGaoaIqKKeYWRahhMZbKMrHSMaHPJddN-YckVnTq6GHg5bB8IC5U6EaT4kI3QHs0Q-1-mR7_zYRyU42cHTcxnanaVi3bD5fmNNX2y8zblPXS8PsolxCxbvrqohDQDymj0hjExpdjQBTt51NJ4B4gVj6Lapf15q11a1296GZrks-4PknlBb-g-8O-CoEAlejoXrJxt4oy0q18POGSgBd_v2kNKqCWcm5LIrvVYBIVXANFuqWL44wZW9y3ALMHevTwK2jn3W7NLmAbpBA5AecIOzKFtTZm24qw4iyvuRhgYQY9Q&quot;}
+15877 [Test worker] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=2646a3b7e5bf40a0a7de177f78444c02, kty=RSA, alg=RS256, crv=null, use=sig, x=null, y=null, d=null, n=xW9Us4gAjrLOgygqZ0nTGis0UcohyKv7fMZTQuzrBqGaoaIqKKeYWRahhMZbKMrHSMaHPJddN-YckVnTq6GHg5bB8IC5U6EaT4kI3QHs0Q-1-mR7_zYRyU42cHTcxnanaVi3bD5fmNNX2y8zblPXS8PsolxCxbvrqohDQDymj0hjExpdjQBTt51NJ4B4gVj6Lapf15q11a1296GZrks-4PknlBb-g-8O-CoEAlejoXrJxt4oy0q18POGSgBd_v2kNKqCWcm5LIrvVYBIVXANFuqWL44wZW9y3ALMHevTwK2jn3W7NLmAbpBA5AecIOzKFtTZm24qw4iyvuRhgYQY9Q, e=AQAB, x5u=null)
+15878 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15878 [Test worker] DEBUG id.walt.services.did.DidService - A key with the id &quot;2646a3b7e5bf40a0a7de177f78444c02&quot; exists.
+15878 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15878 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15879 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15879 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;.
+15879 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T#2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15879 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: RSA
+15879 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T#2646a3b7e5bf40a0a7de177f78444c02&quot;...
+15879 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15880 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6ZWJzaTp6MjJ2dzV4clo4WExQeE1VOHp2emNIMlQjMjY0NmEzYjdlNWJmNDBhMGE3ZGUxNzdmNzg0NDRjMDIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6IlNDbHVvQ0lFQW5HT2lkSE1CakRtYnZEYTA2ZEdXZUpBUFpOVDlnUXlxUzQiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJSU0EiLCJlIjoiQVFBQiIsInVzZSI6InNpZyIsImtpZCI6ImRpZDplYnNpOnoyMnZ3NXhyWjhYTFB4TVU4enZ6Y0gyVCMyNjQ2YTNiN2U1YmY0MGEwYTdkZTE3N2Y3ODQ0NGMwMiIsImFsZyI6IlJTMjU2IiwibiI6InhXOVVzNGdBanJMT2d5Z3FaMG5UR2lzMFVjb2h5S3Y3Zk1aVFF1enJCcUdhb2FJcUtLZVlXUmFoaE1aYktNckhTTWFIUEpkZE4tWWNrVm5UcTZHSGc1YkI4SUM1VTZFYVQ0a0kzUUhzMFEtMS1tUjdfellSeVU0MmNIVGN4bmFuYVZpM2JENWZtTk5YMnk4emJsUFhTOFBzb2x4Q3hidnJxb2hEUUR5bWowaGpFeHBkalFCVHQ1MU5KNEI0Z1ZqNkxhcGYxNXExMWExMjk2R1pya3MtNFBrbmxCYi1nLThPLUNvRUFsZWpvWHJKeHQ0b3kwcTE4UE9HU2dCZF92MmtOS3FDV2NtNUxJcnZWWUJJVlhBTkZ1cVdMNDR3Wlc5eTNBTE1IZXZUd0syam4zVzdOTG1BYnBCQTVBZWNJT3pLRnRUWm0yNHF3NGl5dnVSaGdZUVk5USJ9LCJleHAiOjE3MjYxMzQxMTEsImlhdCI6MTcyNjEzMzk5MSwibm9uY2UiOiJub25jZSJ9.l9C_4V3Cz2DJBr_aOSZy0m9M4H9aXBYBljv0pJr31PwP6zZZK5UX8b864ZEptZJGW9sSXAM03Vg-Iw6j3BYyW-zaam4-QhGdbBvo0e9cGz0BO14EfNiGWuIbIs6H-bo0ofNs8DTgejiL6upMRUboT0ivVtkGJU69C4z1ZV4f9JEmHAhL-1E0gRFSKo75tH53xTiR2OKeIoAi8I3nsapA6AtLpg92MEA7KsdN0LiF1VzpVjOlEaKn0ck8g2WhQ06TLNo9FHWF2njEb7USktVA8w6Zs2aHYjIwXwAgQ19eh1AdYQ3edFZhdeGQGh_fNjcBRNzPcNS0TmwJyo62EKPg2A
+15880 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJkaWQ6ZWJzaTp6MjJ2dzV4clo4WExQeE1VOHp2emNIMlQjMjY0NmEzYjdlNWJmNDBhMGE3ZGUxNzdmNzg0NDRjMDIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJyZWRpcmVjdFVyaSIsInN1YiI6IlNDbHVvQ0lFQW5HT2lkSE1CakRtYnZEYTA2ZEdXZUpBUFpOVDlnUXlxUzQiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwic3ViX2p3ayI6eyJrdHkiOiJSU0EiLCJlIjoiQVFBQiIsInVzZSI6InNpZyIsImtpZCI6ImRpZDplYnNpOnoyMnZ3NXhyWjhYTFB4TVU4enZ6Y0gyVCMyNjQ2YTNiN2U1YmY0MGEwYTdkZTE3N2Y3ODQ0NGMwMiIsImFsZyI6IlJTMjU2IiwibiI6InhXOVVzNGdBanJMT2d5Z3FaMG5UR2lzMFVjb2h5S3Y3Zk1aVFF1enJCcUdhb2FJcUtLZVlXUmFoaE1aYktNckhTTWFIUEpkZE4tWWNrVm5UcTZHSGc1YkI4SUM1VTZFYVQ0a0kzUUhzMFEtMS1tUjdfellSeVU0MmNIVGN4bmFuYVZpM2JENWZtTk5YMnk4emJsUFhTOFBzb2x4Q3hidnJxb2hEUUR5bWowaGpFeHBkalFCVHQ1MU5KNEI0Z1ZqNkxhcGYxNXExMWExMjk2R1pya3MtNFBrbmxCYi1nLThPLUNvRUFsZWpvWHJKeHQ0b3kwcTE4UE9HU2dCZF92MmtOS3FDV2NtNUxJcnZWWUJJVlhBTkZ1cVdMNDR3Wlc5eTNBTE1IZXZUd0syam4zVzdOTG1BYnBCQTVBZWNJT3pLRnRUWm0yNHF3NGl5dnVSaGdZUVk5USJ9LCJleHAiOjE3MjYxMzQxMTEsImlhdCI6MTcyNjEzMzk5MSwibm9uY2UiOiJub25jZSJ9.l9C_4V3Cz2DJBr_aOSZy0m9M4H9aXBYBljv0pJr31PwP6zZZK5UX8b864ZEptZJGW9sSXAM03Vg-Iw6j3BYyW-zaam4-QhGdbBvo0e9cGz0BO14EfNiGWuIbIs6H-bo0ofNs8DTgejiL6upMRUboT0ivVtkGJU69C4z1ZV4f9JEmHAhL-1E0gRFSKo75tH53xTiR2OKeIoAi8I3nsapA6AtLpg92MEA7KsdN0LiF1VzpVjOlEaKn0ck8g2WhQ06TLNo9FHWF2njEb7USktVA8w6Zs2aHYjIwXwAgQ19eh1AdYQ3edFZhdeGQGh_fNjcBRNzPcNS0TmwJyo62EKPg2A
+15880 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T#2646a3b7e5bf40a0a7de177f78444c02&quot;...
+15880 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T#2646a3b7e5bf40a0a7de177f78444c02&quot;...
+15880 [Test worker] DEBUG id.walt.services.did.DidService - Loading or resolving &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15880 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15880 [Test worker] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=ebsi, identifier=z22vw5xrZ8XLPxMU8zvzcH2T, fragment=z22vw5xrZ8XLPxMU8zvzcH2T, query=null), length of stored=1171
+15881 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15881 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15881 [Test worker] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T&quot;...
+15882 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z22vw5xrZ8XLPxMU8zvzcH2T#2646a3b7e5bf40a0a7de177f78444c02&quot;.
+15883 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 2646a3b7e5bf40a0a7de177f78444c02)
+15888 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;97f3e14eb6f648baa6db35c7efb6bda3&quot;.
+15889 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;97f3e14eb6f648baa6db35c7efb6bda3&quot;.
+15889 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: ECDSA_Secp256k1
+15889 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;97f3e14eb6f648baa6db35c7efb6bda3&quot;.
+15889 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiI5N2YzZTE0ZWI2ZjY0OGJhYTZkYjM1YzdlZmI2YmRhMyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiI5N2YzZTE0ZWI2ZjY0OGJhYTZkYjM1YzdlZmI2YmRhMyIsImV4cCI6MTcyNjEzNDA1MX0.nQHp98yItXgzMbrgS3P3UWMAZ3JBen3nx6Q7bQli6goUbc523UBlEil7z_u3zsh-B9kbmje3LWBNpKg7mdfnMg
+15889 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiI5N2YzZTE0ZWI2ZjY0OGJhYTZkYjM1YzdlZmI2YmRhMyIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiI5N2YzZTE0ZWI2ZjY0OGJhYTZkYjM1YzdlZmI2YmRhMyIsImV4cCI6MTcyNjEzNDA1MX0.nQHp98yItXgzMbrgS3P3UWMAZ3JBen3nx6Q7bQli6goUbc523UBlEil7z_u3zsh-B9kbmje3LWBNpKg7mdfnMg
+15889 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;97f3e14eb6f648baa6db35c7efb6bda3&quot;.
+15889 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;97f3e14eb6f648baa6db35c7efb6bda3&quot;.
+15890 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 97f3e14eb6f648baa6db35c7efb6bda3)
+15893 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;1cf5297e73c54c9aa7b9633ca5b415dd&quot;.
+15893 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;1cf5297e73c54c9aa7b9633ca5b415dd&quot;.
+15893 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: EdDSA_Ed25519
+15893 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;1cf5297e73c54c9aa7b9633ca5b415dd&quot;.
+15894 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiIxY2Y1Mjk3ZTczYzU0YzlhYTdiOTYzM2NhNWI0MTVkZCIsInR5cCI6IkpXVCIsImFsZyI6IkVkRFNBIn0.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiIxY2Y1Mjk3ZTczYzU0YzlhYTdiOTYzM2NhNWI0MTVkZCIsImV4cCI6MTcyNjEzNDA1MX0.yUHAC057mRxPThsbhWWNJ09yMSg21MPrABUGpL6dQBsAfclZaicevheYcEfTJK6iOtQrgdQFMXM1l9Qv3pezBQ
+15894 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiIxY2Y1Mjk3ZTczYzU0YzlhYTdiOTYzM2NhNWI0MTVkZCIsInR5cCI6IkpXVCIsImFsZyI6IkVkRFNBIn0.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiIxY2Y1Mjk3ZTczYzU0YzlhYTdiOTYzM2NhNWI0MTVkZCIsImV4cCI6MTcyNjEzNDA1MX0.yUHAC057mRxPThsbhWWNJ09yMSg21MPrABUGpL6dQBsAfclZaicevheYcEfTJK6iOtQrgdQFMXM1l9Qv3pezBQ
+15894 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;1cf5297e73c54c9aa7b9633ca5b415dd&quot;.
+15894 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 1cf5297e73c54c9aa7b9633ca5b415dd)
+15977 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;9bcdefd036fb4538998ec93ec5506a3d&quot;.
+15977 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;9bcdefd036fb4538998ec93ec5506a3d&quot;.
+15977 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: RSA
+15977 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;9bcdefd036fb4538998ec93ec5506a3d&quot;.
+15978 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiI5YmNkZWZkMDM2ZmI0NTM4OTk4ZWM5M2VjNTUwNmEzZCIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiI5YmNkZWZkMDM2ZmI0NTM4OTk4ZWM5M2VjNTUwNmEzZCIsImV4cCI6MTcyNjEzNDA1MX0.SzcDD1Y7EWuUQ547oKulbiu27aasTMYMAPQ13X5b587qfOf0RuwYSMYi7SVBYajZf8a1Gqo5uO1WKRnMqG95kT7WV9iCGzepWvzYXQ1P5H1sW4kHgLBwh0htrVNQawqwrxVPKEIB1fakLHGKvBEaibYR8IG2kV6CFVVwOlC3drKM9U6Xg9P0WeMZKFTaox2Qm2oUA9fdhkK_umLSBGqCMJJhVjef7AYkijaDWpniRkDvTsY7m6Pxy6S8Z9lnCtnlZ4X4XDoVH4Up-mgayAJ-2iJHN8EOxMhxBbStQE-HcGKEYXxYXxZZh541ALrFp5_ndbtvyllQ8xOh6XIPUElPew
+15978 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiI5YmNkZWZkMDM2ZmI0NTM4OTk4ZWM5M2VjNTUwNmEzZCIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL3dhbHQuaWQiLCJzdWIiOiI5YmNkZWZkMDM2ZmI0NTM4OTk4ZWM5M2VjNTUwNmEzZCIsImV4cCI6MTcyNjEzNDA1MX0.SzcDD1Y7EWuUQ547oKulbiu27aasTMYMAPQ13X5b587qfOf0RuwYSMYi7SVBYajZf8a1Gqo5uO1WKRnMqG95kT7WV9iCGzepWvzYXQ1P5H1sW4kHgLBwh0htrVNQawqwrxVPKEIB1fakLHGKvBEaibYR8IG2kV6CFVVwOlC3drKM9U6Xg9P0WeMZKFTaox2Qm2oUA9fdhkK_umLSBGqCMJJhVjef7AYkijaDWpniRkDvTsY7m6Pxy6S8Z9lnCtnlZ4X4XDoVH4Up-mgayAJ-2iJHN8EOxMhxBbStQE-HcGKEYXxYXxZZh541ALrFp5_ndbtvyllQ8xOh6XIPUElPew
+15978 [Test worker] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;9bcdefd036fb4538998ec93ec5506a3d&quot;.
+15979 [Test worker] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: 9bcdefd036fb4538998ec93ec5506a3d)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0.2</a> at Sep 12, 2024, 11:39:51 AM</p>
+</div>
+</div>
+</body>
+</html>

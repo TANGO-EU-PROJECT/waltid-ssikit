@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.cli.VcTemplatesCommandTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:42" hostname="pablito-B550-AORUS-ELITE-V2" time="0.016">
+  <properties/>
+  <testcase name="vc templates list" classname="id.walt.cli.VcTemplatesCommandTest" time="0.014"/>
+  <testcase name="vc templates export" classname="id.walt.cli.VcTemplatesCommandTest" time="0.001"/>
+  <system-out><![CDATA[
+Listing VC templates ...
+
+Results:
+
+- AmletCredential
+- DataConsortium
+- DataSelfDescription
+- DataServiceOffering
+- EbsiAccreditedVerifiableAttestation
+- EbsiDiplomaVerifiableAccreditation
+- EbsiEuropass
+- EbsiVerifiableAccreditationToAccredit
+- EbsiVerifiableAttestationGeneric
+- EbsiVerifiableAttestationLegal
+- EbsiVerifiableAttestationPerson
+- Email
+- Europass
+- EuropeanBankIdentity
+- GaiaxCredential
+- Iso27001Certificate
+- KybCredential
+- KybMonoCredential
+- KycCredential
+- LegalPerson
+- OpenBadgeCredential
+- PacketDeliveryService
+- ParticipantCredential
+- PeerReview
+- PermanentResidentCard
+- ProofOfResidence
+- ServiceOfferingCredential
+- UniversityDegree
+- VerifiableAttestation
+- VerifiableAuthorization
+- VerifiableDiploma
+- VerifiableId
+- VerifiableMandate
+- VerifiablePresentation
+- VerifiableVaccinationCertificate
+
+(*) ... custom template
+]]></system-out>
+  <system-err><![CDATA[7560 [pool-1-thread-1 @coroutine#164] DEBUG id.walt.credentials.w3c.templates.VcTemplateService - Loading templates from: file:/home/pablito/Desktop/git/waltid-tango/app/build/resources/test/vc-templates
+]]></system-err>
+</testsuite>

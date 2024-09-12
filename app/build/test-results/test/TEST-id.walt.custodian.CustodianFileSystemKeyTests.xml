@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.custodian.CustodianFileSystemKeyTests" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:43" hostname="pablito-B550-AORUS-ELITE-V2" time="0.013">
+  <properties/>
+  <testcase name="1.1: Generate EdDSA_Ed25519 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.002"/>
+  <testcase name="1.2: Generate ECDSA_Secp256k1 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.001"/>
+  <testcase name="2.1: Load EdDSA_Ed25519 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.001"/>
+  <testcase name="2.2: Load ECDSA_Secp256k1 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.0"/>
+  <testcase name="3: List keys size" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.003"/>
+  <testcase name="4: Delete keys" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.002"/>
+  <testcase name="5.1: Store EdDSA_Ed25519 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.001"/>
+  <testcase name="5.2: Store ECDSA_Secp256k1 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.0"/>
+  <testcase name="6.1: Retrieve stored EdDSA_Ed25519 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.0"/>
+  <testcase name="6.2: Retrieve stored ECDSA_Secp256k1 key" classname="id.walt.custodian.CustodianFileSystemKeyTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[8010 [pool-1-thread-1 @coroutine#196] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "7eec91a10ecb483684635ca5f22fd5c6".
+8011 [pool-1-thread-1 @coroutine#197] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "d6987a6071a448d99e7d5d715d138534".
+8012 [pool-1-thread-1 @coroutine#198] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "7eec91a10ecb483684635ca5f22fd5c6".
+8012 [pool-1-thread-1 @coroutine#199] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "d6987a6071a448d99e7d5d715d138534".
+8015 [pool-1-thread-1 @coroutine#200] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "7eec91a10ecb483684635ca5f22fd5c6".
+8015 [pool-1-thread-1 @coroutine#200] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "d6987a6071a448d99e7d5d715d138534".
+8017 [pool-1-thread-1 @coroutine#201] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "7eec91a10ecb483684635ca5f22fd5c6".
+8017 [pool-1-thread-1 @coroutine#201] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "d6987a6071a448d99e7d5d715d138534".
+8019 [pool-1-thread-1 @coroutine#202] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 45674a4ac169f7f4716804393d20480138a
+8020 [pool-1-thread-1 @coroutine#203] DEBUG id.walt.services.key.WaltIdKeyService - Importing key ed51ec3a165f4af8bef8298d99b41de7
+8020 [pool-1-thread-1 @coroutine#204] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "45674a4ac169f7f4716804393d20480138a".
+8021 [pool-1-thread-1 @coroutine#205] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "ed51ec3a165f4af8bef8298d99b41de7".
+8021 [pool-1-thread-1 @coroutine#205] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "ed51ec3a165f4af8bef8298d99b41de7".
+8021 [pool-1-thread-1 @coroutine#205] DEBUG id.walt.services.keystore.FileSystemKeyStoreService - Loading key "45674a4ac169f7f4716804393d20480138a".
+]]></system-err>
+</testsuite>

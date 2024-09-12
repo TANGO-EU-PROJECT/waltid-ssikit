@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class id.walt.essif.DidRegistrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class id.walt.essif.DidRegistrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/id.walt.essif.html">id.walt.essif</a> &gt; DidRegistrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.003s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testEbsiDidRegistration</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>1. [EWallet] Generate ETH address (keys)
+2. [EWallet] Generate DID Controlling Keys)
+3. [EWallet] Store DID Controlling Private Key
+4. [EWallet] Generate DID Document
+5. [EWallet] POST /onboards
+6. [Eos] Request DID ownership
+7. [EWallet] Signed Challenge
+8. [Eos] Validate DID Document
+9. [Eos] GET /identifiers/{did}
+10. [Eos] 404 Not found
+11. [Eos] Generate Verifiable Authorization
+12. [EWallet] 201 V. Authorization
+13 [POST] /insertDidDocument
+14 Validate request
+15 Generate &lt;unsigned transaction&gt;
+16. [EWallet] 200 &lt;unsigned transaction&gt;
+17. [EWallet] Generate &lt;signed transaction&gt;
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>8225 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.enterprisewallet.EnterpriseWalletService - didOwnershipReq: {
+    &quot;request&quot;: &quot;&lt;JWT-response&gt;&quot;
+}
+
+8225 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.enterprisewallet.EnterpriseWalletService - didOwnershipReqHeader:{
+    &quot;alg&quot;: &quot;ES256K&quot;,
+    &quot;typ&quot;: &quot;JWT&quot;,
+    &quot;jwk&quot;: &quot;{EOS-DID Key}&quot;
+}
+
+8225 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.enterprisewallet.EnterpriseWalletService - didOwnershipReqBody: {
+    &quot;id&quot;: &quot;&lt;random-id&gt;&quot;,
+    &quot;iss&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+    &quot;callback&quot;: &quot;&lt;callback-url&gt;&quot;,
+    &quot;nonce&quot;: &quot;&lt;random-nonce&gt;&quot;
+}
+
+8226 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.enterprisewallet.EnterpriseWalletService - signedChallenge: {
+    &quot;request&quot;: &quot;&lt;JWT-response&gt;&quot;
+}
+
+8226 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.TrustedIssuerClient - header: {
+    &quot;alg&quot;: &quot;ES256K&quot;,
+    &quot;typ&quot;: &quot;JWT&quot;,
+    &quot;jwk&quot;: &quot;{User Wallet-DID Key}&quot;
+}
+
+8226 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.services.ecosystems.essif.TrustedIssuerClient - body: {
+    &quot;nonce&quot;: &quot;&lt;request-nonce&gt;&quot;,
+    &quot;data&quot;: {
+        &quot;@context&quot;: [
+            &quot;https://w3.org/ns/did/v1&quot;,
+            &quot;https://ebsi.org/ns/did/v1&quot;
+        ],
+        &quot;id&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+        &quot;verificationMethod&quot;: [
+            {
+                &quot;id&quot;: &quot;did:ebsi:2123456789AB...fghijkmno#key-1&quot;,
+                &quot;type&quot;: &quot;Ed25519VerificationKey2018&quot;,
+                &quot;controller&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+                &quot;publicKeyBase58&quot;: &quot;5F5Q1qJbbvcyhnStAmkjF5rUBKe1XnHJHt2Tj49tTDpW&quot;
+            },
+            {
+                &quot;id&quot;: &quot;did:ebsi:2123456789AB...fghijkmno#key-2&quot;,
+                &quot;type&quot;: &quot;X25519KeyAgreementKey2019&quot;,
+                &quot;controller&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+                &quot;publicKeyBase58&quot;: &quot;GnxxE5rAFYoRS6af7XArmzh7gNS68XTAKjhNDRsfhrFJ&quot;
+            },
+            {
+                &quot;id&quot;: &quot;did:ebsi:2123456789AB...fghijkmno#key-3&quot;,
+                &quot;type&quot;: &quot;EidasVerificationKey2021&quot;,
+                &quot;controller&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+                &quot;publicKeyPem&quot;: &quot;-----BEGIN..&quot;
+            }
+        ],
+        &quot;authentication&quot;: [
+            &quot;did:ebsi:2123456789AB...fghijkmno#key-3&quot;
+        ],
+        &quot;assertionMethod&quot;: [
+            &quot;did:ebsi:2123456789AB...fghijkmno#key-1&quot;
+        ],
+        &quot;keyAgreement&quot;: [
+            &quot;did:ebsi:2123456789AB...fghijkmno#key-2&quot;
+        ],
+        &quot;proof&quot;: {
+            &quot;type&quot;: &quot;Ed25519Signature2018&quot;,
+            &quot;created&quot;: &quot;2019-06-22T14:11:44Z&quot;,
+            &quot;proofPurpose&quot;: &quot;assertionMethod&quot;,
+            &quot;verificationMethod&quot;: &quot;did:ebsi:2123456789AB...fghijkmno#key-1&quot;,
+            &quot;jws&quot;: &quot;dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk&quot;
+        }
+    }
+}
+
+8227 [pool-1-thread-1 @coroutine#233] DEBUG id.walt.essif.DidRegistrationTest - verifiableAuthoriztation: {
+    &quot;@context&quot;: [
+        &quot;https://www.w3.org/2018/credentials/v1&quot;,
+        &quot;https://essif.europa.eu/schemas/vc/2020/v1&quot;
+    ],
+    &quot;id&quot;: &quot;did:ebsi:2123456789AB...fghijkmno/credentials/1872&quot;,
+    &quot;type&quot;: [
+        &quot;VerifiableCredential&quot;,
+        &quot;VerifiableAuthorization&quot;
+    ],
+    &quot;issuer&quot;: &quot;did:ebsi:2123456789AB...fghijkmno&quot;,
+    &quot;issuanceDate&quot;: &quot;2020-08-24T14:13:44Z&quot;,
+    &quot;credentialSubject&quot;: {
+        &quot;id&quot;: &quot;did:ebsi:00000004321&quot;,
+        &quot;hash&quot;: &quot;0x31a014c390aa9ad2b47a1df8904c8addf87db279b06eae50797f546da63229d3&quot;
+    },
+    &quot;proof&quot;: {
+        &quot;type&quot;: &quot;EcdsaSecp256k1Signature2019&quot;,
+        &quot;created&quot;: &quot;2020-08-24T14:13:44Z&quot;,
+        &quot;proofPurpose&quot;: &quot;assertionMethod&quot;,
+        &quot;verificationMethod&quot;: &quot;did:ebsi:2123456789AB...fghijkmno#key-1&quot;,
+        &quot;jws&quot;: &quot;eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X&quot;
+    }
+}
+
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0.2</a> at Sep 12, 2024, 11:39:51 AM</p>
+</div>
+</div>
+</body>
+</html>

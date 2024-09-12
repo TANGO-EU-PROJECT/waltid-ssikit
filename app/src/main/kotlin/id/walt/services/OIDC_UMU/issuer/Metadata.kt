@@ -8,7 +8,7 @@ import io.ktor.client.request.get
 import io.ktor.client.statement.*
 import kotlinx.serialization.json.*
 
-
+private val URI_DSC = System.getenv("URI")
 data class Metadata(
     val issuer: String,
     val authorizationEndpoint: List<String>,
@@ -35,6 +35,8 @@ data class Metadata(
     val credentialConfigurations: Map<String, CredentialConfiguration>,
     val codeChallengeMethodSupported: List<String>
 ) {
+
+
     override fun toString(): String {
         return "Metadata(\n" +
                 "issuer='$issuer',\n" +
@@ -268,9 +270,9 @@ fun checkValidMetadata(metadata: Metadata): Boolean {
 
 
     fun generateMetadata(ISSUER_PORT: Int, credentialTypes: Array<String>): String {
-    val credentialIssuer = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/"
-    val credentialEndpoint = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/credential"
-    val authorizationServers = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth"
+    val credentialIssuer = "https://$URI_DSC/issuer/"
+    val credentialEndpoint = "https://$URI_DSC/issuer/credential"
+    val authorizationServers = "https://$URI_DSC/issuer/auth"
 
     val credentialsConfigurations = credentialTypes.joinToString(separator = ",\n\t\t") { credentialType ->
         val scope = if (credentialType.endsWith("Credential")) {
@@ -302,9 +304,9 @@ fun generateAuthMetadata(ISSUER_PORT: Int): String {
 
     return """
             { 
-             "issuer":"https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer", 
-             "authorization_endpoint": ["https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-late","https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-ePassport" ,"https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-late", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-ePassport"], 
-             "token_endpoint":"https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/token", 
+             "issuer":"https://$URI_DSC/issuer", 
+             "authorization_endpoint": ["https://$URI_DSC/issuer/auth", "https://$URI_DSC/issuer/auth-late","https://$URI_DSC/issuer/auth-ePassport" ,"https://$URI_DSC/issuer/code", "https://$URI_DSC/issuer/code-late", "https://$URI_DSC/issuer/code-ePassport"], 
+             "token_endpoint":"https://$URI_DSC/issuer/token", 
              "scopes_supported":["openid"], 
              "response_types_supported":["vp_token","id_token","code","token"], 
              "response_modes_supported":["query"], 
@@ -329,7 +331,7 @@ fun generateAuthMetadata(ISSUER_PORT: Int): String {
 
 fun generateCredentialOffer(ISSUER_PORT: Int, credentialTypes: Array<String>): String {
     val json = buildJsonObject {
-        put("credential_issuer", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/")
+        put("credential_issuer", "https://$URI_DSC/issuer/")
         putJsonArray("credential_configuration_ids") {
             credentialTypes.forEach { add(it) }
         }

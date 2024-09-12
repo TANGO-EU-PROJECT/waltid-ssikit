@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         content.then(text => {
                             if (text.startsWith("Error:")) {
                                 const errorMessage = text.substring(6).trim();
-                                window.location.href = `/error?error=${encodeURIComponent(errorMessage)}`;
+                                window.location.href = `/wallet/error?error=${encodeURIComponent(errorMessage)}`;
                             }
                             // Lanza un error si no es un mensaje de error formateado
                             throw new Error(text);
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const listItem = document.createElement('li');
                         listItem.textContent = credential;
                         listItem.onclick = function() {
-                            fetch('/credentialParameters', {
+                            fetch('/wallet/credentialParameters', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/x-www-form-urlencoded'
@@ -75,16 +75,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     createCredentialBtn.addEventListener('click', function() {
-        fetchCredentials('/list-credentials');
+        fetchCredentials('/wallet/list-credentials');
     });
 
     const listCredsButton = document.getElementById('ListCreds');
     listCredsButton.addEventListener('click', function() {
-        window.location.href = '/credentials';
+        window.location.href = '/wallet/credentials';
     });
 
     const checkMetadataButton = document.getElementById('CheckMetadata');
     checkMetadataButton.addEventListener('click', function() {
-        window.location.href = '/Configuration';
+        window.location.href = '/wallet/Configuration';
     });
 });

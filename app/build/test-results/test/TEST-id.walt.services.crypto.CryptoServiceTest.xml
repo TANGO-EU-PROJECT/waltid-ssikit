@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.services.crypto.CryptoServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:46" hostname="pablito-B550-AORUS-ELITE-V2" time="0.125">
+  <properties/>
+  <testcase name="testAddWaltIdProviders" classname="id.walt.services.crypto.CryptoServiceTest" time="0.011"/>
+  <testcase name="testEncWithAes" classname="id.walt.services.crypto.CryptoServiceTest" time="0.004"/>
+  <testcase name="testGenEd255191Sun" classname="id.walt.services.crypto.CryptoServiceTest" time="0.078"/>
+  <testcase name="testGenEd25519Tink" classname="id.walt.services.crypto.CryptoServiceTest" time="0.004"/>
+  <testcase name="testGenSecp256k1Sun" classname="id.walt.services.crypto.CryptoServiceTest" time="0.004"/>
+  <testcase name="testHexEncoding" classname="id.walt.services.crypto.CryptoServiceTest" time="0.004"/>
+  <testcase name="testSignVerifySun" classname="id.walt.services.crypto.CryptoServiceTest" time="0.017"/>
+  <system-out><![CDATA[SupportedCurves
+SupportedCurves: -> SunEC: [secp256r1,NIST P-256,X9.62 prime256v1,1.2.840.10045.3.1.7]|[secp384r1,NIST P-384,1.3.132.0.34]|[secp521r1,NIST P-521,1.3.132.0.35]
+Signature object: SHA256withECDSA<not initialized>
+java.security.KeyStore@77f2ea59
+SUN version 17 - SUN (DSA key/parameter generation; DSA signing; SHA-1, MD5 digests; SecureRandom; X.509 certificates; PKCS12, JKS & DKS keystores; PKIX CertPathValidator; PKIX CertPathBuilder; LDAP, Collection CertStores, JavaPolicy Policy; JavaLoginConfig Configuration)
+SunRsaSign version 17 - Sun RSA signature provider
+SunEC version 17 - Sun Elliptic Curve provider
+SunJSSE version 17 - Sun JSSE provider(PKCS12, SunX509/PKIX key/trust factories, SSLv3/TLSv1/TLSv1.1/TLSv1.2/TLSv1.3/DTLSv1.0/DTLSv1.2)
+SunJCE version 17 - SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC, ChaCha20)
+SunJGSS version 17 - Sun (Kerberos v5, SPNEGO)
+SunSASL version 17 - Sun SASL provider(implements client mechanisms for: DIGEST-MD5, EXTERNAL, PLAIN, CRAM-MD5, NTLM; server mechanisms for: DIGEST-MD5, CRAM-MD5, NTLM)
+XMLDSig version 17 - XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory; C14N 1.0, C14N 1.1, Exclusive C14N, Base64, Enveloped, XPath, XPath2, XSLT TransformServices)
+SunPCSC version 17 - Sun PC/SC provider
+JdkLDAP version 17 - JdkLDAP Provider (implements LDAP CertStore)
+JdkSASL version 17 - JDK SASL provider(implements client and server mechanisms for GSSAPI)
+SunPKCS11 version 17 - Unconfigured and unusable PKCS11 provider
+BC version 1.76 - BouncyCastle Security Provider v1.76
+Walt version 1.SNAPSHOT - Walt Security Provider, supporting signatures with following algorithms [ES256k, Ed25519]
+	 -> Walt: Signature.SHA384withECDSA -> id.walt.crypto.LtSignature$SHA384withECDSA
+
+	 -> Walt: Cipher.AES/GCM/NoPadding -> id.walt.crypto.LtCipherSpi$AES256_GCM_NoPadding
+
+	 -> Walt: Signature.SHA1withECDSA -> id.walt.crypto.LtSignature$SHA1withECDSA
+
+	 -> Walt: MessageDigest.SHA-256 -> id.walt.crypto.LtMessageDigestSpi$SHA256
+
+	 -> Walt: Signature.SHA224withECDSA -> id.walt.crypto.LtSignature$SHA224withECDSA
+
+	 -> Walt: Signature.SHA256withECDSA -> id.walt.crypto.LtSignature$SHA256withECDSA
+
+	 -> Walt: KeyStore.PKCS11 -> id.walt.crypto.LtKeyStore
+
+	 -> Walt: Signature.SHA512withECDSA -> id.walt.crypto.LtSignature$SHA512withECDSA
+
+]]></system-out>
+  <system-err><![CDATA[11266 [pool-1-thread-1 @coroutine#765] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "079941eb0c1e4df1ba2d599012d7093c".
+11275 [pool-1-thread-1 @coroutine#767] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "b44932fd7e2a4da891485a4715231445".
+11284 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "244011731056481bb7c45b444211cebf".
+11284 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11285 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11286 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11286 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11287 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11288 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11289 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11289 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11290 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11291 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11291 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11292 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11293 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11293 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11294 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11295 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11295 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11296 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11296 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+11297 [pool-1-thread-1 @coroutine#769] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "244011731056481bb7c45b444211cebf".
+]]></system-err>
+</testsuite>

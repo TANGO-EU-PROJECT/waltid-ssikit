@@ -18,6 +18,7 @@ import io.ktor.server.response.*
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
+private val URI_DSC = System.getenv("URI")
 class AuthorizationRequest(
     private val WALLET_PORT: Int,
     private val ENDPOINT_OBTAIN_CREDENTIAL: String,
@@ -75,7 +76,7 @@ class AuthorizationRequest(
         val responseType = "code"
         val scope = "openid"
         val codeChallengeMethod = "S256"
-        val redirectUri = URLEncoder.encode("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential", StandardCharsets.UTF_8.name())
+        val redirectUri = URLEncoder.encode("https://$URI_DSC/wallet/New-Credential", StandardCharsets.UTF_8.name())
 
         val authorizationDetails = mapOf(
             "type" to "openid_credential",
@@ -125,7 +126,7 @@ class AuthorizationRequest(
         val responseType = "code"
         val scope = "openid"
         val codeChallengeMethod = "S256"
-        val redirectUri = URLEncoder.encode("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential", StandardCharsets.UTF_8.name())
+        val redirectUri = URLEncoder.encode("https://$URI_DSC/wallet/New-Credential", StandardCharsets.UTF_8.name())
 
         val authorizationDetails = mapOf(
             "type" to "openid_credential",

@@ -24,8 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(({ clientId, clientSecret }) => {
             // Guardar clientId y clientSecret como cookies
-            document.cookie = `clientId-umu-issuer=${clientId}; path=/; domain=wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu; samesite=None; Secure`;
-            document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; domain=wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu; samesite=None; Secure`;
+            document.cookie = `clientId-umu-issuer=${clientId}; path=/; samesite=None; Secure`;
+            document.cookie = `clientSecret-umu-issuer=${clientSecret}; path=/; samesite=None; Secure`;
+
 
             messageContainer.textContent = 'Login successful.';
             messageContainer.style.color = 'green';

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.cli.EssifCommandTest" tests="11" skipped="8" failures="0" errors="0" timestamp="2024-09-12T09:39:42" hostname="pablito-B550-AORUS-ELITE-V2" time="0.201">
+  <properties/>
+  <testcase name="META - Check EBSI Bearer Token" classname="id.walt.cli.EssifCommandTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <testcase name="0. Create EBSI DID" classname="id.walt.cli.EssifCommandTest" time="0.017"/>
+  <testcase name="1. onboard --help" classname="id.walt.cli.EssifCommandTest" time="0.046"/>
+  <testcase name="2. onboard --did" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="3. auth-api --did" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="4. did register --did" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="5. Insert timestamp" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="6. Get timestamp transaction hash" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="7. Get by timestamp Id" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <testcase name="8. essif tir get -r" classname="id.walt.cli.EssifCommandTest" time="0.131"/>
+  <testcase name="9. essif tir get -t" classname="id.walt.cli.EssifCommandTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[Getting issuer with DID "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7"...
+
+Result:
+
+{
+    "title":"Issuer Not Found",
+    "status":404,
+    "type":"about:blank",
+    "detail":"Issuer did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7 not found"
+}
+]]></system-out>
+  <system-err><![CDATA[7002 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Saving key "Key[5b2736767e2746ab9bb32b4ef44503fb; Algo: ECDSA_Secp256k1; Provider: SUN]"...
+7006 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key "5b2736767e2746ab9bb32b4ef44503fb"...
+7007 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key "5b2736767e2746ab9bb32b4ef44503fb"...
+7007 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"5b2736767e2746ab9bb32b4ef44503fb","x":"1tWjacPoTYHJxZ_25OBevbQT7RRwRmhoZg9W3Yw9ERc","y":"5k3GzlJCDwcWW-pWPyhINkus9z4GY8jY2ShxdmoHyrQ","alg":"ES256K"}
+7007 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"EC","use":"sig","crv":"secp256k1","kid":"5b2736767e2746ab9bb32b4ef44503fb","x":"1tWjacPoTYHJxZ_25OBevbQT7RRwRmhoZg9W3Yw9ERc","y":"5k3GzlJCDwcWW-pWPyhINkus9z4GY8jY2ShxdmoHyrQ","alg":"ES256K"}
+7009 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=5b2736767e2746ab9bb32b4ef44503fb, kty=EC, alg=ES256K, crv=secp256k1, use=sig, x=1tWjacPoTYHJxZ_25OBevbQT7RRwRmhoZg9W3Yw9ERc, y=5k3GzlJCDwcWW-pWPyhINkus9z4GY8jY2ShxdmoHyrQ, d=null, n=null, e=null, x5u=null)
+7010 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key "5b2736767e2746ab9bb32b4ef44503fb"...
+7010 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.did.DidService - A key with the id "5b2736767e2746ab9bb32b4ef44503fb" exists.
+7010 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Adding alias "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7" for keyId "5b2736767e2746ab9bb32b4ef44503fb"...
+7013 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.services.keystore.SqlKeyStoreService - Adding alias "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7#5b2736767e2746ab9bb32b4ef44503fb" for keyId "5b2736767e2746ab9bb32b4ef44503fb"...
+7014 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7"...
+7014 [pool-1-thread-1 @coroutine#136] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7"...
+7069 [pool-1-thread-1 @coroutine#145] DEBUG id.walt.services.ecosystems.essif.TrustedIssuerClient - Getting trusted issuer with DID did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7
+7198 [pool-1-thread-1 @coroutine#145] DEBUG id.walt.services.ecosystems.essif.TrustedIssuerClient - {"title":"Issuer Not Found","status":404,"type":"about:blank","detail":"Issuer did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7 not found"}
+]]></system-err>
+</testsuite>

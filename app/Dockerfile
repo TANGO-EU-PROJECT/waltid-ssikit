@@ -68,6 +68,7 @@ ENV VERIFIER_PORT=30001
 ENV WALLET_PORT=30002
 ENV MODE=Default
 ENV LOCAL=true
+ENV URI="wallet.tango.io"
 
 
-CMD /app/ssikit.sh fullApi
+ENTRYPOINT [ "/app/ssikit.sh fullApi" ] 

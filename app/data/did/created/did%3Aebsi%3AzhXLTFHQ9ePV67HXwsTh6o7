@@ -1,0 +1,26 @@
+{
+    "assertionMethod" : [
+        "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7#5b2736767e2746ab9bb32b4ef44503fb"
+    ],
+    "authentication" : [
+        "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7#5b2736767e2746ab9bb32b4ef44503fb"
+    ],
+    "@context" : "https://www.w3.org/ns/did/v1",
+    "id" : "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7",
+    "verificationMethod" : [
+        {
+            "controller" : "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7",
+            "id" : "did:ebsi:zhXLTFHQ9ePV67HXwsTh6o7#5b2736767e2746ab9bb32b4ef44503fb",
+            "publicKeyJwk" : {
+                "alg" : "ES256K",
+                "crv" : "secp256k1",
+                "kid" : "5b2736767e2746ab9bb32b4ef44503fb",
+                "kty" : "EC",
+                "use" : "sig",
+                "x" : "1tWjacPoTYHJxZ_25OBevbQT7RRwRmhoZg9W3Yw9ERc",
+                "y" : "5k3GzlJCDwcWW-pWPyhINkus9z4GY8jY2ShxdmoHyrQ"
+            },
+            "type" : "EcdsaSecp256k1VerificationKey2019"
+        }
+    ]
+}

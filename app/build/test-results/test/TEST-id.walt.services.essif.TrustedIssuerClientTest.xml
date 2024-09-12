@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.services.essif.TrustedIssuerClientTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2024-09-12T09:39:47" hostname="pablito-B550-AORUS-ELITE-V2" time="0.0">
+  <properties/>
+  <testcase name="testGetIssuerValid" classname="id.walt.services.essif.TrustedIssuerClientTest" time="0.0">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[Running ServiceMatrix
+Done running the ServiceMatrix
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

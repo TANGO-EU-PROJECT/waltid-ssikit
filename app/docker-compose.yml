@@ -22,6 +22,7 @@ services:
             - "umu-issuer:127.0.0.1"
             - "umu-webWallet:127.0.0.1"
             - "umu-verifier:127.0.0.1"
+            - "wallet.tango.io:127.0.0.1"
 
 networks:
     appnet:

@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start issuance flow</title>
-    <link rel="stylesheet" href="/static/issuer/main/css/index.css">
+    <link rel="stylesheet" href="/issuer/static/issuer/main/css/index.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
 </head>
 <body>
 <div class="nav-bar">
-    <button class="nav-button" onclick="location.href='/login'">Inicio de Sesión</button>
-    <button class="nav-button" onclick="location.href='/register'">Registro</button>
+    <button class="nav-button" onclick="location.href='/issuer/login'">Inicio de Sesión</button>
+    <button class="nav-button" onclick="location.href='/issuer/register'">Registro</button>
 </div>
 <div class="container">
     <section class="input-section">
         <h1>Same device</h1>
-        <input type="text" id="api-endpoint" placeholder="Introduce la dirección del endpoint de la API" value="https://umu-webwallet:30002">
+        <input type="text" id="api-endpoint" placeholder="Introduce la dirección del endpoint de la API" value="https://wallet.tango.io/wallet">
         <button id="send-request">Enviar</button>
     </section>
 
@@ -27,6 +27,6 @@
 
 </div>
 
-<script src="/static/issuer/main/js/index.js"></script>
+<script src="/issuer/static/issuer/main/js/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class id.walt.cli.VcIssueCommandTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class id.walt.cli.VcIssueCommandTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/id.walt.cli.html">id.walt.cli</a> &gt; VcIssueCommandTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.086s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">vc issue --help</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableAttestation LD_PROOF</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableDiploma JWT</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableDiploma LD_PROOF</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableDiploma LD_PROOF incl. issuerVerificationMethod</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableId JWT</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue VerifiableId LD_PROOF</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">vc issue default</td>
+<td class="success">0.027s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Issuing a verifiable credential (using template VerifiableDiploma)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableDiploma&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:a389d802-ddca-483e-b765-6382675e44a3&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;assertionMethod&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..AehZWX7gh12SifWwLEdsdJb_bq0LKwovGrm456rJhazFknBZguIg9PNIRjl6uN_EgajTBgKH6d_cKz-bBiUy3w&quot;
+  }
+}
+Issuing a verifiable credential (using template VerifiableId)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableId&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableId&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:106379ff-e084-4a95-9fdb-5f717ee3b389&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,
+    &quot;type&quot; : &quot;FullJsonSchemaValidator2021&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;currentAddress&quot; : [ &quot;1 Boulevard de la Liberté, 59800 Lille&quot; ],
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;firstName&quot; : &quot;Jane&quot;,
+    &quot;gender&quot; : &quot;FEMALE&quot;,
+    &quot;nameAndFamilyNameAtBirth&quot; : &quot;Jane DOE&quot;,
+    &quot;personalIdentifier&quot; : &quot;0904008084H&quot;,
+    &quot;placeOfBirth&quot; : &quot;LILLE, FRANCE&quot;
+  },
+  &quot;evidence&quot; : [ {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;
+  } ],
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..ImOw-EKTGYX_UO2rGP_SPEsVmsHnLS_MN7DFGh97bFQsEV-2XwMgyxkZyh3Ns-R8q-3cKBS64JVUfT8D1FalZw&quot;
+  }
+}
+Issuing a verifiable credential (using template VerifiableDiploma)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableDiploma&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:2f58b6fc-37aa-40a4-a0b5-a30433154dc9&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..GCXOfhnwlnnPMSYkXEj_tKlECkKtFUITYDaronnI-Aaj2gGv1REa77unk47XK5z8-Lo1qoiZGa0VdUmeZKVGug&quot;
+  }
+}
+Issuing a verifiable credential (using template VerifiableDiploma)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableDiploma&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:22c1996f-79a6-49c3-8515-8e9d267a1991&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..gNvjfMzFpEJyzQn20x1kiMyuJNCwNvkDmUszKudVTwf_2CQN1VrADBCfgPrt5Efw9671AYLzqOH2gNK-pHgZ4A&quot;
+  }
+}
+Issuing a verifiable credential (using template VerifiableId)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableId&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableId&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:01a77bc7-d300-44c1-b3b5-7b2702f14507&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,
+    &quot;type&quot; : &quot;FullJsonSchemaValidator2021&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;currentAddress&quot; : [ &quot;1 Boulevard de la Liberté, 59800 Lille&quot; ],
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;firstName&quot; : &quot;Jane&quot;,
+    &quot;gender&quot; : &quot;FEMALE&quot;,
+    &quot;nameAndFamilyNameAtBirth&quot; : &quot;Jane DOE&quot;,
+    &quot;personalIdentifier&quot; : &quot;0904008084H&quot;,
+    &quot;placeOfBirth&quot; : &quot;LILLE, FRANCE&quot;
+  },
+  &quot;evidence&quot; : [ {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;
+  } ],
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;JWT&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..CjLWAKA9XArFZyHgbc_PBHp8ben_w6n9vM_n6TolOdF4_plEz48ym_2v_0eqNFNhy1vr_79hCScv1UrWVocF_Q&quot;
+  }
+}
+Issuing a verifiable credential (using template VerifiableDiploma)...
+with selective disclosure:
+   + with decoys: NONE (0)
+
+
+Results:
+
+Issuer &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;
+⇓ issued a &quot;VerifiableDiploma&quot; to ⇓
+Holder &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;
+
+Credential document (below, JSON):
+
+{
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:b43ab78b-07d3-4235-8860-d6f045044bf5&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;JWT&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..njh0TQLza5EoymJ-dKHKJft2SvR5TPVXnDVx_RpPTj15KCiMaAdEWTO2dtsG6kCSuM_8aDta5ggww99XgXZ-4w&quot;
+  }
+}
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>7446 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7446 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7446 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7446 [Test worker @coroutine#12] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {&quot;kty&quot;:&quot;EC&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;secp256k1&quot;,&quot;kid&quot;:&quot;0196c321d07b4caa9214c27cb1033d7c&quot;,&quot;x&quot;:&quot;FWRAiI9vVfyu3wLBjpjbCoD1NohgHB9VTc3vt7r9YMs&quot;,&quot;y&quot;:&quot;EMg5656Ei43LhTA9gty5ENUUYYzJa7V_F2IiH4dt6H4&quot;,&quot;alg&quot;:&quot;ES256K&quot;}
+7446 [Test worker @coroutine#12] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {&quot;kty&quot;:&quot;EC&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;secp256k1&quot;,&quot;kid&quot;:&quot;0196c321d07b4caa9214c27cb1033d7c&quot;,&quot;x&quot;:&quot;FWRAiI9vVfyu3wLBjpjbCoD1NohgHB9VTc3vt7r9YMs&quot;,&quot;y&quot;:&quot;EMg5656Ei43LhTA9gty5ENUUYYzJa7V_F2IiH4dt6H4&quot;,&quot;alg&quot;:&quot;ES256K&quot;}
+7447 [Test worker @coroutine#12] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=0196c321d07b4caa9214c27cb1033d7c, kty=EC, alg=ES256K, crv=secp256k1, use=sig, x=FWRAiI9vVfyu3wLBjpjbCoD1NohgHB9VTc3vt7r9YMs, y=EMg5656Ei43LhTA9gty5ENUUYYzJa7V_F2IiH4dt6H4, d=null, n=null, e=null, x5u=null)
+7449 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7449 [Test worker @coroutine#12] DEBUG id.walt.services.did.DidService - A key with the id &quot;0196c321d07b4caa9214c27cb1033d7c&quot; exists.
+7449 [Test worker @coroutine#12] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7449 [Test worker @coroutine#12] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7450 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;7d545178d59f4a798d76d730123857f6&quot;.
+7450 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;7d545178d59f4a798d76d730123857f6&quot;.
+7450 [Test worker @coroutine#12] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;...
+7452 [Test worker @coroutine#12] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;7d545178d59f4a798d76d730123857f6&quot;.
+7452 [Test worker @coroutine#12] DEBUG id.walt.services.did.DidService - A key with the id &quot;7d545178d59f4a798d76d730123857f6&quot; exists.
+7452 [Test worker @coroutine#12] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;...
+7452 [Test worker @coroutine#12] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;...
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableDiploma
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:a389d802-ddca-483e-b765-6382675e44a3&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+7470 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7471 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7471 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:a389d802-ddca-483e-b765-6382675e44a3&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176] has been skipped.
+7476 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7476 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7478 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7490 [pool-1-thread-1 @coroutine#157] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:a389d802-ddca-483e-b765-6382675e44a3&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;assertionMethod&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..AehZWX7gh12SifWwLEdsdJb_bq0LKwovGrm456rJhazFknBZguIg9PNIRjl6uN_EgajTBgKH6d_cKz-bBiUy3w&quot;
+  }
+}
+7496 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableId
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableId&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:106379ff-e084-4a95-9fdb-5f717ee3b389&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,&quot;type&quot;:&quot;FullJsonSchemaValidator2021&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;currentAddress&quot;:[&quot;1 Boulevard de la Liberté, 59800 Lille&quot;],&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;firstName&quot;:&quot;Jane&quot;,&quot;gender&quot;:&quot;FEMALE&quot;,&quot;nameAndFamilyNameAtBirth&quot;:&quot;Jane DOE&quot;,&quot;personalIdentifier&quot;:&quot;0904008084H&quot;,&quot;placeOfBirth&quot;:&quot;LILLE, FRANCE&quot;},&quot;evidence&quot;:[{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;}]}
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7497 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7498 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableId&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:106379ff-e084-4a95-9fdb-5f717ee3b389&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,&quot;type&quot;:&quot;FullJsonSchemaValidator2021&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;currentAddress&quot;:[&quot;1 Boulevard de la Liberté, 59800 Lille&quot;],&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;firstName&quot;:&quot;Jane&quot;,&quot;gender&quot;:&quot;FEMALE&quot;,&quot;nameAndFamilyNameAtBirth&quot;:&quot;Jane DOE&quot;,&quot;personalIdentifier&quot;:&quot;0904008084H&quot;,&quot;placeOfBirth&quot;:&quot;LILLE, FRANCE&quot;},&quot;evidence&quot;:[{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;}]}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [LD_PROOF] has been skipped.
+7501 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7501 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7502 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7503 [pool-1-thread-1 @coroutine#158] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableId&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:106379ff-e084-4a95-9fdb-5f717ee3b389&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,
+    &quot;type&quot; : &quot;FullJsonSchemaValidator2021&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;currentAddress&quot; : [ &quot;1 Boulevard de la Liberté, 59800 Lille&quot; ],
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;firstName&quot; : &quot;Jane&quot;,
+    &quot;gender&quot; : &quot;FEMALE&quot;,
+    &quot;nameAndFamilyNameAtBirth&quot; : &quot;Jane DOE&quot;,
+    &quot;personalIdentifier&quot; : &quot;0904008084H&quot;,
+    &quot;placeOfBirth&quot; : &quot;LILLE, FRANCE&quot;
+  },
+  &quot;evidence&quot; : [ {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;
+  } ],
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..ImOw-EKTGYX_UO2rGP_SPEsVmsHnLS_MN7DFGh97bFQsEV-2XwMgyxkZyh3Ns-R8q-3cKBS64JVUfT8D1FalZw&quot;
+  }
+}
+7507 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableDiploma
+7507 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7507 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7508 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7508 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:2f58b6fc-37aa-40a4-a0b5-a30433154dc9&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+7508 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7508 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7508 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:2f58b6fc-37aa-40a4-a0b5-a30433154dc9&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [LD_PROOF] has been skipped.
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176] has been skipped.
+7512 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7512 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7512 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7514 [pool-1-thread-1 @coroutine#159] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:2f58b6fc-37aa-40a4-a0b5-a30433154dc9&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..GCXOfhnwlnnPMSYkXEj_tKlECkKtFUITYDaronnI-Aaj2gGv1REa77unk47XK5z8-Lo1qoiZGa0VdUmeZKVGug&quot;
+  }
+}
+7517 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableDiploma
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:22c1996f-79a6-49c3-8515-8e9d267a1991&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7518 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7519 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:22c1996f-79a6-49c3-8515-8e9d267a1991&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [LD_PROOF] has been skipped.
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176] has been skipped.
+7523 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7523 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7524 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7525 [pool-1-thread-1 @coroutine#160] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:22c1996f-79a6-49c3-8515-8e9d267a1991&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;LD_PROOF&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..gNvjfMzFpEJyzQn20x1kiMyuJNCwNvkDmUszKudVTwf_2CQN1VrADBCfgPrt5Efw9671AYLzqOH2gNK-pHgZ4A&quot;
+  }
+}
+7529 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableId
+7529 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7529 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7529 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7530 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableId&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:01a77bc7-d300-44c1-b3b5-7b2702f14507&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,&quot;type&quot;:&quot;FullJsonSchemaValidator2021&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;currentAddress&quot;:[&quot;1 Boulevard de la Liberté, 59800 Lille&quot;],&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;firstName&quot;:&quot;Jane&quot;,&quot;gender&quot;:&quot;FEMALE&quot;,&quot;nameAndFamilyNameAtBirth&quot;:&quot;Jane DOE&quot;,&quot;personalIdentifier&quot;:&quot;0904008084H&quot;,&quot;placeOfBirth&quot;:&quot;LILLE, FRANCE&quot;},&quot;evidence&quot;:[{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;}]}
+7530 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7530 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7530 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableId&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:01a77bc7-d300-44c1-b3b5-7b2702f14507&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,&quot;type&quot;:&quot;FullJsonSchemaValidator2021&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;currentAddress&quot;:[&quot;1 Boulevard de la Liberté, 59800 Lille&quot;],&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;firstName&quot;:&quot;Jane&quot;,&quot;gender&quot;:&quot;FEMALE&quot;,&quot;nameAndFamilyNameAtBirth&quot;:&quot;Jane DOE&quot;,&quot;personalIdentifier&quot;:&quot;0904008084H&quot;,&quot;placeOfBirth&quot;:&quot;LILLE, FRANCE&quot;},&quot;evidence&quot;:[{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;}]}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [JWT] has been skipped.
+7534 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7535 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7535 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7536 [pool-1-thread-1 @coroutine#162] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableId&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:01a77bc7-d300-44c1-b3b5-7b2702f14507&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json&quot;,
+    &quot;type&quot; : &quot;FullJsonSchemaValidator2021&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;currentAddress&quot; : [ &quot;1 Boulevard de la Liberté, 59800 Lille&quot; ],
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;firstName&quot; : &quot;Jane&quot;,
+    &quot;gender&quot; : &quot;FEMALE&quot;,
+    &quot;nameAndFamilyNameAtBirth&quot; : &quot;Jane DOE&quot;,
+    &quot;personalIdentifier&quot; : &quot;0904008084H&quot;,
+    &quot;placeOfBirth&quot; : &quot;LILLE, FRANCE&quot;
+  },
+  &quot;evidence&quot; : [ {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;
+  } ],
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;JWT&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..CjLWAKA9XArFZyHgbc_PBHp8ben_w6n9vM_n6TolOdF4_plEz48ym_2v_0eqNFNhy1vr_79hCScv1UrWVocF_Q&quot;
+  }
+}
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.cli.VcCommand - Loading credential template: VerifiableDiploma
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;...
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:b43ab78b-07d3-4235-8860-d6f045044bf5&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK), domain (null), nonce (null
+7540 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;.
+7541 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {&quot;type&quot;:[&quot;VerifiableCredential&quot;,&quot;VerifiableAttestation&quot;,&quot;VerifiableDiploma&quot;],&quot;@context&quot;:[&quot;https://www.w3.org/2018/credentials/v1&quot;],&quot;id&quot;:&quot;urn:uuid:b43ab78b-07d3-4235-8860-d6f045044bf5&quot;,&quot;issuer&quot;:&quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,&quot;issuanceDate&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;issued&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;validFrom&quot;:&quot;2024-09-12T09:39:42Z&quot;,&quot;expirationDate&quot;:&quot;2022-08-31T00:00:00Z&quot;,&quot;credentialSchema&quot;:{&quot;id&quot;:&quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,&quot;type&quot;:&quot;JsonSchemaValidator2018&quot;},&quot;credentialSubject&quot;:{&quot;id&quot;:&quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,&quot;awardingOpportunity&quot;:{&quot;awardingBody&quot;:{&quot;eidasLegalIdentifier&quot;:&quot;Unknown&quot;,&quot;homepage&quot;:&quot;https://leaston.bcdiploma.com/&quot;,&quot;id&quot;:&quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,&quot;preferredName&quot;:&quot;Leaston University&quot;,&quot;registration&quot;:&quot;0597065J&quot;},&quot;endedAtTime&quot;:&quot;2020-06-26T00:00:00Z&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,&quot;identifier&quot;:&quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,&quot;location&quot;:&quot;FRANCE&quot;,&quot;startedAtTime&quot;:&quot;2019-09-02T00:00:00Z&quot;},&quot;dateOfBirth&quot;:&quot;1993-04-08&quot;,&quot;familyName&quot;:&quot;DOE&quot;,&quot;givenNames&quot;:&quot;Jane&quot;,&quot;gradingScheme&quot;:{&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,&quot;title&quot;:&quot;Lower Second-Class Honours&quot;},&quot;identifier&quot;:&quot;0904008084H&quot;,&quot;learningAchievement&quot;:{&quot;additionalNote&quot;:[&quot;DISTRIBUTION MANAGEMENT&quot;],&quot;description&quot;:&quot;MARKETING AND SALES&quot;,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,&quot;title&quot;:&quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;},&quot;learningSpecification&quot;:{&quot;ectsCreditPoints&quot;:120,&quot;eqfLevel&quot;:7,&quot;id&quot;:&quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,&quot;iscedfCode&quot;:[&quot;7&quot;],&quot;nqfLevel&quot;:[&quot;7&quot;]}},&quot;credentialStatus&quot;:{&quot;id&quot;:&quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,&quot;type&quot;:&quot;CredentialStatusList2020&quot;},&quot;evidence&quot;:{&quot;documentPresence&quot;:[&quot;Physical&quot;],&quot;evidenceDocument&quot;:[&quot;Passport&quot;],&quot;id&quot;:&quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,&quot;subjectPresence&quot;:&quot;Physical&quot;,&quot;type&quot;:[&quot;DocumentVerification&quot;],&quot;verifier&quot;:&quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;}}
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [JWT] has been skipped.
+Sep 12, 2024 11:39:42 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176] has been skipped.
+7545 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7546 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7546 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0196c321d07b4caa9214c27cb1033d7c&quot;.
+7548 [pool-1-thread-1 @coroutine#163] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  &quot;type&quot; : [ &quot;VerifiableCredential&quot;, &quot;VerifiableAttestation&quot;, &quot;VerifiableDiploma&quot; ],
+  &quot;@context&quot; : [ &quot;https://www.w3.org/2018/credentials/v1&quot;, &quot;https://w3id.org/security/suites/jws-2020/v1&quot; ],
+  &quot;id&quot; : &quot;urn:uuid:b43ab78b-07d3-4235-8860-d6f045044bf5&quot;,
+  &quot;issuer&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+  &quot;issuanceDate&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;issued&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;validFrom&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+  &quot;expirationDate&quot; : &quot;2022-08-31T00:00:00Z&quot;,
+  &quot;credentialSchema&quot; : {
+    &quot;id&quot; : &quot;https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json&quot;,
+    &quot;type&quot; : &quot;JsonSchemaValidator2018&quot;
+  },
+  &quot;credentialSubject&quot; : {
+    &quot;id&quot; : &quot;did:key:z6MktrSarajFSZpupSJm4KNy3gBfvnCxSVJ6XysSnKqjPNa7&quot;,
+    &quot;awardingOpportunity&quot; : {
+      &quot;awardingBody&quot; : {
+        &quot;eidasLegalIdentifier&quot; : &quot;Unknown&quot;,
+        &quot;homepage&quot; : &quot;https://leaston.bcdiploma.com/&quot;,
+        &quot;id&quot; : &quot;did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN&quot;,
+        &quot;preferredName&quot; : &quot;Leaston University&quot;,
+        &quot;registration&quot; : &quot;0597065J&quot;
+      },
+      &quot;endedAtTime&quot; : &quot;2020-06-26T00:00:00Z&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity&quot;,
+      &quot;identifier&quot; : &quot;https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ&quot;,
+      &quot;location&quot; : &quot;FRANCE&quot;,
+      &quot;startedAtTime&quot; : &quot;2019-09-02T00:00:00Z&quot;
+    },
+    &quot;dateOfBirth&quot; : &quot;1993-04-08&quot;,
+    &quot;familyName&quot; : &quot;DOE&quot;,
+    &quot;givenNames&quot; : &quot;Jane&quot;,
+    &quot;gradingScheme&quot; : {
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#GradingScheme&quot;,
+      &quot;title&quot; : &quot;Lower Second-Class Honours&quot;
+    },
+    &quot;identifier&quot; : &quot;0904008084H&quot;,
+    &quot;learningAchievement&quot; : {
+      &quot;additionalNote&quot; : [ &quot;DISTRIBUTION MANAGEMENT&quot; ],
+      &quot;description&quot; : &quot;MARKETING AND SALES&quot;,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningAchievment&quot;,
+      &quot;title&quot; : &quot;MASTERS LAW, ECONOMICS AND MANAGEMENT&quot;
+    },
+    &quot;learningSpecification&quot; : {
+      &quot;ectsCreditPoints&quot; : 120,
+      &quot;eqfLevel&quot; : 7,
+      &quot;id&quot; : &quot;https://leaston.bcdiploma.com/law-economics-management#LearningSpecification&quot;,
+      &quot;iscedfCode&quot; : [ &quot;7&quot; ],
+      &quot;nqfLevel&quot; : [ &quot;7&quot; ]
+    }
+  },
+  &quot;credentialStatus&quot; : {
+    &quot;id&quot; : &quot;https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176&quot;,
+    &quot;type&quot; : &quot;CredentialStatusList2020&quot;
+  },
+  &quot;evidence&quot; : {
+    &quot;documentPresence&quot; : [ &quot;Physical&quot; ],
+    &quot;evidenceDocument&quot; : [ &quot;Passport&quot; ],
+    &quot;id&quot; : &quot;https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678&quot;,
+    &quot;subjectPresence&quot; : &quot;Physical&quot;,
+    &quot;type&quot; : [ &quot;DocumentVerification&quot; ],
+    &quot;verifier&quot; : &quot;did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a&quot;
+  },
+  &quot;proof&quot; : {
+    &quot;type&quot; : &quot;JsonWebSignature2020&quot;,
+    &quot;creator&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK&quot;,
+    &quot;created&quot; : &quot;2024-09-12T09:39:42Z&quot;,
+    &quot;proofPurpose&quot; : &quot;JWT&quot;,
+    &quot;verificationMethod&quot; : &quot;did:ebsi:z23C8GLRGQ2Xfq7vi8KEkUWK#0196c321d07b4caa9214c27cb1033d7c&quot;,
+    &quot;jws&quot; : &quot;eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFUzI1NksifQ..njh0TQLza5EoymJ-dKHKJft2SvR5TPVXnDVx_RpPTj15KCiMaAdEWTO2dtsG6kCSuM_8aDta5ggww99XgXZ-4w&quot;
+  }
+}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0.2</a> at Sep 12, 2024, 11:39:51 AM</p>
+</div>
+</div>
+</body>
+</html>

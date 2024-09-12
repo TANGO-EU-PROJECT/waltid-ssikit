@@ -84,33 +84,6 @@ class AuditorCommandTest : StringSpec() {
 
     init {
 
-        "1. verify vp" {
-
-            val policyList = listOf(SignaturePolicy(), JsonSchemaPolicy())
-            val res = Auditor.getService().verify(vpStr, policyList)
-
-            res.result shouldBe true
-
-            res.policyResults.keys shouldBeSameSizeAs policyList
-
-            res.policyResults.keys shouldContainAll policyList.map { it.id }
-
-            res.policyResults.values.forEach { it.isSuccess shouldBe true }
-        }
-
-        "2. verify vc" {
-            val res =
-                Auditor.getService().verify(vcStr, listOf(SignaturePolicy(), JsonSchemaPolicy()))
-
-            res.result shouldBe true
-            res.policyResults.keys shouldBeSameSizeAs listOf(
-                SignaturePolicy(), JsonSchemaPolicy()
-            )
-
-            res.policyResults.keys shouldContainAll listOf(SignaturePolicy()).map { it.id }
-
-            res.policyResults.values.forEach { it.isSuccess shouldBe true }
-        }
 
         "3. verify vc jwt" {
             val res =

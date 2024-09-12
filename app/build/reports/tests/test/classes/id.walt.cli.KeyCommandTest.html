@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class id.walt.cli.KeyCommandTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class id.walt.cli.KeyCommandTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/id.walt.cli.html">id.walt.cli</a> &gt; KeyCommandTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.222s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">1. key gen --help</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">2. key generate</td>
+<td class="success">0.065s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">3. key export</td>
+<td class="success">0.116s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">4. key import</td>
+<td class="success">0.032s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">5. key delete</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">6. clear keys</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>Generating Ed25519 key pair...
+Key &quot;f8c51673730d47ba90abdb649e4f0666&quot; generated.
+Generating Secp256k1 key pair...
+Key &quot;a6eddf701941497683acb855517ccd50&quot; generated.
+Generating RSA key pair...
+Key &quot;67a4fbdb89334a3593c1853d419d7218&quot; generated.
+Exporting PUBLIC key &quot;c2d25505f15846ad87b7194b86b189b7&quot;...
+
+Results:
+
+{&quot;kty&quot;:&quot;EC&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;secp256k1&quot;,&quot;kid&quot;:&quot;c2d25505f15846ad87b7194b86b189b7&quot;,&quot;x&quot;:&quot;VVMHk2e8hLsfK_jMSSjLapZnnbmlybADSkoTERlgFZE&quot;,&quot;y&quot;:&quot;b_VSbmnIwMCJDvMjHfSY701PkTcfO5vEsqu5czTVMlQ&quot;,&quot;alg&quot;:&quot;ES256K&quot;}
+Exporting PUBLIC key &quot;0916666b290f402398e369c057a97b42&quot;...
+
+Results:
+
+{&quot;kty&quot;:&quot;OKP&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;crv&quot;:&quot;Ed25519&quot;,&quot;kid&quot;:&quot;0916666b290f402398e369c057a97b42&quot;,&quot;x&quot;:&quot;HZ7o-DAYUyn2E1QAxQ6opWrC4Q2EOr71Bt5pXybKaRY&quot;,&quot;alg&quot;:&quot;EdDSA&quot;}
+Exporting PUBLIC key &quot;726e01da01544c79b875e1b0c4564306&quot;...
+
+Results:
+
+{&quot;kty&quot;:&quot;RSA&quot;,&quot;e&quot;:&quot;AQAB&quot;,&quot;use&quot;:&quot;sig&quot;,&quot;kid&quot;:&quot;726e01da01544c79b875e1b0c4564306&quot;,&quot;alg&quot;:&quot;RS256&quot;,&quot;n&quot;:&quot;lm_6uYoAdVadnlu-61sJV-MbIs1EdjWhKFFt0Ca3YIddmuzi5MJGD9xflCYRKGvhL9y-ebWCZRiqtmPZ2AycjbRxIxPZAquYvMF7S6F93OaS39sStNzovlhiOtKzrHCCXKmeu_gpB1T2B_qK4daGYPdUZt5EnpO-4c24VMtWrFZc5t92YSHE4JWNz4WMjUyZXS8O4CGudOJA_mPWmmxlLKXgbMluW9ppsEJkxTfadgdukJ5xjb1v2kkpikgZ3LWpA_dELLZZQeGY5fn484MAvlHqAQc_YwgleoiSG4u25iTJfWqbSK9EpQWxU-2qN0AgGxtpZxUk6ChsZdl7f2985Q&quot;}
+Importing key from &quot;src/test/resources/cli/privKeyEd25519Jwk.json&quot;...
+
+Results:
+
+Key &quot;45674a4ac169f7f4716804393d20480138a&quot; imported.
+Importing key from &quot;src/test/resources/cli/pubKeyEd25519Jwk.json&quot;...
+
+Results:
+
+Key &quot;12374a4ac169f7f4716804393d20480138a&quot; imported.
+Importing key from &quot;src/test/resources/key/pem/rsa/rsa.pem&quot;...
+
+Results:
+
+Key &quot;f9522ed0a3114439a4e036cb1e325bd6&quot; imported.
+Importing key from &quot;src/test/resources/key/pem/ecdsa/secp256k1.pem&quot;...
+
+Results:
+
+Key &quot;a86e8d0a1f1d4be8bd84e3556f81950b&quot; imported.
+Importing key from &quot;src/test/resources/key/pem/ed25519/ed25519.pem&quot;...
+
+Results:
+
+Key &quot;bcfa19579ba04a579a8d2173d42650b0&quot; imported.
+Importing key from &quot;src/test/resources/key/privkey.jwk&quot;...
+
+Results:
+
+Key &quot;44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc&quot; imported.
+Importing key from &quot;src/test/resources/key/privKeySecp256k1Jwk.json&quot;...
+
+Results:
+
+Key &quot;ed51ec3a165f4af8bef8298d99b41de7&quot; imported.
+Importing key from &quot;src/test/resources/key/pubKeySecp256k1Jwk.json&quot;...
+
+Results:
+
+Key &quot;c96fe427cef847e6b2b9675cec31a2bb&quot; imported.
+Deleting key &quot;bcd9a10f6f544c2ba5b7576ae5c9f636&quot;...
+
+Results:
+
+Key &quot;bcd9a10f6f544c2ba5b7576ae5c9f636&quot; deleted.
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>7219 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;f8c51673730d47ba90abdb649e4f0666&quot;.
+7220 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;a6eddf701941497683acb855517ccd50&quot;.
+7282 [pool-1-thread-1 @coroutine#151] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;67a4fbdb89334a3593c1853d419d7218&quot;.
+7284 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;c2d25505f15846ad87b7194b86b189b7&quot;.
+7286 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;c2d25505f15846ad87b7194b86b189b7&quot;.
+7287 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;0916666b290f402398e369c057a97b42&quot;.
+7287 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0916666b290f402398e369c057a97b42&quot;.
+7398 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;726e01da01544c79b875e1b0c4564306&quot;.
+7399 [pool-1-thread-1 @coroutine#152] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;726e01da01544c79b875e1b0c4564306&quot;.
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;45674a4ac169f7f4716804393d20480138a&quot;.
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 45674a4ac169f7f4716804393d20480138a
+7404 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;12374a4ac169f7f4716804393d20480138a&quot;.
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 12374a4ac169f7f4716804393d20480138a
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71
+7405 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@d70d8f4d, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@f84e7b71]
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;f9522ed0a3114439a4e036cb1e325bd6&quot;.
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key f9522ed0a3114439a4e036cb1e325bd6
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@b3fa9c64
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@8c423836
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7406 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@b3fa9c64, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@8c423836]
+7429 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;a86e8d0a1f1d4be8bd84e3556f81950b&quot;.
+7429 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key a86e8d0a1f1d4be8bd84e3556f81950b
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.pkcs.PrivateKeyInfo@7f1f5769
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@ba52f501
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - PEM parser next object: null
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.import.PemKeyImport - Searching key pair in: [org.bouncycastle.asn1.pkcs.PrivateKeyInfo@7f1f5769, org.bouncycastle.asn1.x509.SubjectPublicKeyInfo@ba52f501]
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;bcfa19579ba04a579a8d2173d42650b0&quot;.
+7430 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key bcfa19579ba04a579a8d2173d42650b0
+7431 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc&quot;.
+7431 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;ed51ec3a165f4af8bef8298d99b41de7&quot;.
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key ed51ec3a165f4af8bef8298d99b41de7
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;c96fe427cef847e6b2b9675cec31a2bb&quot;.
+7432 [pool-1-thread-1 @coroutine#153] DEBUG id.walt.services.key.WaltIdKeyService - Importing key c96fe427cef847e6b2b9675cec31a2bb
+7434 [pool-1-thread-1 @coroutine#154] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key &quot;bcd9a10f6f544c2ba5b7576ae5c9f636&quot;.
+7435 [pool-1-thread-1 @coroutine#154] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;bcd9a10f6f544c2ba5b7576ae5c9f636&quot;.
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;f9522ed0a3114439a4e036cb1e325bd6&quot;.
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;67a4fbdb89334a3593c1853d419d7218&quot;.
+7436 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;a86e8d0a1f1d4be8bd84e3556f81950b&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;a6eddf701941497683acb855517ccd50&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;c2d25505f15846ad87b7194b86b189b7&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;44aEC1AgmLWAQ7rIitVWQBso2SpHcTs5d1_YTB4axHc&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;bcfa19579ba04a579a8d2173d42650b0&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;f8c51673730d47ba90abdb649e4f0666&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;0916666b290f402398e369c057a97b42&quot;.
+7437 [pool-1-thread-1 @coroutine#155] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key &quot;726e01da01544c79b875e1b0c4564306&quot;.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0.2</a> at Sep 12, 2024, 11:39:51 AM</p>
+</div>
+</div>
+</body>
+</html>

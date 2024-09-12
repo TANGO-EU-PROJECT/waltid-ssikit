@@ -24,6 +24,7 @@ class AuthOIDC(
 ) {
 
     private val ISSUER_PORT = System.getenv("ISSUER_PORT").toInt()
+    private val URI_DSC = System.getenv("URI")
     val log = KotlinLogging.logger {}
     val jwtService = WaltIdJwtService()
     suspend fun auth(call: ApplicationCall, clientID:  MutableMap<String, IssuerCommand.clientIdValues>, authRequestRegistry: MutableMap <String, IssuerCommand.AuthRequest>){
@@ -77,7 +78,7 @@ class AuthOIDC(
 
             // Url con los atributos del credential subject
             val locationUri = StringBuilder()
-            locationUri.append("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/form")
+            locationUri.append("https://$URI_DSC/issuer/form")
             locationUri.append("?clientId=$clientId")
             locationUri.append("&template=$t")
 
@@ -146,7 +147,7 @@ class AuthOIDC(
 
             // Url con los atributos del credential subject
             val locationUri = StringBuilder()
-            locationUri.append("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/auth-late/form")
+            locationUri.append("https://$URI_DSC/issuer/auth-late/form")
             locationUri.append("?state=$state")
             locationUri.append("&template=$t")
 
@@ -399,7 +400,7 @@ class AuthOIDC(
             put("response_type", "id_token")
             put("response_mode", "direct_post")
             put("client_id", clientId)
-            put("redirect_uri", "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/issuer/code-ePassport")
+            put("redirect_uri", "https://$URI_DSC/issuer/code-ePassport")
             put("scope", "openid")
             put("state", state)
             put("nonce", generarValorAleatorio())

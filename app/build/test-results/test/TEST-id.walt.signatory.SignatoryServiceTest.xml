@@ -1,0 +1,1266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.signatory.SignatoryServiceTest" tests="8" skipped="0" failures="4" errors="0" timestamp="2024-09-12T09:39:50" hostname="pablito-B550-AORUS-ELITE-V2" time="0.051">
+  <properties/>
+  <testcase name="Issue and verify: VerifiableId (LD-Proof)" classname="id.walt.signatory.SignatoryServiceTest" time="0.008">
+    <failure message="java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+	at id.walt.services.storeUmu.defaultSoreServiceUmu.load(defaultSoreServiceUmu.kt:139)
+	at id.walt.services.storeUmu.KeyStoreServiceUmu.load(KeyStoreServiceUmu.kt:20)
+	at id.walt.services.vc.WaltIdJsonLdCredentialService.verify(WaltIdJsonLdCredentialService.kt:287)
+	at id.walt.services.vc.JsonLdCredentialService.verify(JsonLdCredentialService.kt:27)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invokeSuspend(SignatoryServiceTest.kt:56)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invoke(SignatoryServiceTest.kt)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invoke(SignatoryServiceTest.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:46)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:104)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.SupervisorScopeInterceptor$intercept$2.invokeSuspend(SupervisorScopeInterceptor.kt:23)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestFinishedInterceptor.intercept(TestFinishedInterceptor.kt:21)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestNameContextInterceptor$intercept$2.invokeSuspend(TestPathContextInterceptor.kt:35)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestPathContextInterceptor$intercept$2.invokeSuspend(TestPathContextInterceptor.kt:20)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.spec.runners.SingleInstanceSpecRunner.runTest(SingleInstanceSpecRunner.kt:121)
+	at io.kotest.engine.spec.runners.SingleInstanceSpecRunner$execute$interceptAndRun$2$1.invokeSuspend(SingleInstanceSpecRunner.kt:51)
+	at io.kotest.engine.test.scheduler.SequentialTestScheduler$schedule$3$1$1.invokeSuspend(SequentialTestScheduler.kt:20)
+Caused by: java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+	at id.walt.services.storeUmu.defaultSoreServiceUmu.load(defaultSoreServiceUmu.kt:139)
+	at id.walt.services.storeUmu.KeyStoreServiceUmu.load(KeyStoreServiceUmu.kt:20)
+	at id.walt.services.vc.WaltIdJsonLdCredentialService.verify(WaltIdJsonLdCredentialService.kt:287)
+	at id.walt.services.vc.JsonLdCredentialService.verify(JsonLdCredentialService.kt:27)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invokeSuspend(SignatoryServiceTest.kt:56)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invoke(SignatoryServiceTest.kt)
+	at id.walt.signatory.SignatoryServiceTest$1$1.invoke(SignatoryServiceTest.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="Issue and verify: VerifiableId (JWT-Proof)" classname="id.walt.signatory.SignatoryServiceTest" time="0.005"/>
+  <testcase name="Issue and verify: VerifiableDiploma (LD-Proof)" classname="id.walt.signatory.SignatoryServiceTest" time="0.009">
+    <failure message="java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+	at id.walt.services.storeUmu.defaultSoreServiceUmu.load(defaultSoreServiceUmu.kt:139)
+	at id.walt.services.storeUmu.KeyStoreServiceUmu.load(KeyStoreServiceUmu.kt:20)
+	at id.walt.services.vc.WaltIdJsonLdCredentialService.verify(WaltIdJsonLdCredentialService.kt:287)
+	at id.walt.services.vc.JsonLdCredentialService.verify(JsonLdCredentialService.kt:27)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invokeSuspend(SignatoryServiceTest.kt:105)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invoke(SignatoryServiceTest.kt)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invoke(SignatoryServiceTest.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at _COROUTINE._BOUNDARY._(CoroutineDebugging.kt:46)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:104)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.SupervisorScopeInterceptor$intercept$2.invokeSuspend(SupervisorScopeInterceptor.kt:23)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestFinishedInterceptor.intercept(TestFinishedInterceptor.kt:21)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestNameContextInterceptor$intercept$2.invokeSuspend(TestPathContextInterceptor.kt:35)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.interceptors.TestPathContextInterceptor$intercept$2.invokeSuspend(TestPathContextInterceptor.kt:20)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.spec.runners.SingleInstanceSpecRunner.runTest(SingleInstanceSpecRunner.kt:121)
+	at io.kotest.engine.spec.runners.SingleInstanceSpecRunner$execute$interceptAndRun$2$1.invokeSuspend(SingleInstanceSpecRunner.kt:51)
+	at io.kotest.engine.test.scheduler.SequentialTestScheduler$schedule$3$1$1.invokeSuspend(SequentialTestScheduler.kt:20)
+Caused by: java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+	at id.walt.services.storeUmu.defaultSoreServiceUmu.load(defaultSoreServiceUmu.kt:139)
+	at id.walt.services.storeUmu.KeyStoreServiceUmu.load(KeyStoreServiceUmu.kt:20)
+	at id.walt.services.vc.WaltIdJsonLdCredentialService.verify(WaltIdJsonLdCredentialService.kt:287)
+	at id.walt.services.vc.JsonLdCredentialService.verify(JsonLdCredentialService.kt:27)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invokeSuspend(SignatoryServiceTest.kt:105)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invoke(SignatoryServiceTest.kt)
+	at id.walt.signatory.SignatoryServiceTest$1$3.invoke(SignatoryServiceTest.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="Issue and verify: VerifiableDiploma (JWT-Proof)" classname="id.walt.signatory.SignatoryServiceTest" time="0.006"/>
+  <testcase name="vc storage test" classname="id.walt.signatory.SignatoryServiceTest" time="0.004"/>
+  <testcase name="merging data provider" classname="id.walt.signatory.SignatoryServiceTest" time="0.0"/>
+  <testcase name="sign any credential from template with user data from json" classname="id.walt.signatory.SignatoryServiceTest" time="0.009">
+    <failure message="io.kotest.assertions.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;" type="io.kotest.assertions.AssertionFailedError">io.kotest.assertions.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;
+	at app//id.walt.signatory.SignatoryServiceTest$1$7.invokeSuspend(SignatoryServiceTest.kt:185)
+	at app//id.walt.signatory.SignatoryServiceTest$1$7.invoke(SignatoryServiceTest.kt)
+	at app//id.walt.signatory.SignatoryServiceTest$1$7.invoke(SignatoryServiceTest.kt)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at app//kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at app//kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at app//kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at app//io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at app//kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at app//kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at app//io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at app//kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at app//kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <testcase name="sign any credential with user data from subject builder" classname="id.walt.signatory.SignatoryServiceTest" time="0.009">
+    <failure message="io.kotest.assertions.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;" type="io.kotest.assertions.AssertionFailedError">io.kotest.assertions.AssertionFailedError: expected:&lt;true&gt; but was:&lt;false&gt;
+	at app//id.walt.signatory.SignatoryServiceTest$1$8.invokeSuspend(SignatoryServiceTest.kt:209)
+	at app//id.walt.signatory.SignatoryServiceTest$1$8.invoke(SignatoryServiceTest.kt)
+	at app//id.walt.signatory.SignatoryServiceTest$1$8.invoke(SignatoryServiceTest.kt)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invokeSuspend(StringSpecRootScope.kt:71)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.StringSpecRootScope$invoke$1.invoke(StringSpecRootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invokeSuspend(RootScope.kt:36)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at app//io.kotest.core.spec.style.scopes.RootScopeKt$addTest$1.invoke(RootScope.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invokeSuspend(TestCaseExecutor.kt:88)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$innerExecute$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDebugProbeInterceptor.intercept(CoroutineDebugProbeInterceptor.kt:29)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invokeSuspend(TestInvocationInterceptor.kt:63)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$executeWithBeforeAfter$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invokeSuspend(InvocationTimeoutInterceptor.kt:43)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor$intercept$3.invoke(InvocationTimeoutInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturnIgnoreTimeout(Undispatched.kt:89)
+	at app//kotlinx.coroutines.TimeoutKt.setupTimeout(Timeout.kt:151)
+	at app//kotlinx.coroutines.TimeoutKt.withTimeoutOrNull(Timeout.kt:107)
+	at app//io.kotest.engine.test.interceptors.InvocationTimeoutInterceptor.intercept(InvocationTimeoutInterceptor.kt:42)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invokeSuspend(TestInvocationInterceptor.kt:70)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$runBeforeTestAfter$wrappedTest$1$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.runBeforeTestAfter(TestInvocationInterceptor.kt:73)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.access$runBeforeTestAfter(TestInvocationInterceptor.kt:14)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invokeSuspend(TestInvocationInterceptor.kt:36)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2$1.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.mpp.ReplayKt.replay(replay.kt:15)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invokeSuspend(TestInvocationInterceptor.kt:32)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at app//io.kotest.engine.test.TestInvocationInterceptor$intercept$2.invoke(TestInvocationInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at app//kotlinx.coroutines.CoroutineScopeKt.coroutineScope(CoroutineScope.kt:264)
+	at app//io.kotest.engine.test.TestInvocationInterceptor.intercept(TestInvocationInterceptor.kt:31)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.TimeoutInterceptor.intercept(TimeoutInterceptor.kt:33)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.BlockedThreadTimeoutInterceptor.intercept(BlockedThreadTimeoutInterceptor.kt:74)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineLoggingInterceptor.intercept(CoroutineLoggingInterceptor.kt:30)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.SoftAssertInterceptor.intercept(SoftAssertInterceptor.kt:27)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.AssertionModeInterceptor.intercept(AssertionModeInterceptor.kt:25)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.LifecycleInterceptor.intercept(LifecycleInterceptor.kt:51)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.EnabledCheckInterceptor.intercept(EnabledCheckInterceptor.kt:31)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invokeSuspend(TestCaseExtensionInterceptor.kt:24)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor$intercept$2.invoke(TestCaseExtensionInterceptor.kt)
+	at app//io.kotest.engine.test.TestExtensions.intercept(TestExtensions.kt:154)
+	at app//io.kotest.engine.test.interceptors.TestCaseExtensionInterceptor.intercept(TestCaseExtensionInterceptor.kt:24)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invokeSuspend(CoroutineErrorCollectorInterceptor.kt:28)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor$intercept$3.invoke(CoroutineErrorCollectorInterceptor.kt)
+	at app//kotlinx.coroutines.intrinsics.UndispatchedKt.startUndispatchedOrReturn(Undispatched.kt:78)
+	at app//kotlinx.coroutines.BuildersKt__Builders_commonKt.withContext(Builders.common.kt:167)
+	at app//kotlinx.coroutines.BuildersKt.withContext(Unknown Source)
+	at app//io.kotest.engine.test.interceptors.CoroutineErrorCollectorInterceptor.intercept(CoroutineErrorCollectorInterceptor.kt:27)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invokeSuspend(TestCaseExecutor.kt:97)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.TestCaseExecutor$execute$3$1.invoke(TestCaseExecutor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invokeSuspend(coroutineDispatcherFactoryInterceptor.kt:57)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at app//io.kotest.engine.test.interceptors.CoroutineDispatcherFactoryInterceptor$intercept$4.invoke(coroutineDispatcherFactoryInterceptor.kt)
+	at app//io.kotest.engine.concurrency.FixedThreadCoroutineDispatcherFactory$withDispatcher$4.invokeSuspend(FixedThreadCoroutineDispatcherFactory.kt:54)
+	at app//kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at app//kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:108)
+	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+</failure>
+  </testcase>
+  <system-out><![CDATA[ISSUING CREDENTIAL...
+VC:
+{
+  "type" : [ "VerifiableCredential", "VerifiableAttestation", "VerifiableId" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:7ac0102f-a400-42b6-baf3-82b83926287d",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2020-11-03T00:00:00Z",
+  "issued" : "2020-11-03T00:00:00Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSchema" : {
+    "id" : "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json",
+    "type" : "FullJsonSchemaValidator2021"
+  },
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "currentAddress" : [ "1 Boulevard de la Liberté, 59800 Lille" ],
+    "dateOfBirth" : "1993-04-08",
+    "familyName" : "DOE",
+    "firstName" : "Jane",
+    "gender" : "FEMALE",
+    "nameAndFamilyNameAtBirth" : "Jane DOE",
+    "personalIdentifier" : "0904008084H",
+    "placeOfBirth" : "LILLE, FRANCE"
+  },
+  "evidence" : [ {
+    "documentPresence" : [ "Physical" ],
+    "evidenceDocument" : [ "Passport" ],
+    "subjectPresence" : "Physical",
+    "type" : [ "DocumentVerification" ],
+    "verifier" : "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"
+  } ],
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..55Wg2o8mtLUFJoXb2FuVScU-2r06NVxoNNhkkCGEM9A5y7nYslQnTD49h0QdsqLKLJxywf6gh07j-GXNRQwWDg"
+  }
+}
+Running Checks...
+ISSUING CREDENTIAL...
+VC:
+eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlSWQiXSwiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ1cm46dXVpZDo3YTkyYjQ3My03M2UyLTQ4ZjItOGQ3Yi03MTFmNjRjNTcwMDYiLCJpc3N1ZXIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiaXNzdWVkIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJ2YWxpZEZyb20iOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlSWQuanNvbiIsInR5cGUiOiJGdWxsSnNvblNjaGVtYVZhbGlkYXRvcjIwMjEifSwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImN1cnJlbnRBZGRyZXNzIjpbIjEgQm91bGV2YXJkIGRlIGxhIExpYmVydMOpLCA1OTgwMCBMaWxsZSJdLCJkYXRlT2ZCaXJ0aCI6IjE5OTMtMDQtMDgiLCJmYW1pbHlOYW1lIjoiRE9FIiwiZmlyc3ROYW1lIjoiSmFuZSIsImdlbmRlciI6IkZFTUFMRSIsIm5hbWVBbmRGYW1pbHlOYW1lQXRCaXJ0aCI6IkphbmUgRE9FIiwicGVyc29uYWxJZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJwbGFjZU9mQmlydGgiOiJMSUxMRSwgRlJBTkNFIn0sImV2aWRlbmNlIjpbeyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIn1dfSwianRpIjoidXJuOnV1aWQ6N2E5MmI0NzMtNzNlMi00OGYyLThkN2ItNzExZjY0YzU3MDA2In0.apGHPLSGqs0oT456HSIYLSM85w4hvcrbNkAtJBvd2CDCvGmoFZcVpjcVpdPH_DDmJ8D0cxD-rbZWyWhqj4diAA
+eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlSWQiXSwiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ1cm46dXVpZDo3YTkyYjQ3My03M2UyLTQ4ZjItOGQ3Yi03MTFmNjRjNTcwMDYiLCJpc3N1ZXIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiaXNzdWVkIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJ2YWxpZEZyb20iOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlSWQuanNvbiIsInR5cGUiOiJGdWxsSnNvblNjaGVtYVZhbGlkYXRvcjIwMjEifSwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImN1cnJlbnRBZGRyZXNzIjpbIjEgQm91bGV2YXJkIGRlIGxhIExpYmVydMOpLCA1OTgwMCBMaWxsZSJdLCJkYXRlT2ZCaXJ0aCI6IjE5OTMtMDQtMDgiLCJmYW1pbHlOYW1lIjoiRE9FIiwiZmlyc3ROYW1lIjoiSmFuZSIsImdlbmRlciI6IkZFTUFMRSIsIm5hbWVBbmRGYW1pbHlOYW1lQXRCaXJ0aCI6IkphbmUgRE9FIiwicGVyc29uYWxJZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJwbGFjZU9mQmlydGgiOiJMSUxMRSwgRlJBTkNFIn0sImV2aWRlbmNlIjpbeyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIn1dfSwianRpIjoidXJuOnV1aWQ6N2E5MmI0NzMtNzNlMi00OGYyLThkN2ItNzExZjY0YzU3MDA2In0.apGHPLSGqs0oT456HSIYLSM85w4hvcrbNkAtJBvd2CDCvGmoFZcVpjcVpdPH_DDmJ8D0cxD-rbZWyWhqj4diAA
+Running Checks...
+VERIFYING VC
+ISSUING CREDENTIAL...
+VC:
+{
+  "type" : [ "VerifiableCredential", "VerifiableAttestation", "VerifiableDiploma" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:fd0e5692-c1e5-42fb-8539-f39dd60ad39a",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2020-11-03T00:00:00Z",
+  "issued" : "2020-11-03T00:00:00Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "expirationDate" : "2022-08-31T00:00:00Z",
+  "credentialSchema" : {
+    "id" : "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json",
+    "type" : "JsonSchemaValidator2018"
+  },
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "awardingOpportunity" : {
+      "awardingBody" : {
+        "eidasLegalIdentifier" : "Unknown",
+        "homepage" : "https://leaston.bcdiploma.com/",
+        "id" : "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN",
+        "preferredName" : "Leaston University",
+        "registration" : "0597065J"
+      },
+      "endedAtTime" : "2020-06-26T00:00:00Z",
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity",
+      "identifier" : "https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ",
+      "location" : "FRANCE",
+      "startedAtTime" : "2019-09-02T00:00:00Z"
+    },
+    "dateOfBirth" : "1993-04-08",
+    "familyName" : "DOE",
+    "givenNames" : "Jane",
+    "gradingScheme" : {
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#GradingScheme",
+      "title" : "Lower Second-Class Honours"
+    },
+    "identifier" : "0904008084H",
+    "learningAchievement" : {
+      "additionalNote" : [ "DISTRIBUTION MANAGEMENT" ],
+      "description" : "MARKETING AND SALES",
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#LearningAchievment",
+      "title" : "MASTERS LAW, ECONOMICS AND MANAGEMENT"
+    },
+    "learningSpecification" : {
+      "ectsCreditPoints" : 120,
+      "eqfLevel" : 7,
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#LearningSpecification",
+      "iscedfCode" : [ "7" ],
+      "nqfLevel" : [ "7" ]
+    }
+  },
+  "credentialStatus" : {
+    "id" : "https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176",
+    "type" : "CredentialStatusList2020"
+  },
+  "evidence" : {
+    "documentPresence" : [ "Physical" ],
+    "evidenceDocument" : [ "Passport" ],
+    "id" : "https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678",
+    "subjectPresence" : "Physical",
+    "type" : [ "DocumentVerification" ],
+    "verifier" : "did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..1s5-s7FNiX7VBiqXUvVCtaKB2UevVXcHDVQ5w2ePIOOlVXO_0Wo4ACm7e3nRiVCZSXUplOIW_uFOb8W4bsIDCA"
+  }
+}
+Running Checks...
+ISSUING CREDENTIAL...
+VC:
+eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlRGlwbG9tYSJdLCJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJpZCI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSIsImlzc3VlciI6ImRpZDprZXk6ejZNa2tqcW1MY0xEVVdzY1doRXVKaTlwTTlqaE5XZ0pwNXI0UHZURTdKTE05TjVRIiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJpc3N1ZWQiOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsInZhbGlkRnJvbSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDIyLTA4LTMxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlRGlwbG9tYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJhd2FyZGluZ09wcG9ydHVuaXR5Ijp7ImF3YXJkaW5nQm9keSI6eyJlaWRhc0xlZ2FsSWRlbnRpZmllciI6IlVua25vd24iLCJob21lcGFnZSI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tLyIsImlkIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIiwicHJlZmVycmVkTmFtZSI6IkxlYXN0b24gVW5pdmVyc2l0eSIsInJlZ2lzdHJhdGlvbiI6IjA1OTcwNjVKIn0sImVuZGVkQXRUaW1lIjoiMjAyMC0wNi0yNlQwMDowMDowMFoiLCJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNBd2FyZGluZ09wcG9ydHVuaXR5IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vY2VydGlmaWNhdGUtZGVtby5iY2RpcGxvbWEuY29tL2NoZWNrLzg3RUQyRjIyNzBFNkM0MTQ1NkU5NEI4NkI5RDkxMTVCNEUzNUJDQ0FEMjAwQTQ5Qjg0NjU5MkMxNEY3OUM4NkJWMUZuYmxsdGEwTlpUbkprUjNsRFdsUm1URGxTUlVKRVZGWklTbU5tWXpKaFVVNXNaVUo1WjJGSlNIcFdibVpaIiwibG9jYXRpb24iOiJGUkFOQ0UiLCJzdGFydGVkQXRUaW1lIjoiMjAxOS0wOS0wMlQwMDowMDowMFoifSwiZGF0ZU9mQmlydGgiOiIxOTkzLTA0LTA4IiwiZmFtaWx5TmFtZSI6IkRPRSIsImdpdmVuTmFtZXMiOiJKYW5lIiwiZ3JhZGluZ1NjaGVtZSI6eyJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNHcmFkaW5nU2NoZW1lIiwidGl0bGUiOiJMb3dlciBTZWNvbmQtQ2xhc3MgSG9ub3VycyJ9LCJpZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJsZWFybmluZ0FjaGlldmVtZW50Ijp7ImFkZGl0aW9uYWxOb3RlIjpbIkRJU1RSSUJVVElPTiBNQU5BR0VNRU5UIl0sImRlc2NyaXB0aW9uIjoiTUFSS0VUSU5HIEFORCBTQUxFUyIsImlkIjoiaHR0cHM6Ly9sZWFzdG9uLmJjZGlwbG9tYS5jb20vbGF3LWVjb25vbWljcy1tYW5hZ2VtZW50I0xlYXJuaW5nQWNoaWV2bWVudCIsInRpdGxlIjoiTUFTVEVSUyBMQVcsIEVDT05PTUlDUyBBTkQgTUFOQUdFTUVOVCJ9LCJsZWFybmluZ1NwZWNpZmljYXRpb24iOnsiZWN0c0NyZWRpdFBvaW50cyI6MTIwLCJlcWZMZXZlbCI6NywiaWQiOiJodHRwczovL2xlYXN0b24uYmNkaXBsb21hLmNvbS9sYXctZWNvbm9taWNzLW1hbmFnZW1lbnQjTGVhcm5pbmdTcGVjaWZpY2F0aW9uIiwiaXNjZWRmQ29kZSI6WyI3Il0sIm5xZkxldmVsIjpbIjciXX19LCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9lc3NpZi5ldXJvcGEuZXUvc3RhdHVzL2VkdWNhdGlvbiNoaWdoZXJFZHVjYXRpb24jMzkyYWM3ZjYtMzk5YS00MzdiLWEyNjgtNDY5MWVhZDhmMTc2IiwidHlwZSI6IkNyZWRlbnRpYWxTdGF0dXNMaXN0MjAyMCJ9LCJldmlkZW5jZSI6eyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwiaWQiOiJodHRwczovL2Vzc2lmLmV1cm9wYS5ldS90c3ItdmEvZXZpZGVuY2UvZjJhZWVjOTctZmMwZC00MmJmLThjYTctMDU0ODE5MmQ1Njc4Iiwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6Mjk2MmZiNzg0ZGY2MWJhYTI2N2M4MTMyNDk3NTM5ZjhjNjc0YjM3YzEyNDRhN2EifX0sImp0aSI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSJ9.sxb_maggwMYeU4hdNMXQAHJXe2E416ersAX7EWWbTsHlyv1d5scPw5DVNFB1CkxVRy4Tp9hViHq9mgpMvu0GBA
+eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlRGlwbG9tYSJdLCJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJpZCI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSIsImlzc3VlciI6ImRpZDprZXk6ejZNa2tqcW1MY0xEVVdzY1doRXVKaTlwTTlqaE5XZ0pwNXI0UHZURTdKTE05TjVRIiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJpc3N1ZWQiOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsInZhbGlkRnJvbSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDIyLTA4LTMxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlRGlwbG9tYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJhd2FyZGluZ09wcG9ydHVuaXR5Ijp7ImF3YXJkaW5nQm9keSI6eyJlaWRhc0xlZ2FsSWRlbnRpZmllciI6IlVua25vd24iLCJob21lcGFnZSI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tLyIsImlkIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIiwicHJlZmVycmVkTmFtZSI6IkxlYXN0b24gVW5pdmVyc2l0eSIsInJlZ2lzdHJhdGlvbiI6IjA1OTcwNjVKIn0sImVuZGVkQXRUaW1lIjoiMjAyMC0wNi0yNlQwMDowMDowMFoiLCJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNBd2FyZGluZ09wcG9ydHVuaXR5IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vY2VydGlmaWNhdGUtZGVtby5iY2RpcGxvbWEuY29tL2NoZWNrLzg3RUQyRjIyNzBFNkM0MTQ1NkU5NEI4NkI5RDkxMTVCNEUzNUJDQ0FEMjAwQTQ5Qjg0NjU5MkMxNEY3OUM4NkJWMUZuYmxsdGEwTlpUbkprUjNsRFdsUm1URGxTUlVKRVZGWklTbU5tWXpKaFVVNXNaVUo1WjJGSlNIcFdibVpaIiwibG9jYXRpb24iOiJGUkFOQ0UiLCJzdGFydGVkQXRUaW1lIjoiMjAxOS0wOS0wMlQwMDowMDowMFoifSwiZGF0ZU9mQmlydGgiOiIxOTkzLTA0LTA4IiwiZmFtaWx5TmFtZSI6IkRPRSIsImdpdmVuTmFtZXMiOiJKYW5lIiwiZ3JhZGluZ1NjaGVtZSI6eyJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNHcmFkaW5nU2NoZW1lIiwidGl0bGUiOiJMb3dlciBTZWNvbmQtQ2xhc3MgSG9ub3VycyJ9LCJpZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJsZWFybmluZ0FjaGlldmVtZW50Ijp7ImFkZGl0aW9uYWxOb3RlIjpbIkRJU1RSSUJVVElPTiBNQU5BR0VNRU5UIl0sImRlc2NyaXB0aW9uIjoiTUFSS0VUSU5HIEFORCBTQUxFUyIsImlkIjoiaHR0cHM6Ly9sZWFzdG9uLmJjZGlwbG9tYS5jb20vbGF3LWVjb25vbWljcy1tYW5hZ2VtZW50I0xlYXJuaW5nQWNoaWV2bWVudCIsInRpdGxlIjoiTUFTVEVSUyBMQVcsIEVDT05PTUlDUyBBTkQgTUFOQUdFTUVOVCJ9LCJsZWFybmluZ1NwZWNpZmljYXRpb24iOnsiZWN0c0NyZWRpdFBvaW50cyI6MTIwLCJlcWZMZXZlbCI6NywiaWQiOiJodHRwczovL2xlYXN0b24uYmNkaXBsb21hLmNvbS9sYXctZWNvbm9taWNzLW1hbmFnZW1lbnQjTGVhcm5pbmdTcGVjaWZpY2F0aW9uIiwiaXNjZWRmQ29kZSI6WyI3Il0sIm5xZkxldmVsIjpbIjciXX19LCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9lc3NpZi5ldXJvcGEuZXUvc3RhdHVzL2VkdWNhdGlvbiNoaWdoZXJFZHVjYXRpb24jMzkyYWM3ZjYtMzk5YS00MzdiLWEyNjgtNDY5MWVhZDhmMTc2IiwidHlwZSI6IkNyZWRlbnRpYWxTdGF0dXNMaXN0MjAyMCJ9LCJldmlkZW5jZSI6eyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwiaWQiOiJodHRwczovL2Vzc2lmLmV1cm9wYS5ldS90c3ItdmEvZXZpZGVuY2UvZjJhZWVjOTctZmMwZC00MmJmLThjYTctMDU0ODE5MmQ1Njc4Iiwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6Mjk2MmZiNzg0ZGY2MWJhYTI2N2M4MTMyNDk3NTM5ZjhjNjc0YjM3YzEyNDRhN2EifX0sImp0aSI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSJ9.sxb_maggwMYeU4hdNMXQAHJXe2E416ersAX7EWWbTsHlyv1d5scPw5DVNFB1CkxVRy4Tp9hViHq9mgpMvu0GBA
+Running Checks...
+VERIFYING VC
+{
+  "type" : [ "VerifiableCredential" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:5c14fe93-6fc6-40f6-a350-ef95fec9ca2a",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2024-09-12T09:39:50Z",
+  "issued" : "2024-09-12T09:39:50Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "firstName" : "Inco",
+    "familyName" : "GNITO"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..IeFTaPbjpGs1SFg-5OAHC78th19vqk5fBpanUh-Sk8GgtPqVGWgKmJdfOJj0KhKSdjHwwC2R3nZJxOu4U5QNCA"
+  }
+}
+{
+  "type" : [ "VerifiableCredential" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:49f582f2-e234-411d-a8f6-4108c5081a16",
+  "issuer" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "name" : "Test Issuer"
+  },
+  "issuanceDate" : "2024-09-12T09:39:50Z",
+  "issued" : "2024-09-12T09:39:50Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "firstName" : "Inco",
+    "familyName" : "GNITO"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..qJFzYO6xYRuyRIvzlS4_-othuiIiFANEZ27JJq5QNGHaRSWvDHl-op9xO0NOFX1_h2GOPOw_ufxeOObjaLrCDA"
+  }
+}
+]]></system-out>
+  <system-err><![CDATA[15026 [Test worker @coroutine#64] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "d807389fd3d74652b7281c78614a55da".
+15026 [Test worker @coroutine#64] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15026 [Test worker @coroutine#64] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15027 [Test worker @coroutine#64] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15027 [Test worker @coroutine#64] DEBUG id.walt.services.did.DidService - A key with the id "d807389fd3d74652b7281c78614a55da" exists.
+15027 [Test worker @coroutine#64] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15027 [Test worker @coroutine#64] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15028 [Test worker @coroutine#64] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:7ac0102f-a400-42b6-baf3-82b83926287d","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]}
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q), domain (null), nonce (null
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15031 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:7ac0102f-a400-42b6-baf3-82b83926287d","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]}
+15033 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15033 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15033 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15034 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  "type" : [ "VerifiableCredential", "VerifiableAttestation", "VerifiableId" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:7ac0102f-a400-42b6-baf3-82b83926287d",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2020-11-03T00:00:00Z",
+  "issued" : "2020-11-03T00:00:00Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSchema" : {
+    "id" : "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json",
+    "type" : "FullJsonSchemaValidator2021"
+  },
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "currentAddress" : [ "1 Boulevard de la Liberté, 59800 Lille" ],
+    "dateOfBirth" : "1993-04-08",
+    "familyName" : "DOE",
+    "firstName" : "Jane",
+    "gender" : "FEMALE",
+    "nameAndFamilyNameAtBirth" : "Jane DOE",
+    "personalIdentifier" : "0904008084H",
+    "placeOfBirth" : "LILLE, FRANCE"
+  },
+  "evidence" : [ {
+    "documentPresence" : [ "Physical" ],
+    "evidenceDocument" : [ "Passport" ],
+    "subjectPresence" : "Physical",
+    "type" : [ "DocumentVerification" ],
+    "verifier" : "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"
+  } ],
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..55Wg2o8mtLUFJoXb2FuVScU-2r06NVxoNNhkkCGEM9A5y7nYslQnTD49h0QdsqLKLJxywf6gh07j-GXNRQwWDg"
+  }
+}
+15034 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - DID imported: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=null
+15035 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - Key imported for: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15036 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15037 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15038 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Loading verification key for:  did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15038 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Document loader config: isEnableHttp (true), isEnableHttps (true), isEnableFile (true), isEnableLocalCache (true)
+15038 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Decoded Json LD object: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:7ac0102f-a400-42b6-baf3-82b83926287d","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}],"proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","created":"2024-09-12T09:39:50Z","verificationMethod":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..55Wg2o8mtLUFJoXb2FuVScU-2r06NVxoNNhkkCGEM9A5y7nYslQnTD49h0QdsqLKLJxywf6gh07j-GXNRQwWDg"}}
+15038 [pool-1-thread-1 @coroutine#1023] DEBUG id.walt.services.storeUmu.defaultSoreServiceUmu - Loading key "z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15039 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15039 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15039 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using JWT...
+15039 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using JWT, credential is: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:7a92b473-73e2-48f2-8d7b-711f64c57006","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]}
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.vc.WaltIdJwtCredentialService - Signing JWT object with config: ProofConfig(issuerDid=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, subjectDid=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, verifierDid=null, issuerVerificationMethod=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, proofType=JWT, domain=null, nonce=null, proofPurpose=null, credentialId=urn:uuid:7a92b473-73e2-48f2-8d7b-711f64c57006, issueDate=2024-09-12T09:39:50.259932475Z, validDate=2024-09-12T09:39:50.259933036Z, expirationDate=null, dataProviderIdentifier=null, ldSignatureType=null, creator=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, ecosystem=DEFAULT, statusType=null, statusPurpose=revocation, credentialsEndpoint=null, selectiveDisclosure=null)
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.vc.WaltIdJwtCredentialService - Signing: {"sub":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","nbf":1726133990,"iss":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","iat":1726133990,"vc":{"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:7a92b473-73e2-48f2-8d7b-711f64c57006","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]},"jti":"urn:uuid:7a92b473-73e2-48f2-8d7b-711f64c57006"}
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: EdDSA_Ed25519
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15040 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlSWQiXSwiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ1cm46dXVpZDo3YTkyYjQ3My03M2UyLTQ4ZjItOGQ3Yi03MTFmNjRjNTcwMDYiLCJpc3N1ZXIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiaXNzdWVkIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJ2YWxpZEZyb20iOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlSWQuanNvbiIsInR5cGUiOiJGdWxsSnNvblNjaGVtYVZhbGlkYXRvcjIwMjEifSwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImN1cnJlbnRBZGRyZXNzIjpbIjEgQm91bGV2YXJkIGRlIGxhIExpYmVydMOpLCA1OTgwMCBMaWxsZSJdLCJkYXRlT2ZCaXJ0aCI6IjE5OTMtMDQtMDgiLCJmYW1pbHlOYW1lIjoiRE9FIiwiZmlyc3ROYW1lIjoiSmFuZSIsImdlbmRlciI6IkZFTUFMRSIsIm5hbWVBbmRGYW1pbHlOYW1lQXRCaXJ0aCI6IkphbmUgRE9FIiwicGVyc29uYWxJZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJwbGFjZU9mQmlydGgiOiJMSUxMRSwgRlJBTkNFIn0sImV2aWRlbmNlIjpbeyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIn1dfSwianRpIjoidXJuOnV1aWQ6N2E5MmI0NzMtNzNlMi00OGYyLThkN2ItNzExZjY0YzU3MDA2In0.apGHPLSGqs0oT456HSIYLSM85w4hvcrbNkAtJBvd2CDCvGmoFZcVpjcVpdPH_DDmJ8D0cxD-rbZWyWhqj4diAA
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlSWQiXSwiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ1cm46dXVpZDo3YTkyYjQ3My03M2UyLTQ4ZjItOGQ3Yi03MTFmNjRjNTcwMDYiLCJpc3N1ZXIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiaXNzdWVkIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJ2YWxpZEZyb20iOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlSWQuanNvbiIsInR5cGUiOiJGdWxsSnNvblNjaGVtYVZhbGlkYXRvcjIwMjEifSwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImN1cnJlbnRBZGRyZXNzIjpbIjEgQm91bGV2YXJkIGRlIGxhIExpYmVydMOpLCA1OTgwMCBMaWxsZSJdLCJkYXRlT2ZCaXJ0aCI6IjE5OTMtMDQtMDgiLCJmYW1pbHlOYW1lIjoiRE9FIiwiZmlyc3ROYW1lIjoiSmFuZSIsImdlbmRlciI6IkZFTUFMRSIsIm5hbWVBbmRGYW1pbHlOYW1lQXRCaXJ0aCI6IkphbmUgRE9FIiwicGVyc29uYWxJZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJwbGFjZU9mQmlydGgiOiJMSUxMRSwgRlJBTkNFIn0sImV2aWRlbmNlIjpbeyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIn1dfSwianRpIjoidXJuOnV1aWQ6N2E5MmI0NzMtNzNlMi00OGYyLThkN2ItNzExZjY0YzU3MDA2In0.apGHPLSGqs0oT456HSIYLSM85w4hvcrbNkAtJBvd2CDCvGmoFZcVpjcVpdPH_DDmJ8D0cxD-rbZWyWhqj4diAA
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlSWQiXSwiQGNvbnRleHQiOlsiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvdjEiXSwiaWQiOiJ1cm46dXVpZDo3YTkyYjQ3My03M2UyLTQ4ZjItOGQ3Yi03MTFmNjRjNTcwMDYiLCJpc3N1ZXIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImlzc3VhbmNlRGF0ZSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiaXNzdWVkIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJ2YWxpZEZyb20iOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlSWQuanNvbiIsInR5cGUiOiJGdWxsSnNvblNjaGVtYVZhbGlkYXRvcjIwMjEifSwiY3JlZGVudGlhbFN1YmplY3QiOnsiaWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsImN1cnJlbnRBZGRyZXNzIjpbIjEgQm91bGV2YXJkIGRlIGxhIExpYmVydMOpLCA1OTgwMCBMaWxsZSJdLCJkYXRlT2ZCaXJ0aCI6IjE5OTMtMDQtMDgiLCJmYW1pbHlOYW1lIjoiRE9FIiwiZmlyc3ROYW1lIjoiSmFuZSIsImdlbmRlciI6IkZFTUFMRSIsIm5hbWVBbmRGYW1pbHlOYW1lQXRCaXJ0aCI6IkphbmUgRE9FIiwicGVyc29uYWxJZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJwbGFjZU9mQmlydGgiOiJMSUxMRSwgRlJBTkNFIn0sImV2aWRlbmNlIjpbeyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIn1dfSwianRpIjoidXJuOnV1aWQ6N2E5MmI0NzMtNzNlMi00OGYyLThkN2ItNzExZjY0YzU3MDA2In0.apGHPLSGqs0oT456HSIYLSM85w4hvcrbNkAtJBvd2CDCvGmoFZcVpjcVpdPH_DDmJ8D0cxD-rbZWyWhqj4diAA
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15041 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15042 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15043 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15044 [pool-1-thread-1 @coroutine#1024] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: d807389fd3d74652b7281c78614a55da)
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableDiploma"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:fd0e5692-c1e5-42fb-8539-f39dd60ad39a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","expirationDate":"2022-08-31T00:00:00Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","awardingOpportunity":{"awardingBody":{"eidasLegalIdentifier":"Unknown","homepage":"https://leaston.bcdiploma.com/","id":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN","preferredName":"Leaston University","registration":"0597065J"},"endedAtTime":"2020-06-26T00:00:00Z","id":"https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity","identifier":"https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ","location":"FRANCE","startedAtTime":"2019-09-02T00:00:00Z"},"dateOfBirth":"1993-04-08","familyName":"DOE","givenNames":"Jane","gradingScheme":{"id":"https://leaston.bcdiploma.com/law-economics-management#GradingScheme","title":"Lower Second-Class Honours"},"identifier":"0904008084H","learningAchievement":{"additionalNote":["DISTRIBUTION MANAGEMENT"],"description":"MARKETING AND SALES","id":"https://leaston.bcdiploma.com/law-economics-management#LearningAchievment","title":"MASTERS LAW, ECONOMICS AND MANAGEMENT"},"learningSpecification":{"ectsCreditPoints":120,"eqfLevel":7,"id":"https://leaston.bcdiploma.com/law-economics-management#LearningSpecification","iscedfCode":["7"],"nqfLevel":["7"]}},"credentialStatus":{"id":"https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176","type":"CredentialStatusList2020"},"evidence":{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"}}
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q), domain (null), nonce (null
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15045 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableDiploma"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:fd0e5692-c1e5-42fb-8539-f39dd60ad39a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","expirationDate":"2022-08-31T00:00:00Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","awardingOpportunity":{"awardingBody":{"eidasLegalIdentifier":"Unknown","homepage":"https://leaston.bcdiploma.com/","id":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN","preferredName":"Leaston University","registration":"0597065J"},"endedAtTime":"2020-06-26T00:00:00Z","id":"https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity","identifier":"https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ","location":"FRANCE","startedAtTime":"2019-09-02T00:00:00Z"},"dateOfBirth":"1993-04-08","familyName":"DOE","givenNames":"Jane","gradingScheme":{"id":"https://leaston.bcdiploma.com/law-economics-management#GradingScheme","title":"Lower Second-Class Honours"},"identifier":"0904008084H","learningAchievement":{"additionalNote":["DISTRIBUTION MANAGEMENT"],"description":"MARKETING AND SALES","id":"https://leaston.bcdiploma.com/law-economics-management#LearningAchievment","title":"MASTERS LAW, ECONOMICS AND MANAGEMENT"},"learningSpecification":{"ectsCreditPoints":120,"eqfLevel":7,"id":"https://leaston.bcdiploma.com/law-economics-management#LearningSpecification","iscedfCode":["7"],"nqfLevel":["7"]}},"credentialStatus":{"id":"https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176","type":"CredentialStatusList2020"},"evidence":{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"}}
+Sep 12, 2024 11:39:50 AM com.apicatalog.jsonld.deseralization.JsonLdToRdf build
+WARNING: Non well-formed subject [https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176] has been skipped.
+15047 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15047 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15047 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15047 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  "type" : [ "VerifiableCredential", "VerifiableAttestation", "VerifiableDiploma" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:fd0e5692-c1e5-42fb-8539-f39dd60ad39a",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2020-11-03T00:00:00Z",
+  "issued" : "2020-11-03T00:00:00Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "expirationDate" : "2022-08-31T00:00:00Z",
+  "credentialSchema" : {
+    "id" : "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json",
+    "type" : "JsonSchemaValidator2018"
+  },
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "awardingOpportunity" : {
+      "awardingBody" : {
+        "eidasLegalIdentifier" : "Unknown",
+        "homepage" : "https://leaston.bcdiploma.com/",
+        "id" : "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN",
+        "preferredName" : "Leaston University",
+        "registration" : "0597065J"
+      },
+      "endedAtTime" : "2020-06-26T00:00:00Z",
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity",
+      "identifier" : "https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ",
+      "location" : "FRANCE",
+      "startedAtTime" : "2019-09-02T00:00:00Z"
+    },
+    "dateOfBirth" : "1993-04-08",
+    "familyName" : "DOE",
+    "givenNames" : "Jane",
+    "gradingScheme" : {
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#GradingScheme",
+      "title" : "Lower Second-Class Honours"
+    },
+    "identifier" : "0904008084H",
+    "learningAchievement" : {
+      "additionalNote" : [ "DISTRIBUTION MANAGEMENT" ],
+      "description" : "MARKETING AND SALES",
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#LearningAchievment",
+      "title" : "MASTERS LAW, ECONOMICS AND MANAGEMENT"
+    },
+    "learningSpecification" : {
+      "ectsCreditPoints" : 120,
+      "eqfLevel" : 7,
+      "id" : "https://leaston.bcdiploma.com/law-economics-management#LearningSpecification",
+      "iscedfCode" : [ "7" ],
+      "nqfLevel" : [ "7" ]
+    }
+  },
+  "credentialStatus" : {
+    "id" : "https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176",
+    "type" : "CredentialStatusList2020"
+  },
+  "evidence" : {
+    "documentPresence" : [ "Physical" ],
+    "evidenceDocument" : [ "Passport" ],
+    "id" : "https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678",
+    "subjectPresence" : "Physical",
+    "type" : [ "DocumentVerification" ],
+    "verifier" : "did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..1s5-s7FNiX7VBiqXUvVCtaKB2UevVXcHDVQ5w2ePIOOlVXO_0Wo4ACm7e3nRiVCZSXUplOIW_uFOb8W4bsIDCA"
+  }
+}
+15048 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - DID imported: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=null
+15049 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15050 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15050 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15051 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - Key imported for: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15051 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15051 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15051 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15051 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15052 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Loading verification key for:  did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15052 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Document loader config: isEnableHttp (true), isEnableHttps (true), isEnableFile (true), isEnableLocalCache (true)
+15052 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Decoded Json LD object: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableDiploma"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:fd0e5692-c1e5-42fb-8539-f39dd60ad39a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2020-11-03T00:00:00Z","issued":"2020-11-03T00:00:00Z","validFrom":"2024-09-12T09:39:50Z","expirationDate":"2022-08-31T00:00:00Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","awardingOpportunity":{"awardingBody":{"eidasLegalIdentifier":"Unknown","homepage":"https://leaston.bcdiploma.com/","id":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN","preferredName":"Leaston University","registration":"0597065J"},"endedAtTime":"2020-06-26T00:00:00Z","id":"https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity","identifier":"https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ","location":"FRANCE","startedAtTime":"2019-09-02T00:00:00Z"},"dateOfBirth":"1993-04-08","familyName":"DOE","givenNames":"Jane","gradingScheme":{"id":"https://leaston.bcdiploma.com/law-economics-management#GradingScheme","title":"Lower Second-Class Honours"},"identifier":"0904008084H","learningAchievement":{"additionalNote":["DISTRIBUTION MANAGEMENT"],"description":"MARKETING AND SALES","id":"https://leaston.bcdiploma.com/law-economics-management#LearningAchievment","title":"MASTERS LAW, ECONOMICS AND MANAGEMENT"},"learningSpecification":{"ectsCreditPoints":120,"eqfLevel":7,"id":"https://leaston.bcdiploma.com/law-economics-management#LearningSpecification","iscedfCode":["7"],"nqfLevel":["7"]}},"credentialStatus":{"id":"https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176","type":"CredentialStatusList2020"},"evidence":{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"},"proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","created":"2024-09-12T09:39:50Z","verificationMethod":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..1s5-s7FNiX7VBiqXUvVCtaKB2UevVXcHDVQ5w2ePIOOlVXO_0Wo4ACm7e3nRiVCZSXUplOIW_uFOb8W4bsIDCA"}}
+15052 [pool-1-thread-1 @coroutine#1025] DEBUG id.walt.services.storeUmu.defaultSoreServiceUmu - Loading key "z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using JWT...
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using JWT, credential is: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableDiploma"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:b5a8307b-b34d-4ce2-b444-b032b51e0e6e","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","expirationDate":"2022-08-31T00:00:00Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","awardingOpportunity":{"awardingBody":{"eidasLegalIdentifier":"Unknown","homepage":"https://leaston.bcdiploma.com/","id":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN","preferredName":"Leaston University","registration":"0597065J"},"endedAtTime":"2020-06-26T00:00:00Z","id":"https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity","identifier":"https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ","location":"FRANCE","startedAtTime":"2019-09-02T00:00:00Z"},"dateOfBirth":"1993-04-08","familyName":"DOE","givenNames":"Jane","gradingScheme":{"id":"https://leaston.bcdiploma.com/law-economics-management#GradingScheme","title":"Lower Second-Class Honours"},"identifier":"0904008084H","learningAchievement":{"additionalNote":["DISTRIBUTION MANAGEMENT"],"description":"MARKETING AND SALES","id":"https://leaston.bcdiploma.com/law-economics-management#LearningAchievment","title":"MASTERS LAW, ECONOMICS AND MANAGEMENT"},"learningSpecification":{"ectsCreditPoints":120,"eqfLevel":7,"id":"https://leaston.bcdiploma.com/law-economics-management#LearningSpecification","iscedfCode":["7"],"nqfLevel":["7"]}},"credentialStatus":{"id":"https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176","type":"CredentialStatusList2020"},"evidence":{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"}}
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.vc.WaltIdJwtCredentialService - Signing JWT object with config: ProofConfig(issuerDid=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, subjectDid=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, verifierDid=null, issuerVerificationMethod=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, proofType=JWT, domain=null, nonce=null, proofPurpose=null, credentialId=urn:uuid:b5a8307b-b34d-4ce2-b444-b032b51e0e6e, issueDate=2024-09-12T09:39:50.274561197Z, validDate=2024-09-12T09:39:50.274562229Z, expirationDate=null, dataProviderIdentifier=null, ldSignatureType=null, creator=did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, ecosystem=DEFAULT, statusType=null, statusPurpose=revocation, credentialsEndpoint=null, selectiveDisclosure=null)
+15054 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.vc.WaltIdJwtCredentialService - Signing: {"sub":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","nbf":1726133990,"iss":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","iat":1726133990,"vc":{"type":["VerifiableCredential","VerifiableAttestation","VerifiableDiploma"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:b5a8307b-b34d-4ce2-b444-b032b51e0e6e","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","expirationDate":"2022-08-31T00:00:00Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableDiploma.json","type":"JsonSchemaValidator2018"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","awardingOpportunity":{"awardingBody":{"eidasLegalIdentifier":"Unknown","homepage":"https://leaston.bcdiploma.com/","id":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN","preferredName":"Leaston University","registration":"0597065J"},"endedAtTime":"2020-06-26T00:00:00Z","id":"https://leaston.bcdiploma.com/law-economics-management#AwardingOpportunity","identifier":"https://certificate-demo.bcdiploma.com/check/87ED2F2270E6C41456E94B86B9D9115B4E35BCCAD200A49B846592C14F79C86BV1Fnbllta0NZTnJkR3lDWlRmTDlSRUJEVFZISmNmYzJhUU5sZUJ5Z2FJSHpWbmZZ","location":"FRANCE","startedAtTime":"2019-09-02T00:00:00Z"},"dateOfBirth":"1993-04-08","familyName":"DOE","givenNames":"Jane","gradingScheme":{"id":"https://leaston.bcdiploma.com/law-economics-management#GradingScheme","title":"Lower Second-Class Honours"},"identifier":"0904008084H","learningAchievement":{"additionalNote":["DISTRIBUTION MANAGEMENT"],"description":"MARKETING AND SALES","id":"https://leaston.bcdiploma.com/law-economics-management#LearningAchievment","title":"MASTERS LAW, ECONOMICS AND MANAGEMENT"},"learningSpecification":{"ectsCreditPoints":120,"eqfLevel":7,"id":"https://leaston.bcdiploma.com/law-economics-management#LearningSpecification","iscedfCode":["7"],"nqfLevel":["7"]}},"credentialStatus":{"id":"https://essif.europa.eu/status/education#higherEducation#392ac7f6-399a-437b-a268-4691ead8f176","type":"CredentialStatusList2020"},"evidence":{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"id":"https://essif.europa.eu/tsr-va/evidence/f2aeec97-fc0d-42bf-8ca7-0548192d5678","subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2962fb784df61baa267c8132497539f8c674b37c1244a7a"}},"jti":"urn:uuid:b5a8307b-b34d-4ce2-b444-b032b51e0e6e"}
+15055 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15055 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: EdDSA_Ed25519
+15055 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15055 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15056 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlRGlwbG9tYSJdLCJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJpZCI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSIsImlzc3VlciI6ImRpZDprZXk6ejZNa2tqcW1MY0xEVVdzY1doRXVKaTlwTTlqaE5XZ0pwNXI0UHZURTdKTE05TjVRIiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJpc3N1ZWQiOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsInZhbGlkRnJvbSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDIyLTA4LTMxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlRGlwbG9tYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJhd2FyZGluZ09wcG9ydHVuaXR5Ijp7ImF3YXJkaW5nQm9keSI6eyJlaWRhc0xlZ2FsSWRlbnRpZmllciI6IlVua25vd24iLCJob21lcGFnZSI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tLyIsImlkIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIiwicHJlZmVycmVkTmFtZSI6IkxlYXN0b24gVW5pdmVyc2l0eSIsInJlZ2lzdHJhdGlvbiI6IjA1OTcwNjVKIn0sImVuZGVkQXRUaW1lIjoiMjAyMC0wNi0yNlQwMDowMDowMFoiLCJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNBd2FyZGluZ09wcG9ydHVuaXR5IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vY2VydGlmaWNhdGUtZGVtby5iY2RpcGxvbWEuY29tL2NoZWNrLzg3RUQyRjIyNzBFNkM0MTQ1NkU5NEI4NkI5RDkxMTVCNEUzNUJDQ0FEMjAwQTQ5Qjg0NjU5MkMxNEY3OUM4NkJWMUZuYmxsdGEwTlpUbkprUjNsRFdsUm1URGxTUlVKRVZGWklTbU5tWXpKaFVVNXNaVUo1WjJGSlNIcFdibVpaIiwibG9jYXRpb24iOiJGUkFOQ0UiLCJzdGFydGVkQXRUaW1lIjoiMjAxOS0wOS0wMlQwMDowMDowMFoifSwiZGF0ZU9mQmlydGgiOiIxOTkzLTA0LTA4IiwiZmFtaWx5TmFtZSI6IkRPRSIsImdpdmVuTmFtZXMiOiJKYW5lIiwiZ3JhZGluZ1NjaGVtZSI6eyJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNHcmFkaW5nU2NoZW1lIiwidGl0bGUiOiJMb3dlciBTZWNvbmQtQ2xhc3MgSG9ub3VycyJ9LCJpZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJsZWFybmluZ0FjaGlldmVtZW50Ijp7ImFkZGl0aW9uYWxOb3RlIjpbIkRJU1RSSUJVVElPTiBNQU5BR0VNRU5UIl0sImRlc2NyaXB0aW9uIjoiTUFSS0VUSU5HIEFORCBTQUxFUyIsImlkIjoiaHR0cHM6Ly9sZWFzdG9uLmJjZGlwbG9tYS5jb20vbGF3LWVjb25vbWljcy1tYW5hZ2VtZW50I0xlYXJuaW5nQWNoaWV2bWVudCIsInRpdGxlIjoiTUFTVEVSUyBMQVcsIEVDT05PTUlDUyBBTkQgTUFOQUdFTUVOVCJ9LCJsZWFybmluZ1NwZWNpZmljYXRpb24iOnsiZWN0c0NyZWRpdFBvaW50cyI6MTIwLCJlcWZMZXZlbCI6NywiaWQiOiJodHRwczovL2xlYXN0b24uYmNkaXBsb21hLmNvbS9sYXctZWNvbm9taWNzLW1hbmFnZW1lbnQjTGVhcm5pbmdTcGVjaWZpY2F0aW9uIiwiaXNjZWRmQ29kZSI6WyI3Il0sIm5xZkxldmVsIjpbIjciXX19LCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9lc3NpZi5ldXJvcGEuZXUvc3RhdHVzL2VkdWNhdGlvbiNoaWdoZXJFZHVjYXRpb24jMzkyYWM3ZjYtMzk5YS00MzdiLWEyNjgtNDY5MWVhZDhmMTc2IiwidHlwZSI6IkNyZWRlbnRpYWxTdGF0dXNMaXN0MjAyMCJ9LCJldmlkZW5jZSI6eyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwiaWQiOiJodHRwczovL2Vzc2lmLmV1cm9wYS5ldS90c3ItdmEvZXZpZGVuY2UvZjJhZWVjOTctZmMwZC00MmJmLThjYTctMDU0ODE5MmQ1Njc4Iiwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6Mjk2MmZiNzg0ZGY2MWJhYTI2N2M4MTMyNDk3NTM5ZjhjNjc0YjM3YzEyNDRhN2EifX0sImp0aSI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSJ9.sxb_maggwMYeU4hdNMXQAHJXe2E416ersAX7EWWbTsHlyv1d5scPw5DVNFB1CkxVRy4Tp9hViHq9mgpMvu0GBA
+15056 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlRGlwbG9tYSJdLCJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJpZCI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSIsImlzc3VlciI6ImRpZDprZXk6ejZNa2tqcW1MY0xEVVdzY1doRXVKaTlwTTlqaE5XZ0pwNXI0UHZURTdKTE05TjVRIiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJpc3N1ZWQiOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsInZhbGlkRnJvbSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDIyLTA4LTMxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlRGlwbG9tYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJhd2FyZGluZ09wcG9ydHVuaXR5Ijp7ImF3YXJkaW5nQm9keSI6eyJlaWRhc0xlZ2FsSWRlbnRpZmllciI6IlVua25vd24iLCJob21lcGFnZSI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tLyIsImlkIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIiwicHJlZmVycmVkTmFtZSI6IkxlYXN0b24gVW5pdmVyc2l0eSIsInJlZ2lzdHJhdGlvbiI6IjA1OTcwNjVKIn0sImVuZGVkQXRUaW1lIjoiMjAyMC0wNi0yNlQwMDowMDowMFoiLCJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNBd2FyZGluZ09wcG9ydHVuaXR5IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vY2VydGlmaWNhdGUtZGVtby5iY2RpcGxvbWEuY29tL2NoZWNrLzg3RUQyRjIyNzBFNkM0MTQ1NkU5NEI4NkI5RDkxMTVCNEUzNUJDQ0FEMjAwQTQ5Qjg0NjU5MkMxNEY3OUM4NkJWMUZuYmxsdGEwTlpUbkprUjNsRFdsUm1URGxTUlVKRVZGWklTbU5tWXpKaFVVNXNaVUo1WjJGSlNIcFdibVpaIiwibG9jYXRpb24iOiJGUkFOQ0UiLCJzdGFydGVkQXRUaW1lIjoiMjAxOS0wOS0wMlQwMDowMDowMFoifSwiZGF0ZU9mQmlydGgiOiIxOTkzLTA0LTA4IiwiZmFtaWx5TmFtZSI6IkRPRSIsImdpdmVuTmFtZXMiOiJKYW5lIiwiZ3JhZGluZ1NjaGVtZSI6eyJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNHcmFkaW5nU2NoZW1lIiwidGl0bGUiOiJMb3dlciBTZWNvbmQtQ2xhc3MgSG9ub3VycyJ9LCJpZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJsZWFybmluZ0FjaGlldmVtZW50Ijp7ImFkZGl0aW9uYWxOb3RlIjpbIkRJU1RSSUJVVElPTiBNQU5BR0VNRU5UIl0sImRlc2NyaXB0aW9uIjoiTUFSS0VUSU5HIEFORCBTQUxFUyIsImlkIjoiaHR0cHM6Ly9sZWFzdG9uLmJjZGlwbG9tYS5jb20vbGF3LWVjb25vbWljcy1tYW5hZ2VtZW50I0xlYXJuaW5nQWNoaWV2bWVudCIsInRpdGxlIjoiTUFTVEVSUyBMQVcsIEVDT05PTUlDUyBBTkQgTUFOQUdFTUVOVCJ9LCJsZWFybmluZ1NwZWNpZmljYXRpb24iOnsiZWN0c0NyZWRpdFBvaW50cyI6MTIwLCJlcWZMZXZlbCI6NywiaWQiOiJodHRwczovL2xlYXN0b24uYmNkaXBsb21hLmNvbS9sYXctZWNvbm9taWNzLW1hbmFnZW1lbnQjTGVhcm5pbmdTcGVjaWZpY2F0aW9uIiwiaXNjZWRmQ29kZSI6WyI3Il0sIm5xZkxldmVsIjpbIjciXX19LCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9lc3NpZi5ldXJvcGEuZXUvc3RhdHVzL2VkdWNhdGlvbiNoaWdoZXJFZHVjYXRpb24jMzkyYWM3ZjYtMzk5YS00MzdiLWEyNjgtNDY5MWVhZDhmMTc2IiwidHlwZSI6IkNyZWRlbnRpYWxTdGF0dXNMaXN0MjAyMCJ9LCJldmlkZW5jZSI6eyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwiaWQiOiJodHRwczovL2Vzc2lmLmV1cm9wYS5ldS90c3ItdmEvZXZpZGVuY2UvZjJhZWVjOTctZmMwZC00MmJmLThjYTctMDU0ODE5MmQ1Njc4Iiwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6Mjk2MmZiNzg0ZGY2MWJhYTI2N2M4MTMyNDk3NTM5ZjhjNjc0YjM3YzEyNDRhN2EifX0sImp0aSI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSJ9.sxb_maggwMYeU4hdNMXQAHJXe2E416ersAX7EWWbTsHlyv1d5scPw5DVNFB1CkxVRy4Tp9hViHq9mgpMvu0GBA
+15056 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USN6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJ0eXAiOiJKV1QiLCJhbGciOiJFZERTQSJ9.eyJzdWIiOiJkaWQ6a2V5Ono2TWtranFtTGNMRFVXc2NXaEV1Smk5cE05amhOV2dKcDVyNFB2VEU3SkxNOU41USIsIm5iZiI6MTcyNjEzMzk5MCwiaXNzIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJpYXQiOjE3MjYxMzM5OTAsInZjIjp7InR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJWZXJpZmlhYmxlQXR0ZXN0YXRpb24iLCJWZXJpZmlhYmxlRGlwbG9tYSJdLCJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJpZCI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSIsImlzc3VlciI6ImRpZDprZXk6ejZNa2tqcW1MY0xEVVdzY1doRXVKaTlwTTlqaE5XZ0pwNXI0UHZURTdKTE05TjVRIiwiaXNzdWFuY2VEYXRlIjoiMjAyNC0wOS0xMlQwOTozOTo1MFoiLCJpc3N1ZWQiOiIyMDI0LTA5LTEyVDA5OjM5OjUwWiIsInZhbGlkRnJvbSI6IjIwMjQtMDktMTJUMDk6Mzk6NTBaIiwiZXhwaXJhdGlvbkRhdGUiOiIyMDIyLTA4LTMxVDAwOjAwOjAwWiIsImNyZWRlbnRpYWxTY2hlbWEiOnsiaWQiOiJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vd2FsdC1pZC93YWx0aWQtc3Npa2l0LXZjbGliL21hc3Rlci9zcmMvdGVzdC9yZXNvdXJjZXMvc2NoZW1hcy9WZXJpZmlhYmxlRGlwbG9tYS5qc29uIiwidHlwZSI6Ikpzb25TY2hlbWFWYWxpZGF0b3IyMDE4In0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7ImlkIjoiZGlkOmtleTp6Nk1ra2pxbUxjTERVV3NjV2hFdUppOXBNOWpoTldnSnA1cjRQdlRFN0pMTTlONVEiLCJhd2FyZGluZ09wcG9ydHVuaXR5Ijp7ImF3YXJkaW5nQm9keSI6eyJlaWRhc0xlZ2FsSWRlbnRpZmllciI6IlVua25vd24iLCJob21lcGFnZSI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tLyIsImlkIjoiZGlkOmVic2k6MkE5Qlo5U1VlNkJhdGFjU3B2czFWNUNkakh2THBRN2JFc2kySmI2TGRIS25ReGFOIiwicHJlZmVycmVkTmFtZSI6IkxlYXN0b24gVW5pdmVyc2l0eSIsInJlZ2lzdHJhdGlvbiI6IjA1OTcwNjVKIn0sImVuZGVkQXRUaW1lIjoiMjAyMC0wNi0yNlQwMDowMDowMFoiLCJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNBd2FyZGluZ09wcG9ydHVuaXR5IiwiaWRlbnRpZmllciI6Imh0dHBzOi8vY2VydGlmaWNhdGUtZGVtby5iY2RpcGxvbWEuY29tL2NoZWNrLzg3RUQyRjIyNzBFNkM0MTQ1NkU5NEI4NkI5RDkxMTVCNEUzNUJDQ0FEMjAwQTQ5Qjg0NjU5MkMxNEY3OUM4NkJWMUZuYmxsdGEwTlpUbkprUjNsRFdsUm1URGxTUlVKRVZGWklTbU5tWXpKaFVVNXNaVUo1WjJGSlNIcFdibVpaIiwibG9jYXRpb24iOiJGUkFOQ0UiLCJzdGFydGVkQXRUaW1lIjoiMjAxOS0wOS0wMlQwMDowMDowMFoifSwiZGF0ZU9mQmlydGgiOiIxOTkzLTA0LTA4IiwiZmFtaWx5TmFtZSI6IkRPRSIsImdpdmVuTmFtZXMiOiJKYW5lIiwiZ3JhZGluZ1NjaGVtZSI6eyJpZCI6Imh0dHBzOi8vbGVhc3Rvbi5iY2RpcGxvbWEuY29tL2xhdy1lY29ub21pY3MtbWFuYWdlbWVudCNHcmFkaW5nU2NoZW1lIiwidGl0bGUiOiJMb3dlciBTZWNvbmQtQ2xhc3MgSG9ub3VycyJ9LCJpZGVudGlmaWVyIjoiMDkwNDAwODA4NEgiLCJsZWFybmluZ0FjaGlldmVtZW50Ijp7ImFkZGl0aW9uYWxOb3RlIjpbIkRJU1RSSUJVVElPTiBNQU5BR0VNRU5UIl0sImRlc2NyaXB0aW9uIjoiTUFSS0VUSU5HIEFORCBTQUxFUyIsImlkIjoiaHR0cHM6Ly9sZWFzdG9uLmJjZGlwbG9tYS5jb20vbGF3LWVjb25vbWljcy1tYW5hZ2VtZW50I0xlYXJuaW5nQWNoaWV2bWVudCIsInRpdGxlIjoiTUFTVEVSUyBMQVcsIEVDT05PTUlDUyBBTkQgTUFOQUdFTUVOVCJ9LCJsZWFybmluZ1NwZWNpZmljYXRpb24iOnsiZWN0c0NyZWRpdFBvaW50cyI6MTIwLCJlcWZMZXZlbCI6NywiaWQiOiJodHRwczovL2xlYXN0b24uYmNkaXBsb21hLmNvbS9sYXctZWNvbm9taWNzLW1hbmFnZW1lbnQjTGVhcm5pbmdTcGVjaWZpY2F0aW9uIiwiaXNjZWRmQ29kZSI6WyI3Il0sIm5xZkxldmVsIjpbIjciXX19LCJjcmVkZW50aWFsU3RhdHVzIjp7ImlkIjoiaHR0cHM6Ly9lc3NpZi5ldXJvcGEuZXUvc3RhdHVzL2VkdWNhdGlvbiNoaWdoZXJFZHVjYXRpb24jMzkyYWM3ZjYtMzk5YS00MzdiLWEyNjgtNDY5MWVhZDhmMTc2IiwidHlwZSI6IkNyZWRlbnRpYWxTdGF0dXNMaXN0MjAyMCJ9LCJldmlkZW5jZSI6eyJkb2N1bWVudFByZXNlbmNlIjpbIlBoeXNpY2FsIl0sImV2aWRlbmNlRG9jdW1lbnQiOlsiUGFzc3BvcnQiXSwiaWQiOiJodHRwczovL2Vzc2lmLmV1cm9wYS5ldS90c3ItdmEvZXZpZGVuY2UvZjJhZWVjOTctZmMwZC00MmJmLThjYTctMDU0ODE5MmQ1Njc4Iiwic3ViamVjdFByZXNlbmNlIjoiUGh5c2ljYWwiLCJ0eXBlIjpbIkRvY3VtZW50VmVyaWZpY2F0aW9uIl0sInZlcmlmaWVyIjoiZGlkOmVic2k6Mjk2MmZiNzg0ZGY2MWJhYTI2N2M4MTMyNDk3NTM5ZjhjNjc0YjM3YzEyNDRhN2EifX0sImp0aSI6InVybjp1dWlkOmI1YTgzMDdiLWIzNGQtNGNlMi1iNDQ0LWIwMzJiNTFlMGU2ZSJ9.sxb_maggwMYeU4hdNMXQAHJXe2E416ersAX7EWWbTsHlyv1d5scPw5DVNFB1CkxVRy4Tp9hViHq9mgpMvu0GBA
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15057 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15059 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15059 [pool-1-thread-1 @coroutine#1026] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: d807389fd3d74652b7281c78614a55da)
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:b1083ae7-eb65-4a33-976b-db954211119b","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]}
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q), domain (null), nonce (null
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15060 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {"type":["VerifiableCredential","VerifiableAttestation","VerifiableId"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:b1083ae7-eb65-4a33-976b-db954211119b","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSchema":{"id":"https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json","type":"FullJsonSchemaValidator2021"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","currentAddress":["1 Boulevard de la Liberté, 59800 Lille"],"dateOfBirth":"1993-04-08","familyName":"DOE","firstName":"Jane","gender":"FEMALE","nameAndFamilyNameAtBirth":"Jane DOE","personalIdentifier":"0904008084H","placeOfBirth":"LILLE, FRANCE"},"evidence":[{"documentPresence":["Physical"],"evidenceDocument":["Passport"],"subjectPresence":"Physical","type":["DocumentVerification"],"verifier":"did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"}]}
+15062 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15062 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15062 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15063 [pool-1-thread-1 @coroutine#1027] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  "type" : [ "VerifiableCredential", "VerifiableAttestation", "VerifiableId" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:b1083ae7-eb65-4a33-976b-db954211119b",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2024-09-12T09:39:50Z",
+  "issued" : "2024-09-12T09:39:50Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSchema" : {
+    "id" : "https://raw.githubusercontent.com/walt-id/waltid-ssikit-vclib/master/src/test/resources/schemas/VerifiableId.json",
+    "type" : "FullJsonSchemaValidator2021"
+  },
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "currentAddress" : [ "1 Boulevard de la Liberté, 59800 Lille" ],
+    "dateOfBirth" : "1993-04-08",
+    "familyName" : "DOE",
+    "firstName" : "Jane",
+    "gender" : "FEMALE",
+    "nameAndFamilyNameAtBirth" : "Jane DOE",
+    "personalIdentifier" : "0904008084H",
+    "placeOfBirth" : "LILLE, FRANCE"
+  },
+  "evidence" : [ {
+    "documentPresence" : [ "Physical" ],
+    "evidenceDocument" : [ "Passport" ],
+    "subjectPresence" : "Physical",
+    "type" : [ "DocumentVerification" ],
+    "verifier" : "did:ebsi:2A9BZ9SUe6BatacSpvs1V5CdjHvLpQ7bEsi2Jb6LdHKnQxaN"
+  } ],
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..I5jYbx0QdRq09v66ZzhPLz86XZta2bRUsjMf_7N40VlheeIOkmTFo2JBiyti9K7dLc_0dMol5FL4HQ9OtrR6Cg"
+  }
+}
+15064 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15064 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15064 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+15064 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:5c14fe93-6fc6-40f6-a350-ef95fec9ca2a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15064 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q), domain (null), nonce (null
+15065 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15065 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:5c14fe93-6fc6-40f6-a350-ef95fec9ca2a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15066 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15066 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15066 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15067 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  "type" : [ "VerifiableCredential" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:5c14fe93-6fc6-40f6-a350-ef95fec9ca2a",
+  "issuer" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+  "issuanceDate" : "2024-09-12T09:39:50Z",
+  "issued" : "2024-09-12T09:39:50Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "firstName" : "Inco",
+    "familyName" : "GNITO"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..IeFTaPbjpGs1SFg-5OAHC78th19vqk5fBpanUh-Sk8GgtPqVGWgKmJdfOJj0KhKSdjHwwC2R3nZJxOu4U5QNCA"
+  }
+}
+15067 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.auditor.Auditor - Verifying vc with SignaturePolicy ...
+15067 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.auditor.policies.SignaturePolicy - is jwt: false
+15067 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15068 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15068 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15069 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - DID imported: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15069 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15069 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15069 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=null
+15069 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - Key imported for: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15070 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Loading verification key for:  did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Document loader config: isEnableHttp (true), isEnableHttps (true), isEnableFile (true), isEnableLocalCache (true)
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Decoded Json LD object: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:5c14fe93-6fc6-40f6-a350-ef95fec9ca2a","issuer":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","created":"2024-09-12T09:39:50Z","verificationMethod":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..IeFTaPbjpGs1SFg-5OAHC78th19vqk5fBpanUh-Sk8GgtPqVGWgKmJdfOJj0KhKSdjHwwC2R3nZJxOu4U5QNCA"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.services.storeUmu.defaultSoreServiceUmu - Loading key "z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.auditor.VerificationPolicy - VerificationPolicy failed: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.auditor.VerificationPolicy - VC [VerifiableCredential] passes policy SignaturePolicy: failed: #1: IllegalArgumentException - Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15072 [pool-1-thread-1 @coroutine#1029] ERROR id.walt.auditor.Auditor - SignaturePolicy: java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15072 [pool-1-thread-1 @coroutine#1029] DEBUG id.walt.auditor.VerificationPolicy - VerificationPolicy failed: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF...
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.signatory.WaltIdSignatory - Signing credential with proof using LD_PROOF, credential is: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:49f582f2-e234-411d-a8f6-4108c5081a16","issuer":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","name":"Test Issuer"},"issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing jsonLd object with: issuerDid (did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q), domain (null), nonce (null
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q".
+15074 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Signing: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1"],"id":"urn:uuid:49f582f2-e234-411d-a8f6-4108c5081a16","issuer":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","name":"Test Issuer"},"issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15075 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15076 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15076 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "d807389fd3d74652b7281c78614a55da".
+15076 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.signatory.WaltIdSignatory - Signed VC is: {
+  "type" : [ "VerifiableCredential" ],
+  "@context" : [ "https://www.w3.org/2018/credentials/v1", "https://w3id.org/security/suites/jws-2020/v1" ],
+  "id" : "urn:uuid:49f582f2-e234-411d-a8f6-4108c5081a16",
+  "issuer" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "name" : "Test Issuer"
+  },
+  "issuanceDate" : "2024-09-12T09:39:50Z",
+  "issued" : "2024-09-12T09:39:50Z",
+  "validFrom" : "2024-09-12T09:39:50Z",
+  "credentialSubject" : {
+    "id" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "firstName" : "Inco",
+    "familyName" : "GNITO"
+  },
+  "proof" : {
+    "type" : "JsonWebSignature2020",
+    "creator" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "created" : "2024-09-12T09:39:50Z",
+    "verificationMethod" : "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q",
+    "jws" : "eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..qJFzYO6xYRuyRIvzlS4_-othuiIiFANEZ27JJq5QNGHaRSWvDHl-op9xO0NOFX1_h2GOPOw_ufxeOObjaLrCDA"
+  }
+}
+15077 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.auditor.Auditor - Verifying vc with SignaturePolicy ...
+15077 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.auditor.policies.SignaturePolicy - is jwt: false
+15077 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - DID imported: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=null
+15078 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15079 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15079 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15080 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - Key imported for: did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15080 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - Loading or resolving "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15080 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15080 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.did.DidService - loadOrResolve: url=DidUrl(method=key, identifier=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, fragment=z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q, query=null), length of stored=1639
+15080 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15081 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Loading verification key for:  did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15081 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Document loader config: isEnableHttp (true), isEnableHttps (true), isEnableFile (true), isEnableLocalCache (true)
+15082 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.vc.WaltIdJsonLdCredentialService - Decoded Json LD object: {"type":["VerifiableCredential"],"@context":["https://www.w3.org/2018/credentials/v1","https://w3id.org/security/suites/jws-2020/v1"],"id":"urn:uuid:49f582f2-e234-411d-a8f6-4108c5081a16","issuer":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","name":"Test Issuer"},"issuanceDate":"2024-09-12T09:39:50Z","issued":"2024-09-12T09:39:50Z","validFrom":"2024-09-12T09:39:50Z","proof":{"type":"JsonWebSignature2020","creator":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","created":"2024-09-12T09:39:50Z","verificationMethod":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q#z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","jws":"eyJiNjQiOmZhbHNlLCJjcml0IjpbImI2NCJdLCJhbGciOiJFZERTQSJ9..qJFzYO6xYRuyRIvzlS4_-othuiIiFANEZ27JJq5QNGHaRSWvDHl-op9xO0NOFX1_h2GOPOw_ufxeOObjaLrCDA"},"credentialSubject":{"id":"did:key:z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q","firstName":"Inco","familyName":"GNITO"}}
+15082 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.services.storeUmu.defaultSoreServiceUmu - Loading key "z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q"...
+15082 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.auditor.VerificationPolicy - VerificationPolicy failed: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15082 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.auditor.VerificationPolicy - VC [VerifiableCredential] passes policy SignaturePolicy: failed: #1: IllegalArgumentException - Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15082 [pool-1-thread-1 @coroutine#1030] ERROR id.walt.auditor.Auditor - SignaturePolicy: java.lang.IllegalArgumentException: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+15082 [pool-1-thread-1 @coroutine#1030] DEBUG id.walt.auditor.VerificationPolicy - VerificationPolicy failed: Could not load key: z6MkkjqmLcLDUWscWhEuJi9pM9jhNWgJp5r4PvTE7JLM9N5Q
+]]></system-err>
+</testsuite>

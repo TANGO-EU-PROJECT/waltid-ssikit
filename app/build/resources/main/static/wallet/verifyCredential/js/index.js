@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function fetchCredentials() {
-    fetch('/vpTokenDetails')
+    fetch('/wallet/vpTokenDetails')
       .then(response => response.text())
       .then(result => {
         const outputText = parseCredentialString(result)
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error fetching credentials:', error);
       });
 
-    fetch('/validCredentials')
+    fetch('/wallet/validCredentials')
       .then(response => response.json())
       .then(credentials => {
         displayCredentials(credentials);
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     emitButton.textContent = 'Comenzar proceso de emisión';
     emitButton.id = 'emit-button';
     emitButton.onclick = function() {
-      window.location.href = `/selectCredential?redirecturi=/verifyCredential`;
+      window.location.href = `/wallet/selectCredential?redirecturi=/verifyCredential`;
     };
   
     // Agrega el botón solo si aún no existe
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function selectCredential(credential) {
     console.log(credential);
 
-    fetch('/selectCredential', {
+    fetch('/wallet/selectCredential', {
         method: 'POST',
         headers: {
             'Content-Type': 'text/plain', 

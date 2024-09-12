@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-        fetch('/createCredential', { method: 'GET' }) // Asumimos GET para la simplificación
+        fetch('/wallet/createCredential', { method: 'GET' }) // Asumimos GET para la simplificación
                 .then(response => response.json())
                 .then(data => showModal(data))
                 .catch(error => {
                     if (typeof error === 'string' && error.startsWith("Error:")) {
                         const errorMessage = error.substring(6).trim();
-                        window.location.href = `/error?error=${encodeURIComponent(errorMessage)}`;
+                        window.location.href = `/wallet/error?error=${encodeURIComponent(errorMessage)}`;
                     }
 
                 });
@@ -52,7 +52,7 @@ function saveCredential(credential) {
     formData.append('credential', credentialToSend);
     formData.append('nameCred', credentialName);
 
-    fetch('/storeCredential', {
+    fetch('/wallet/storeCredential', {
         method: 'POST',
         body: formData
     })
@@ -64,7 +64,7 @@ function saveCredential(credential) {
                 const redirectUri = urlParams.get('redirecturi');
 
                 if(redirectUri)  window.location.href = redirectUri
-                else window.location.href = "/credentials"
+                else window.location.href = "/wallet/credentials"
 
             })
             .catch(error => {

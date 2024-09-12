@@ -50,12 +50,13 @@ class WebWalletCommand:
 
     private val keyStoreUmu = KeyStoreServiceUmu.getService()
     private val keyServiceUmu = KeyServiceUmu.getService()
+    private val URI_DSC = System.getenv("URI")
 
     private val WALLET_PORT = System.getenv("WALLET_PORT").toInt()
 
     // ENDPOINTS ISSUER
 
-    val ENDPOINT_OBTAIN_CREDENTIAL = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/wallet/New-Credential"
+    val ENDPOINT_OBTAIN_CREDENTIAL = "https://$URI_DSC/wallet/New-Credential"
 
 
     // Salida mas legible

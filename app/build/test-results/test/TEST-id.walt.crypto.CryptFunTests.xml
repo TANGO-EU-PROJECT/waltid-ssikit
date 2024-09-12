@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.crypto.CryptFunTests" tests="14" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:42" hostname="pablito-B550-AORUS-ELITE-V2" time="0.026">
+  <properties/>
+  <testcase name="base58EncodingTest" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="base64EncodingTest" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="constructJcaEd25519fromBytes" classname="id.walt.crypto.CryptFunTests" time="0.0"/>
+  <testcase name="convertEd25519PublicKeyToMultiBase58Btc" classname="id.walt.crypto.CryptFunTests" time="0.0"/>
+  <testcase name="convertEd25519toX25519PublickeyTest" classname="id.walt.crypto.CryptFunTests" time="0.002"/>
+  <testcase name="convertPublicKeyEd25519ToCurve25519Test" classname="id.walt.crypto.CryptFunTests" time="0.002"/>
+  <testcase name="convertX25519PublicKeyToMultiBase58BtcTest2" classname="id.walt.crypto.CryptFunTests" time="0.0"/>
+  <testcase name="generateECDSA_Secp256k1" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="multibaseEd25519KeyTest" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="multibaseEncodingTest" classname="id.walt.crypto.CryptFunTests" time="0.0"/>
+  <testcase name="multibaseRsaKeyTest" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="publicKeyBase64EncodingTest" classname="id.walt.crypto.CryptFunTests" time="0.002"/>
+  <testcase name="publicKeyPemEncodingTest" classname="id.walt.crypto.CryptFunTests" time="0.001"/>
+  <testcase name="toECDSASignature" classname="id.walt.crypto.CryptFunTests" time="0.002"/>
+  <system-out><![CDATA[p=(dec)115792089237316195423570985008687907853269984665640564039457584007908834671663
+Gx=(hex)79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798
+Gy=(hex)483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

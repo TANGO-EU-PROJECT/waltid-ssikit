@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class id.walt.custodian.CustodianSqlKeyTests</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class id.walt.custodian.CustodianSqlKeyTests</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/id.walt.custodian.html">id.walt.custodian</a> &gt; CustodianSqlKeyTests</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.035s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">1.1: Generate EdDSA_Ed25519 key</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">1.2: Generate ECDSA_Secp256k1 key</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">2.1: Load EdDSA_Ed25519 key</td>
+<td class="success">0s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">2.2: Load ECDSA_Secp256k1 key</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">3: List keys size</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">4: Delete keys</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">5.1: Store EdDSA_Ed25519 key</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">5.2: Store ECDSA_Secp256k1 key</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">6.1: Retrieve stored EdDSA_Ed25519 key</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">6.2: Retrieve stored ECDSA_Secp256k1 key</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>8120 [pool-1-thread-1 @coroutine#211] DEBUG id.walt.services.keystore.SqlKeyStoreService - Saving key &quot;Key[1f8be3a15be34b7197feb1203f80c09a; Algo: EdDSA_Ed25519; Provider: SUN]&quot;...
+8122 [pool-1-thread-1 @coroutine#211] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;1f8be3a15be34b7197feb1203f80c09a&quot;...
+8123 [pool-1-thread-1 @coroutine#212] DEBUG id.walt.services.keystore.SqlKeyStoreService - Saving key &quot;Key[49c557e6cfea4a59964349c2cab5cbc0; Algo: ECDSA_Secp256k1; Provider: SUN]&quot;...
+8125 [pool-1-thread-1 @coroutine#212] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;49c557e6cfea4a59964349c2cab5cbc0&quot;...
+8127 [pool-1-thread-1 @coroutine#213] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;1f8be3a15be34b7197feb1203f80c09a&quot;...
+8127 [pool-1-thread-1 @coroutine#214] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;49c557e6cfea4a59964349c2cab5cbc0&quot;...
+8130 [pool-1-thread-1 @coroutine#216] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;1f8be3a15be34b7197feb1203f80c09a&quot;.
+8132 [pool-1-thread-1 @coroutine#216] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;49c557e6cfea4a59964349c2cab5cbc0&quot;.
+8136 [pool-1-thread-1 @coroutine#217] DEBUG id.walt.services.keystore.SqlKeyStoreService - Saving key &quot;Key[45674a4ac169f7f4716804393d20480138a; Algo: EdDSA_Ed25519; Provider: SUN]&quot;...
+8138 [pool-1-thread-1 @coroutine#217] DEBUG id.walt.services.key.WaltIdKeyService - Importing key 45674a4ac169f7f4716804393d20480138a
+8139 [pool-1-thread-1 @coroutine#218] DEBUG id.walt.services.keystore.SqlKeyStoreService - Saving key &quot;Key[ed51ec3a165f4af8bef8298d99b41de7; Algo: ECDSA_Secp256k1; Provider: SUN]&quot;...
+8141 [pool-1-thread-1 @coroutine#218] DEBUG id.walt.services.key.WaltIdKeyService - Importing key ed51ec3a165f4af8bef8298d99b41de7
+8142 [pool-1-thread-1 @coroutine#219] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;45674a4ac169f7f4716804393d20480138a&quot;...
+8143 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Loading key &quot;ed51ec3a165f4af8bef8298d99b41de7&quot;...
+8144 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;b97c7722362a4c59a5f9bc69f7cbb1d5&quot;.
+8146 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;21a7da7ebd1445a89742a1939c3d1268&quot;.
+8148 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;544c5e5e445b44bca170d52b1f8fab43&quot;.
+8150 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;5b2736767e2746ab9bb32b4ef44503fb&quot;.
+8152 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;45674a4ac169f7f4716804393d20480138a&quot;.
+8154 [pool-1-thread-1 @coroutine#220] DEBUG id.walt.services.keystore.SqlKeyStoreService - Deleting key &quot;ed51ec3a165f4af8bef8298d99b41de7&quot;.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.0.2</a> at Sep 12, 2024, 11:39:51 AM</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('/Config')
+    fetch('/wallet/Config')
             .then(response => {
                 if (!response.ok) {
                     return response.text(); // Leer la respuesta como texto si no es ok
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 if (typeof data === 'string' && data.startsWith("Error:")) {
                     const errorMessage = data.substring(6).trim(); // Extraer mensaje de error
-                    window.location.href = `/error?error=${encodeURIComponent(errorMessage)}`;
+                    window.location.href = `/wallet/error?error=${encodeURIComponent(errorMessage)}`;
                 } else {
                     const metadataDiv = document.getElementById('metadata');
                     metadataDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;

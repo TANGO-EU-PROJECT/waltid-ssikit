@@ -57,6 +57,7 @@ import io.ktor.server.request.*
 import mu.KotlinLogging
 
 
+
 /* SSIKIT issuer */
 class VerifierCommand :
     CliktCommand(
@@ -85,6 +86,7 @@ class VerifierCommand :
     private val keyStoreUmu = KeyStoreServiceUmu.getService()
     private val keyServiceUmu = KeyServiceUmu.getService()
     private val VERIFIER_PORT = System.getenv("VERIFIER_PORT").toInt()
+    private val URI_DSC = System.getenv("URI")
     val stateMap: MutableMap<String, Instant> = mutableMapOf()
     val local = System.getenv("LOCAL").toBoolean()
     override fun run() {
@@ -229,7 +231,7 @@ class VerifierCommand :
                             // Generación del SIOP request
                             val siopRequest = OIDC4VPService.createOIDC4VPRequest(
                                 wallet_url = client_url,
-                                redirect_uri = URI.create("https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verifyVP"),
+                                redirect_uri = URI.create("https://$URI_DSC/verifier/verifyVP"),
                                 nonce = Nonce(state),
                                 response_type = ResponseType.parse(response_type),
                                 response_mode = ResponseMode(response_mode),
@@ -342,7 +344,7 @@ class VerifierCommand :
                                     expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
                                     requester = requester,
                                     method = method,
-                                    url = "https://wallet.testing1.k8s-cluster.tango.rid-intrasoft.eu/verifier/verify",
+                                    url = "https://$URI_DSC/verifier/verify",
                                     _vp_token = null,
                                     keyId = KEY_ALIAS
                                 ).sign()

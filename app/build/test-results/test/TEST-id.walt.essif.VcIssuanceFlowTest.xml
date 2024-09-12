@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="id.walt.essif.VcIssuanceFlowTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:43" hostname="pablito-B550-AORUS-ELITE-V2" time="0.045">
+  <properties/>
+  <testcase name="testGenerateSiopSessionResponse" classname="id.walt.essif.VcIssuanceFlowTest" time="0.001"/>
+  <testcase name="testOpenSiopSession" classname="id.walt.essif.VcIssuanceFlowTest" time="0.04"/>
+  <testcase name="testVcIssuanceFlow" classname="id.walt.essif.VcIssuanceFlowTest" time="0.002"/>
+  <testcase name="validateDidAuthRequest" classname="id.walt.essif.VcIssuanceFlowTest" time="0.001"/>
+  <system-out><![CDATA[{}
+siopResponse
+eyJraWQiOiJhYmFkZDhkYWM0NDQ0ODYwYTNlYTU3NzcyN2Y2ODA0ZCIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiIvc2lvcC1zZXNzaW9ucyIsInN1YiI6IkNtMUJtTDd4dXhuaklqQ3Y1OFRoMUtWNTRJUTQ1MVpxRzk5MURqYWx4eVkiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwiY2xhaW1zIjp7ImVuY3J5cHRpb25fa2V5Ijp7Imt0eSI6IkVDIiwiYWxnIjoiRVMyNTZLIiwiY3J2Ijoic2VjcDI1NmsxIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCJ9fSwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImFiYWRkOGRhYzQ0NDQ4NjBhM2VhNTc3NzI3ZjY4MDRkIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQyODMsImlhdCI6MTcyNjEzMzk4Mywibm9uY2UiOiIiLCJkaWQiOiJ7fSJ9.JMg2cGblG6B7E1DlNRvPY-Vi4E2pzt769dsPmwdNGwK0hqsd76inGMPjxZdmUuKmCTqOEwIhDztfKi5-205mMwnull
+Credential issuance from a Legal Entity (EOS/Trusted Issuer) to a Natural Person.
+1 Request VC (Manually)
+2. [Eos] [GET]/credentials
+3. [EWallet] Generate <DID-Auth Request>
+4. [Eos] 200 <DID-Auth Req>
+5. [Eos] Generate QR, URI
+7/16. [EWallet] /sessions/{id}
+8/17. [EWallet] 428 (no content)
+6. QR, URI, ...
+9. Trigger Wallet (Scan QR, enter URI, ...)
+10. [UWallet] Validate request
+11. DID-Auth request
+12. Consent
+13/11. [UWallet] Generate (DID-)Auth Response
+14/12. [UWallet] /callback (DID-)Auth Response
+15/13. [EWallet]  Validate response
+16/14. [UWallet] 200 OK
+vcToken
+17 VC requested successfully
+20 Process completed successfully
+{
+    "uri": "openid://?response_type=id_token&client_id=https%3A%2F%2Frp.example.com%2Fcb&scope=openid%20did_authn&request=<authentication-request-JWS>",
+    "callback": "https://ti.example.com/callback"
+}
+
+21 Credential received
+{
+    "request": "<JWT-request>"
+}
+
+]]></system-out>
+  <system-err><![CDATA[8240 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.ecosystems.essif.EssifServer - SERVER::generateAuthenticationRequest()
+8241 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "fd21588c036c458c9cc3099f88a30874".
+8241 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "fd21588c036c458c9cc3099f88a30874".
+8241 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "fd21588c036c458c9cc3099f88a30874".
+8241 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method JWK for kid: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"fd21588c036c458c9cc3099f88a30874","x":"fHy3SmtksMS-M_73zoHn7ArZyMvR5jcgtd3Yasy5YLE","alg":"EdDSA"}
+8241 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method public JWK: {"kty":"OKP","use":"sig","crv":"Ed25519","kid":"fd21588c036c458c9cc3099f88a30874","x":"fHy3SmtksMS-M_73zoHn7ArZyMvR5jcgtd3Yasy5YLE","alg":"EdDSA"}
+8244 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.did.composers.DidDocumentComposerBase - Verification method parsed public JWK: Jwk(kid=fd21588c036c458c9cc3099f88a30874, kty=OKP, alg=EdDSA, crv=Ed25519, use=sig, x=fHy3SmtksMS-M_73zoHn7ArZyMvR5jcgtd3Yasy5YLE, y=null, d=null, n=null, e=null, x5u=null)
+8245 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "fd21588c036c458c9cc3099f88a30874".
+8245 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.did.DidService - A key with the id "fd21588c036c458c9cc3099f88a30874" exists.
+8245 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zx432NRdWXyw7qKUvT3gcc7"...
+8245 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zx432NRdWXyw7qKUvT3gcc7"...
+8247 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:ebsi:zx432NRdWXyw7qKUvT3gcc7".
+8263 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "did:ebsi:zx432NRdWXyw7qKUvT3gcc7".
+8263 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: EdDSA_Ed25519
+8263 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:zx432NRdWXyw7qKUvT3gcc7"...
+8263 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "fd21588c036c458c9cc3099f88a30874".
+8265 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJkaWQ6ZWJzaTp6eDQzMk5SZFdYeXc3cUtVdlQzZ2NjNyIsInR5cCI6IkpXVCIsImFsZyI6IkVkRFNBIn0.eyJhdXRoZW50aWNhdGlvblJlcXVlc3RKd3QiOnsiYXV0aEhlYWRlciI6eyJhbGciOiJFUzI1NksiLCJqd2siOnsiYWxnIjoiRWREU0EiLCJjcnYiOiJFZDI1NTE5Iiwia2lkIjoiZmQyMTU4OGMwMzZjNDU4YzljYzMwOTlmODhhMzA4NzQiLCJrdHkiOiJPS1AiLCJ1c2UiOiJzaWciLCJ4IjoiZkh5M1NtdGtzTVMtTV83M3pvSG43QXJaeU12UjVqY2d0ZDNZYXN5NVlMRSJ9LCJ0eXAiOiJKV1QifSwiYXV0aFJlcXVlc3RQYXlsb2FkIjp7ImNsYWltcyI6eyJpZF90b2tlbiI6eyJ2ZXJpZmllZF9jbGFpbXMiOltdfX0sImNsaWVudF9pZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9yZWRpcmVjdCIsImlzcyI6ImRpZDplYnNpOnp4NDMyTlJkV1h5dzdxS1V2VDNnY2M3Iiwibm9uY2UiOiI2ZWNjZDMyYS00ZjMwLTQ3ZWEtYWE3MC1hODQ4NzFjNjU3NGIiLCJyZWdpc3RyYXRpb24iOnsiYWNjZXNzX3Rva2VuX2VuY3J5cHRpb25fYWxnX3ZhbHVlc19zdXBwb3J0ZWQiOlsiRUNESC1FUyJdLCJhY2Nlc3NfdG9rZW5fZW5jcnlwdGlvbl9lbmNfdmFsdWVzX3N1cHBvcnRlZCI6WyJBMTI4R0NNIiwiQTI1NkdDTSJdLCJhY2Nlc3NfdG9rZW5fc2lnbmluZ19hbGciOlsiRVMyNUsiLCJFZERTQSJdLCJpZF90b2tlbl9zaWduZWRfcmVzcG9uc2VfYWxnIjpbIkVTMjVLIiwiRWREU0EiXSwiandrc191cmkiOiIiLCJyZWRpcmVjdF91cmlzIjpbImh0dHBzOi8vYXBwLmVic2kueHl6Il0sInJlcXVlc3Rfb2JqZWN0X3NpZ25pbmdfYWxnIjpbIkVTMjVLIiwiRWREU0EiXSwicmVzcG9uc2VfdHlwZXMiOiJpZF90b2tlbiJ9LCJyZXNwb25zZV90eXBlIjoiaWRfdG9rZW4iLCJzY29wZSI6Im9wZW5pZCBkaWRfYXV0aG4ifX0sInNjb3BlIjoib3BlbmlkIGRpZF9hdXRobiIsImNhbGxiYWNrIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2NhbGxiYWNrIiwicmVzcG9uc2VfdHlwZSI6ImlkX3Rva2VuIiwibm9uY2UiOiI2ZWNjZDMyYS00ZjMwLTQ3ZWEtYWE3MC1hODQ4NzFjNjU3NGIiLCJjbGllbnRfaWQiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvcmVkaXJlY3QifQ.sM20QRh8nlIL55fCYzU_0206HFvYMXoOCqnLwfbXH2mV8Ux1fg5HRPTZFeEmA0oT2gvhyETKT7b5NlXGl10aAw
+8269 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Storing key "abadd8dac4444860a3ea577727f6804d".
+8272 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "abadd8dac4444860a3ea577727f6804d".
+8273 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "abadd8dac4444860a3ea577727f6804d".
+8274 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - Signing JWT with algorithm: ECDSA_Secp256k1
+8274 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "abadd8dac4444860a3ea577727f6804d".
+8275 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - Signed JWT:  eyJraWQiOiJhYmFkZDhkYWM0NDQ0ODYwYTNlYTU3NzcyN2Y2ODA0ZCIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiIvc2lvcC1zZXNzaW9ucyIsInN1YiI6IkNtMUJtTDd4dXhuaklqQ3Y1OFRoMUtWNTRJUTQ1MVpxRzk5MURqYWx4eVkiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwiY2xhaW1zIjp7ImVuY3J5cHRpb25fa2V5Ijp7Imt0eSI6IkVDIiwiYWxnIjoiRVMyNTZLIiwiY3J2Ijoic2VjcDI1NmsxIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCJ9fSwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImFiYWRkOGRhYzQ0NDQ4NjBhM2VhNTc3NzI3ZjY4MDRkIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQyODMsImlhdCI6MTcyNjEzMzk4Mywibm9uY2UiOiIiLCJkaWQiOiJ7fSJ9.JMg2cGblG6B7E1DlNRvPY-Vi4E2pzt769dsPmwdNGwK0hqsd76inGMPjxZdmUuKmCTqOEwIhDztfKi5-205mMw
+8276 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.ecosystems.essif.userwallet.UserWalletService - Siop Response JWT:
+eyJraWQiOiJhYmFkZDhkYWM0NDQ0ODYwYTNlYTU3NzcyN2Y2ODA0ZCIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiIvc2lvcC1zZXNzaW9ucyIsInN1YiI6IkNtMUJtTDd4dXhuaklqQ3Y1OFRoMUtWNTRJUTQ1MVpxRzk5MURqYWx4eVkiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwiY2xhaW1zIjp7ImVuY3J5cHRpb25fa2V5Ijp7Imt0eSI6IkVDIiwiYWxnIjoiRVMyNTZLIiwiY3J2Ijoic2VjcDI1NmsxIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCJ9fSwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImFiYWRkOGRhYzQ0NDQ4NjBhM2VhNTc3NzI3ZjY4MDRkIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQyODMsImlhdCI6MTcyNjEzMzk4Mywibm9uY2UiOiIiLCJkaWQiOiJ7fSJ9.JMg2cGblG6B7E1DlNRvPY-Vi4E2pzt769dsPmwdNGwK0hqsd76inGMPjxZdmUuKmCTqOEwIhDztfKi5-205mMw
+8276 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - Verifying token:  eyJraWQiOiJhYmFkZDhkYWM0NDQ0ODYwYTNlYTU3NzcyN2Y2ODA0ZCIsInR5cCI6IkpXVCIsImFsZyI6IkVTMjU2SyJ9.eyJhdWQiOiIvc2lvcC1zZXNzaW9ucyIsInN1YiI6IkNtMUJtTDd4dXhuaklqQ3Y1OFRoMUtWNTRJUTQ1MVpxRzk5MURqYWx4eVkiLCJpc3MiOiJodHRwczovL3NlbGYtaXNzdWVkLm1lIiwiY2xhaW1zIjp7ImVuY3J5cHRpb25fa2V5Ijp7Imt0eSI6IkVDIiwiYWxnIjoiRVMyNTZLIiwiY3J2Ijoic2VjcDI1NmsxIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCJ9fSwic3ViX2p3ayI6eyJrdHkiOiJFQyIsInVzZSI6InNpZyIsImNydiI6InNlY3AyNTZrMSIsImtpZCI6ImFiYWRkOGRhYzQ0NDQ4NjBhM2VhNTc3NzI3ZjY4MDRkIiwieCI6IkZHVWRJa3pZa3FORnRJZlNIUFlpSmFDSEUzZWc5WHp5blFBZFIzeUJYM2MiLCJ5IjoieFNQXzBXX2JjU1k4QnJxZkgwYUtvNkRPdFZRc2QzNWxKQllkRVFlQ3p0MCIsImFsZyI6IkVTMjU2SyJ9LCJleHAiOjE3MjYxMzQyODMsImlhdCI6MTcyNjEzMzk4Mywibm9uY2UiOiIiLCJkaWQiOiJ7fSJ9.JMg2cGblG6B7E1DlNRvPY-Vi4E2pzt769dsPmwdNGwK0hqsd76inGMPjxZdmUuKmCTqOEwIhDztfKi5-205mMw
+8276 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "abadd8dac4444860a3ea577727f6804d".
+8277 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.keystore.HKVKeyStoreService - Loading key "abadd8dac4444860a3ea577727f6804d".
+8278 [pool-1-thread-1 @coroutine#235] DEBUG id.walt.services.jwt.WaltIdJwtService - JWT verified returned:  true (with key: abadd8dac4444860a3ea577727f6804d)
+]]></system-err>
+</testsuite>
