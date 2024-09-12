@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="id.walt.dif.DifTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:43" hostname="pablito-B550-AORUS-ELITE-V2" time="0.037">
-  <properties/>
-  <testcase name="testParsePresentationDefinition" classname="id.walt.dif.DifTest" time="0.021"/>
-  <testcase name="testParsePresentationDefinitionWithSubmissionRequirements" classname="id.walt.dif.DifTest" time="0.015"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

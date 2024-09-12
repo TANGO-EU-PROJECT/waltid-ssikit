@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="id.walt.json.JsonSerializeDidsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:43" hostname="pablito-B550-AORUS-ELITE-V2" time="0.018">
-  <properties/>
-  <testcase name="serializeDidEbsi" classname="id.walt.json.JsonSerializeDidsTest" time="0.018"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[8295 [pool-1-thread-1 @coroutine#238] DEBUG id.walt.model.DidUrl - Trying to create DidUrl from URL: "did:ebsi:2b6a1ee5881158edf133421d63d4b9e5f3ac26d472afcff8"...
-]]></system-err>
-</testsuite>

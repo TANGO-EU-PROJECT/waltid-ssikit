@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="id.walt.crypto.TinkCryptoTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:43" hostname="pablito-B550-AORUS-ELITE-V2" time="0.065">
-  <properties/>
-  <testcase name="signEd25519Test" classname="id.walt.crypto.TinkCryptoTest" time="0.03"/>
-  <testcase name="signSecp256k1Test" classname="id.walt.crypto.TinkCryptoTest" time="0.034"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

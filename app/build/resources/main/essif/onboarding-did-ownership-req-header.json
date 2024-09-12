@@ -1,5 +1,0 @@
-{
-    "alg": "ES256K",
-    "typ": "JWT",
-    "jwk": "{TI-DID Key}"
-}

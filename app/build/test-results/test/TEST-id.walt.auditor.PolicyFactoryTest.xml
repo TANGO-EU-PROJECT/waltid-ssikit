@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="id.walt.auditor.PolicyFactoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-09-12T09:39:41" hostname="pablito-B550-AORUS-ELITE-V2" time="0.016">
-  <properties/>
-  <testcase name="createSimplePolicy" classname="id.walt.auditor.PolicyFactoryTest" time="0.007"/>
-  <testcase name="createTrustedIssuerRegistryPolicyWithOptionalArg" classname="id.walt.auditor.PolicyFactoryTest" time="0.003"/>
-  <testcase name="createTrustedIssuerRegistryPolicyWithoutOptionalArg" classname="id.walt.auditor.PolicyFactoryTest" time="0.002"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
