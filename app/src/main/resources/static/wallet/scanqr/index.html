@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Scanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #camera {
+            width: 90%;
+            max-width: 600px;
+            border: 5px solid #4CAF50;
+            border-radius: 8px;
+            display: none; /* Hide until a button is clicked */
+        }
+        h1 {
+            color: #333;
+            margin: 20px;
+        }
+        #buttons {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>QR Scanner</h1>
+<div id="buttons">
+    <button id="scan-wallet">Scan a Wallet QR</button>
+    <button id="scan-verifier">Scan a Verifier QR</button>
+</div>
+<video id="camera" autoplay></video>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/@zxing/library@0.12.1/umd/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+
+
+<script>
+    const cameraElement = document.getElementById('camera');
+    const scanWalletButton = document.getElementById('scan-wallet');
+    const scanVerifierButton = document.getElementById('scan-verifier');
+    const reader = new window.ZXing.BrowserQRCodeReader();
+
+    function setupCamera() {
+        reader.getVideoInputDevices().then((videoInputDevices) => {
+            const firstDeviceId = videoInputDevices[0].deviceId;
+            reader.decodeFromInputVideoDevice(firstDeviceId, 'camera').then((result) => {
+                console.log('QR Code content:', result.text);
+                handleQRCode(result.text);
+            }).catch((err) => {
+                console.error('Error decoding QR Code:', err);
+            });
+        }).catch((err) => {
+            console.error('Error accessing video input devices:', err);
+        });
+    }
+
+    function handleQRCode(content) {
+        const params = new URLSearchParams(content);
+        const actionType = 'verifier'
+        if (actionType === 'wallet') {
+            // Here you would call your existing wallet code processing function
+        } else if (actionType === 'verifier') {
+            // Here you would call your verifier code processing function
+            processVerifierQR(content);
+        }
+    }
+
+    scanWalletButton.addEventListener('click', () => {
+        cameraElement.style.display = 'block';
+        setupCamera();
+        // Set an identifier or flag that you are scanning a wallet QR
+    });
+
+    scanVerifierButton.addEventListener('click', () => {
+        cameraElement.style.display = 'block';
+        setupCamera();
+        // Set an identifier or flag that you are scanning a verifier QR
+    });
+
+    function processVerifierQR(endpoint) {
+        // First request to obtain the credential in JWT format
+        fetch('/wallet/getCredential')
+            .then(response => response.text())
+            .then(vpToken => {
+
+                const urlParams = new URL(endpoint);
+                const state = urlParams.searchParams.get('state');
+                const uri = urlParams.searchParams.get('redirect_uri');
+                const finalUrl = `${uri}?state=${encodeURIComponent(state)}`;
+
+                // Static presentation_submission JWT
+                const presentationSubmission = "eyJpZCI6IlBsYWNlaG9sZGVyIC0gbm90IHlldCBldmFsdWF0ZWQuIiwiZGVmaW5pdGlvbl9pZCI6IkV4YW1wbGUgZGVmaW5pdGlvbi4ifQ";
+
+                // Sending the POST request with vp_token and presentation_submission
+                fetch(finalUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        vp_token: vpToken,
+                        presentation_submission: presentationSubmission
+                    })
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Response from verifier:', data);
+
+                    })
+                    .catch(error => console.error('Error processing verifier QR:', error));
+            })
+            .catch(error => console.error('Error obtaining the vpToken:', error));
+    }
+</script>
+</body>
+</html>

@@ -361,42 +361,33 @@ class VerifierCommand :
 
                             println("\n$verde[+] Verifier: Verify a presentation.$reset\n")
 
+                            println("Petición recibida")
+
                             val parameters = call.receiveParameters()
+                            println("objetivo de recepción de parámetros")
                             val cred = parameters["cred"]
 
+                            println("recibo cred")
+
+                            if (cred==null) println("Cred es null")
                             if (cred==null)  throw IllegalArgumentException("The credential isn't valid.")
 
-
+                            println("Cred no es null, lo convierto a vc")
                             var vc: VerifiableCredential = cred.toVerifiableCredential()
 
-                            var policies: Map<String, String?> = emptyMap<String, String?>()
+                            println("verifico la firma")
+                            val verifySign = credentialService.verify(vc.toString())
 
-                            val usedPolicies = policies.ifEmpty { mapOf(PolicyRegistry.defaultPolicyId to null) }
+                            if (verifySign.verified){
+                                println("firma correcta")
 
-                            when {
-                                usedPolicies.keys.any { !PolicyRegistry.contains(it) } -> throw NoSuchElementException(
-                                    "Unknown verification policy specified: ${
-                                        usedPolicies.keys.minus(PolicyRegistry.listPolicies().toSet()).joinToString()
-                                    }"
-                                )
-                            }
-
-                            val policy = PolicyRegistry.getPolicyWithJsonArg("NameAndGenderPolicy", null as JsonObjectOPA?)
-
-                            val verificationResult = Auditor.getService().verify(vc, listOf(policy))
-
-                            if (verificationResult.result){
-
-
-                                val url = call.request.headers["url"]
-                                val method = call.request.headers["method"]
-                                val requester = call.request.headers["requester"]
-
+                                println("Creando expiratio_time")
                                 val expiration_time: Long = try {
                                     System.getenv("expiration_time")?.toLong() ?: 60L
                                 } catch (e: NumberFormatException) {
                                     60L
                                 }
+                                println("expiration_time creado")
 
                                 val accessToken =  SelfIssuedIDTokenUmu(
                                     issuer = DID_BACKEND,
@@ -404,16 +395,17 @@ class VerifierCommand :
                                     client_id = null,
                                     nonce = null,
                                     expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
-                                    requester = requester,
-                                    method = method,
-                                    url = url,
+                                    requester = "test",
+                                    method = "Post",
+                                    url = "https://$URI_DSC/verifier/verify",
                                     _vp_token = null,
                                     keyId = KEY_ALIAS
                                 ).sign()
-
+                                println("Access token creado")
 
                                 call.respond(HttpStatusCode.OK, accessToken)
                             } else {
+                                println("firma incorrecta")
                                 call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
                             }
 

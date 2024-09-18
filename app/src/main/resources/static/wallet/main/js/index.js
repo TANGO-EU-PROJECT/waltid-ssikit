@@ -87,4 +87,9 @@ document.addEventListener('DOMContentLoaded', function () {
     checkMetadataButton.addEventListener('click', function() {
         window.location.href = '/wallet/Configuration';
     });
+
+    const checkScan = document.getElementById('Scan');
+    checkScan.addEventListener('click', function() {
+        window.location.href = '/wallet/ScanQR';
+    });
 });
