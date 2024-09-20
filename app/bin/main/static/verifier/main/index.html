@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo poderes</title>
+    <link rel="stylesheet" href="/verifier/static/verifier/main/css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Demo poderes</h1>
+
+            <p id="text-output">
+                
+                La firma de este documento está restringida. Debe demostrar que cumple las condiciones necesarias antes de completar el proceso. 
+                
+                Nombre: Pedro 
+                Genero: Hombre
+            
+            </p>
+            <section class="input-section">
+                <h1>Same device</h1>
+                <input type="text" id="api-endpoint" placeholder="Introduce la dirección de tu wallet" value="https://wallet.tango.io/wallet/verifyCredential">
+                <button id="send-request">Enviar</button>
+            </section>
+        <!--
+          <section class="qr-section">
+              <h1>Cross device</h1>
+              <div id="qrcode"></div>
+          </section>
+      -->
+
+
+    </div>
+    <script src="/verifier/static/verifier/main/js/index.js"></script>
+</body>
+</html>

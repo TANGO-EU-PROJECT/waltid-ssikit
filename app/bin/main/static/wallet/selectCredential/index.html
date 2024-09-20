@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Credenciales</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: #f1f1f1;
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #credentialList {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #credentialList li {
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #credentialList li:hover {
+            background-color: #449d44;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Listado de Credenciales</h2>
+    <ul id="credentialList"></ul>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchCredentials();
+
+        function fetchCredentials() {
+            const url = '/wallet/list-credentials';
+            fetch(url, {
+                method: 'GET',
+                credentials: 'include'
+            })
+                    .then(response => {
+                        let content = response.text()
+                        console.log(response)
+                        if (!response.ok) {
+                            content.then(text => {
+                                if (text.startsWith("Error:")) {
+                                    const errorMessage = text.substring(6).trim();
+                                    window.location.href = `/wallet/error?error=${encodeURIComponent(errorMessage)}`;
+                                }
+                                // Lanza un error si no es un mensaje de error formateado
+                                throw new Error(text);
+                            });
+                        }
+                        return content
+                    })
+                    .then(text => {
+                        let data;
+                        try {
+                            data = JSON.parse(text); // Intentar parsear el texto como JSON
+                        } catch (error) {
+                            console.error('Error parsing JSON:', error);
+                            throw new Error('Invalid JSON format');
+                        }
+                        return data;
+                    })
+                    .then(data => {
+                        const list = document.getElementById('credentialList');
+                        list.innerHTML = '';
+                        data.forEach(credential => {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = credential;
+                            listItem.onclick = () => handleCredentialClick(credential);
+                            list.appendChild(listItem);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.getElementById('credentialList').innerHTML = '<li>Error al cargar las credenciales</li>';
+                    });
+        }
+
+        function handleCredentialClick(credentialId) {
+            // Obtener el valor de redirectUri desde la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectUri = urlParams.get('redirecturi');
+
+            // Preparar los parámetros para la solicitud
+            const params = new URLSearchParams({ credentialId: credentialId });
+
+            // Si redirectUri existe, añadirlo a los parámetros
+            if (redirectUri) {
+                params.append('redirecturi', redirectUri);
+            }
+
+            // Realizar la solicitud POST
+            fetch('/wallet/credentialParameters', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                credentials: 'include',
+                body: params.toString()
+            })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error fetching credential details');
+                        }
+                        return response.text();
+                    })
+                    .then(url => {
+                        // Redirigir al usuario a la nueva URL
+                        window.location.href = url;
+                    })
+                    .catch(error => console.error('Fetch Error:', error));
+        }
+
+    });
+</script>
+</body>
+</html>

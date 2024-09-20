@@ -363,50 +363,51 @@ class VerifierCommand :
 
                             println("Petición recibida")
 
-                            val parameters = call.receiveParameters()
-                            println("objetivo de recepción de parámetros")
-                            val cred = parameters["cred"]
+                            try {
+                                // Recibe el cuerpo de la petición como un texto
+                                val requestBody = call.receiveText()
+                                val vc = requestBody.toVerifiableCredential()
+                                println("Cuerpo de la petición: $requestBody")
+                                println("vc: $vc")
+                                // Ahora, intenta extraer el valor de "cred" del JSON recibido
 
-                            println("recibo cred")
+                                println("Credencial: $vc")
 
-                            if (cred==null) println("Cred es null")
-                            if (cred==null)  throw IllegalArgumentException("The credential isn't valid.")
+                                println("verifico la firma")
+                                val verifySign = credentialService.verify(vc.toString())
 
-                            println("Cred no es null, lo convierto a vc")
-                            var vc: VerifiableCredential = cred.toVerifiableCredential()
+                                if (verifySign.verified){
+                                    println("firma correcta")
 
-                            println("verifico la firma")
-                            val verifySign = credentialService.verify(vc.toString())
+                                    println("Creando expiratio_time")
+                                    val expiration_time: Long = try {
+                                        System.getenv("expiration_time")?.toLong() ?: 60L
+                                    } catch (e: NumberFormatException) {
+                                        60L
+                                    }
+                                    println("expiration_time creado")
 
-                            if (verifySign.verified){
-                                println("firma correcta")
+                                    val accessToken =  SelfIssuedIDTokenUmu(
+                                        issuer = DID_BACKEND,
+                                        subject = vc.subjectId ?: "did",
+                                        client_id = null,
+                                        nonce = null,
+                                        expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
+                                        requester = "test",
+                                        method = "Post",
+                                        url = "https://$URI_DSC/verifier/verify",
+                                        _vp_token = null,
+                                        keyId = KEY_ALIAS
+                                    ).sign()
+                                    println("Access token creado")
 
-                                println("Creando expiratio_time")
-                                val expiration_time: Long = try {
-                                    System.getenv("expiration_time")?.toLong() ?: 60L
-                                } catch (e: NumberFormatException) {
-                                    60L
+                                    call.respond(HttpStatusCode.OK, accessToken)
+                                } else {
+                                    println("firma incorrecta")
+                                    call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
                                 }
-                                println("expiration_time creado")
-
-                                val accessToken =  SelfIssuedIDTokenUmu(
-                                    issuer = DID_BACKEND,
-                                    subject = vc.subjectId ?: "did",
-                                    client_id = null,
-                                    nonce = null,
-                                    expiration = Instant.now().plus(Duration.ofMinutes(expiration_time)),
-                                    requester = "test",
-                                    method = "Post",
-                                    url = "https://$URI_DSC/verifier/verify",
-                                    _vp_token = null,
-                                    keyId = KEY_ALIAS
-                                ).sign()
-                                println("Access token creado")
-
-                                call.respond(HttpStatusCode.OK, accessToken)
-                            } else {
-                                println("firma incorrecta")
-                                call.respond(HttpStatusCode.Unauthorized, "Invalid Credentials")
+                            } catch (e: Exception) {
+                                println("Error al recibir la petición: ${e.message}")
                             }
 
                         }
