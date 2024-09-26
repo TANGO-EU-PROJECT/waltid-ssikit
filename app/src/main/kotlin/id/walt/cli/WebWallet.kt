@@ -235,9 +235,12 @@ class WebWalletCommand:
                         }
 
                         get("/getCredential"){
-                            val verifiableCreds = Custodian.getService().listCredentials()
 
-                            //val cred = verifiableCreds[0].toString()
+
+                            val verifiableCreds = Custodian.getService().listCredentials()
+                            val cred = verifiableCreds[0].toString()
+                            //val base64UrlHeader = Base64.getUrlEncoder().withoutPadding().encodeToString(cred.toByteArray())
+                            //call.respondText(base64UrlHeader, ContentType.Text.Plain)
                             //val frame = "{\"@context\":[\"https://www.w3.org/2018/credentials/v1\",\"https://w3id.org/citizenship/v1\",\"https://ssiproject.inf.um.es/security/psms/v1\"],\"@type\":[\"VerifiableCredential\",\"PermanentResidentCard\"],\"credentialSubject\":{\"@type\":\"PermanentResident\",\"@explicit\":true,\"givenName\":{},\"gender\":{}}}"
                             //val nonce = generarValorAleatorio()
                             //val jsonString = credential.trimIndent()
